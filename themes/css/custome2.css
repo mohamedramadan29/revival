@@ -1,0 +1,89 @@
+body {
+    direction: ltr;
+    font-family: 'Poppins', sans-serif;
+}
+
+.top_navbar .date {
+    text-align: right;
+}
+
+.top_navbar .login_links {
+    float: left;
+}
+
+.about .info {
+    text-align: left;
+    padding: 20px;
+}
+
+.our_team .data .info_data {
+    text-align: left;
+}
+
+.art_sport_active .data .info ul li {
+    text-align: left;
+}
+
+.contact_form .data .info {
+    text-align: left;
+}
+
+.box i.fa-eye {
+    left: auto;
+    right: 10px;
+
+}
+
+.idea .data .info p {
+    text-align: left;
+}
+
+.idea .data .info h3 {
+    text-align: left;
+}
+
+.art_filed_main_active {
+    text-align: left;
+}
+
+.our_services .exhibition_cat {
+    text-align: left;
+}
+
+.idea .data .info {
+    text-align: left;
+}
+
+.why_avir {
+    text-align: left;
+}
+
+.art_field {
+    text-align: left;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 37px;
+}
+
+.timeline ul li:nth-child(even) div {
+    left: -430px;
+}
+
+.privacy .data {
+    text-align: left;
+}
+
+.accordion a {
+    text-align: left;
+}
+
+.accordion .content p {
+    text-align: left;
+}
+
+.accordion a::after {
+    float: right !important;
+    right: 1rem !important;
+    left: auto;
+}
