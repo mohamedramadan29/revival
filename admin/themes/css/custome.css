@@ -2056,3 +2056,13 @@ input[type="radio"], input[type="checkbox"] {
   -o-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
 }
+
+
+/* START FILES STYLE */
+.files_style {}
+
+.files_style P {
+  display: block;
+}
+
+/* END FILES STYLE */

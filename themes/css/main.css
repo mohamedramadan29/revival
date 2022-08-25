@@ -3178,3 +3178,22 @@ time {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+.alert_message {
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.files_type {
+    color: #565656;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 14px;
+    border: 1px solid #ba2d2d;
+    padding: 4px 10px;
+    border-radius: 5px;
+}

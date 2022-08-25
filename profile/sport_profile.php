@@ -27,7 +27,8 @@
 
                             ?>
                             <br>
-                            <input class="btn btn-primary" type="submit" value="تعديل الصورة الشخصية">
+                            <input class="btn btn-primary" type="submit"
+                                value="<?php echo $lang["edit_profile_image"]; ?>">
                         </form>
 
                         <?php
@@ -68,25 +69,27 @@
                     <div class="info2">
                         <div class="buttons_links">
                             <ul class="list-unstyled">
-                                <li> <a href="update_profile.php" class="btn button"> تحديث الحساب <i
-                                            class="fa fa-edit"></i> </a>
+                                <li> <a href="update_profile.php" class="btn button">
+                                        <?php echo $lang["account_update"]; ?> <i class="fa fa-edit"></i> </a>
                                 </li>
-                                <li> <a href="ticket.php" class="btn button"> فتح تذكرة جديدة <i
+                                <li> <a href="ticket.php" class="btn button"> <?php echo $lang["open_ticket"]; ?> <i
                                             class="fa fa-message"></i> </a>
                                 </li>
                                 <li class="dropdown-share">
-                                    <a href="#" class="btn button"> مشاركه الاعمال <i class="fa fa-chevron-down"></i>
+                                    <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i
+                                            class="fa fa-chevron-down"></i>
                                     </a>
                                     <ul class="list-unstyled">
-                                        <li> <a href="share_works_indvidual.php"> بشكل فردي </a> <i
+                                        <li> <a href="share_works_indvidual.php">
+                                                <?php echo $lang["Individually_share"]; ?> </a> <i
                                                 class="fa fa-user"></i></li>
-                                        <li> <a href="share_works_team.php"> بشكلة جماعي </a> <i
-                                                class="fa fa-users"></i>
+                                        <li> <a href="share_works_team.php"> <?php echo $lang["collectively_share"]; ?>
+                                            </a> <i class="fa fa-users"></i>
                                         </li>
                                     </ul>
                                 </li>
-                                <li> <a href="add_individual_project.php" class="btn button"> اضافة مشروع جديد <i
-                                            class="fa fa-plus"></i>
+                                <li> <a href="add_individual_project.php" class="btn button">
+                                        <?php echo $lang["add_new_project"]; ?> <i class="fa fa-plus"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -95,15 +98,15 @@
                     <!-- START GET DATA -->
                     <div class="personal_information">
                         <div class="data2">
-                            <h4> المعلومات الشخصية </h4>
+                            <h4> <?php echo $lang["personal_information"]; ?> </h4>
                             <div class="information">
                                 <ul class="list-unstyled">
-                                    <li> الاسم الاول <span>:</span></li>
-                                    <li> الاسم الاخير <span>:</span></li>
-                                    <li>البريد الالكتروني <span>:</span></li>
-                                    <li> رقم الهاتف <span>:</span></li>
-                                    <li> التخصص <span>:</span></li>
-                                    <li> المؤهل العلمي <span>:</span></li>
+                                    <li> <?php echo $lang["first_name"]; ?><span>:</span></li>
+                                    <li> <?php echo $lang["last_name"]; ?> <span>:</span></li>
+                                    <li> <?php echo $lang["email"]; ?> <span>:</span></li>
+                                    <li><?php echo $lang["mobile"]; ?><span>:</span></li>
+                                    <li> <?php echo $lang["specialist"]; ?> <span>:</span></li>
+                                    <li> <?php echo $lang["certificate"]; ?><span>:</span></li>
 
                                 </ul>
                                 <ul class="list-unstyled">
@@ -119,10 +122,10 @@
                         </div>
 
                         <div class="data2">
-                            <h4> نبذة مختصرة عنك </h4>
+                            <h4> <?php echo $lang["Brief_about_you"]; ?> </h4>
                             <div class="information">
                                 <textarea readonly
-                                    placeholder="خبراتك">  <?php echo $userinfo['experience_info']; ?> </textarea>
+                                    placeholder="<?php echo $lang["your_experiences"]; ?>">  <?php echo $userinfo['experience_info']; ?> </textarea>
                             </div>
                         </div>
                         <!--

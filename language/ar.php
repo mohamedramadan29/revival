@@ -376,6 +376,26 @@ $lang = array(
   "read_more" =>   "  قراءة المزيد  ",
   "ready_register" =>   "  انت بالفعل قيد التسجيل   ",
 
+  // START ACCOUNT PAGE
+
+  "account_update" =>   " تحديث الحساب  ",
+  "open_ticket" =>   "  فتح تذكرة جديدة  ",
+  "add_new_project" =>   "  اضافة مشروع جديد  ",
+  "edit_profile_image" =>   "  تعديل الصورة الشخصية ",
+  "personal_information" =>   "  المعلومات الشخصية ",
+  "Brief_about_you" =>   " نبذة مختصرة عنك ",
+  "business_sharing" =>   " مشاركة الاعمال  ",
+  "Individually_share" =>   " بشكل فردي ",
+  "collectively_share" =>   "  بشكل جماعي ",
+
+  // END ACCOUNT PAGE
+
+  // Update Profile
+
+  "update_profile_page" =>   " تحديث الملف الشخصى ",
+  "upload_cv_document" =>   " ارفع السيرة الذاتية والمستندات الخاصة بك من هنا ",
+  "upload_video" =>   "  ارفع الفيديوهات الخاصة بك من هنا ",
+  // "update_profile_page" =>   " تحديث الملف الشخصى ",
 
 
 

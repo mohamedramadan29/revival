@@ -34,7 +34,9 @@ if ($count > 0) {
         // START UPLOAD CV FIELS
         foreach ($_FILES['cv']['name'] as $key => $val) {
             $file = $_FILES['cv']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp1 = $_FILES['cv']['tmp_name'][$key];
+
             move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
         }
@@ -372,12 +374,20 @@ if ($count > 0) {
                                                                         }
                                                                         ?>
 
-                                                                    <option value=""> الموهل العلمي </option>
-                                                                    <option value="امي"> امي </option>
-                                                                    <option value="اعدادي"> اعدادي </option>
-                                                                    <option value="ثانوي"> ثانوي </option>
-                                                                    <option value="بكالوريوس"> بكالوريوس </option>
-                                                                    <option value="ماجتسير"> ماجتسير </option>
+                                                                    <!--  <option value=""> الموهل العلمي </option> -->
+                                                                    <option
+                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                        <?php echo $lang["illiterate"];  ?> </option>
+                                                                    <option
+                                                                        value=" <?php echo $lang["middle_school"];  ?>">
+                                                                        <?php echo $lang["middle_school"];  ?> </option>
+                                                                    <option value="<?php echo $lang["secondary"];  ?>">
+                                                                        <?php echo $lang["secondary"];  ?> </option>
+                                                                    <option value="<?php echo $lang["ba"];  ?>">
+                                                                        <?php echo $lang["ba"];  ?>
+                                                                    </option>
+                                                                    <option value="<?php echo $lang["masters"];  ?> ">
+                                                                        <?php echo $lang["masters"];  ?> </option>
                                                                 </select>
 
 
@@ -537,7 +547,8 @@ if ($count > 0) {
                                                         <div class=" mb-3">
                                                             <div class="box mb-3">
                                                                 <label for="floatingInput">
-                                                                    نبذة مختصرة <span class="star">
+                                                                    <?php echo $lang["Brief_about_you"]; ?> <span
+                                                                        class="star">
                                                                         * </span></label>
                                                                 <textarea name="personal_information"
                                                                     class="form-control"><?php echo $userdata["personal_information"] ?></textarea>
@@ -548,11 +559,12 @@ if ($count > 0) {
                                                                 <div class="upload-wrapper">
                                                                     <label>
                                                                         <input type="file" name="cv[]" id="files"
-                                                                            multiple>
-                                                                        <p> ارفع السيرة الذاتية والمستندات الخاصة بك من
-                                                                            هنا
+                                                                            multiple accept=".doc, .docx, .pdf">
+                                                                        <p> <?php echo $lang["upload_cv_document"]; ?>
                                                                         </p>
                                                                     </label>
+                                                                    <span class="files_type"> .doc, .docs,
+                                                                        .pdf </span>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -570,11 +582,11 @@ if ($count > 0) {
                                                                 <div class="upload-wrapper">
                                                                     <label>
                                                                         <input type="file" name="videos[]" id="files2"
-                                                                            multiple>
-                                                                        <p> ارفع الفيديوهات الخاصة بك من
-                                                                            هنا
+                                                                            multiple accept="video/*">
+                                                                        <p> <?php echo $lang["upload_video"]; ?>
                                                                         </p>
                                                                     </label>
+
                                                                 </div>
                                                             </div>
 
@@ -590,8 +602,9 @@ if ($count > 0) {
                                                         </div>
                                                         <div class="">
                                                             <div class="reservation_button">
-                                                                <button type="submit" class="btn main_button"> تعديل
-                                                                    الحساب </button>
+                                                                <button type="submit" class="btn main_button">
+                                                                    <?php echo $lang["account_update"]; ?>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>

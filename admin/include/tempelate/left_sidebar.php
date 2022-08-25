@@ -1,8 +1,9 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="#" class="brand-link">
-          <span class="brand-text font-weight-light"> ريفايفال </span>
+      <a href="../index.php" class="brand-link" target="_blank">
+          <span class="brand-text font-weight-light"> <button class="btn btn-outline-primary"> زيارة
+                  الموقع <i class="fa fa-globe"></i></button> </span>
       </a>
       <!-- Sidebar -->
       <div class="sidebar">
@@ -11,7 +12,8 @@
           </div>
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                  data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 

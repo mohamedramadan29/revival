@@ -299,10 +299,6 @@ if (isset($_SESSION["username"])) { ?>
                                                 }
                                                 ?>
 
-
-
-
-
                                             <!--  <option value=""> الموهل العلمي </option> -->
                                             <option value=" <?php echo $lang["illiterate"];  ?> ">
                                                 <?php echo $lang["illiterate"];  ?> </option>

@@ -414,10 +414,25 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "ready_register" =>   "  You are already registered  ",
 
 
+    // START ACCOUNT PAGE
 
+    "account_update" =>   " Update Acount  ",
+    "open_ticket" =>   " Open New Ticket  ",
+    "add_new_project" =>   " Add New Project ",
+    "edit_profile_image" =>   "  Edit Profile Image ",
+    "personal_information" =>   "  Personal Information ",
+    "Brief_about_you" =>   " Brief about you  ",
+    "your_experiences" =>   " your experiences ",
+    "business_sharing" =>   " Business Sharing ",
+    "Individually_share" =>   " Individually ",
+    "collectively_share" =>   "  collectively ",
+    // END ACCOUNT PAGE
 
+    // Update Profile
 
-
+    "update_profile_page" =>   "  Update Profile Page ",
+    "upload_cv_document" =>   " Upload your CV and documents from here",
+    "upload_video" =>   " Upload your videos here ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

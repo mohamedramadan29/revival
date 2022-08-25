@@ -87,3 +87,11 @@ body {
     right: 1rem !important;
     left: auto;
 }
+
+.profile_data .personal_information {
+    text-align: left;
+}
+
+.update_profile .contact_form .box {
+    text-align: left;
+}

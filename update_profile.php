@@ -7,7 +7,7 @@ include 'init.php';
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2> تحديث الملف الشخصى </h2>
+            <h2> <?php echo $lang["update_profile_page"];  ?> </h2>
         </div>
     </div>
 </div>
