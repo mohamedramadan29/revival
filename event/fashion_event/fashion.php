@@ -37,6 +37,7 @@ include 'init.php';
         <div class="row time-countdown justify-content-center">
             <div id="clock" class="time-count"></div>
         </div>
+
         <h2> <?php echo $lang["index_h2"]; ?></h2>
 
     </div>

@@ -4,7 +4,6 @@ session_start();
 include 'init.php';
 if (isset($_GET['cat'])) {
     $cat_name = $_GET['cat'];
-
     $stmt = $connect->prepare('SELECT * FROM articles WHERE article_category=?');
     $stmt->execute(array($cat_name));
     $article_data = $stmt->fetch();
@@ -26,9 +25,16 @@ if (isset($_GET['cat'])) {
             <div class="row">
 
                 <?php
-                $stmt = $connect->prepare("SELECT * FROM articles WHERE article_category = ? ORDER BY article_id DESC");
-                $stmt->execute(array($cat_name));
-                $allsportnews = $stmt->fetchAll();
+                if (isset($_GET['cat'])) {
+                    $stmt = $connect->prepare("SELECT * FROM articles WHERE article_category = ? ORDER BY article_id DESC");
+                    $stmt->execute(array($cat_name));
+                    $allsportnews = $stmt->fetchAll();
+                } else {
+                    $stmt = $connect->prepare("SELECT * FROM articles  ORDER BY article_id DESC");
+                    $stmt->execute();
+                    $allsportnews = $stmt->fetchAll();
+                }
+
                 foreach ($allsportnews as $sport_new) {
                     if ($_SESSION["lang"] == "ar") { ?>
                 <div class="col-lg-4">
@@ -37,7 +43,7 @@ if (isset($_GET['cat'])) {
                             <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
                         </div>
                         <?php
-                                $desc_ar =  $sport_new["new_desc"];
+                                $desc_ar =  $sport_new["article_desc"];
                                 ?>
                         <p> <?php echo substr($desc_ar, 0, 100); ?>
                             <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">

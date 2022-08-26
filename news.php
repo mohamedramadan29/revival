@@ -2,13 +2,6 @@
 ob_start();
 session_start();
 include 'init.php';
-if (isset($_GET['cat'])) {
-    $cat_name = $_GET['cat'];
-
-    $stmt = $connect->prepare('SELECT * FROM news WHERE new_category=?');
-    $stmt->execute(array($cat_name));
-    $article_data = $stmt->fetch();
-}
 ?>
 <!-- START HERO SECTION -->
 <div class="cars hero faq">
@@ -18,6 +11,21 @@ if (isset($_GET['cat'])) {
         </div>
     </div>
 </div>
+
+<?php
+if (isset($_GET['cat'])) {
+    $cat_name = $_GET['cat'];
+
+    $stmt = $connect->prepare('SELECT * FROM news WHERE new_category=?');
+    $stmt->execute(array($cat_name));
+    $article_data = $stmt->fetch();
+} else {
+    $stmt = $connect->prepare('SELECT * FROM news');
+    $stmt->execute();
+    $article_data = $stmt->fetch();
+}
+?>
+
 <!-- END HERO SECTION -->
 <div class="articles">
     <div class="container-fluid">
@@ -26,9 +34,16 @@ if (isset($_GET['cat'])) {
             <div class="row">
 
                 <?php
-                $stmt = $connect->prepare("SELECT * FROM news WHERE new_category = ? ORDER BY new_id DESC");
-                $stmt->execute(array($cat_name));
-                $allsportnews = $stmt->fetchAll();
+                if (isset($_GET['cat'])) {
+                    $stmt = $connect->prepare("SELECT * FROM news WHERE new_category = ? ORDER BY new_id DESC");
+                    $stmt->execute(array($cat_name));
+                    $allsportnews = $stmt->fetchAll();
+                } else {
+                    $stmt = $connect->prepare("SELECT * FROM news ORDER BY new_id DESC");
+                    $stmt->execute();
+                    $allsportnews = $stmt->fetchAll();
+                }
+
                 foreach ($allsportnews as $sport_new) {
                     if ($_SESSION["lang"] == "ar") { ?>
                 <div class="col-lg-4">

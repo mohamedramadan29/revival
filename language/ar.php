@@ -313,6 +313,20 @@ $lang = array(
   "select_files" => "اختر المفات",
   // END ORDER SERVICES PAGE 
 
+  //START TALENT PROJECT 
+  "talent_project_h1" => " المواهب الرياضية  ",
+  "talents" => "المواهب",
+  "talent" => "الموهبة",
+  "watch_talent" => " مشاهدة الموهبة ",
+  "category" => " الاقسام ",
+  "watch_all_cat" => " مشاهدة جميع الاقسام ",
+  "watch_talent" => " Watch Talent ",
+  "programming" => " البرمجة ",
+  "chemstry" => " كيمياء ",
+  "metav" => " الميتافيرس ",
+  //END TALENT PROJECT 
+
+
   ///////////////////////////////////
   /////////////////////////////
   ////////////////// START FORMS SELECT 
@@ -397,6 +411,23 @@ $lang = array(
   "upload_video" =>   "  ارفع الفيديوهات الخاصة بك من هنا ",
   // "update_profile_page" =>   " تحديث الملف الشخصى ",
 
+
+  // START ADD NEW PROJECT PAGE
+
+  "add_new_project_h1" =>   "  اضافه مشروع جديد    ",
+  "legal_information" =>   "  المعلومات القانونية   ",
+  "registration_certificate" =>   "     شهادة التسجيل   ",
+  "engineering_drawings" =>   "   الرسومات الهندسية   ",
+  "Prototype" =>   "  النموذج المبدئي   ",
+  "about_project" =>   "  عن المشروع   ",
+  "project_image" =>   "  صور المشروع  ",
+  "project_video" =>   "  فيديو المشروع  ",
+  //"add_new_project_h1" =>   "  عن المشروع   ",
+
+  "day" =>   " يوم  ",
+
+
+  // END NEW PROJECT PAGE
 
 
   "lang_en" => "الانجليزية",

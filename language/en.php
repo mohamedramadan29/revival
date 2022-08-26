@@ -279,21 +279,21 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
 
     // START ARTIFIFCIAL INTELLEGENT REGISTER
 
-    "art_int_reg_head1" => "  Register Now In Artificial Register  ",
+    "art_int_reg_head1" => "  Register Now In Artificial Intelligence  ",
 
 
     // END ARTIFIFCIAL INTELLEGENT REGISTER
 
     // START SPORT TALENT REGISTER
 
-    "sport_talent_reg_head1" => " Register Now Is Sport Talent ",
+    "sport_talent_reg_head1" => " Register Now In Sport Talent ",
 
 
     // END  SPORT TALENT REGISTER
 
     // START FASHION REGISTER
 
-    "fashion_reg_head1" => "    Register Now Is Fashion And Jalwery ",
+    "fashion_reg_head1" => "    Register Now In Fashion And Jalwery ",
 
     // END  FASHION REGISTER
 
@@ -433,6 +433,24 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "update_profile_page" =>   "  Update Profile Page ",
     "upload_cv_document" =>   " Upload your CV and documents from here",
     "upload_video" =>   " Upload your videos here ",
+    // START ADD NEW PROJECT PAGE
+
+    "add_new_project_h1" =>   "  Add New Project   ",
+
+    "legal_information" =>   " Legal Information  ",
+    "engineering_drawings" =>   "   Engineering Drawings  ",
+    "registration_certificate" =>   " Registration Certificate ",
+
+    "Prototype" =>   "  Prototype ",
+    "about_project" =>   " about project ",
+    "project_image" =>   " Project Image ",
+    "project_video" =>   " Project Video ",
+
+    // END NEW PROJECT PAGE
+
+    "day" =>   " Day  ",
+
+
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

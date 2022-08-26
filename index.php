@@ -219,7 +219,7 @@ include 'init.php';
 <!-- END OUR Team  -->
 
 <!-- START CARS SECTION -->
-<section class="ftco-section ftco-no-pt bg-light event_sections">
+<section class="ftco-section ftco-no-pt bg-light event_sections d-none">
     <div class="container">
         <h2> <?php echo $lang["courses"] ?> </h2>
         <div class="row">

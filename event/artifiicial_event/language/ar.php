@@ -278,7 +278,10 @@ $lang = array(
   "files" => " الملفات ",
   "select_files" => " اختر الملفات ",
 
-
+  "choose_are_you" => " اختر هل انت ",
+  "Journalist" => " صحفي ",
+  "you_speaker" => " متحدث ",
+  "my_media" => " اعلامي ",
   /////////////////////////////
   /////////////////// START Take Events
 

@@ -25,12 +25,14 @@ include 'init.php';
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="box mb-3">
-                                    <label for="floatingInput"><?php echo $lang["first_name"]; ?></label>
+                                    <label for="floatingInput"><?php echo $lang["first_name"]; ?> <span class="star"> *
+                                        </span> </label>
                                     <input type="text" class="form-control" id="floatingInput" placeholder="">
 
                                 </div>
                                 <div class="box  mb-3">
-                                    <label for="floatingInput"> <?php echo $lang["last_name"]; ?> </label>
+                                    <label for="floatingInput"> <?php echo $lang["email"]; ?> <span class="star"> *
+                                        </span> </label>
                                     <input type="email" class="form-control" id="floatingInput" placeholder=" ">
 
                                 </div>
@@ -43,34 +45,71 @@ include 'init.php';
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="box  mb-3">
-                                    <label for="floatingInput"> <?php echo $lang["last_name"]; ?> </label>
+                                    <label for="floatingInput"> <?php echo $lang["last_name"]; ?> <span class="star"> *
+                                        </span> </label>
                                     <input type="text" class="form-control" id="floatingInput" placeholder="">
 
                                 </div>
-                                <div class="box  mb-3">
-                                    <label for="floatingInput"> <?php echo $lang["mobile"]; ?></label>
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="">
+                                <div class="box mb-3">
+                                    <!--
+                                        <input name="mobile" type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com">-->
+                                    <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
+                                            * </span></label>
+                                    <input type="tel" name="mobile" id="phone" class="form-control"
+                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['mobile']; ?>">
 
                                 </div>
                                 <div class="box mb-3">
-                                    <label for="floatingSelectGrid"><?php echo $lang["country"]; ?></label>
-                                    <select class="form-select country" id="floatingSelectGrid"
+                                    <label for="selectcountry"><?php echo $lang["country"];  ?></label>
+                                    <select name="country" class="form-select country3" id="selectcountry"
                                         aria-label="Floating label select example">
-                                        <option value=""><?php echo $lang["select"]; ?></option>
-                                        <option value="Afghanistan">Afghanistan</option>
-                                        <option value="Zimbabwe">Zimbabwe</option>
+
+                                        <?php
+                                        if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                                        <option
+                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
+                                            <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
+                                        </option>
+                                        <?php
+                                        } else { ?>
+                                        <option value=""><?php echo $lang["select"];  ?></option>
+
+                                        <?php
+                                        }
+                                        ?>
+                                        <?php
+                                        $stmt = $connect->prepare("SELECT * FROM countries");
+                                        $stmt->execute();
+                                        $allcountry = $stmt->fetchall();
+                                        foreach ($allcountry as $country) { ?>
+                                        <option value="<?php echo $country["country_code"]; ?>">
+                                            <?php
+                                                if ($_SESSION["lang"] == "ar") {
+                                                    echo $country["country_arName"];
+                                                } else {
+                                                    echo $country["country_enName"];
+                                                }
+                                                ?>
+                                        </option>
+                                        <?php
+                                        }
+                                        ?>
                                     </select>
 
                                 </div>
                                 <div class="box mb-3">
-                                    <label for="floatingSelectGrid">اختر هل انت</label>
+                                    <label for="floatingSelectGrid"> <?php echo $lang["choose_are_you"];  ?> </label>
                                     <select class="form-select country" id="floatingSelectGrid"
                                         aria-label="Floating label select example">
-                                        <option value="">هل انت </option>
-                                        <option value="Afghanistan">صفحى</option>
-                                        <option value="Zimbabwe">متحدث</option>
-                                        <option value="Zimbabwe">اعلامي</option>
-                                        <option value="Zimbabwe">منطم</option>
+                                        <option value=""> <?php echo $lang["choose_are_you"];  ?> </option>
+                                        <option value="<?php echo $lang["Journalist"];  ?>">
+                                            <?php echo $lang["Journalist"];  ?> </option>
+                                        <option value="<?php echo $lang["you_speaker"];  ?>">
+                                            <?php echo $lang["you_speaker"];  ?> </option>
+                                        <option value=" <?php echo $lang["my_media"];  ?>">
+                                            <?php echo $lang["my_media"];  ?> </option>
+
                                     </select>
 
                                 </div>

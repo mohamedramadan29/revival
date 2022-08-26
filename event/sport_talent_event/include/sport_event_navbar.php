@@ -7,11 +7,11 @@
 		                <ul class="list-unstyled login_links">
 		                    <?php if ($_SESSION['lang'] == 'ar') { ?>
 		                    <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a
-		                                href="artificial.php?lang=en"> English </a> </button> </li>
+		                                href="talent.php?lang=en"> English </a> </button> </li>
 		                    <?php } else { ?>
 
 		                    <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a
-		                                href="artificial.php?lang=ar"> عربي </a> </button> </li>
+		                                href="talent.php?lang=ar"> عربي </a> </button> </li>
 		                    <?php } ?>
 		                    <li class="nav-item">
 		                        <a class="nav-link" href="register.php"> <?php echo $lang["register"] ?> </a>

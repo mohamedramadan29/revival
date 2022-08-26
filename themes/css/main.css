@@ -341,7 +341,7 @@ body {
 
 .our_services .data .info img {
     max-width: 100%;
-    min-height: 260px;
+    height: 260px;
     border-radius: 10px 10px 0 0;
 }
 
@@ -357,7 +357,7 @@ body {
 .our_services .data .info p {
     padding: 10px;
     text-align: center;
-    min-height: 80px;
+    min-height: 150px;
 }
 
 /* END OUR SERVICS */
@@ -661,7 +661,7 @@ body {
     background-color: #231f20;
     color: rgb(225, 224, 224);
     padding: 40px 0;
-    margin-top: 40px;
+
 }
 
 .footer .data {

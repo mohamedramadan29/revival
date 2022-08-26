@@ -374,6 +374,11 @@ $lang = array(
   "first_day" => " اليوم الاول  ",
   "second_day" => " اليوم الثاني  ",
 
+  "choose_are_you" => " اختر هل انت ",
+  "Journalist" => " صحفي ",
+  "you_speaker" => " متحدث ",
+  "my_media" => " اعلامي ",
+
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

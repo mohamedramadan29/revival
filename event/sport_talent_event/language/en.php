@@ -274,6 +274,11 @@ $lang = array(
   "files" => " Files ",
   "select_files" => " Select Files ",
 
+  "choose_are_you" => " Choose Are You ",
+  "Journalist" => " Journalist ",
+  "you_speaker" => " speaker ",
+  "my_media" => " my media ",
+
   /////////////////////////////
   /////////////////// START Take Events
 

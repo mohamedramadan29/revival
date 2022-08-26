@@ -7,7 +7,7 @@ include 'init.php';
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
-            <h2> اضافه مشروع جديد </h2>
+            <h2> <?php echo  $lang["add_new_project_h1"]; ?></h2>
         </div>
     </div>
 </div>
@@ -21,121 +21,205 @@ include 'init.php';
                     <div class="col-lg-12 col-12">
                         <div class="info">
                             <div class="row">
-                                <div class="row">
-                                    <h3> المعلومات الشخصية </h3>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput"> الاسم </label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput"> الهاتف </label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput"> السن </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput"> البريد الالكتروني </label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="name@example.com">
-                                            <label for="floatingInput"> الدولة </label>
-                                        </div>
-                                        <div class="form-floating mb-3">
 
-                                            <select class="form-select country" id="floatingSelectGrid"
-                                                aria-label="Floating label select example">
-                                                <option value="">اختر</option>
-                                                <option value="Afghanistan">ذكر</option>
-                                                <option value="Albania">انثى</option>
-                                            </select>
-                                            <label for="floatingInput"> الجنس </label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-lg-6 col-12">
-                                    <h3> المعلومات القانونية </h3>
+                                    <h3> <?php echo  $lang["legal_information"]; ?> </h3>
                                     <div class="row">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-12">
                                             <div class="">
                                                 <div class="">
-                                                    <label>شهادة التسجيل </label>
-                                                    <input id="logo" class="form-control dropify_" data-default-file=""
-                                                        type="file" name="car_imageside" value="">
+                                                    <label> <?php echo  $lang["registration_certificate"]; ?> </label>
+                                                    <div class="check_prototype_resualt">
+
+                                                        <div class="box mb-3">
+                                                            <div class="upload-file">
+                                                                <div class="upload-wrapper">
+                                                                    <label>
+                                                                        <input type="file" name="project_design[]"
+                                                                            id="files" multiple>
+                                                                        <p> <a>
+                                                                                <?php echo  $lang["select_files"]; ?></a>
+                                                                        </p>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                </div>
+                                                            </div>
+
+                                                            <output id="image-gallery"></output>
+
+
+                                                        </div>
+                                                        <!--     <input type="file" name="project_design[]" class="form-control"
+                                                        multiple> -->
+
+                                                    </div>
                                                 </div>
-                                                <div id="logo_" class="col-md-3">
-                                                </div>
+
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-12">
                                             <div class="">
                                                 <div class="">
-                                                    <label> الرسومات الهندسية </label>
-                                                    <input id="logo2" class="form-control dropify_" data-default-file=""
-                                                        type="file" name="car_imageside" value="" multiple="multiple">
+                                                    <label> <?php echo  $lang["engineering_drawings"]; ?></label>
+                                                    <div class="check_prototype_resualt">
+
+                                                        <div class="box mb-3">
+                                                            <div class="upload-file">
+                                                                <div class="upload-wrapper">
+                                                                    <label>
+                                                                        <input type="file" name="project_design[]"
+                                                                            id="files2" multiple>
+                                                                        <p> <a> <?php echo  $lang["select_files"]; ?>
+                                                                            </a>
+                                                                        </p>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                </div>
+                                                            </div>
+
+                                                            <output id="image-gallery2"></output>
+
+
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-                                                <div id="logo_" class="col-md-3">
-                                                </div>
+
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-12">
                                             <div class="">
                                                 <div class="">
-                                                    <label> النموذج المبدئي </label>
-                                                    <input id="logo3" class="form-control dropify_" data-default-file=""
-                                                        type="file" name="car_imageside" value="" multiple="multiple">
+                                                    <label><?php echo  $lang["Prototype"]; ?></label>
+                                                    <div class="check_prototype_resualt">
+
+                                                        <div class="box mb-3">
+                                                            <div class="upload-file">
+                                                                <div class="upload-wrapper">
+                                                                    <label>
+                                                                        <input type="file" name="project_design[]"
+                                                                            id="files3" multiple>
+                                                                        <p> <a><?php echo  $lang["select_files"]; ?></a>
+                                                                        </p>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                </div>
+                                                            </div>
+
+                                                            <output id="image-gallery3"></output>
+
+
+                                                        </div>
+
+                                                    </div>
                                                 </div>
-                                                <div id="logo_" class="col-md-3">
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <h3> عن المشروع </h3>
+                                    <h3><?php echo  $lang["about_project"]; ?></h3>
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control" name="" id="floatingInput" cols="30"
                                             rows="6"></textarea>
 
-                                        <label for="floatingInput"> ملخص المشروع </label>
+                                        <label for="floatingInput"><?php echo  $lang["about_project"]; ?></label>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="">
-                                                <label> صور المشروع </label>
-                                                <input id="logo4" class="form-control dropify_" data-default-file=""
-                                                    type="file" name="car_imageside" value="" multiple="multiple">
+                                                <label> <?php echo  $lang["project_image"]; ?></label>
+                                                <div class="check_prototype_resualt">
+
+                                                    <div class="box mb-3">
+                                                        <div class="upload-file">
+                                                            <div class="upload-wrapper">
+                                                                <label>
+                                                                    <input type="file" name="project_design[]"
+                                                                        id="files4" multiple>
+                                                                    <p> <a> <?php echo  $lang["select_files"]; ?></a>
+                                                                    </p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-12">
+
+                                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                            </div>
+                                                        </div>
+
+                                                        <output id="image-gallery4"></output>
+
+
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                            <div id="logo_" class="col-md-3">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="">
-                                                <label> فيديو المشروع </label>
-                                                <input id="logo6" class="form-control dropify_" data-default-file=""
-                                                    type="file" name="car_imageside" value="" multiple="multiple">
-                                            </div>
-                                            <div id="logo_" class="col-md-3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="">
-                                        <div class="reservation_button">
-                                            <input class="btn button" type="submit" value="اضافة مشروع">
 
                                         </div>
+                                        <div class="col-lg-12">
+                                            <div class="">
+                                                <label> <?php echo  $lang["project_video"]; ?></label>
+                                                <div class="check_prototype_resualt">
+
+                                                    <div class="box mb-3">
+                                                        <div class="upload-file">
+                                                            <div class="upload-wrapper">
+                                                                <label>
+                                                                    <input type="file" name="project_design[]"
+                                                                        id="files7" multiple>
+                                                                    <p> <a> <?php echo  $lang["select_files"]; ?></a>
+                                                                    </p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-12">
+
+                                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                            </div>
+                                                        </div>
+
+                                                        <output id="image-gallery7"></output>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="">
+                                    <div class="reservation_button">
+                                        <input class="btn button" type="submit"
+                                            value="<?php echo  $lang["add_new_project_h1"]; ?>">
                                     </div>
                                 </div>
                             </div>

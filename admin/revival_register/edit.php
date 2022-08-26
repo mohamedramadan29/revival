@@ -100,6 +100,11 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                 value="<?php echo $alltype['reg_type']; ?>">
                         </div>
                         <div class="box">
+                            <label id="name"> اكتب رسالة خاصة للمستخدم </label>
+                            <textarea name="customer_message"
+                                class="form-control"><?php echo $alltype['customer_message']; ?></textarea>
+                        </div>
+                        <div class="box">
                             <label id="name"> حالة المستخدم </label>
                             <select class="form-control" name="user_status" id="">
                                 <option value=""> اختر حالة المستخدم </option>
@@ -174,11 +179,12 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $user_status =  $_POST['user_status'];
+            $customer_message =  $_POST['customer_message'];
 
-
-            $stmt = $connect->prepare("UPDATE register SET user_status=? WHERE reg_id=? ");
+            $stmt = $connect->prepare("UPDATE register SET user_status=?,customer_message=? WHERE reg_id=? ");
             $stmt->execute([
                 $user_status,
+                $customer_message,
                 $register_id,
 
 

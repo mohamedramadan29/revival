@@ -399,7 +399,7 @@ AOS.init({
     var $this = jQuery(this).html(
       event.strftime(
         "" +
-          '<div class="time-entry days"><span>%-D</span>  يوم </div> ' +
+          '<div class="time-entry days" id="day_count"><span>%-D</span>  يوم </div> ' +
           '<div class="time-entry hours"><span>%H</span> ساعه </div> ' +
           '<div class="time-entry minutes"><span>%M</span> دقيقة </div> ' +
           '<div class="time-entry seconds"><span>%S</span> ثانية</div> '
