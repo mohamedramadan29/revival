@@ -24,6 +24,7 @@ if ($count > 0) {
 
         foreach ($_FILES['videos']['name'] as $key => $val) {
             $file = $_FILES['videos']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp1 = $_FILES['videos']['tmp_name'][$key];
             move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
@@ -33,13 +34,14 @@ if ($count > 0) {
 
         foreach ($_FILES['fiels']['name'] as $key => $val) {
             $file = $_FILES['fiels']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp2 = $_FILES['fiels']['tmp_name'][$key];
             move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
         }
 
-        $first_name = $_POST["first_name"];
-        $first_name2 = $_POST["first_name2"];
+        $first_name = $_POST["first_name2"];
+        $last_name = $_POST["last_name"];
         $email = $_POST["email"];
         $mobile = $_POST["mobile"];
         //$country = $_POST["country"];
@@ -66,34 +68,13 @@ if ($count > 0) {
         //$password_repeat = $_POST["password_repeat"];
 
         $errormessage = [];
-        /*
-        if (isset($_POST["check_privacy"])) {
-        } else {
-            $errormessage[] = $lang["check_privacy"];
-        }
 
-        if (empty($field)) {
-            $errormessage[] = $lang["enter_field"];
-        }
-        if (empty($sub_field)) {
-            $errormessage[] = $lang["enter_sub_field"];
-        }
-        if (empty($username)) {
-            $errormessage[] =  $lang["enter_username"];
-        }
-        if (empty($password)) {
-            $errormessage[] =  $lang["enter_password"];
-        }
-        if (strlen($password) < 8) {
-            $errormessage[] =  $lang["weak_pass"];
-        }
-        */
 
         if (empty($first_name)) {
             $errormessage[] = $lang["enter_first_name"];
         }
 
-        if (empty($first_name2)) {
+        if (empty($last_name)) {
             $errormessage[] =  $lang["enter_last_name"];
         }
         if (empty($email)) {
@@ -113,12 +94,12 @@ if ($count > 0) {
         if (empty($errormessage)) {
 
             if ($file_tmp1 != '' && $file_tmp2 != '') {
-                $stmt = $connect->prepare("UPDATE sport_register SET first_name=? , first_name2=? , email=? , mobile=? , specialist=?  ,
+                $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
                 certificate=? ,
                 experience_info=? ,team_name=? ,team_register=? ,video_talent=? , fiels_talent=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
                 $stmt->execute(array(
                     $first_name,
-                    $first_name2,
+                    $last_name,
                     $email,
                     $mobile,
                     $specialist,
@@ -136,7 +117,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 0");
+                    header("refresh: 3");
 
 ?>
 
@@ -148,12 +129,12 @@ if ($count > 0) {
 <?php
                 }
             } elseif ($file_tmp1 != '') {
-                $stmt = $connect->prepare("UPDATE sport_register SET first_name=? , first_name2=? , email=? , mobile=? , specialist=?  ,
+                $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
                 certificate=? ,
                 experience_info=? ,team_name=? ,team_register=? ,video_talent=?  , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
                 $stmt->execute(array(
                     $first_name,
-                    $first_name2,
+                    $last_name,
                     $email,
                     $mobile,
                     $specialist,
@@ -171,7 +152,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 0");
+                    header("refresh: 3");
 
                 ?>
 
@@ -183,12 +164,12 @@ if ($count > 0) {
 <?php
                 }
             } elseif ($file_tmp2 != '') {
-                $stmt = $connect->prepare("UPDATE sport_register SET first_name=? , first_name2=? , email=? , mobile=? , specialist=?  ,
+                $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
                 certificate=? ,
                 experience_info=? ,team_name=? ,team_register=?   , fiels_talent=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
                 $stmt->execute(array(
                     $first_name,
-                    $first_name2,
+                    $last_name,
                     $email,
                     $mobile,
                     $specialist,
@@ -206,7 +187,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 0");
+                    header("refresh: 3");
 
                 ?>
 
@@ -216,6 +197,43 @@ if ($count > 0) {
     </div>
 </div>
 <?php
+                }
+            } else {
+                $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
+                certificate=? ,
+                experience_info=? ,team_name=? ,team_register=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+
+                    $experience_info,
+                    $team_name,
+                    $team_register,
+
+
+                    $password,
+                    $player_weight,
+                    $player_postion,
+                    $player_taller,
+                    $_SESSION["username"],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+
+
                 }
             }
         } else {
@@ -260,7 +278,7 @@ if ($count > 0) {
                             <?php
                                 }
                                 ?>
-                            <h2> <?php echo $userdata["first_name"];  ?> <?php echo $userdata["first_name2"];  ?> </h2>
+                            <h2> <?php echo $userdata["first_name2"];  ?> <?php echo $userdata["first_name2"];  ?> </h2>
                             <p> <?php echo $userdata["email"];  ?></p>
 
                         </div>
@@ -283,9 +301,9 @@ if ($count > 0) {
                                                                     for="first_name"><?php echo $lang["first_name"];  ?><span
                                                                         class="star"> *
                                                                     </span></label>
-                                                                <input name="first_name" type="text"
+                                                                <input name="first_name2" type="text"
                                                                     class="form-control" id="first_name"
-                                                                    value="<?php echo $userdata['first_name']; ?>">
+                                                                    value="<?php echo $userdata['first_name2']; ?>">
                                                             </div>
 
                                                             <div class="box mb-3">
@@ -319,49 +337,7 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata['mobile']; ?>">
 
                                                             </div>
-                                                            <!--
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="selectcountry"><?php echo $lang["country"];  ?></label>
-                                                                <select name="country" class="form-select country3"
-                                                                    id="selectcountry"
-                                                                    aria-label="Floating label select example">
 
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-
-
-
-                                                                    <?php
-                                                                    $stmt = $connect->prepare("SELECT * FROM countries");
-                                                                    $stmt->execute();
-                                                                    $allcountry = $stmt->fetchall();
-                                                                    foreach ($allcountry as $country) { ?>
-                                                                    <option
-                                                                        value="<?php echo $country["country_code"]; ?>">
-                                                                        <?php echo $country["country_arName"]; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </select>
-
-                                                            </div>
-                                                                    -->
                                                             <div class="box mb-3">
                                                                 <label
                                                                     for="floatingInput"><?php echo $lang["certificate"];  ?><span
@@ -387,53 +363,26 @@ if ($count > 0) {
                                                                         }
                                                                         ?>
 
-                                                                    <option value=""> الموهل العلمي </option>
-                                                                    <option value="امي"> امي </option>
-                                                                    <option value="اعدادي"> اعدادي </option>
-                                                                    <option value="ثانوي"> ثانوي </option>
-                                                                    <option value="بكالوريوس"> بكالوريوس </option>
-                                                                    <option value="ماجتسير"> ماجتسير </option>
-                                                                </select>
-
-
-                                                            </div>
-                                                            <!--
-                                                            <div class="box">
-                                                                <label
-                                                                    for="country9"><?php echo $lang["select_field"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="field" class="form-select country9"
-                                                                    id="country9"
-                                                                    aria-label="Floating label country2 example"
-                                                                    value="<?php echo $_REQUEST['field']; ?>">
-
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
                                                                     <option value=""><?php echo $lang["select"];  ?>
                                                                     </option>
 
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-                                                                    <option value="ذكاء اصطناعي ">ذكاء اصطناعي
+                                                                    <option
+                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                        <?php echo $lang["illiterate"];  ?> </option>
+                                                                    <option
+                                                                        value=" <?php echo $lang["middle_school"];  ?>">
+                                                                        <?php echo $lang["middle_school"];  ?> </option>
+                                                                    <option value="<?php echo $lang["secondary"];  ?>">
+                                                                        <?php echo $lang["secondary"];  ?> </option>
+                                                                    <option value="<?php echo $lang["ba"];  ?>">
+                                                                        <?php echo $lang["ba"];  ?>
                                                                     </option>
-                                                                    <option value="واقع افتراضي ">واقع افتراضي
-                                                                    </option>
-                                                                    <option value="ميتافيرس">ميتافيرس </option>
-                                                                    <option value="واقع معزز ">واقع معزز </option>
+                                                                    <option value="<?php echo $lang["masters"];  ?> ">
+                                                                        <?php echo $lang["masters"];  ?> </option>
                                                                 </select>
 
+
                                                             </div>
-                                                                    -->
 
                                                         </div>
                                                         <div class="col-lg-6 col-12">
@@ -441,9 +390,9 @@ if ($count > 0) {
                                                                 <label for="floatingInput">
                                                                     <?php echo $lang["last_name"];  ?><span
                                                                         class="star"> * </span></label>
-                                                                <input name="first_name2" type="text"
-                                                                    class="form-control" id="floatingInput"
-                                                                    value="<?php echo $userdata["first_name2"] ?>">
+                                                                <input name="last_name" type="text" class="form-control"
+                                                                    id="floatingInput"
+                                                                    value="<?php echo $userdata["last_name"] ?>">
 
                                                             </div>
 
@@ -465,86 +414,6 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata["password"] ?>">
                                                                 <i class="fa fa-eye"></i>
                                                             </div>
-                                                            <!--
-                                                            <div class="box mb-3">
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["confirm_password"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <input name="password_repeat" type="password"
-                                                                    class="form-control" id="floatingInput"
-                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password_repeat']; ?>">
-                                                            </div>
-                                                                    -->
-                                                            <!--
-                                                            <div class="box">
-                                                                <label
-                                                                    for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="sub_field" class="form-select country8"
-                                                                    id="floatingSelectGrid"
-                                                                    aria-label="Floating label select example">
-
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-                                                                    <option value="برمجة">برمجة </option>
-                                                                    <option value="تصميم">تصميم </option>
-                                                                    <option value="تحليل نظم">تحليل نظم</option>
-                                                                    <option value="بيغ داتا ">بيغ داتا </option>
-                                                                    <option value="مصمم برمجيات">مصمم برمجيات
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-                                                                    -->
-                                                            <!--
-                                                            <div class="box">
-                                                                <label for="register_type">
-                                                                    <?php echo $lang["register_type"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="register_type" id="register_type"
-                                                                    class="form-select country" id="register_type"
-                                                                    aria-label="country example">
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-                                                                    <option value="فردي"> فردي </option>
-                                                                    <option value="وسيط او شركة "> وسيط او شركة
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                                    -->
 
                                                         </div>
                                                     </div>
@@ -644,7 +513,8 @@ if ($count > 0) {
                                             <div class="upload-file">
                                                 <div class="upload-wrapper">
                                                     <label>
-                                                        <input type="file" name="videos[]" id="files" multiple>
+                                                        <input type="file" name="videos[]" id="files" multiple
+                                                            accept="video/*">
                                                         <p> فيديو توضيح الموهبة
                                                         </p>
                                                     </label>
@@ -664,11 +534,13 @@ if ($count > 0) {
                                             <div class="upload-file">
                                                 <div class="upload-wrapper">
                                                     <label>
-                                                        <input type="file" name="fiels[]" id="files2" multiple>
-                                                        <p> ارفع السيرة الذاتية والمستندات الخاصة بك من
-                                                            هنا
+                                                        <input type="file" name="fiels[]" id="files2" multiple
+                                                            accept=".doc, .docx, .pdf">
+                                                        <p> <?php echo $lang["upload_cv_document"]; ?>
                                                         </p>
                                                     </label>
+                                                    <span class="files_type"> .doc, .docs,
+                                                        .pdf </span>
                                                 </div>
                                             </div>
                                             <div class="row">

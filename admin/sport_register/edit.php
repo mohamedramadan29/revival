@@ -121,7 +121,8 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                         $files1 = $alltype['cv'];
                                         $files1 = explode(" ", $files1);
                                         $countfile = count($files1) - 1;
-                                        for ($i = 0; $i < $countfile; ++$i) {
+                                        if ($countfile > 0) {
+                                            for ($i = 0; $i < $countfile; ++$i) {
                                         ?>
                                 <div class="col-12">
 
@@ -132,7 +133,13 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                     </div>
                                 </div>
                                 <?php
+                                            }
+                                        } else { ?>
+                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                <?php
                                         }
+
+
 
                                         ?>
                             </div>
@@ -150,15 +157,21 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                     $files1 = $alltype['videos'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
-                                    for ($i = 0; $i < $countfile; ++$i) {
+                                    if ($countfile > 0) {
+                                        for ($i = 0; $i < $countfile; ++$i) {
                                     ?>
-                            <div class="col-lg-6 col-12">
+                            <div class="col-lg-4 col-12">
                                 <video src="upload/<?= $files1[$i] ?>" width="320" height="260px" controls>
                                 </video>
                             </div>
                             <?php
-                                    }
+                                        }
+                                    } else { ?>
 
+                            <div class="alert alert-danger"> لا يوجد فيديوهات </div>
+
+                            <?php
+                                    }
                                     ?>
                         </div>
                     </div>

@@ -44,6 +44,7 @@ if ($count > 0) {
         // START VIDEOS UPLOAD FIELS 
         foreach ($_FILES['videos']['name'] as $key => $val) {
             $file = $_FILES['videos']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp2 = $_FILES['videos']['tmp_name'][$key];
             move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
