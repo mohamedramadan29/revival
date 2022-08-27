@@ -229,7 +229,7 @@ $lang = array(
   "check_privacy" => "يجب الموافقة علي الشروط والاحكام  ",
   "enter_first_name" => " من فضلك ادخل الاسم الاول  ",
   "enter_last_name" => " من فضلك ادخل الاسم الاخير ",
-  "enter_mobile" => " من فضلك ادخل رسالتك  ",
+  "enter_mobile" => "  من فضلك ادخل رقم الهاتف ",
   "enter_specialist" => "من فضلك ادخل التخصص",
   "enter_cartificate" => "من فضلك ادخل الموهل العلمي",
   "enter_field" => "من فضلك ادخل المجال",
@@ -428,6 +428,16 @@ $lang = array(
 
 
   // END NEW PROJECT PAGE
+
+  ////////////
+  "reset_password" =>   " نسيت كلمة المرور ",
+
+  "new_password" =>   " كلمة سر جديدة ",
+  "reset" =>   " تحديث ",
+
+  "usernameerror" =>   " من فضلك ادخل اسم مستخدم صحيح ",
+  "update_password_succ" =>   " تم تغير كلمة المرور بنجاح ",
+
 
 
   "lang_en" => "الانجليزية",

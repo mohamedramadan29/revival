@@ -7,7 +7,7 @@ include 'init.php';
 <!-- START HERO SECTION -->
 <!-- START HERO SECTION -->
 <div class="hero artif">
-    <h1> test </h1>
+
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

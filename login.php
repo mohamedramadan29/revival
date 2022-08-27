@@ -36,10 +36,6 @@ include 'init.php';
             </div>
             <?php
                 }
-            }
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $username = $_POST["username"];
-                $password = $_POST["password"];
                 $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=? AND password=?");
                 $stmt->execute(array($username, $password));
                 $data = $stmt->fetch();
@@ -56,10 +52,6 @@ include 'init.php';
             </div>
             <?php
                 }
-            }
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $username = $_POST["username"];
-                $password = $_POST["password"];
                 $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username=? AND password=?");
                 $stmt->execute(array($username, $password));
                 $data = $stmt->fetch();
@@ -76,10 +68,7 @@ include 'init.php';
             </div>
             <?php
                 }
-            }
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $username = $_POST["username"];
-                $password = $_POST["password"];
+
                 $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=? AND password=?");
                 $stmt->execute(array($username, $password));
                 $data = $stmt->fetch();
@@ -97,6 +86,7 @@ include 'init.php';
             <?php
                 }
             }
+
 
             ?>
             <form class="message_form" action="" method="post" enctype="multipart/form-data">
@@ -136,11 +126,14 @@ include 'init.php';
                                 </div>
                                 <div class="text">
 
-                                    <div class="">
+                                    <div class="login_section">
                                         <div class="reservation_button">
                                             <button type="submit"
                                                 class="btn btn-primary"><?php echo $lang["login"];  ?></button>
                                         </div>
+                                        <p> <a href="forget_password.php"><?php echo $lang["reset_password"];  ?></a>
+                                        </p> |
+                                        <p> <a href="revival_register.php"> <?php echo $lang["register"];  ?></a> </p>
                                     </div>
                                 </div>
                             </div>
@@ -148,8 +141,6 @@ include 'init.php';
                     </div>
                 </div>
             </form>
-
-
         </div>
     </div>
 </div>

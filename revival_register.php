@@ -33,7 +33,7 @@ if (isset($_SESSION["username"])) { ?>
 
                     $field = $_POST["field"];
                     $sub_field = $_POST["sub_field"];
-                    $reg_type = $_POST["reg_type"];
+                    $reg_type = $_POST["register_type"];
                     $certificate = $_POST["certificate"];
                     $username = $_POST["username"];
                     $password = $_POST["password"];
@@ -419,12 +419,12 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <?php if (isset($_SESSION["lang"]) == "en") { ?>
+                                            <?php if (isset($_SESSION["lang"]) == "ar") { ?>
 
-                                            <a href="rev_terms_en.php"> <?php echo $lang["terms"];  ?></a>
+                                            <a href="rev_terms.php"> <?php echo $lang["terms"];  ?></a>
                                             <?php
                                                 } else { ?>
-                                            <a href="rev_terms.php"> <?php echo $lang["terms"];  ?></a>
+                                            <a href="rev_terms_en.php"> <?php echo $lang["terms"];  ?></a>
                                             <?php
 
                                                 } ?>

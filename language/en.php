@@ -450,7 +450,11 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
 
     "day" =>   " Day  ",
 
-
+    "reset_password" =>   " Forget Your Password ",
+    "new_password" =>   " New Password ",
+    "reset" =>   " Update ",
+    "usernameerror" =>   " Please Insert Correct User Name ",
+    "update_password_succ" =>   " Password Updated Successfully ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
