@@ -961,9 +961,7 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata['username']; ?>">
                                                             </div>
                                                             <div class="box mb-3">
-                                                                <!--
-                                           <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
+
                                                                 <label for="floatingInput">
                                                                     <?php echo $lang["mobile"];  ?> <span class="star">
                                                                         * </span></label>
@@ -972,49 +970,7 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata['mobile']; ?>">
 
                                                             </div>
-                                                            <!--
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="selectcountry"><?php echo $lang["country"];  ?></label>
-                                                                <select name="country" class="form-select country3"
-                                                                    id="selectcountry"
-                                                                    aria-label="Floating label select example">
 
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-
-
-
-                                                                    <?php
-                                                                    $stmt = $connect->prepare("SELECT * FROM countries");
-                                                                    $stmt->execute();
-                                                                    $allcountry = $stmt->fetchall();
-                                                                    foreach ($allcountry as $country) { ?>
-                                                                    <option
-                                                                        value="<?php echo $country["country_code"]; ?>">
-                                                                        <?php echo $country["country_arName"]; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-                                                                </select>
-
-                                                            </div>
-                                                                    -->
                                                             <div class="box mb-3">
                                                                 <label
                                                                     for="floatingInput"><?php echo $lang["certificate"];  ?><span
@@ -1040,53 +996,24 @@ if ($count > 0) {
                                                                         }
                                                                         ?>
 
-                                                                    <option value=""> الموهل العلمي </option>
-                                                                    <option value="امي"> امي </option>
-                                                                    <option value="اعدادي"> اعدادي </option>
-                                                                    <option value="ثانوي"> ثانوي </option>
-                                                                    <option value="بكالوريوس"> بكالوريوس </option>
-                                                                    <option value="ماجتسير"> ماجتسير </option>
-                                                                </select>
-
-
-                                                            </div>
-                                                            <!--
-                                                            <div class="box">
-                                                                <label
-                                                                    for="country9"><?php echo $lang["select_field"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="field" class="form-select country9"
-                                                                    id="country9"
-                                                                    aria-label="Floating label country2 example"
-                                                                    value="<?php echo $_REQUEST['field']; ?>">
-
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
                                                                     <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>
+                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                        <?php echo $lang["illiterate"];  ?> </option>
+                                                                    <option
+                                                                        value=" <?php echo $lang["middle_school"];  ?>">
+                                                                        <?php echo $lang["middle_school"];  ?> </option>
+                                                                    <option value="<?php echo $lang["secondary"];  ?>">
+                                                                        <?php echo $lang["secondary"];  ?> </option>
+                                                                    <option value="<?php echo $lang["ba"];  ?>">
+                                                                        <?php echo $lang["ba"];  ?>
                                                                     </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-                                                                    <option value="ذكاء اصطناعي ">ذكاء اصطناعي
-                                                                    </option>
-                                                                    <option value="واقع افتراضي ">واقع افتراضي
-                                                                    </option>
-                                                                    <option value="ميتافيرس">ميتافيرس </option>
-                                                                    <option value="واقع معزز ">واقع معزز </option>
+                                                                    <option value="<?php echo $lang["masters"];  ?> ">
+                                                                        <?php echo $lang["masters"];  ?> </option>
+                                                                </select>
                                                                 </select>
 
+
                                                             </div>
-                                                                    -->
 
                                                         </div>
                                                         <div class="col-lg-6 col-12">
@@ -1118,86 +1045,6 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata["password"] ?>">
                                                                 <i class="fa fa-eye"></i>
                                                             </div>
-                                                            <!--
-                                                            <div class="box mb-3">
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["confirm_password"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <input name="password_repeat" type="password"
-                                                                    class="form-control" id="floatingInput"
-                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password_repeat']; ?>">
-                                                            </div>
-                                                                    -->
-                                                            <!--
-                                                            <div class="box">
-                                                                <label
-                                                                    for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="sub_field" class="form-select country8"
-                                                                    id="floatingSelectGrid"
-                                                                    aria-label="Floating label select example">
-
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-                                                                    <option value="برمجة">برمجة </option>
-                                                                    <option value="تصميم">تصميم </option>
-                                                                    <option value="تحليل نظم">تحليل نظم</option>
-                                                                    <option value="بيغ داتا ">بيغ داتا </option>
-                                                                    <option value="مصمم برمجيات">مصمم برمجيات
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-                                                                    -->
-                                                            <!--
-                                                            <div class="box">
-                                                                <label for="register_type">
-                                                                    <?php echo $lang["register_type"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <select name="register_type" id="register_type"
-                                                                    class="form-select country" id="register_type"
-                                                                    aria-label="country example">
-                                                                    <?php
-                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-
-                                                                    <option
-                                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>">
-                                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>
-                                                                    </option>
-                                                                    <?php
-                                                                    } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <?php
-                                                                    }
-                                                                    ?>
-
-
-                                                                    <option value="فردي"> فردي </option>
-                                                                    <option value="وسيط او شركة "> وسيط او شركة
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                                    -->
 
                                                         </div>
                                                     </div>
@@ -1211,47 +1058,46 @@ if ($count > 0) {
                     </div>
                     <div class="row">
                         <div class="experience data">
-                            <h4 class=""> خبراتك </h4>
+                            <h4 class=""> <?php echo $lang["your_experiences"];  ?> </h4>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="box mb-3">
-                                        <label for="floatingInput"> اكتب نبذةعن خبراتك</label>
+                                        <label for="floatingInput"> <?php echo $lang["Brief_about_you"];  ?> </label>
                                         <textarea name="experience_info" class="form-control" name=""
                                             id="floatingInput"><?php echo $userdata["experience_info"] ?></textarea>
 
                                     </div>
                                     <div class="box mb-3">
-                                        <label for="floatingInput">ما هي اللغات التي تجيدها
-                                            تحدثا وكتابة</label>
+                                        <label for="floatingInput"> <?php echo $lang["language_speak"] ?> </label>
                                         <textarea name="language_speak" class="form-control" name=""
                                             id="floatingInput"><?php echo $userdata["language_speak"] ?></textarea>
 
                                     </div>
                                     <div class="check_exp">
-                                        <h4> هل لديك ابتكارات </h4>
+                                        <h4> <?php echo $lang["have_innovations"];  ?> </h4>
                                         <div class="main_check">
                                             <input class="" name="check_exp" type="radio" value="" id="check_exp1">
-                                            <label class="" for="check_exp1"> لا </label>
+                                            <label class="" for="check_exp1"><?php echo $lang["no"];  ?></label>
                                             <input class="" name="check_exp" type="radio" value="" id="check_exp2">
-                                            <label class="" for="check_exp2"> نعم </label>
+                                            <label class="" for="check_exp2"> <?php echo $lang["yes"];  ?> </label>
                                             <div class="check_exp1_project">
                                                 <div class="box mb-3">
-                                                    <label for="floatingInput"> اسم المشروع
+                                                    <label for="floatingInput"> <?php echo $lang["project_name"];  ?>
                                                     </label>
                                                     <input name="project_name" type="text" class="form-control"
                                                         id="floatingInput"
                                                         value="<?php echo $userdata["project_name"] ?>">
                                                 </div>
                                                 <div class="box mb-3">
-                                                    <label for="floatingInput">نبذة عن
-                                                        المشروع</label>
+                                                    <label for="floatingInput"> <?php echo $lang["about_project"]; ?>
+                                                    </label>
                                                     <textarea name="project_details" class="form-control" name=""
                                                         id="floatingInput"><?php echo $userdata["project_details"] ?></textarea>
 
                                                 </div>
 
                                                 <div class="box mb-3">
-                                                    <label for="floatingInput"> مجال المشروع
+                                                    <label for="floatingInput"> <?php echo $lang["project_filed"]; ?>
                                                     </label>
                                                     <input name="project_field" type="text" class="form-control"
                                                         id="floatingInput"
@@ -1259,16 +1105,15 @@ if ($count > 0) {
 
                                                 </div>
                                                 <div class="box mb-3">
-                                                    <label for="floatingInput"> ماهي التقنيات
-                                                        المستخدمة فى انجاز المشروع
+                                                    <label for="floatingInput"> <?php echo $lang["techniques_used"]; ?>
                                                     </label>
                                                     <textarea name="project_tools" class="form-control" name=""
                                                         id="floatingInput"><?php echo $userdata["project_tools"] ?></textarea>
 
                                                 </div>
                                                 <div class="box mb-3">
-                                                    <label for="floatingInput">تاريخ انجاز
-                                                        المشروع</label>
+                                                    <label for="floatingInput"> <?php echo $lang["project_date"]; ?>
+                                                    </label>
                                                     <input name="project_date" type="date" class="form-control"
                                                         id="floatingInput"
                                                         value="<?php echo $userdata["project_date"] ?>">
@@ -1276,24 +1121,24 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do Design -->
                                                 <div class="prototype_deisgn" id="prototype_deisgn">
-                                                    <h4> هل يوجد تصميم !</h4>
+                                                    <h4> <?php echo $lang["do_design"]; ?> </h4>
                                                     <input class="" name="check_design" type="radio" value=""
                                                         id="check_design1">
-                                                    <label class="" for="check_design1"> لا
+                                                    <label class="" for="check_design1"><?php echo $lang["no"]; ?>
                                                     </label>
                                                     <input class="" name="check_design" type="radio" value=""
                                                         id="check_design2">
-                                                    <label class="" for="check_design2"> نعم
+                                                    <label class="" for="check_design2"> <?php echo $lang["yes"]; ?>
                                                     </label>
                                                     <div class="check_prototype_resualt">
-                                                        <label> ارفق التصميم </label>
+                                                        <label> <?php echo $lang["attach_the_design"]; ?></label>
                                                         <div class="box mb-3">
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
                                                                         <input type="file" name="project_design[]"
                                                                             id="files" multiple>
-                                                                        <p> <a> ارفع التصميم من هنا </a>
+                                                                        <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
                                                                 </div>
@@ -1317,27 +1162,27 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do first prototype -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل يوجد نموذج اولي للمشروع؟</h4>
+                                                    <h4> <?php echo $lang["prototype_project"]; ?> </h4>
 
                                                     <input class="" name="first_prototype" type="radio" value=""
                                                         id="first_prototype1">
-                                                    <label class="" for="first_prototype1"> لا
+                                                    <label class="" for="first_prototype1"> <?php echo $lang["no"]; ?>
                                                     </label>
 
                                                     <input class="" name="first_prototype" type="radio" value=""
                                                         id="first_prototype2">
-                                                    <label class="" for="first_prototype2"> نعم
+                                                    <label class="" for="first_prototype2"> <?php echo $lang["yes"]; ?>
                                                     </label>
 
                                                     <div class="check_prototype_resualt">
-                                                        <label> ارفق صورة </label>
+                                                        <label> <?php echo $lang["select_files"]; ?></label>
                                                         <div class="box mb-3">
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
                                                                         <input type="file" name="project_prototype[]"
                                                                             id="files2" multiple>
-                                                                        <p> <a> ارفق الملفات من هنا </a>
+                                                                        <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
                                                                 </div>
@@ -1359,20 +1204,20 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do Project Video -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل يوجد فيديو للمشروع؟</h4>
+                                                    <h4> <?php echo $lang["do_video"]; ?> </h4>
 
                                                     <!--  <input class="" name="project_video" type="radio" value=""
                                                     id="project_video1"> -->
-                                                    <label class="" for="project_video1"> لا
+                                                    <label class="" for="project_video1"> <?php echo $lang["no"]; ?>
                                                     </label>
 
                                                     <input class="" name="project_video" type="radio" value=""
                                                         id="project_video2">
-                                                    <label class="" for="project_video2"> نعم
+                                                    <label class="" for="project_video2"> <?php echo $lang["yes"]; ?>
                                                     </label>
 
                                                     <div class="check_prototype_resualt">
-                                                        <label> ارفق الفيديو </label>
+                                                        <label> <?php echo $lang["select_files"]; ?></label>
 
                                                         <div class="box mb-3">
                                                             <div class="upload-file">
@@ -1380,7 +1225,7 @@ if ($count > 0) {
                                                                     <label>
                                                                         <input type="file" name="project_video[]"
                                                                             id="files3" multiple>
-                                                                        <p> <a> ارفق الفيديو من هنا </a>
+                                                                        <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
                                                                 </div>
@@ -1403,24 +1248,25 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- شهادة براءة اختراع -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل يوجد شهادة براءة اختراع!</h4>
+                                                    <h4><?php echo $lang["patent_certificate"]; ?> </h4>
                                                     <input class="" name="project_certificate" type="radio" value=""
                                                         id="project_certificate1">
                                                     <label class="" for="project_certificate1">
-                                                        لا </label>
+                                                        <?php echo $lang["no"]; ?> </label>
                                                     <input class="" name="project_certificate" type="radio" value=""
                                                         id="project_certificate2">
                                                     <label class="" for="project_certificate2">
-                                                        نعم </label>
+                                                        <?php echo $lang["yes"]; ?> </label>
                                                     <div class="check_prototype_resualt">
-                                                        <label> ارفق الشهادة </label>
+                                                        <label> <?php echo $lang["select_files"]; ?></label>
                                                         <div class="box mb-3">
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
                                                                         <input type="file" name="project_certificate[]"
                                                                             id="files4" multiple>
-                                                                        <p> <a> ارفق الشهادات من هنا </a>
+                                                                        <p> <a> <?php echo $lang["select_files"]; ?>
+                                                                            </a>
                                                                         </p>
                                                                     </label>
                                                                 </div>
@@ -1442,22 +1288,22 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do You Share Project -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل شارك المشروع في مسابقات؟</h4>
+                                                    <h4><?php echo $lang["project_competitions"]; ?> </h4>
 
                                                     <input class="" name="share_project" type="radio" value=""
                                                         id="share_project1">
-                                                    <label class="" for="share_project1"> لا
+                                                    <label class="" for="share_project1"> <?php echo $lang["no"]; ?>
                                                     </label>
 
                                                     <input class="" name="share_project" type="radio" value=""
                                                         id="share_project2">
-                                                    <label class="" for="share_project2"> نعم
+                                                    <label class="" for="share_project2"> <?php echo $lang["yes"]; ?>
                                                     </label>
 
                                                     <div class="check_prototype_resualt">
                                                         <div class="box mb-3">
-                                                            <label for="floatingInput"> ماهي
-                                                                المسابقات التي شارك فيه؟
+                                                            <label for="floatingInput">
+                                                                <?php echo $lang["participate_in"]; ?>
                                                             </label>
                                                             <textarea name="project_competation" class="form-control"
                                                                 id="floatingInput"> <?php echo $userdata["project_competation"] ?> </textarea>
@@ -1466,21 +1312,21 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do Project Get Prize -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل حصل المشروع على جوائز؟</h4>
+                                                    <h4> <?php echo $lang["receive_awards"]; ?> </h4>
 
                                                     <input class="" name="project_prize" type="radio" value=""
                                                         id="project_prize1">
-                                                    <label class="" for="project_prize1"> لا
+                                                    <label class="" for="project_prize1"> <?php echo $lang["no"]; ?>
                                                     </label>
                                                     <input class="" name="project_prize" type="radio" value=""
                                                         id="project_prize2">
-                                                    <label class="" for="project_prize2"> نعم
+                                                    <label class="" for="project_prize2"> <?php echo $lang["yes"]; ?>
                                                     </label>
 
                                                     <div class="check_prototype_resualt">
                                                         <div class="box mb-3">
-                                                            <label for="floatingInput"> اذكر
-                                                                الجوائز
+                                                            <label for="floatingInput">
+                                                                <?php echo $lang["Mention_prizes"]; ?>
                                                             </label>
                                                             <textarea name="project_prize" class="form-control"
                                                                 id="floatingInput">  <?php echo $userdata["project_prize"] ?> </textarea>
@@ -1496,14 +1342,14 @@ if ($count > 0) {
 
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <h4> البطاقة الوطنية </h4>
+                                            <h4> <?php echo $lang["national_id_image"]; ?> </h4>
                                             <div class="box mb-3">
                                                 <div class="upload-file">
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="national_id[]" id="files5"
                                                                 multiple>
-                                                            <p> <a>اختر الملفات </a></p>
+                                                            <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -1521,14 +1367,14 @@ if ($count > 0) {
 
                                         </div>
                                         <div class="col-lg-12">
-                                            <h4>صورة من المستند</h4>
+                                            <h4> <?php echo $lang["upload_cv_document"]; ?> </h4>
                                             <div class="box mb-3">
                                                 <div class="upload-file">
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="certificate_image[]" id="files6"
                                                                 multiple>
-                                                            <p> <a>اختر الملفات </a></p>
+                                                            <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                         </label>
                                                     </div>
                                                 </div>
@@ -1548,16 +1394,16 @@ if ($count > 0) {
 
                                         </div>
                                         <div class="row">
-                                            <h4> ارفق المستندات التالية </h4>
+                                            <h4> <?php echo $lang["following_documents"]; ?></h4>
                                             <div class="col-lg-12">
-                                                <label> اخر شهادة علمية</label>
+                                                <label> <?php echo $lang["scientific_certificate"]; ?> </label>
                                                 <div class="box mb-3">
                                                     <div class="upload-file">
                                                         <div class="upload-wrapper">
                                                             <label>
                                                                 <input type="file" name="last_certificate[]" id="files7"
                                                                     multiple>
-                                                                <p> <a>اختر الملفات </a></p>
+                                                                <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -1577,14 +1423,14 @@ if ($count > 0) {
 
                                             </div>
                                             <div class="col-lg-12">
-                                                <label> الفيديوهات </label>
+                                                <label> <?php echo $lang["upload_video"]; ?> </label>
 
                                                 <div class="box mb-3">
                                                     <div class="upload-file">
                                                         <div class="upload-wrapper">
                                                             <label>
                                                                 <input type="file" name="cv[]" id="files8" multiple>
-                                                                <p> <a>اختر الملفات </a></p>
+                                                                <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -1616,8 +1462,8 @@ if ($count > 0) {
 
                                             <div class="">
                                                 <div class="reservation_button">
-                                                    <button type="submit" class="btn main_button"> تعديل
-                                                        الحساب </button>
+                                                    <button type="submit"
+                                                        class="btn main_button"><?php echo $lang["account_update"]; ?></button>
                                                 </div>
                                             </div>
                                         </div>

@@ -487,12 +487,20 @@ if ($count > 0) {
                                                                         }
                                                                         ?>
 
-                                                                    <option value=""> الموهل العلمي </option>
-                                                                    <option value="امي"> امي </option>
-                                                                    <option value="اعدادي"> اعدادي </option>
-                                                                    <option value="ثانوي"> ثانوي </option>
-                                                                    <option value="بكالوريوس"> بكالوريوس </option>
-                                                                    <option value="ماجتسير"> ماجتسير </option>
+                                                                    <option
+                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                        <?php echo $lang["illiterate"];  ?> </option>
+                                                                    <option
+                                                                        value=" <?php echo $lang["middle_school"];  ?>">
+                                                                        <?php echo $lang["middle_school"];  ?> </option>
+                                                                    <option value="<?php echo $lang["secondary"];  ?>">
+                                                                        <?php echo $lang["secondary"];  ?> </option>
+                                                                    <option value="<?php echo $lang["ba"];  ?>">
+                                                                        <?php echo $lang["ba"];  ?>
+                                                                    </option>
+                                                                    <option value="<?php echo $lang["masters"];  ?> ">
+                                                                        <?php echo $lang["masters"];  ?> </option>
+                                                                </select>
                                                                 </select>
 
 

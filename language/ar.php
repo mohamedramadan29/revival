@@ -451,7 +451,28 @@ $lang = array(
   "project_filed" =>   " مجال المشروع ",
   "project_name" =>   " اسم المشروع ",
   "existing_project" =>   "   هل لديك مشروع قائم    ",
+  "your_experiences" =>   "  خبراتك  ",
+  "language_speak" =>   "  ما هي اللغات التي تجيدها  تحدثا وكتابة  ",
+  "have_innovations" =>   "   هل لديك ابتكارات   ",
+  "about_project" =>   "   نبذة عن
+  المشروع  ",
+  "techniques_used" =>   "   ماهي التقنيات  المستخدمة فى انجاز المشروع  ",
+  "project_date" =>   "   تاريخ انجاز
+  المشروع  ",
 
+  "do_design" =>   "   هل يوجد تصميم  ",
+  "attach_the_design" =>   " ارفق التصميم ",
+  "prototype_project" =>   "   هل يوجد نموذج اولي للمشروع؟   ",
+  "do_video" =>   "   هل يوجد فيديو للمشروع؟   ",
+  "patent_certificate" =>   "    هل يوجد شهادة براءة اختراع!   ",
+  "project_competitions" =>   "   هل شارك المشروع في مسابقات؟    ",
+  "participate_in" =>   " ماهي
+  المسابقات التي شارك فيه؟  ",
+  "receive_awards" =>   "   هل حصل المشروع على جوائز؟  ",
+  "Mention_prizes" =>   "   اذكر
+  الجوائز ",
+  "following_documents" =>   " ارفق المستندات التالية  ",
+  "scientific_certificate" =>   " اخر شهادة علمية ",
 
 
 

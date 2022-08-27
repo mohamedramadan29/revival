@@ -469,6 +469,31 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "project_filed" =>   "  Project Filed ",
     "project_name" =>   " Project Name ",
     "existing_project" =>   " Do you have an existing project  ",
+    "your_experiences" =>   "  your experiences  ",
+    "language_speak" =>   "   What languages do you speak and write? ",
+
+    "have_innovations" =>   "  Do you have innovations ",
+    "about_project" =>   " About The Project ",
+
+    "techniques_used" =>   " What are the techniques used to complete the project? ",
+    "project_date" =>   " Project completion date ",
+    "do_design" =>   " Is there a design? ",
+    "attach_the_design" =>   "  Attach the design ",
+    "prototype_project" =>   "   Is there a prototype for the project?  ",
+
+    "do_video" =>   "  Is there a video of the project?  ",
+
+    "patent_certificate" =>   "  Is there a patent certificate?  ",
+    "project_competitions" =>   " Did the project participate in competitions?   ",
+    "participate_in" =>   " What competitions did he participate in? ",
+    "receive_awards" =>   "   Did the project receive awards? ",
+
+    "Mention_prizes" =>   " Mention the prizes",
+
+    "following_documents" =>   " Attach the following documents ",
+
+    "scientific_certificate" =>   "Latest scientific certificate",
+
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

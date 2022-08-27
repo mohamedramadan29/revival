@@ -1156,8 +1156,10 @@ body {
     background-color: var(--maincolor) !important;
     border-color: var(--maincolor) !important;
     display: block;
-    width: 100%;
-    padding: 10px;
+
+    min-height: 45px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 /*END RESERVATION PAGE*/
