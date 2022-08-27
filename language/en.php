@@ -455,6 +455,20 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "reset" =>   " Update ",
     "usernameerror" =>   " Please Insert Correct User Name ",
     "update_password_succ" =>   " Password Updated Successfully ",
+    "national_id_image" =>   "  National Id Image ",
+    "Certificate_images" =>   "  Certificate images",
+    "Awards" =>   "  Awards ",
+
+    "yes" =>   "  Yes  ",
+    "no" =>   "  No ",
+    "work_received_awards" =>   " Has your work received awards? ",
+
+    "What_competitions" =>   "  What competitions and exhibitions did he participate in?",
+
+    "works_participated" =>   "  Have your works participated in competitions or exhibitions? ",
+    "project_filed" =>   "  Project Filed ",
+    "project_name" =>   " Project Name ",
+    "existing_project" =>   " Do you have an existing project  ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

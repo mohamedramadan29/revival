@@ -437,6 +437,20 @@ $lang = array(
 
   "usernameerror" =>   " من فضلك ادخل اسم مستخدم صحيح ",
   "update_password_succ" =>   " تم تغير كلمة المرور بنجاح ",
+  "national_id_image" =>   " صورة البطاقة الوطنية ",
+
+  "Certificate_images" =>   "  صور الشهادات ",
+  "Awards" =>   "  الجوائز ",
+  "yes" =>   "  نعم  ",
+  "no" =>   "  لا ",
+  "work_received_awards" =>   "   هل حصل أعمالك على جوائز؟  ",
+  "What_competitions" =>   " ماهي المسابقات والمعارض التي شارك فيه؟ ",
+  "works_participated" =>   "   هل شاركت اعمالك في مسابقات أو معارض! ",
+
+  "project_filed" =>   " مجال المشروع ",
+  "project_name" =>   " اسم المشروع ",
+  "existing_project" =>   "   هل لديك مشروع قائم    ",
+
 
 
 

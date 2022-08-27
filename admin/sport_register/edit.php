@@ -118,7 +118,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                             <label id="name"> السيرة الذاتية والمستندات </label>
                             <div class="row">
                                 <?php
-                                        $files1 = $alltype['cv'];
+                                        $files1 = $alltype['fiels_talent'];
                                         $files1 = explode(" ", $files1);
                                         $countfile = count($files1) - 1;
                                         if ($countfile > 0) {
@@ -154,7 +154,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                         <label id="name"> الفيديوهات </label>
                         <div class="row">
                             <?php
-                                    $files1 = $alltype['videos'];
+                                    $files1 = $alltype['video_talent'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
                                     if ($countfile > 0) {
@@ -193,7 +193,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
             $user_status =  $_POST['user_status'];
             $customer_message =  $_POST['customer_message'];
 
-            $stmt = $connect->prepare("UPDATE register SET user_status=?,customer_message=? WHERE reg_id=? ");
+            $stmt = $connect->prepare("UPDATE sport_register SET user_status=?,customer_message=? WHERE sport_register_id =? ");
             $stmt->execute([
                 $user_status,
                 $customer_message,
@@ -206,7 +206,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 <div class="container">
     <div class="alert-success">
         تم تعديل المستخدم بنجاح
-        <?php header('refresh:3;url=main.php?dir=revival_register&page=report'); ?>
+        <?php header('refresh:3;url=main.php?dir=sport_register&page=report'); ?>
     </div>
 </div>
 <?php }

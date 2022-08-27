@@ -39,7 +39,7 @@
                         <td><?php echo $type['mobile']; ?> </td>
                         <td><?php echo $type['country']; ?> </td>
                         <td><?php echo $type['specialist']; ?> </td>
-                        <?php if ($type['user_status'] == 1) { ?>
+                        <?php if ($type['user_status'] == 'active') { ?>
                         <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
                         <?php
                             } else {
@@ -48,6 +48,8 @@
                         <?php
 
                             } ?>
+
+
 
                         <td>
                             <a class=" btn btn-success"
