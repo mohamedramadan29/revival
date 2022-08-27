@@ -24,8 +24,9 @@ if ($count > 0) {
 
         foreach ($_FILES['project_design']['name'] as $key => $val) {
             $file = $_FILES['project_design']['name'][$key];
-            $file_tmp = $_FILES['project_design']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp1 = $_FILES['project_design']['tmp_name'][$key];
+            move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
         }
         /////////////////
@@ -33,8 +34,9 @@ if ($count > 0) {
 
         foreach ($_FILES['project_prototype']['name'] as $key => $val) {
             $file = $_FILES['project_prototype']['name'][$key];
-            $file_tmp = $_FILES['project_prototype']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp2 = $_FILES['project_prototype']['tmp_name'][$key];
+            move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
         }
 
@@ -43,8 +45,9 @@ if ($count > 0) {
 
         foreach ($_FILES['project_video']['name'] as $key => $val) {
             $file = $_FILES['project_video']['name'][$key];
-            $file_tmp = $_FILES['project_video']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp3 = $_FILES['project_video']['tmp_name'][$key];
+            move_uploaded_file($file_tmp3, $uploadplace . $file);
             $location3 .= $file . " ";
         }
 
@@ -53,16 +56,18 @@ if ($count > 0) {
 
         foreach ($_FILES['project_certificate']['name'] as $key => $val) {
             $file = $_FILES['project_certificate']['name'][$key];
-            $file_tmp = $_FILES['project_certificate']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp4 = $_FILES['project_certificate']['tmp_name'][$key];
+            move_uploaded_file($file_tmp4, $uploadplace . $file);
             $location4 .= $file . " ";
         }
 
         // START UPLOAD national_id (national_id)
         foreach ($_FILES['national_id']['name'] as $key => $val) {
             $file = $_FILES['national_id']['name'][$key];
-            $file_tmp = $_FILES['national_id']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp5 = $_FILES['national_id']['tmp_name'][$key];
+            move_uploaded_file($file_tmp5, $uploadplace . $file);
             $location5 .= $file . " ";
         }
 
@@ -71,8 +76,9 @@ if ($count > 0) {
 
         foreach ($_FILES['certificate_image']['name'] as $key => $val) {
             $file = $_FILES['certificate_image']['name'][$key];
-            $file_tmp = $_FILES['certificate_image']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp6 = $_FILES['certificate_image']['tmp_name'][$key];
+            move_uploaded_file($file_tmp6, $uploadplace . $file);
             $location6 .= $file . " ";
         }
         // START UPLOAD last_certificate 
@@ -80,8 +86,9 @@ if ($count > 0) {
 
         foreach ($_FILES['last_certificate']['name'] as $key => $val) {
             $file = $_FILES['last_certificate']['name'][$key];
-            $file_tmp = $_FILES['last_certificate']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp7 = $_FILES['last_certificate']['tmp_name'][$key];
+            move_uploaded_file($file_tmp7, $uploadplace . $file);
             $location7 .= $file . " ";
         }
 
@@ -89,21 +96,17 @@ if ($count > 0) {
 
         foreach ($_FILES['cv']['name'] as $key => $val) {
             $file = $_FILES['cv']['name'][$key];
-            $file_tmp = $_FILES['cv']['tmp_name'][$key];
-            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $file = str_replace(' ', '', $file);
+            $file_tmp8 = $_FILES['cv']['tmp_name'][$key];
+            move_uploaded_file($file_tmp8, $uploadplace . $file);
             $location8 .= $file . " ";
         }
         $first_name = $_POST["first_name"];
         $last_name = $_POST["last_name"];
         $email = $_POST["email"];
         $mobile = $_POST["mobile"];
-        //  $country = $_POST["country"];
         $specialist = $_POST["specialist"];
         $certificate = $_POST["certificate"];
-
-        //  $field = $_POST["field"];
-        //  $sub_field = $_POST["sub_field"];
-        // $register_type = $_POST["register_type"];
         $experience_info = $_POST["experience_info"];
         $language_speak = $_POST["language_speak"];
         $project_details = $_POST["project_details"];
@@ -114,33 +117,10 @@ if ($count > 0) {
         $project_competation = $_POST["project_competation"];
         $project_prize = $_POST["project_prize"];
 
-        //  $username = $_POST["username"];
         $password = $_POST["password"];
-        // $password_repeat = $_POST["password_repeat"];
 
         $errormessage = [];
-        /*
-        if (isset($_POST["check_privacy"])) {
-        } else {
-            $errormessage[] = $lang["check_privacy"];
-        }
 
-        if (empty($field)) {
-            $errormessage[] = $lang["enter_field"];
-        }
-        if (empty($sub_field)) {
-            $errormessage[] = $lang["enter_sub_field"];
-        }
-        if (empty($username)) {
-            $errormessage[] =  $lang["enter_username"];
-        }
-        if (empty($password)) {
-            $errormessage[] =  $lang["enter_password"];
-        }
-        if (strlen($password) < 8) {
-            $errormessage[] =  $lang["weak_pass"];
-        }
-        */
 
         if (empty($first_name)) {
             $errormessage[] = $lang["enter_first_name"];
@@ -164,13 +144,13 @@ if ($count > 0) {
 
 
         if (empty($errormessage)) {
+            /*  if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {*/
 
             $stmt = $connect->prepare("UPDATE art_register SET
-              first_name=?, last_name=?, email=?,mobile=? , specialist=? ,certificate=? ,
-experience_info=?, language_speak=? , project_details=? , project_name=?,
-project_field=?,project_tools=? , project_date=?,project_design=?,project_prototype=?,
-project_video=?,project_certificate=?,project_competation=?,project_prize=?
-,national_id=?,certificate_image=?,last_certificate=?,cv=?, password=? WHERE username=?");
+                first_name=?, last_name=?, email=?,mobile=? , specialist=? ,certificate=? ,
+  experience_info=?, language_speak=? , project_details=? , project_name=?,
+  project_field=?,project_tools=? , project_date=?,project_competation=?,project_prize=?
+  , password=? WHERE username=?");
             $stmt->execute(array(
                 $first_name,
                 $last_name,
@@ -185,30 +165,711 @@ project_video=?,project_certificate=?,project_competation=?,project_prize=?
                 $project_field,
                 $project_tools,
                 $project_date,
-                $location,
-                $location2,
-                $location3,
-                $location4,
                 $project_competation,
                 $project_prize,
-                $location5,
-                $location6,
-                $location7,
-                $location8,
                 $password,
                 $_SESSION['username'],
             ));
             if ($stmt) {
-                header("refresh: 0");
-
+                header("refresh: 3");
 ?>
-
 <div class='container'>
     <div class='alert alert-success text-center'>
         تم تعديل البيانات بنجاح
     </div>
 </div>
 <?php
+            }
+            if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+      project_video=?,project_certificate=?
+      ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location5,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+                project_video=?,project_certificate=?
+                ,national_id=?,certificate_image=?,last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location5,
+                    $location6,
+                    $location7,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+                project_video=?,project_certificate=?
+                ,national_id=?,certificate_image=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location5,
+                    $location6,
+
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp7 != ''  && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+                project_video=?,project_certificate=?
+                ,national_id=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location5,
+
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+                project_video=?,project_certificate=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
+                project_video=?
+                ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+                    $location3,
+
+                    $location5,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?
+                 ,project_certificate=?
+                ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+
+                    $location4,
+                    $location5,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?, 
+                project_video=?,project_certificate=?
+                ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+
+                    $location3,
+                    $location4,
+                    $location5,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_prototype=?,
+                project_video=?,project_certificate=?
+                ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location2,
+                    $location3,
+                    $location4,
+                    $location5,
+                    $location6,
+                    $location7,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?
+                  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location2,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_video=?   WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location3,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != ''  && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?
+               ,project_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location4,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != ''  && $file_tmp5 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,national_id=?   WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location5,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != ''  && $file_tmp6 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,certificate_image=? WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location6,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != ''  && $file_tmp7 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location7,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != ''  && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?,last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+                    $location8,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=? WHERE username=?");
+                $stmt->execute(array(
+                    $location2,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET
+                project_video=?
+                 WHERE username=?");
+                $stmt->execute(array(
+
+                    $location3,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  project_certificate=?
+                WHERE username=?");
+                $stmt->execute(array(
+
+                    $location4,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp5 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET national_id=? WHERE username=?");
+                $stmt->execute(array(
+
+                    $location5,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp6 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET certificate_image=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location6,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp7 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location7,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET cv=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_prototype=?,
+                project_video=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location2,
+                    $location3,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != ''   && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_prototype=? ,project_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location2,
+                    $location4,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != ''  && $file_tmp5 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  project_prototype=? 
+                ,national_id=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location2,
+                    $location5,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp6 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_prototype=?, certificate_image=?   WHERE username=?");
+                $stmt->execute(array(
+
+                    $location2,
+
+                    $location6,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_prototype=?,cv=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location2,
+
+                    $location8,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  
+                project_video=?,project_certificate=?   WHERE username=?");
+                $stmt->execute(array(
+
+                    $location3,
+                    $location4,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '' &&  $file_tmp5 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  project_video=?
+                ,national_id=?   WHERE username=?");
+                $stmt->execute(array(
+
+                    $location3,
+
+                    $location5,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '' && $file_tmp6 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  
+                project_video=? ,certificate_image=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location3,
+                    $location6,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '' &&  $file_tmp7 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET
+                project_video=? ,last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location3,
+
+                    $location7,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '' && $file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_video=? ,last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location3,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
             }
         } else {
             foreach ($errormessage as $message) { ?>

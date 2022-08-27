@@ -338,6 +338,7 @@ $lang = array(
   "masters" =>   "  ماجتسير  ",
   ///////////// artificial field
   "programe_sub_f" =>   "  ذكاء اصطناعي   ",
+  "artificial_intelligence_f" =>   "الذكاء الاصطناعي ",
   "Virtual_reality_f" =>   "  واقع افتراضي   ",
   "metaverse_f" =>   "  ميتافيرس  ",
   "augmented_reality_f" =>   "  واقع معزز   ",
