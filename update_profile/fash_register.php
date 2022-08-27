@@ -26,6 +26,7 @@ if ($count > 0) {
 
         foreach ($_FILES['project_certificate_image']['name'] as $key => $val) {
             $file = $_FILES['project_certificate_image']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp1 = $_FILES['project_certificate_image']['tmp_name'][$key];
             move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
@@ -35,6 +36,7 @@ if ($count > 0) {
 
         foreach ($_FILES['national_id']['name'] as $key => $val) {
             $file = $_FILES['national_id']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp2 = $_FILES['national_id']['tmp_name'][$key];
             move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
@@ -43,6 +45,7 @@ if ($count > 0) {
 
         foreach ($_FILES['certificate_image']['name'] as $key => $val) {
             $file = $_FILES['certificate_image']['name'][$key];
+            $file = str_replace(' ', '', $file);
             $file_tmp3 = $_FILES['certificate_image']['tmp_name'][$key];
             move_uploaded_file($file_tmp3, $uploadplace . $file);
             $location3 .= $file . " ";
@@ -53,47 +56,21 @@ if ($count > 0) {
         $last_name = $_POST["last_name"];
         $email = $_POST["email"];
         $mobile = $_POST["mobile"];
-        //$country = $_POST["country"];
+
         $specialist = $_POST["specialist"];
         $certificate = $_POST["certificate"];
 
-        //$field = $_POST["field"];
-        //$sub_field = $_POST["sub_field"];
-        //$register_type = $_POST["register_type"];
         $project_name = $_POST["project_name"];
         $project_field = $_POST["project_field"];
         $project_competation = $_POST["project_competation"];
         $project_prize = $_POST["project_prize"];
 
-        //$username = $_POST["username"];
         $password = $_POST["password"];
-        //$password_repeat = $_POST["password_repeat"];
 
-
+        $personal_information = $_POST["personal_information"];
 
         $errormessage = [];
-        /*
-        if (isset($_POST["check_privacy"])) {
-        } else {
-            $errormessage[] = $lang["check_privacy"];
-        }
 
-        if (empty($field)) {
-            $errormessage[] = $lang["enter_field"];
-        }
-        if (empty($sub_field)) {
-            $errormessage[] = $lang["enter_sub_field"];
-        }
-        if (empty($username)) {
-            $errormessage[] =  $lang["enter_username"];
-        }
-        if (empty($password)) {
-            $errormessage[] =  $lang["enter_password"];
-        }
-        if (strlen($password) < 8) {
-            $errormessage[] =  $lang["weak_pass"];
-        }
-        */
 
         if (empty($first_name)) {
             $errormessage[] = $lang["enter_first_name"];
@@ -117,29 +94,31 @@ if ($count > 0) {
 
 
         if (empty($errormessage)) {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-            certificate=? , project_name=?,
-            project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-            national_id=?,certificate_image=?, password=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $location2,
-                $location3,
-                $password,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                header("refresh: 0");
+            if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                national_id=?,certificate_image=?, password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $location2,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
 ?>
 
 <div class='container'>
@@ -147,6 +126,197 @@ if ($count > 0) {
     </div>
 </div>
 <?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                national_id=?, password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $location2,
+
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                certificate_image=?, password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,national_id=?,
+                certificate_image=?, password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location2,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp1 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp2 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,national_id=?,
+                password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location2,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
+            } elseif ($file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,certificate_image=?,
+                password=?,personal_information=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("refresh: 3");
+                ?>
+
+<div class='container'>
+    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+    </div>
+</div>
+<?php
+                }
             }
         } else {
             foreach ($errormessage as $message) { ?>
@@ -395,6 +565,16 @@ if ($count > 0) {
                                                                     value="<?php echo $userdata["password"] ?>">
                                                                 <i class="fa fa-eye"></i>
                                                             </div>
+                                                            <div class=" mb-3">
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput">
+                                                                        <?php echo $lang["Brief_about_you"]; ?> <span
+                                                                            class="star">
+                                                                            * </span></label>
+                                                                    <textarea name="personal_information"
+                                                                        class="form-control"><?php echo $userdata["personal_information"] ?></textarea>
+                                                                </div>
+                                                            </div>
                                                             <!--
                                                             <div class="box mb-3">
                                                                 <label for="floatingInput">
@@ -491,22 +671,23 @@ if ($count > 0) {
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="check_exp">
-                                        <h4> هل لديك مشروع قائم </h4>
+                                        <h4> <?php echo $lang["existing_project"]; ?> </h4>
                                         <div class="main_check">
                                             <input class="" name="check_exp" type="radio" value="" id="check_exp1">
-                                            <label class="" for="check_exp1"> لا </label>
+                                            <label class="" for="check_exp1"> <?php echo $lang["no"]; ?> </label>
                                             <input class="" name="check_exp" type="radio" value="" id="check_exp2">
-                                            <label class="" for="check_exp2"> نعم </label>
+                                            <label class="" for="check_exp2"> <?php echo $lang["yes"]; ?> </label>
                                             <div class="check_exp1_project">
                                                 <div class="form-group mb-3">
-                                                    <label for="floatingInput"> اسم المشروع </label>
+                                                    <label for="floatingInput">
+                                                        <?php echo $lang["project_name"]; ?></label>
                                                     <input name="project_name" type="text" class="form-control"
                                                         id="floatingInput"
-                                                        value="<?php echo $userdata["project_name"] ?>">
-
+                                                        value="<?php echo $userdata["project_name"] ?>">s
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label for="floatingInput"> مجال المشروع </label>
+                                                    <label for="floatingInput">
+                                                        <?php echo $lang["project_filed"]; ?></label>
                                                     <input name="project_field" type="text" class="form-control"
                                                         id="floatingInput" placeholder=""
                                                         value="<?php echo $userdata["project_field"] ?>">
@@ -514,16 +695,18 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do Design -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل شاركت اعمالك في مسابقات أو معارض!</h4>
+                                                    <h4> <?php echo $lang["works_participated"]; ?> </h4>
                                                     <input class="" name="check_design" type="radio" value=""
                                                         id="check_design1">
-                                                    <label class="" for="check_design1"> لا </label>
+                                                    <label class="" for="check_design1">
+                                                        <?php echo $lang["no"]; ?></label>
                                                     <input class="" name="check_design" type="radio" value=""
                                                         id="check_design2">
-                                                    <label class="" for="check_design2"> نعم </label>
+                                                    <label class="" for="check_design2"> <?php echo $lang["yes"]; ?>
+                                                    </label>
                                                     <div class="check_prototype_resualt">
                                                         <div class="form-group mb-3">
-                                                            <label for=""> ماهي المسابقات والمعارض التي شارك فيه؟
+                                                            <label for=""> <?php echo $lang["What_competitions"]; ?>
                                                             </label>
                                                             <textarea name="project_competation" class="form-control"
                                                                 name=""
@@ -534,26 +717,28 @@ if ($count > 0) {
                                                 </div>
                                                 <!-- Do first prototype -->
                                                 <div class="prototype_deisgn">
-                                                    <h4> هل حصل أعمالك على جوائز؟ </h4>
+                                                    <h4> <?php echo $lang["work_received_awards"]; ?></h4>
 
                                                     <input class="" name="first_prototype" type="radio" value=""
                                                         id="first_prototype1">
-                                                    <label class="" for="first_prototype1"> لا </label>
+                                                    <label class="" for="first_prototype1"> <?php echo $lang["no"]; ?>
+                                                    </label>
 
                                                     <input class="" name="first_prototype" type="radio" value=""
                                                         id="first_prototype2">
-                                                    <label class="" for="first_prototype2"> نعم </label>
+                                                    <label class="" for="first_prototype2"> <?php echo $lang["yes"]; ?>
+                                                    </label>
 
                                                     <div class="check_prototype_resualt">
                                                         <div class="form-group mb-3">
-                                                            <label for=""> الجوائز </label>
+                                                            <label for=""> <?php echo $lang["Awards"]; ?> </label>
                                                             <textarea class="form-control" name="project_prize"
                                                                 id="floatingInput"> <?php echo $userdata["project_prize"] ?> </textarea>
 
                                                         </div>
 
                                                         <div class="col-lg-12">
-                                                            <label> صور الشهادات </label>
+                                                            <label> <?php echo $lang["Certificate_images"]; ?> </label>
 
                                                             <div class="box mb-3">
                                                                 <div class="upload-file">
@@ -561,9 +746,12 @@ if ($count > 0) {
                                                                         <label>
                                                                             <input type="file"
                                                                                 name="project_certificate_image[]"
-                                                                                id="files" multiple>
-                                                                            <p> <a>اختر الملفات </a></p>
+                                                                                id="files" multiple accept="image/*">
+                                                                            <p> <a> <?php echo $lang["select_files"]; ?>
+                                                                                </a></p>
                                                                         </label>
+                                                                        <span class="files_type"> .jpg, .jpeg,
+                                                                            .png, .gif </span>
                                                                     </div>
                                                                 </div>
 
@@ -592,16 +780,19 @@ if ($count > 0) {
                                     <div class="row">
 
                                         <div class="col-lg-12">
-                                            <label> البطاقة الوطنية </label>
+                                            <label> <?php echo $lang["national_id_image"]; ?> </label>
 
                                             <div class="box mb-3">
                                                 <div class="upload-file">
                                                     <div class="upload-wrapper">
                                                         <label>
-                                                            <input type="file" name="national_id[]" id="files2"
-                                                                multiple>
-                                                            <p> <a>اختر الملفات </a></p>
+                                                            <input type="file" name="national_id[]" id="files2" multiple
+                                                                accept="image/*">
+                                                            <p> <?php echo $lang["select_files"]; ?>
+                                                            </p>
                                                         </label>
+                                                        <span class="files_type"> .jpg, .jpeg,
+                                                            .png, .gif </span>
                                                     </div>
                                                 </div>
 
@@ -620,16 +811,22 @@ if ($count > 0) {
                                         </div>
 
                                         <div class="col-lg-12">
-                                            <label> صورة من المستند </label>
+                                            <label>
+                                                <p> <?php echo $lang["upload_cv_document"]; ?>
+                                                </p>
+                                            </label>
 
                                             <div class="box mb-3">
                                                 <div class="upload-file">
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="certificate_image[]" id="files3"
-                                                                multiple>
-                                                            <p> <a> اختر الملفات </a></p>
+                                                                multiple accept=".doc, .docx, .pdf">
+                                                            <p> <?php echo $lang["select_files"]; ?>
+                                                            </p>
                                                         </label>
+                                                        <span class="files_type"> .doc, .docs,
+                                                            .pdf </span>
                                                     </div>
                                                 </div>
 
@@ -663,7 +860,7 @@ if ($count > 0) {
                 <div class="">
                     <div class="reservation_button">
                         <button type="submit" class="btn main_button">
-                            تعديل الحساب </button>
+                            <?php echo $lang["account_update"]; ?></button>
                     </div>
                 </div>
         </div>
