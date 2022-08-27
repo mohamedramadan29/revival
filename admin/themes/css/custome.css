@@ -671,7 +671,7 @@ table.dataTable.no-footer {
 }
 
 textarea.form-control {
-  min-height: 200px;
+  min-height: 135px;
   text-align: right;
 }
 

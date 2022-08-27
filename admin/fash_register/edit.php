@@ -2,7 +2,7 @@
 
 if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
     $register_id = $_GET['register_id'];
-    $stmt = $connect->prepare('SELECT * FROM sport_register WHERE sport_register_id=?');
+    $stmt = $connect->prepare('SELECT * FROM fash_register WHERE fash_register_id =?');
     $stmt->execute([$register_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -37,7 +37,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                         <div class="box">
                             <label id="name"> الاسم الاول </label>
                             <input required class="form-control" type="text" name="car_name"
-                                value="<?php echo $alltype['first_name2']; ?>">
+                                value="<?php echo $alltype['first_name']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> الاسم الاخير </label>
@@ -62,14 +62,39 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 
                         <div class="box">
                             <label id="name"> نبذة مختصرة </label>
-                            <textarea name="" class="form-control"><?php echo $alltype['experience_info']; ?></textarea>
+                            <textarea name=""
+                                class="form-control"><?php echo $alltype['personal_information']; ?></textarea>
 
                         </div>
 
+                        <div class="box">
+                            <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> هل لديك مشروع قائم </h6>
+                            <label id="name"> اسم المشروع </label>
+                            <input required class="form-control" type="text" name="car_name"
+                                value="<?php echo $alltype['project_name']; ?>">
+                        </div>
+
+                        <div class="box">
+                            <label id="name"> اسم المشروع </label>
+                            <input required class="form-control" type="text" name="car_name"
+                                value="<?php echo $alltype['project_name']; ?>">
+                        </div>
+                        <div class="box">
+                            <label id="name"> مجال المشروع </label>
+                            <input required class="form-control" type="text" name="car_name"
+                                value="<?php echo $alltype['project_field']; ?>">
+                        </div>
+                        <div class="box">
+                            <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2">هل شاركت اعمالك في مسابقات أو معارض!
+                            </h6>
+                            <label id="name"> ماهي المسابقات والمعارض التي شارك فيه؟</label>
+                            <textarea name=""
+                                class="form-control"><?php echo $alltype['project_competation']; ?></textarea>
+                        </div>
+
+
                     </div>
                     <div class="col-lg-6">
-
-
                         <div class="box">
                             <label id="name"> التخصص </label>
                             <input required class="form-control" type="text" name="car_name"
@@ -115,10 +140,46 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                             </select>
                         </div>
                         <div class="box">
+                            <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> هل حصل أعمالك على جوائز؟ </h6>
+                            <label id="name"> الجوائز</label>
+                            <textarea name="" class="form-control"><?php echo $alltype['project_prize']; ?></textarea>
+                        </div>
+                        <div class="box">
+                            <label id="name"> صور الشهادات </label>
+                            <div class="row">
+                                <?php
+                                        $files1 = $alltype['project_certificate_image'];
+                                        $files1 = explode(" ", $files1);
+                                        $countfile = count($files1) - 1;
+                                        if ($countfile > 0) {
+                                            for ($i = 0; $i < $countfile; ++$i) {
+                                        ?>
+                                <div class="col-12">
+
+                                    <div class="files_style">
+                                        <p> <a class="btn bg-gradient-light" target="_blank"
+                                                href="upload/<?= $files1[$i] ?>">
+                                                <i class="fa fa-file"></i>
+                                                <?= $files1[$i] ?></a></p>
+                                    </div>
+                                </div>
+                                <?php
+                                            }
+                                        } else { ?>
+                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                <?php
+                                        }
+
+
+
+                                        ?>
+                            </div>
+                        </div>
+                        <div class="box">
                             <label id="name"> السيرة الذاتية والمستندات </label>
                             <div class="row">
                                 <?php
-                                        $files1 = $alltype['fiels_talent'];
+                                        $files1 = $alltype['certificate_image'];
                                         $files1 = explode(" ", $files1);
                                         $countfile = count($files1) - 1;
                                         if ($countfile > 0) {
@@ -152,24 +213,29 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                 </div>
                 <div class="row">
                     <div class="box">
-                        <label id="name"> الفيديوهات </label>
+                        <label id="name"> صورة البطاقة الوطنية </label>
                         <div class="row">
                             <?php
-                                    $files1 = $alltype['video_talent'];
+                                    $files1 = $alltype['national_id'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
                                     if ($countfile > 0) {
                                         for ($i = 0; $i < $countfile; ++$i) {
                                     ?>
-                            <div class="col-lg-4 col-12">
-                                <video src="upload/<?= $files1[$i] ?>" width="320" height="260px" controls>
-                                </video>
+                            <div class="col-12">
+
+                                <div class="files_style">
+                                    <p> <a class="btn bg-gradient-light" target="_blank"
+                                            href="upload/<?= $files1[$i] ?>">
+                                            <i class="fa fa-file"></i>
+                                            <?= $files1[$i] ?></a></p>
+                                </div>
                             </div>
                             <?php
                                         }
                                     } else { ?>
 
-                            <div class="alert alert-danger"> لا يوجد فيديوهات </div>
+                            <div class="alert alert-danger"> لا يوجد صورة البطاقة الوطنية </div>
 
                             <?php
                                     }
@@ -194,7 +260,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
             $user_status =  $_POST['user_status'];
             $customer_message =  $_POST['customer_message'];
 
-            $stmt = $connect->prepare("UPDATE sport_register SET user_status=?,customer_message=? WHERE sport_register_id =? ");
+            $stmt = $connect->prepare("UPDATE  fash_register SET user_status=?,customer_message=? WHERE fash_register_id  =? ");
             $stmt->execute([
                 $user_status,
                 $customer_message,
@@ -207,7 +273,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 <div class="container">
     <div class="alert-success">
         تم تعديل المستخدم بنجاح
-        <?php header('refresh:3;url=main.php?dir=sport_register&page=report'); ?>
+        <?php header('refresh:3;url=main.php?dir=fash_register&page=report'); ?>
     </div>
 </div>
 <?php }

@@ -125,7 +125,8 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                 <div class="col-12">
 
                                     <div class="files_style">
-                                        <p> <a class="btn btn-primary" target="_blank" href="upload/<?= $files1[$i] ?>">
+                                        <p> <a class="btn bg-gradient-light" target="_blank"
+                                                href="upload/<?= $files1[$i] ?>">
                                                 <i class="fa fa-file"></i>
                                                 <?= $files1[$i] ?></a></p>
                                     </div>
