@@ -220,7 +220,7 @@ include 'init.php';
 <!-- END OUR Team  -->
 
 <!-- START CARS SECTION -->
-<section class="ftco-section ftco-no-pt bg-light event_sections d-none">
+<section class="ftco-section ftco-no-pt bg-light event_sections">
     <div class="container">
         <h2> <?php echo $lang["courses"] ?> </h2>
         <div class="row">

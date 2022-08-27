@@ -89,7 +89,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="faq.php"> <?php echo $lang["faqs"] ?> </a>
                 </li>
-                <li class="nav-item d-none">
+                <li class="nav-item">
                     <a class="nav-link" href="courses.php"> <?php echo $lang["courses"] ?> </a>
                 </li>
             </ul>
