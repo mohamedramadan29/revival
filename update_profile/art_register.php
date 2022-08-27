@@ -1011,8 +1011,6 @@ if ($count > 0) {
                                                                         <?php echo $lang["masters"];  ?> </option>
                                                                 </select>
                                                                 </select>
-
-
                                                             </div>
 
                                                         </div>

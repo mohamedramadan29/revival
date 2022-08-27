@@ -3,7 +3,9 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
+                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> تسجيلات ريفايفال </li>
                 </ol>
             </nav>
@@ -31,31 +33,33 @@
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>
-                            <td><?php echo $type['first_name']; ?> </td>
-                            <td><?php echo $type['last_name']; ?> </td>
-                            <td><?php echo $type['email']; ?> </td>
-                            <td><?php echo $type['mobile']; ?> </td>
-                            <td><?php echo $type['country']; ?> </td>
-                            <td><?php echo $type['specialist']; ?> </td>
-                            <?php if ($type['user_status'] == 1) { ?>
-                                <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
-                            <?php
+                        <td><?php echo $type['first_name']; ?> </td>
+                        <td><?php echo $type['last_name']; ?> </td>
+                        <td><?php echo $type['email']; ?> </td>
+                        <td><?php echo $type['mobile']; ?> </td>
+                        <td><?php echo $type['country']; ?> </td>
+                        <td><?php echo $type['specialist']; ?> </td>
+                        <?php if ($type['user_status'] == 'active') { ?>
+                        <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                        <?php
                             } else {
                             ?>
-                                <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
-                            <?php
+                        <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                        <?php
 
                             } ?>
 
-                            <td>
-                                <a class=" btn btn-success" href="main.php?dir=art_register&page=edit&register_id=<?php echo $type['art_register_id']; ?> ">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a class="confirm btn btn-danger" href="main.php?dir=art_register&page=delete&register_id=<?php echo $type['art_register_id']; ?> ">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr> <?php }
+                        <td>
+                            <a class=" btn btn-success"
+                                href="main.php?dir=art_register&page=edit&register_id=<?php echo $type['art_register_id']; ?> ">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="confirm btn btn-danger"
+                                href="main.php?dir=art_register&page=delete&register_id=<?php echo $type['art_register_id']; ?> ">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr> <?php }
                                 ?> </tbody>
             </table>
         </div>
