@@ -34,6 +34,8 @@ if (isset($_GET['dir'])) {
         include 'faqs/lang/' . $_SESSION['lang'] . '.php';
     } elseif ($dir == 'contact') {
         include 'contact/lang/' . $_SESSION['lang'] . '.php';
+    } elseif ($dir == 'courses') {
+        include 'courses/lang/' . $_SESSION['lang'] . '.php';
     }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';

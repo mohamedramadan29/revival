@@ -179,6 +179,30 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item" id="lnk-courses">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              الكورسات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-course">
+                              <a href="main.php?dir=courses&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة كورس جديد </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-courses">
+                              <a href="main.php?dir=courses&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة جميع الكورسات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
 
                   <li class="nav-item" id="lnk-repair">
                       <a href="#" class="nav-link nav-link2">

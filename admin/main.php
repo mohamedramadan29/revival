@@ -96,6 +96,17 @@ include $tem . 'left_sidebar.php';
             include 'revival_register/report.php';
         }
         // END Revival REGISTER
+        // START Courses
+        if ($dir == 'courses' && $page == 'add') {
+            include 'courses/add.php';
+        } elseif ($dir == 'courses' && $page == 'edit') {
+            include 'courses/edit.php';
+        } elseif ($dir == 'courses' && $page == 'delete') {
+            include 'courses/delete.php';
+        } elseif ($dir == 'courses' && $page == 'report') {
+            include 'courses/report.php';
+        }
+        // END Courses
         // START MESSAGE
         if ($dir == 'contact' && $page == 'delete') {
             include 'contact/delete.php';
@@ -121,15 +132,15 @@ include $tem . 'footer.php';
 ob_end_flush();
 ?>
 <script type="text/javascript">
-    // customer script
+// customer script
 
 
-    var dev = $("#logo").dropify({});
-    dev = dev.data("dropify")
-    var dev2 = $("#logo2").dropify({});
-    dev2 = dev2.data("dropify")
-    var dev3 = $("#logo3").dropify({});
-    dev2 = dev3.data("dropify")
-    var dev4 = $("#logo4").dropify({});
-    dev4 = dev4.data("dropify")
+var dev = $("#logo").dropify({});
+dev = dev.data("dropify")
+var dev2 = $("#logo2").dropify({});
+dev2 = dev2.data("dropify")
+var dev3 = $("#logo3").dropify({});
+dev2 = dev3.data("dropify")
+var dev4 = $("#logo4").dropify({});
+dev4 = dev4.data("dropify")
 </script>

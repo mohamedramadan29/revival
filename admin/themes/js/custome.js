@@ -426,6 +426,14 @@ $(document).ready(function () {
       $("#lnk-message-watch").addClass("active-tab");
     }
   }
+  if (window.location.href.indexOf("dir=courses") != -1) {
+    $("#lnk-courses").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-course").addClass("active-tab");
+    } else {
+      $("#lnk-rep-courses").addClass("active-tab");
+    }
+  }
 
   $(function () {
     $(".rateyo")
