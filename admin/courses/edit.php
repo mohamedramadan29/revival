@@ -124,6 +124,17 @@ if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
                             <div id="logo_" class="col-md-3">
                             </div>
                         </div>
+                        <div class="box">
+                            <label id="name"> حالة الكورس </label>
+                            <select class="form-control" name="course_status" id="">
+                                <option value=""> اختر حالة الكورس </option>
+
+                                <option <?php if ($alltype['course_status'] == 'active')  echo 'selected'; ?>
+                                    value="active"> مفعل </option>
+                                <option <?php if ($alltype['course_status'] == 'pending')  echo 'selected'; ?>
+                                    value="pending"> غير مفعل </option>
+                            </select>
+                        </div>
 
                     </div>
                     <div class="col-lg-6">
@@ -226,6 +237,7 @@ if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
             $course_constructor_learn = $_POST['course_constructor_learn'];
             $course_constructor_info_en = $_POST['course_constructor_info_en'];
             $course_constructor_info = $_POST['course_constructor_info'];
+            $course_status = $_POST['course_status'];
 
             $image1_uploaded = rand(0, 100000000) . '.' . $image1_name;
             move_uploaded_file(
@@ -247,7 +259,7 @@ if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
             $stmt = $connect->prepare("UPDATE  courses SET course_name=?,course_name_en=?,
             course_num_days=? , course_constructor=?, course_price=? , course_place=?, course_learn=?,course_learn_en=?,
             course_requirement=?,course_requirement_en=?,course_description=?,course_description_en=?,
-            how_course=?,how_course_en=?,course_constructor_learn=?,course_constructor_info=?,course_constructor_info_en=?
+            how_course=?,how_course_en=?,course_constructor_learn=?,course_constructor_info=?,course_constructor_info_en=?,course_status=?
               WHERE course_id  =? ");
             $stmt->execute([
                 $course_name,
@@ -267,6 +279,7 @@ if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
                 $course_constructor_learn,
                 $course_constructor_info,
                 $course_constructor_info_en,
+                $course_status,
 
                 $course_id
             ]);
