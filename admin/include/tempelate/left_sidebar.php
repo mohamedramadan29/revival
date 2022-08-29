@@ -14,9 +14,6 @@
           <nav class="mt-2">
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
-                  <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
 
                   <li class="nav-item" id="lnk-expenses">
                       <a href="main.php?dir=dashboard&page=dashboard" class="nav-link">
@@ -27,6 +24,31 @@
                       </a>
                   </li>
 
+                  <li class="nav-item" id="lnk-banner">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              البانرات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-banner">
+                              <a href="main.php?dir=banner&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة بانر جديد </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-banner">
+                              <a href="main.php?dir=banner&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة جميع البانرات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
                   <li class="nav-item" id="lnk-revival-register">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
@@ -36,14 +58,7 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                          <!--
-                          <li class="nav-item" id="lnk-add-revival-register">
-                              <a href="main.php?dir=articles&page=add" class="nav-link">
-                                  <i class="fa fa-plus color2"></i>
-                                  <p> اضافة مقال جديد </p>
-                              </a>
-                          </li>
-                         -->
+
                           <li class="nav-item" id="lnk-rep-revival-register">
                               <a href="main.php?dir=revival_register&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
@@ -62,14 +77,7 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                          <!--
-                          <li class="nav-item" id="lnk-add-art-register">
-                              <a href="main.php?dir=articles&page=add" class="nav-link">
-                                  <i class="fa fa-plus color2"></i>
-                                  <p> اضافة مقال جديد </p>
-                              </a>
-                          </li>
-                         -->
+
                           <li class="nav-item" id="lnk-rep-art-register">
                               <a href="main.php?dir=art_register&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
@@ -88,14 +96,7 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                          <!--
-                          <li class="nav-item" id="lnk-add-sport-register">
-                              <a href="main.php?dir=articles&page=add" class="nav-link">
-                                  <i class="fa fa-plus color2"></i>
-                                  <p> اضافة مقال جديد </p>
-                              </a>
-                          </li>
-                         -->
+
                           <li class="nav-item" id="lnk-rep-sport-register">
                               <a href="main.php?dir=sport_register&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
@@ -114,14 +115,7 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
-                          <!--
-                          <li class="nav-item" id="lnk-add-fash-register">
-                              <a href="main.php?dir=articles&page=add" class="nav-link">
-                                  <i class="fa fa-plus color2"></i>
-                                  <p> اضافة مقال جديد </p>
-                              </a>
-                          </li>
-                         -->
+
                           <li class="nav-item" id="lnk-rep-fash-register">
                               <a href="main.php?dir=fash_register&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>

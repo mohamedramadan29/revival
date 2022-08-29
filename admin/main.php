@@ -114,6 +114,16 @@ include $tem . 'left_sidebar.php';
             // echo 'test test';
             include 'contact/report.php';
         }
+        // START BANNERS
+        if ($dir == 'banner' && $page == 'add') {
+            include 'banner/add.php';
+        } elseif ($dir == 'banner' && $page == 'edit') {
+            include 'banner/edit.php';
+        } elseif ($dir == 'banner' && $page == 'delete') {
+            include 'banner/delete.php';
+        } elseif ($dir == 'banner' && $page == 'report') {
+            include 'banner/report.php';
+        }
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

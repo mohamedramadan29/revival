@@ -435,6 +435,15 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=banner") != -1) {
+    $("#lnk-banner").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-banner").addClass("active-tab");
+    } else {
+      $("#lnk-rep-banner").addClass("active-tab");
+    }
+  }
+
   $(function () {
     $(".rateyo")
       .rateYo()
