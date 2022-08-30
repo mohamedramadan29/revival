@@ -452,6 +452,15 @@ $(document).ready(function () {
       $("#lnk-rep-rev-about").addClass("active-tab");
     }
   }
+
+  if (window.location.href.indexOf("dir=revival_goals") != -1) {
+    $("#lnk-revival_goals").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-rev-goals").addClass("active-tab");
+    } else {
+      $("#lnk-rep-rev-goals").addClass("active-tab");
+    }
+  }
   $(function () {
     $(".rateyo")
       .rateYo()

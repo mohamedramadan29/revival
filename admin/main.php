@@ -134,6 +134,17 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'revival_about' && $page == 'report') {
             include 'revival_about/report.php';
         }
+
+        // START Revival Goals
+        if ($dir == 'revival_goals' && $page == 'add') {
+            include 'revival_goals/add.php';
+        } elseif ($dir == 'revival_goals' && $page == 'edit') {
+            include 'revival_goals/edit.php';
+        } elseif ($dir == 'revival_goals' && $page == 'delete') {
+            include 'revival_goals/delete.php';
+        } elseif ($dir == 'revival_goals' && $page == 'report') {
+            include 'revival_goals/report.php';
+        }
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

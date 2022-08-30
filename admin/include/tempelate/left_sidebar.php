@@ -72,7 +72,29 @@
                           </li>
                       </ul>
                   </li>
-
+                  <li class="nav-item" id="lnk-revival_goals">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              قسم الاهداف
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-rev-goals">
+                              <a href="main.php?dir=revival_goals&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-rev-goals">
+                              <a href="main.php?dir=revival_goals&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة الاهداف </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
 
                   <li class="nav-item" id="lnk-revival-register">
                       <a href="#" class="nav-link nav-link2">

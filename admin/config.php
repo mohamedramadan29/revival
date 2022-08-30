@@ -40,6 +40,8 @@ if (isset($_GET['dir'])) {
         include 'banner/lang/' . $_SESSION['lang'] . '.php';
     } elseif ($dir == 'revival_about') {
         include 'revival_about/lang/' . $_SESSION['lang'] . '.php';
+    } elseif ($dir == 'revival_goals') {
+        include 'revival_goals/lang/' . $_SESSION['lang'] . '.php';
     }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
