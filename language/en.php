@@ -494,7 +494,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
 
     "scientific_certificate" =>   "Latest scientific certificate",
 
-
+    "revival_order_services" => "   Thank  For order Services From Revival We will contact you  ",
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );
