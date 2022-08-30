@@ -192,27 +192,70 @@ include 'init.php';
     <div class="container">
         <div class="data">
             <div class="row">
+                <?php
+                $stmt = $connect->prepare("SELECT * FROM  revival_goals WHERE goal_page ='الرئيسية' ORDER BY goal_id LIMIT 1 ");
+                $stmt->execute();
+                $allgoals = $stmt->fetchAll();
+                foreach ($allgoals as $goal) { ?>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa-solid fa-bullseye"></i>
-                        <h3> <?php echo $lang["index_goals"] ?> </h3>
-                        <p> <?php echo $lang["index_golas_p"] ?> </p>
+
+                        <?php ?>
+
+
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["goal_head"] ?> </h3>
+                        <p> <?php echo $goal["goal_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["goal_head_en"] ?> </h3>
+                        <p> <?php echo $goal["goal_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa fa-signal"></i>
-                        <h3> <?php echo $lang["index_vision"] ?> </h3>
-                        <p> <?php echo $lang["index_vision_p"] ?> </p>
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["vision_head"] ?> </h3>
+                        <p> <?php echo $goal["vision_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["vision_head_en"] ?> </h3>
+                        <p> <?php echo $goal["vision_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa-solid fa-handshake-angle"></i>
-                        <h3> <?php echo $lang["index_message"] ?> </h3>
-                        <p> <?php echo $lang["index_message_p"] ?> </p>
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["message_head"] ?> </h3>
+                        <p> <?php echo $goal["message_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["message_head_en"] ?> </h3>
+                        <p> <?php echo $goal["message_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
                     </div>
                 </div>
+                <?php
+                } ?>
+
             </div>
         </div>
     </div>

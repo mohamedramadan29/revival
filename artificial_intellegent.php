@@ -232,31 +232,70 @@ include 'init.php';
     <div class="container">
         <div class="data">
             <div class="row">
+                <?php
+                $stmt = $connect->prepare("SELECT * FROM  revival_goals WHERE goal_page ='مدينة الذكاء الإصطناعي' ORDER BY goal_id LIMIT 1 ");
+                $stmt->execute();
+                $allgoals = $stmt->fetchAll();
+                foreach ($allgoals as $goal) { ?>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa-solid fa-bullseye"></i>
-                        <h3> <?php echo $lang["art_int_head4"] ?> </h3>
-                        <ul class="list-unstyled">
-                            <li> <?php echo $lang["art_int_goal1"] ?> </li>
-                            <li> <?php echo $lang["art_int_goal2"] ?> </li>
-                            <li> <?php echo $lang["art_int_goal3"] ?> </li>
-                        </ul>
+
+                        <?php ?>
+
+
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["goal_head"] ?> </h3>
+                        <p> <?php echo $goal["goal_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["goal_head_en"] ?> </h3>
+                        <p> <?php echo $goal["goal_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa fa-signal"></i>
-                        <h3> <?php echo $lang["art_int_head6"] ?> </h3>
-                        <p> <?php echo $lang["art_int_vision"] ?></p>
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["vision_head"] ?> </h3>
+                        <p> <?php echo $goal["vision_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["vision_head_en"] ?> </h3>
+                        <p> <?php echo $goal["vision_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class="info">
                         <i class="fa-solid fa-handshake-angle"></i>
-                        <h3> <?php echo $lang["art_int_head7"] ?> </h3>
-                        <p> <?php echo $lang["art_int_message"] ?> </p>
+                        <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <h3> <?php echo $goal["message_head"] ?> </h3>
+                        <p> <?php echo $goal["message_desc"] ?> </p>
+                        <?php
+                            } else { ?>
+                        <h3> <?php echo $goal["message_head_en"] ?> </h3>
+                        <p> <?php echo $goal["message_desc_en"] ?> </p>
+                        <?php
+                            }
+                            ?>
+
                     </div>
                 </div>
+                <?php
+                } ?>
+
             </div>
         </div>
     </div>
