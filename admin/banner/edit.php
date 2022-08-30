@@ -185,7 +185,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         rand(0, 100000000) . '.' . $image_image2_name;
                     move_uploaded_file(
                         $image_image2_tem,
-                        '../uploads/' . $image_image2_uploaded
+                        'upload/' . $image_image2_uploaded
                     );
                     $stmt = $connect->prepare("UPDATE revival_banner SET banner_name=?,image2=?,
                     banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
@@ -217,13 +217,13 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         rand(0, 100000000) . '.' . $image_image2_name;
                     move_uploaded_file(
                         $image_image2_tem,
-                        '../uploads/' . $image_image2_uploaded
+                        'upload/' . $image_image2_uploaded
                     );
                     $image_image1_uploaded =
                         rand(0, 100000000) . '.' . $image_image1_name;
                     move_uploaded_file(
                         $image_image1_tem,
-                        '../uploads/' . $image_image1_uploaded
+                        'upload/' . $image_image1_uploaded
                     );
                     $stmt = $connect->prepare("UPDATE revival_banner SET banner_name=?,image1=?,image2=?,
             banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?

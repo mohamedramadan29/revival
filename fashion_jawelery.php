@@ -7,19 +7,52 @@ include 'init.php';
 <div class="hero artif">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الأزياء والمجوهرات' ORDER BY banner_id DESC LIMIT 1");
+            $stmt->execute();
+            $allbanner = $stmt->fetchAll();
+            foreach ($allbanner as $banner) { ?>
             <div class="carousel-item active">
                 <div class="overlay">
                 </div>
-                <img src="uploads/fash1.jpg" class="d-block w-100" alt="image1">
+
+                <img src="admin/upload/<?php
+                                            if ($_SESSION["lang"] == "ar") {
+                                                echo $banner["image1"];
+                                            } else {
+                                                echo $banner["image2"];
+                                            }
+                                            ?>
+                " class="d-block w-100" alt="image1">
             </div>
+            <?php
+            }
+            ?>
+
+
+
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الأزياء والمجوهرات' ORDER BY banner_id  LIMIT 2");
+            $stmt->execute();
+            $allbanners = $stmt->fetchAll();
+            foreach ($allbanners as $banners) { ?>
             <div class="carousel-item">
-                <div class="overlay"> </div>
-                <img src="uploads/fash2.jpg" class="d-block w-100" alt="image2">
+                <div class="overlay">
+                </div>
+
+                <img src="admin/upload/<?php
+                                            if ($_SESSION["lang"]  == "ar") {
+                                                echo $banners["image1"];
+                                            } else {
+                                                echo $banners["image2"];
+                                            }
+                                            ?>
+                " class="d-block w-100" alt="image1">
             </div>
-            <div class="carousel-item">
-                <div class="overlay"> </div>
-                <img src="uploads/fash3.jpg" class="d-block w-100" alt="image3">
-            </div>
+            <?php
+            }
+            ?>
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,10 +63,37 @@ include 'init.php';
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="data container data_logo ">
+
+
+    <div class="data container data_logo">
         <img src="uploads/ai2.jpg" alt="">
-        <h2> <?php echo $lang["fash_int_head1"] ?> </h2>
-        <p> <?php echo $lang["fash_int_head11"] ?> </p>
+        <?php
+        $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الأزياء والمجوهرات' ORDER BY banner_id  LIMIT 1");
+        $stmt->execute();
+        $allbanners = $stmt->fetchAll();
+        foreach ($allbanners as $banners) { ?>
+        <h2>
+            <?php
+                if ($_SESSION["lang"] == "ar") {
+                    echo $banners["banner_head"];
+                } else {
+                    echo $banners["banner_head_en"];
+                }
+                ?>
+        </h2>
+        <p>
+            <?php
+                if ($_SESSION["lang"] == "ar") {
+                    echo $banners["banner_desc"];
+                } else {
+                    echo $banners["banner_desc_en"];
+                }
+                ?>
+        </p>
+
+        <?php
+        } ?>
+
     </div>
 </div>
 </div>
