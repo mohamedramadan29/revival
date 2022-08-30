@@ -1598,7 +1598,7 @@ body {
 }
 
 .about .about_events {
-    background-image: url(../../uploads/art2.jpg);
+
     background-size: cover;
     height: 400px;
     display: flex;

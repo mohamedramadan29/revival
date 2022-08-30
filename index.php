@@ -106,7 +106,7 @@ include 'init.php';
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel"> شركه ريفايفال </h3>
+                <h3 class="modal-title" id="exampleModalLabel"> </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -128,22 +128,60 @@ include 'init.php';
                 <div class="col-lg-6 col-12">
                     <div class="info">
                         <h3> <?php echo $lang["index_h2"] ?></h3>
-                        <p> <?php echo $lang["index_p2"] ?> </span> </p>
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM revival_about_us WHERE about_page ='الرئيسية' ORDER BY about_id LIMIT 1 ");
+                        $stmt->execute();
+                        $allabout = $stmt->fetchAll();
+                        foreach ($allabout as $about) {
+
+                            if ($_SESSION["lang"] == "ar") { ?>
+                        <p> <?php echo $about["about_desc"] ?> </span> </p>
+                        <?php
+                            } else { ?>
+                        <p> <?php echo $about["about_desc_en"] ?> </span> </p>
+
+                        <?php
+                            }
+                            ?>
+
+
                         <ul class="list-unstyled">
-                            <li><i class="fa fa-star"> </i> <?php echo $lang["index_li1"] ?></li>
-                            <li><i class="fa fa-star"> </i> <?php echo $lang["index_li2"] ?></li>
+                            <?php
+                                if ($_SESSION["lang"] == "ar") {
+                                    $learn = $about['about_sub_desc'];
+                                } else {
+                                    $learn = $about['about_sub_desc_en'];
+                                }
+                                $learn = explode(",", $learn);
+                                $countfile = count($learn) - 1;
+                                for ($i = 0; $i < $countfile; ++$i) { ?>
+
+                            <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                            <?php
+                                }
+                                ?>
+
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 about_events">
+                <div class="col-lg-6 col-12 about_events"
+                    style="background-image: url(admin/upload/<?php echo $about["image1"] ?>) ;">
                     <div class="d-flex align-items-center pt-5">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="uploads/video.mp4"
+                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
+                                                                                                                    echo $about["video1"];
+                                                                                                                } else {
+                                                                                                                    echo $about["video2"];
+                                                                                                                } ?>"
                             data-bs-target="#videoModal">
                             <span></span>
                         </button>
 
                     </div>
                 </div>
+                <?php
+
+                        }
+            ?>
             </div>
         </div>
     </div>
