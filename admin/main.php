@@ -124,6 +124,16 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'banner' && $page == 'report') {
             include 'banner/report.php';
         }
+        // START About Us
+        if ($dir == 'revival_about' && $page == 'add') {
+            include 'revival_about/add.php';
+        } elseif ($dir == 'revival_about' && $page == 'edit') {
+            include 'revival_about/edit.php';
+        } elseif ($dir == 'revival_about' && $page == 'delete') {
+            include 'revival_about/delete.php';
+        } elseif ($dir == 'revival_about' && $page == 'report') {
+            include 'revival_about/report.php';
+        }
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

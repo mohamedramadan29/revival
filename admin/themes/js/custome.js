@@ -444,6 +444,14 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=revival_about") != -1) {
+    $("#lnk-revival_about").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-rev-about").addClass("active-tab");
+    } else {
+      $("#lnk-rep-rev-about").addClass("active-tab");
+    }
+  }
   $(function () {
     $(".rateyo")
       .rateYo()

@@ -49,6 +49,31 @@
                   </li>
 
 
+                  <li class="nav-item" id="lnk-revival_about">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              قسم من نحن
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-rev-about">
+                              <a href="main.php?dir=revival_about&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-rev-about">
+                              <a href="main.php?dir=revival_about&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المحتوي </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
                   <li class="nav-item" id="lnk-revival-register">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
