@@ -374,6 +374,12 @@ $lang = array(
   "first_day" => " First Day ",
   "second_day" => " Second Day ",
 
+  "add_data" => " Add your information and we will contact you when the event is scheduled ",
+
+  "register_in_event" => "  Thank you for registering with us, we will contact you when we set the date and location of the event  ",
+
+
+
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

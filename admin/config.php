@@ -42,6 +42,10 @@ if (isset($_GET['dir'])) {
         include 'revival_about/lang/' . $_SESSION['lang'] . '.php';
     } elseif ($dir == 'revival_goals') {
         include 'revival_goals/lang/' . $_SESSION['lang'] . '.php';
+    } elseif ($dir == 'revival_order_services') {
+        include 'revival_order_services/lang/' . $_SESSION['lang'] . '.php';
+    } elseif ($dir == 'revival_add_new_project') {
+        include 'revival_add_new_project/lang/' . $_SESSION['lang'] . '.php';
     }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';

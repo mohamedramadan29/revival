@@ -395,7 +395,7 @@ AOS.init({
   /* ==========================================================================
     countdown timer
     ========================================================================== */
-  jQuery("#clock").countdown("2023/7/30", function (event) {
+  jQuery("#clock").countdown("0", function (event) {
     var $this = jQuery(this).html(
       event.strftime(
         "" +

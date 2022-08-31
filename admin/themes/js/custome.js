@@ -461,6 +461,25 @@ $(document).ready(function () {
       $("#lnk-rep-rev-goals").addClass("active-tab");
     }
   }
+  if (window.location.href.indexOf("dir=revival_order") != -1) {
+    $("#lnk-revival_order").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-rev-goals").addClass("active-tab");
+    } else {
+      $("#lnk-rep-revival_order").addClass("active-tab");
+    }
+  }
+
+  if (window.location.href.indexOf("dir=revival_add_new_project") != -1) {
+    $("#lnk-revival_add_new_project").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-rep-revival_add_new_project").addClass("active-tab");
+    } else {
+      $("#lnk-rep-revival_add_new_project").addClass("active-tab");
+    }
+  }
   $(function () {
     $(".rateyo")
       .rateYo()

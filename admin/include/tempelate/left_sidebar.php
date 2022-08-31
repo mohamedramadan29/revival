@@ -173,6 +173,46 @@
                   </li>
 
 
+                  <li class="nav-item" id="lnk-revival_order">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              طلب الخدمات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                          <li class="nav-item" id="lnk-rep-revival_order">
+                              <a href="main.php?dir=revival_order_services&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة الطلبات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item" id="lnk-revival_add_new_project">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              المشاريع الجديدة
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                          <li class="nav-item" id="lnk-rep-revival_add_new_project">
+                              <a href="main.php?dir=revival_add_new_project&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المشاريع </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
+
                   <li class="nav-item" id="lnk-articles">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>

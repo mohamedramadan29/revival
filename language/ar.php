@@ -321,7 +321,7 @@ $lang = array(
   "watch_talent" => " مشاهدة الموهبة ",
   "category" => " الاقسام ",
   "watch_all_cat" => " مشاهدة جميع الاقسام ",
-  "watch_talent" => " Watch Talent ",
+
   "programming" => " البرمجة ",
   "chemstry" => " كيمياء ",
   "metav" => " الميتافيرس ",
@@ -474,6 +474,7 @@ $lang = array(
   الجوائز ",
   "following_documents" =>   " ارفق المستندات التالية  ",
   "scientific_certificate" =>   " اخر شهادة علمية ",
+  "add_new_project_from_user" =>   " تم اضافة مشروع جديد بنجاح ",
 
 
 

@@ -97,10 +97,10 @@
                                 <li> <a href="update_profile.php" class="btn button">
                                         <?php echo $lang["account_update"]; ?> <i class="fa fa-edit"></i> </a>
                                 </li>
-                                <li> <a href="ticket.php" class="btn button"> <?php echo $lang["open_ticket"]; ?> <i
-                                            class="fa fa-message"></i> </a>
+                                <li class="d-none"> <a href="ticket.php" class="btn button">
+                                        <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
-                                <li class="dropdown-share">
+                                <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i
                                             class="fa fa-chevron-down"></i>
                                     </a>

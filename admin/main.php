@@ -96,6 +96,30 @@ include $tem . 'left_sidebar.php';
             include 'revival_register/report.php';
         }
         // END Revival REGISTER
+
+        // START Revival Order Services 
+        if ($dir == 'revival_order_services' && $page == 'add') {
+            include 'revival_order_services/add.php';
+        } elseif ($dir == 'revival_order_services' && $page == 'edit') {
+            include 'revival_order_services/edit.php';
+        } elseif ($dir == 'revival_order_services' && $page == 'delete') {
+            include 'revival_order_services/delete.php';
+        } elseif ($dir == 'revival_order_services' && $page == 'report') {
+            include 'revival_order_services/report.php';
+        }
+        // END Order Services 
+
+        // START Revival Add New Project
+        if ($dir == 'revival_add_new_project' && $page == 'add') {
+            include 'revival_add_new_project/add.php';
+        } elseif ($dir == 'revival_add_new_project' && $page == 'edit') {
+            include 'revival_add_new_project/edit.php';
+        } elseif ($dir == 'revival_add_new_project' && $page == 'delete') {
+            include 'revival_add_new_project/delete.php';
+        } elseif ($dir == 'revival_add_new_project' && $page == 'report') {
+            include 'revival_add_new_project/report.php';
+        }
+        // END Revival Add New Project
         // START Courses
         if ($dir == 'courses' && $page == 'add') {
             include 'courses/add.php';
@@ -145,6 +169,7 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'revival_goals' && $page == 'report') {
             include 'revival_goals/report.php';
         }
+
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

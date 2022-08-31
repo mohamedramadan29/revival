@@ -20,17 +20,6 @@
 		                        <a class="nav-link" href="register.php"> <?php echo $lang["register"] ?> </a>
 		                    </li>
 
-		                    <?php
-							if (isset($_SESSION["username"])) { ?>
-
-		                    <?php
-							} else { ?>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="login.php"> <?php echo $lang["login"] ?> </a>
-		                    </li>
-		                    <?php
-							}
-							?>
 		                    <li class="nav-item">
 		                        <a class="nav-link" href="contact_us.php"> <?php echo $lang["contact_us"] ?></a>
 		                    </li>
