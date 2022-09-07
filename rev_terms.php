@@ -2,11 +2,36 @@
 ob_start();
 session_start();
 include 'init.php';
+
+$page_name = $_GET["page"];
+//echo $page_name;
+
+$stmt = $connect->prepare("SELECT * FROM revival_terms WHERE term_page=?");
+$stmt->execute(array($page_name));
+$allterms = $stmt->fetchall();
+
+//$terms = $stmt->fetch();
 ?>
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
-            <h2> شروط التسجيل في رفايفال:</h2>
+            <h2>
+                <?php
+
+                foreach ($allterms as $terms) {
+                    if ($_SESSION["lang"] == "ar") {
+
+                        echo $terms["term_name"];
+                    } else {
+
+                        echo $terms["term_name_en"];
+                    }
+                }
+
+
+                ?>
+            </h2>
+
         </div>
     </div>
 </div>
@@ -16,18 +41,31 @@ include 'init.php';
 <div class="privacy">
     <div class="container">
         <div class="data">
-            <p>• يجب التسجيل بالاسم الحقيقي.</p>
-            <p>• التسجيل في موقع الشركة يخص طلب الوظائف ولا يشمل التسجيل في في اقسام الأنشطة أو الفعاليات.</p>
-            <p>• لا يحق لي عضو تمثيل الشركة والتسويق لها بشكل رسمي الا بخطاب رسمي</p>
-            <p>• اتعهد بتقديم بيانات ومستندات صحيحة.</p>
-            <p>• في حالة انتهاك العضو لحقوق الملكية الفكرية أو السطو العلمي على حقوق الغير تؤخذ ضد العضو المخالف
-                الاجراءات القانونية المناسبة ويتحمل كافة التبعات.</p>
-            <p>• يتعهد العضو بعدم استخدام او نقل أي مادة لأي موقع لحسابه او لحساب الغير بأي شكل من الأشكال، وفي حال فعل
-                ذلك يتحمل النتائج المترتبة على ذلك.</p>
 
+    <?php
+
+            foreach ($allterms as $terms) {
+                if ($_SESSION["lang"] == "ar") {
+                    $data =  $terms["term_data"];
+                } else {
+                    $data =  $terms["term_data_en"];
+                }
+                $data = explode(",", $data);
+                $countfile = count($data) - 1;
+                for ($i = 0; $i < $countfile; ++$i) { ?>
+                <p><i class="fa fa-check"></i> <?= $data[$i] ?> </p>
+                <?php
+                }
+                
+            }
+
+
+            ?>
+ 
         </div>
     </div>
 </div>
+ 
 <?php
 include $tem . 'footer_section.php';
 include $tem . 'footer.php';

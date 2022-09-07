@@ -47,6 +47,12 @@ if (isset($_GET['dir'])) {
     } elseif ($dir == 'revival_add_new_project') {
         include 'revival_add_new_project/lang/' . $_SESSION['lang'] . '.php';
     }
+    elseif ($dir == 'revival_terms') {
+        include 'revival_terms/lang/' . $_SESSION['lang'] . '.php';
+    }
+    elseif ($dir == 'form_selection') {
+        include 'form_selection/lang/' . $_SESSION['lang'] . '.php';
+    }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
 }

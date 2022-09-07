@@ -12,8 +12,7 @@
           </div>
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                  data-accordion="false">
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                   <li class="nav-item" id="lnk-expenses">
                       <a href="main.php?dir=dashboard&page=dashboard" class="nav-link">
@@ -22,6 +21,30 @@
                               <?php echo $lang['dashboard']; ?>
                           </p>
                       </a>
+                  </li>
+
+                  <li class="nav-item" id="lnk-revival_terms">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              الشروط والاحكام
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-rev-terms">
+                              <a href="main.php?dir=revival_terms&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-rev-terms">
+                              <a href="main.php?dir=revival_terms&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المحتوي </p>
+                              </a>
+                          </li>
+                      </ul>
                   </li>
 
                   <li class="nav-item" id="lnk-banner">
@@ -91,6 +114,30 @@
                               <a href="main.php?dir=revival_goals&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
                                   <p> مشاهدة الاهداف </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item" id="lnk-selection-forms">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              اختيارات الفورم
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-selection">
+                              <a href="main.php?dir=form_selection&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-selection">
+                              <a href="main.php?dir=form_selection&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة الاختيارات </p>
                               </a>
                           </li>
                       </ul>

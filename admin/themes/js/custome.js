@@ -453,6 +453,24 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=form_selection") != -1) {
+    $("#lnk-selection-forms").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-selection").addClass("active-tab");
+    } else {
+      $("#lnk-rep-selection").addClass("active-tab");
+    }
+  }
+
+  if (window.location.href.indexOf("dir=revival_terms") != -1) {
+    $("#lnk-revival_terms").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-rev-terms").addClass("active-tab");
+    } else {
+      $("#lnk-rep-rev-terms").addClass("active-tab");
+    }
+  }
+
   if (window.location.href.indexOf("dir=revival_goals") != -1) {
     $("#lnk-revival_goals").addClass("active menu-is-opening menu-open");
     if (window.location.href.indexOf("add") != -1) {
@@ -480,6 +498,8 @@ $(document).ready(function () {
       $("#lnk-rep-revival_add_new_project").addClass("active-tab");
     }
   }
+
+ 
   $(function () {
     $(".rateyo")
       .rateYo()

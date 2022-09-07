@@ -159,6 +159,28 @@ include $tem . 'left_sidebar.php';
             include 'revival_about/report.php';
         }
 
+         // START Form Selection
+         if ($dir == 'form_selection' && $page == 'add') {
+            include 'form_selection/add.php';
+        } elseif ($dir == 'form_selection' && $page == 'edit') {
+            include 'form_selection/edit.php';
+        } elseif ($dir == 'form_selection' && $page == 'delete') {
+            include 'form_selection/delete.php';
+        } elseif ($dir == 'form_selection' && $page == 'report') {
+            include 'form_selection/report.php';
+        }
+
+           // START REVIVAL TERMS
+           if ($dir == 'revival_terms' && $page == 'add') {
+            include 'revival_terms/add.php';
+        } elseif ($dir == 'revival_terms' && $page == 'edit') {
+            include 'revival_terms/edit.php';
+        } elseif ($dir == 'revival_terms' && $page == 'delete') {
+            include 'revival_terms/delete.php';
+        } elseif ($dir == 'revival_terms' && $page == 'report') {
+            include 'revival_terms/report.php';
+        }
+
         // START Revival Goals
         if ($dir == 'revival_goals' && $page == 'add') {
             include 'revival_goals/add.php';

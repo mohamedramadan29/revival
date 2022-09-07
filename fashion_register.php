@@ -316,8 +316,8 @@ if (isset($_SESSION["username"])) { ?>
                                     </div>
                                     <div class="box mb-3">
                                         <label for="floatingSelectGrid"><?php echo $lang["select_field"];  ?></label>
-                                        <select name="field" class="form-select country4" id="floatingSelectGrid"
-                                            aria-label="Floating label country2 example">
+                                        <select name="field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
@@ -331,16 +331,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-                                            <option value=" <?php echo $lang["design_fash_f"];  ?>">
-                                                <?php echo $lang["design_fash_f"];  ?> </option>
-                                            <option value="<?php echo $lang["sewing_f"];  ?>">
-                                                <?php echo $lang["sewing_f"];  ?> </option>
-                                            <option value="<?php echo $lang["makeup_f"];  ?> ">
-                                                <?php echo $lang["makeup_f"];  ?> </option>
-                                            <option value="<?php echo $lang["drawing_f"];  ?>">
-                                                <?php echo $lang["drawing_f"];  ?> </option>
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='الأزياء والمجوهرات'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -383,12 +396,11 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="box mb-3">
                                         <label
                                             for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?></label>
-                                        <select name="sub_field" class="form-select country3" id="floatingSelectGrid"
-                                            aria-label="Floating label select example">
+                                            <select name="sub_field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
                                             <option
                                                 value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
                                                 <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
@@ -399,17 +411,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-                                            <option value="   <?php echo $lang["drawing_on_canvas_sub_f"];  ?>    ">
-                                                <?php echo $lang["drawing_on_canvas_sub_f"];  ?> </option>
-                                            <option value=" <?php echo $lang["models_design_sub_f"];  ?>  ">
-                                                <?php echo $lang["models_design_sub_f"];  ?> </option>
-                                            <option value="   <?php echo $lang["face_makeup_sub_f"];  ?>   ">
-                                                <?php echo $lang["face_makeup_sub_f"];  ?> </option>
-                                            <option value="  <?php echo $lang["Hairstyle_sub_f"];  ?>   ">
-                                                <?php echo $lang["Hairstyle_sub_f"];  ?> </option>
-
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='الأزياء والمجوهرات'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_sub_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_sub_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -551,17 +575,7 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <?php if ($_SESSION["lang"] == "ar") { ?>
-
-                                            <a href="fash_terms.php"> <?php echo $lang["terms"];  ?> </a>
-                                            <?php
-                                                } else { ?>
-                                            <a href="fash_terms_en.php"> <?php echo $lang["terms"];  ?> </a>
-                                            <?php
-
-                                                } ?>
-
-
+                                            <a href="rev_terms.php?page=الأزياء والمجوهرات"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <hr>

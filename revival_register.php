@@ -286,16 +286,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-
-                                            <option value="<?php echo $lang["Management_f"];  ?>">
-                                                <?php echo $lang["Management_f"];  ?> </option>
-                                            <option value="<?php echo $lang["marketing_f"];  ?>">
-                                                <?php echo $lang["marketing_f"];  ?></option>
-                                            <option value=" <?php echo $lang["Organizing_events_f"];  ?>  ">
-                                                <?php echo $lang["Organizing_events_f"];  ?> </option>
-
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='ريفايفال'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -376,7 +389,8 @@ if (isset($_SESSION["username"])) { ?>
                                         <label
                                             for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?></label>
                                         <select name="sub_field" class="form-select country" id="floatingSelectGrid"
-                                            aria-label="Floating label select example">
+                                            aria-label="Floating label country example">
+
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
                                             <option
@@ -389,16 +403,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-
-                                            <option value=" <?php echo $lang["Translation_f"];  ?>">
-                                                <?php echo $lang["Translation_f"];  ?> </option>
-                                            <option value="  <?php echo $lang["content_writing_f"];  ?>  ">
-                                                <?php echo $lang["content_writing_f"];  ?> </option>
-                                            <option value=" <?php echo $lang["identity_design_f"];  ?>  ">
-                                                <?php echo $lang["identity_design_f"];  ?> </option>
-
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='ريفايفال'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_sub_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_sub_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -419,16 +446,7 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <?php if (isset($_SESSION["lang"]) == "ar") { ?>
-
-                                            <a href="rev_terms.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-                                                } else { ?>
-                                            <a href="rev_terms_en.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-
-                                                } ?>
-
+                                            <a href="rev_terms.php?page=الرئيسية"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <hr>

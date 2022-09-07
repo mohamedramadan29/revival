@@ -379,8 +379,7 @@ if (isset($_SESSION["username"])) { ?>
                                             value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?> ">
 
                                     </div>
-
-                                    <div class="box mb-3">
+                                     <div class="box mb-3">
                                         <label for="selectcountry"><?php echo $lang["country"];  ?></label>
                                         <select name="country" class="form-select country3" id="selectcountry"
                                             aria-label="Floating label select example">
@@ -462,9 +461,8 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="box">
                                         <label for="country9"><?php echo $lang["select_field"];  ?><span class="star"> *
                                             </span></label>
-                                        <select name="field" class="form-select country9" id="country9"
-                                            aria-label="Floating label country2 example"
-                                            value="<?php echo $_REQUEST['field']; ?>">
+                                            <select name="field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
@@ -478,17 +476,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-
-                                            <option value="   <?php echo $lang["artificial_intelligence_f"];  ?> ">
-                                                <?php echo $lang["artificial_intelligence_f"];  ?> </option>
-                                            <option value="   <?php echo $lang["Virtual_reality_f"];  ?>  ">
-                                                <?php echo $lang["Virtual_reality_f"];  ?> </option>
-                                            <option value="<?php echo $lang["metaverse_f"];  ?> ">
-                                                <?php echo $lang["metaverse_f"];  ?> </option>
-                                            <option value="  <?php echo $lang["augmented_reality_f"];  ?> ">
-                                                <?php echo $lang["augmented_reality_f"];  ?> </option>
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='مدينة الذكاء الإصطناعي'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -529,12 +539,11 @@ if (isset($_SESSION["username"])) { ?>
                                         <label for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?><span
                                                 class="star"> *
                                             </span></label>
-                                        <select name="sub_field" class="form-select country8" id="floatingSelectGrid"
-                                            aria-label="Floating label select example">
+                                            <select name="sub_field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
                                             <option
                                                 value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
                                                 <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
@@ -545,17 +554,29 @@ if (isset($_SESSION["username"])) { ?>
 
                                             <?php
                                                 }
-                                                ?>
-
-                                            <option value="<?php echo $lang["programe_sub_f"];  ?>">
-                                                <?php echo $lang["programe_sub_f"];  ?> </option>
-                                            <option value="<?php echo $lang["design_sub_f"];  ?>">
-                                                <?php echo $lang["design_sub_f"];  ?> </option>
-                                            <option value="<?php echo $lang["big_data_sub_f"];  ?>  ">
-                                                <?php echo $lang["big_data_sub_f"];  ?> </option>
-                                            <option value="<?php echo $lang["data_analysis_sub_f"];  ?> ">
-                                                <?php echo $lang["data_analysis_sub_f"];  ?> </option>
-
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='مدينة الذكاء الإصطناعي'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_sub_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_sub_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
                                         </select>
 
                                     </div>
@@ -982,17 +1003,8 @@ if (isset($_SESSION["username"])) { ?>
                                     </h2>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
-
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <?php if ($_SESSION["lang"] == "ar") { ?>
-
-                                            <a href="art_terms.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-                                                } else { ?>
-                                            <a href="art_terms_en.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-
-                                                } ?>
+                                            <a href="rev_terms.php?page=مدينة الذكاء الإصطناعي"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <hr>

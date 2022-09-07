@@ -267,12 +267,7 @@ if (isset($_SESSION["username"])) { ?>
                                                     <?php
                                                         }
                                                         ?>
-
-
-
-
-
-                                                    <?php
+                                                        <?php
                                                         $stmt = $connect->prepare("SELECT * FROM countries");
                                                         $stmt->execute();
                                                         $allcountry = $stmt->fetchall();
@@ -307,11 +302,6 @@ if (isset($_SESSION["username"])) { ?>
                                                     <?php
                                                         }
                                                         ?>
-
-
-
-
-
                                                     <!--  <option value=""> الموهل العلمي </option> -->
                                                     <option value=" <?php echo $lang["illiterate"];  ?> ">
                                                         <?php echo $lang["illiterate"];  ?> </option>
@@ -333,33 +323,45 @@ if (isset($_SESSION["username"])) { ?>
                                                     for="floatingSelectGrid"><?php echo $lang["select_field"];  ?><span
                                                         class="star"> *
                                                     </span></label>
-                                                <select name="field" class="form-select country4"
-                                                    id="floatingSelectGrid"
-                                                    aria-label="Floating label country2 example">
+                                                    <select name="field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
-                                                    <?php
-                                                        if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                                    <option
-                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>">
-                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>
-                                                    </option>
-                                                    <?php
-                                                        } else { ?>
-                                                    <option value=""><?php echo $lang["select"];  ?></option>
+                                            <?php
+                                                if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                                            <option
+                                                value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>">
+                                                <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['field']; ?>
+                                            </option>
+                                            <?php
+                                                } else { ?>
+                                            <option value=""><?php echo $lang["select"];  ?></option>
 
+                                            <?php
+                                                }
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='مواهب العالم الرياضية'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
                                                     <?php
-                                                        }
-                                                        ?>
-                                                    <option value="  <?php echo $lang["football_f"];  ?>  ">
-                                                        <?php echo $lang["football_f"];  ?></option>
-                                                    <option value=" <?php echo $lang["intelligence_games_f"];  ?>   ">
-                                                        <?php echo $lang["intelligence_games_f"];  ?></option>
-                                                    <option value="  <?php echo $lang["Athletics_f"];  ?>">
-                                                        <?php echo $lang["Athletics_f"];  ?></option>
-                                                    <option value="<?php echo $lang["running_f"];  ?>">
-                                                        <?php echo $lang["running_f"];  ?></option>
-                                                </select>
-
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
+                                        </select>
                                             </div>
 
                                         </div>
@@ -405,38 +407,45 @@ if (isset($_SESSION["username"])) { ?>
                                                 <label for="floatingSelectGrid">
                                                     <?php echo $lang["select_sub_field"];  ?><span class="star">
                                                         * </span></label>
-                                                <select name="sub_field" class="form-select country8"
-                                                    id="floatingSelectGrid" aria-label="Floating label select example">
+                                                        <select name="sub_field" class="form-select country" id="floatingSelectGrid"
+                                            aria-label="Floating label country example">
 
+                                            <?php
+                                                if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                                            <option
+                                                value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
+                                                <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
+                                            </option>
+                                            <?php
+                                                } else { ?>
+                                            <option value=""><?php echo $lang["select"];  ?></option>
+
+                                            <?php
+                                                }
+                                                ?> 
+                                                <?php
+                                                $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='مواهب العالم الرياضية'");
+                                                $stmt->execute();
+                                                $mainfiled = $stmt->fetchAll();
+                                                foreach($mainfiled as $filed){
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        $fileds = $filed['select_sub_name'];
+                                                    } else {
+                                                        $fileds = $filed['select_sub_name_en'];
+                                                    }
+                                                    $fileds =  explode(",", $fileds);
+                                                    
+                                                    $countfile = count($fileds) - 1;
+                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?=  $fileds[$i] ?></option>
                                                     <?php
-                                                        if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-
-                                                    <option
-                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>">
-                                                        <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['sub_field']; ?>
-                                                    </option>
-                                                    <?php
-                                                        } else { ?>
-                                                    <option value=""><?php echo $lang["select"];  ?></option>
-
-                                                    <?php
-                                                        }
-                                                        ?>
-
-
-
-
-                                                    <option value="<?php echo $lang["Match_referee_sub_f"];  ?>">
-                                                        <?php echo $lang["Match_referee_sub_f"];  ?> </option>
-                                                    <option value="<?php echo $lang["player_sub_f"];  ?>">
-                                                        <?php echo $lang["player_sub_f"];  ?> </option>
-                                                    <option value="<?php echo $lang["match_suspended_sub_f"];  ?>">
-                                                        <?php echo $lang["match_suspended_sub_f"];  ?> </option>
-
-                                                    <option value="<?php echo $lang["Coach_sub_f"];  ?> ">
-                                                        <?php echo $lang["Coach_sub_f"];  ?> </option>
-                                                </select>
+                                                    }
+                                                    ?>
+                                                <?php
+                                                }
+                                                ?> 
+                                            
+                                        </select>
 
                                             </div>
                                             <div class="box">
@@ -581,18 +590,8 @@ if (isset($_SESSION["username"])) { ?>
                                     </h2>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
-                                        <label for="checkterms"><?php echo $lang["iagree"];  ?>
-                                            <?php if ($_SESSION["lang"] == "ar") { ?>
-
-                                            <a href="sport_terms.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-                                                } else { ?>
-                                            <a href="sport_terms_en.php"> <?php echo $lang["terms"];  ?></a>
-                                            <?php
-
-                                                } ?>
-
-
+                                        <label for="checkterms"> <?php echo $lang["iagree"];  ?>
+                                            <a href="rev_terms.php?page=مواهب العالم الرياضية"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <hr>
