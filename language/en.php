@@ -356,7 +356,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "data_analysis_sub_f" =>   "    Data Analysis   ",
     // /////////////////// Register Type 
     "Individually" =>   "  Individually  ",
-    "broker_company" =>   "  broker Or company   ",
+    "broker_company" =>   "company",
     ///////////////////////////////
     /////////////////// START SPORT TALENT FILED
     "football_f" =>   " football ",
@@ -493,9 +493,11 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "following_documents" =>   " Attach the following documents ",
 
     "scientific_certificate" =>   "Latest scientific certificate",
-
+    
     "revival_order_services" => "   Thank  For order Services From Revival We will contact you  ",
     "add_new_project_from_user" =>   " Project Added Successfully ",
+    "add_talent" =>   "Add New Talent",
+    "add_talent_suc" =>   "New Talent Added Successfully",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

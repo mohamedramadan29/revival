@@ -3,24 +3,21 @@
     <?php
     if ($userinfo['user_status'] == 'active') { ?>
 
-    <div class="alert_message alert alert-primary d-flex align-items-center" role="alert">
-        <div>
-            تم تفعيل حسابك بنجاح
+        <div class="alert_message alert alert-primary d-flex align-items-center" role="alert">
+            <div>
+                تم تفعيل حسابك بنجاح
+            </div>
         </div>
-    </div>
     <?php
     } else { ?>
-    <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-            class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
-            aria-label="Warning:">
-            <path
-                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-        </svg>
-        <div>
-            حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك
+        <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+            <div>
+                حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك
+            </div>
         </div>
-    </div>
     <?php
     } ?>
 
@@ -34,24 +31,23 @@
                             <?php
 
                             if (strlen($userinfo['personal_image']) > 0) { ?>
-                            <div class="personal_image">
-                                <img src="admin/upload/<?php echo $userinfo['personal_image']; ?>" alt="">
-                                <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
-                            </div>
+                                <div class="personal_image">
+                                    <img src="admin/upload/<?php echo $userinfo['personal_image']; ?>" alt="">
+                                    <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
+                                </div>
                             <?php
                             } else { ?>
-                            <div class="personal_image">
-                                <img src="uploads/avatar.png" alt="">
-                                <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
-                            </div>
+                                <div class="personal_image">
+                                    <img src="uploads/avatar.png" alt="">
+                                    <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
+                                </div>
 
                             <?php
                             }
 
                             ?>
                             <br>
-                            <input class="btn btn-primary" type="submit"
-                                value="   <?php echo $lang["edit_profile_image"]; ?>   ">
+                            <input class="btn btn-primary" type="submit" value="   <?php echo $lang["edit_profile_image"]; ?>   ">
                         </form>
 
                         <?php
@@ -78,10 +74,6 @@
 
                         ?>
 
-
-
-
-
                         <h2> <?php echo $userinfo['first_name']; ?> <?php echo $userinfo['last_name'];  ?> </h2>
                         <p> <?php echo $userinfo['email']; ?> </p>
 
@@ -98,14 +90,22 @@
                                 <li class="d-none"> <a href="ticket.php" class="btn button">
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
+                                <?php 
+                                if($userinfo['register_type'] == ' شركه ' || $userinfo['reg_type'] == 'company'){ ?>
+                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username'];?>" class="btn button">
+                                        <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
+                                </li>
+                                <?php 
+                                }else{
+                                    echo 'No';
+                                }
+                                ?>
                                 <li class="dropdown-share d-none">
-                                    <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i
-                                            class="fa fa-chevron-down"></i>
+                                    <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i class="fa fa-chevron-down"></i>
                                     </a>
                                     <ul class="list-unstyled">
                                         <li> <a href="share_works_indvidual.php">
-                                                <?php echo $lang["Individually_share"]; ?> </a> <i
-                                                class="fa fa-user"></i></li>
+                                                <?php echo $lang["Individually_share"]; ?> </a> <i class="fa fa-user"></i></li>
                                         <li> <a href="share_works_team.php"> <?php echo $lang["collectively_share"]; ?>
                                             </a> <i class="fa fa-users"></i>
                                         </li>
@@ -148,8 +148,7 @@
                             <h4> <?php echo $lang["Brief_about_you"]; ?> </h4>
 
                             <div class="information">
-                                <textarea readonly
-                                    placeholder="<?php echo $lang["your_experiences"]; ?> ">  <?php echo $userinfo['experience_info']; ?> </textarea>
+                                <textarea readonly placeholder="<?php echo $lang["your_experiences"]; ?> ">  <?php echo $userinfo['experience_info']; ?> </textarea>
                             </div>
                         </div>
                         <!--

@@ -349,8 +349,8 @@ $lang = array(
   "big_data_sub_f" =>   "  بيج داتا  ",
   "data_analysis_sub_f" =>   "     تحليل بيانات   ",
   // /////////////////// Register Type 
-  "Individually" =>   "  فردي  ",
-  "broker_company" =>   "   وسيط او شركة    ",
+  "Individually" =>   "فردي",
+  "broker_company" =>   "شركه",
   ///////////////////////////////
   /////////////////// START SPORT TALENT FILED
   "football_f" =>   "  كرة قدم  ",
@@ -476,7 +476,8 @@ $lang = array(
   "scientific_certificate" =>   " اخر شهادة علمية ",
   "add_new_project_from_user" =>   " تم اضافة مشروع جديد بنجاح ",
 
-
+  "add_talent" =>   "اضافة موهبة جديدة",
+  "add_talent_suc" =>   " تم اضافة موهبة جديدة بنجاح",
 
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
