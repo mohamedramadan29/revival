@@ -231,12 +231,7 @@ $username = $_GET["username"];
                                                                     </label>
                                                                     <input name="email" type="email" class="form-control" id="floatingInput" value="">
                                                                 </div>
-                                                                <div class="box mb-3">
-                                                                    <label for="floatingInput"><?php echo $lang["username"];  ?><span class="star">
-                                                                            * </span>
-                                                                    </label>
-                                                                    <input disabled name="username" type="text" class="form-control" id="floatingInput" value="">
-                                                                </div>
+                                                                 
                                                                 <div class="box mb-3">
 
                                                                     <label for="floatingInput">

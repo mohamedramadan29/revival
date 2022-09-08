@@ -96,9 +96,7 @@
                                         <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
                                 </li>
                                 <?php 
-                                }else{
-                                    echo 'No';
-                                }
+                                } 
                                 ?>
                                 <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i class="fa fa-chevron-down"></i>

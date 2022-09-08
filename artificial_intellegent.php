@@ -104,7 +104,7 @@ include 'init.php';
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-
+                <h3 class="modal-title" id="exampleModalLabel"> </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -165,7 +165,7 @@ include 'init.php';
                 <div class="col-lg-6 col-12 about_events"
                     style="background-image: url(admin/upload/<?php echo $about["image1"] ?>) ;">
                     <div class="d-flex align-items-center pt-5">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
+                    <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
                                                                                                                     echo $about["video1"];
                                                                                                                 } else {
                                                                                                                     echo $about["video2"];

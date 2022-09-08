@@ -252,6 +252,7 @@ body {
     background-color: #fff;
     box-shadow: 0px 0px 10px 2px #eae9e9;
     min-height: 410px;
+    margin-bottom: 20px;
 }
 
 .vision .data .info ul {
@@ -685,8 +686,14 @@ body {
     color: #fff;
     text-decoration: none;
 }
-
-.footer .data .copy_right {}
+@media(max-width:992px){
+    .footer .data .copy_right {
+        margin-bottom: 80px;
+    }
+    .footer .data .follow_us{
+        margin-top: 80px;
+    }
+}
 
 .footer .data .copy_right p {
     font-size: 12px;

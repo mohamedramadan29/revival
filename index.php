@@ -165,7 +165,7 @@ include 'init.php';
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 about_events"
-                    style="background-image: url(admin/upload/<?php echo $about["image1"] ?>) ;">
+                    style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar"){echo $about["image1"];}else{echo $about["image2"];}?>) ;">
                     <div class="d-flex align-items-center pt-5">
                         <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
                                                                                                                     echo $about["video1"];

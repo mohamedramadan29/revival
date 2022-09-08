@@ -100,6 +100,14 @@
                                 <li class="d-none"> <a href="ticket.php" class="btn button">
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
+                                <?php 
+                                if($userinfo['register_type'] == ' شركه ' || $userinfo['reg_type'] == 'company'){ ?>
+                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username'];?>" class="btn button">
+                                        <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
+                                </li>
+                                <?php 
+                                } 
+                                ?>
                                 <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i
                                             class="fa fa-chevron-down"></i>

@@ -78,11 +78,7 @@
 
                         ?>
 
-
-
-
-
-                        <h2> <?php echo $userinfo['first_name']; ?> <?php echo $userinfo['last_name'];  ?> </h2>
+                        <h2> <?php echo $userinfo['first_name2']; ?> <?php echo $userinfo['last_name'];  ?> </h2>
                         <p> <?php echo $userinfo['email']; ?> </p>
 
                     </div>
@@ -98,6 +94,14 @@
                                 <li class="d-none"> <a href="ticket.php" class="btn button">
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
+                                <?php 
+                                if($userinfo['register_type'] == ' شركه ' || $userinfo['reg_type'] == 'company'){ ?>
+                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username'];?>" class="btn button">
+                                        <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
+                                </li>
+                                <?php 
+                                } 
+                                ?>
                                 <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i
                                             class="fa fa-chevron-down"></i>
@@ -134,8 +138,8 @@
                                 </ul>
                                 <ul class="list-unstyled">
 
-                                    <li> <?php echo $userinfo['first_name']; ?> </li>
                                     <li> <?php echo $userinfo['first_name2']; ?> </li>
+                                    <li> <?php echo $userinfo['last_name']; ?> </li>
                                     <li> <?php echo $userinfo['email']; ?> </li>
                                     <li> <?php echo $userinfo['mobile']; ?> </li>
                                     <li> <?php echo $userinfo['specialist']; ?> </li>
