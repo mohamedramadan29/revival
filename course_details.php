@@ -125,30 +125,77 @@ if (isset($_GET['course_id'])) {
                     <div class="contact_form register_course">
                         <div class="container">
                             <div class="data">
+                            <?php if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                                $first_name = $_POST["first_name"];
+                                $last_name = $_POST["last_name"];
+                                $email = $_POST["email"];
+                                $mobile = $_POST["mobile"];
+                                $country = $_POST["country"];
+                                $errormessage = [];
+                                if (empty($first_name)) {
+                                    $errormessage[] = $lang["enter_first_name"];
+                                }
+                                if (empty($last_name)) {
+                                    $errormessage[] =  $lang["enter_last_name"];
+                                }
+                                if (empty($email)) {
+                                    $errormessage[] =  $lang["enter_email"];
+                                }
+                                if (empty($mobile)) {
+                                    $errormessage[] =  $lang["enter_mobile"];
+                                }
+                                if (empty($errormessage)){
+                                    
+                                    $stmt = $connect->prepare("INSERT INTO course_register (first_name,last_name,email,mobile,country,course_id)
+                                    VALUES(:zfirst_name,:zlast_name,:zemail,:zmobile,:zcountry,:zcourse_id)");
+                                    $stmt->execute(array(
+                                        "zfirst_name"=>$first_name,
+                                        "zlast_name"=>$last_name,
+                                        "zemail"=>$email,
+                                        "zmobile"=>$mobile,
+                                        "zcountry"=>$country,
+                                        "zcourse_id"=>$course_id,
+                                    ));
+                                    if($stmt){?>
+                                    <div class="alert alert-success"> تم التسجيل في الكورس بنجاح </div>
+                                    <?php
+                                    }
+                                }else{
+                                    foreach ($errormessage as $message) { ?>
+                                        <div class="error_message">
+                                            <div class="alert alert-danger"> <?php echo $message ?> </div>
+                                        </div>
+                                        <?php
+                                                    }
+                                }
+
+                               
+                                }
+                                ?>
                                 <form action="" method="POST">
                                     <div class="row">
                                         <div class="col-lg-12 col-12">
                                             <div class="info">
-                                                <h2> سجل الان </h2>
+                                                <h2> <?php echo $lang["register"]; ?> </h2>
                                                 <div class="row">
                                                     <div class="col-lg-12 col-12">
 
                                                         <div class="box mb-3">
-                                                            <label for="floatingInput"> الاسم الاول </label>
-                                                            <input type="text" class="form-control" id="floatingInput"
-                                                                placeholder="">
+                                                            <label for="floatingInput"> <?php echo $lang["first_name"]; ?> </label>
+                                                            <input name="first_name" type="text" class="form-control" id="floatingInput"
+                                                                placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['first_name']; ?>">
 
                                                         </div>
                                                         <div class="box mb-3">
-                                                            <label for="floatingInput"> الاسم الاخير </label>
-                                                            <input type="text" class="form-control" id="floatingInput"
-                                                                placeholder="">
+                                                            <label for="floatingInput"> <?php echo $lang["last_name"]; ?> </label>
+                                                            <input name="last_name" type="text" class="form-control" id="floatingInput"
+                                                                placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['last_name']; ?>">
 
                                                         </div>
                                                         <div class="box mb-3">
-                                                            <label for="floatingInput">البريد الالكتروني</label>
-                                                            <input type="email" class="form-control" id="floatingInput"
-                                                                placeholder="">
+                                                            <label for="floatingInput">   <?php echo $lang["email"]; ?>  </label>
+                                                            <input name="email" type="email" class="form-control" id="floatingInput"
+                                                                placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['email']; ?>">
 
                                                         </div>
                                                         <div class="box mb-3">
@@ -213,7 +260,7 @@ if (isset($_GET['course_id'])) {
                                                     <div class="text">
                                                         <div class="">
                                                             <div class="reservation_button">
-                                                                <button type="submit" class="btn btn-primary"> سجل الان
+                                                                <button type="submit" class="btn btn-primary">    <?php echo $lang["register"]; ?>
                                                                 </button>
                                                             </div>
                                                         </div>

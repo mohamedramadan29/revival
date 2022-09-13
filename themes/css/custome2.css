@@ -99,3 +99,11 @@ body {
 .experience {
     text-align: left;
 }
+
+.course_content_info .course_learn,
+.course_content_info .course_requiremt,
+.course_content_info .course_description,
+.course_content_info .course_who,
+.course_content_info .course_instructor {
+    text-align: left;
+}

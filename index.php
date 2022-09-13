@@ -729,37 +729,23 @@ include 'init.php';
     <div class="container">
         <div class="top">
             <ul>
-                <li><a href="#img_1"><img src="uploads/art1.jpg"></a>
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM revival_gallary");
+            $stmt->execute();
+            $allimages = $stmt->fetchAll();
+            foreach($allimages as $image){?>
+             <li><a href="#<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
                 </li>
-                <li><a href="#img_2"><img src="uploads/art2.jpg"></a></li>
-                <li><a href="#img_3"><img src="uploads/art3.jpg"></a>
-                </li>
-                <li><a href="#img_4"><img src="uploads/art_state.jpg"></a></li>
-                <li><a href="#img_5"><img src="uploads/fash1.jpg"></a></li>
-                <li><a href="#img_6"><img src="uploads/fash2.jpg"></a></li>
-                <li><a href="#img_7"><img src="uploads/fash3.jpg"></a>
-                </li>
-                <li><a href="#img_8"><img src="uploads/fash4.jpg"></a>
-                </li>
-                <li><a href="#img_9"><img src="uploads/fash6.jpg"></a></li>
-                <li><a href="#img_10"><img src="uploads/fashion.jpg"></a></li>
-                <li><a href="#img_11"><img src="uploads/fashion2.jpg"></a></li>
-                <li><a href="#img_12"><img src="uploads/sport.jpg"></a></li>
-
+            <?php
+            }
+            ?>
             </ul>
-            <a href="#_1" class="lightbox trans" id="img_1"><img src="uploads/art1.jpg"></a>
-            <a href="#_2" class="lightbox trans" id="img_2"><img src="uploads/art2.jpg"></a>
-            <a href="#_3" class="lightbox trans" id="img_3"><img src="uploads/art3.jpg"></a>
-            <a href="#_4" class="lightbox trans" id="img_4"><img src="uploads/art_state.jpg"></a>
-            <a href="#_5" class="lightbox trans" id="img_5"><img src="uploads/fash1.jpg"></a>
-            <a href="#_6" class="lightbox trans" id="img_6"><img src="uploads/fash2.jpg"></a>
-            <a href="#_7" class="lightbox trans" id="img_7"><img src="uploads/fash3.jpg"></a>
-            <a href="#_8" class="lightbox trans" id="img_8"><img src="uploads/fash4.jpg"></a>
-            <a href="#_9" class="lightbox trans" id="img_9"><img src="uploads/fash6.jpg"></a>
-            <a href="#_10" class="lightbox trans" id="img_10"><img src="uploads/fashion.jpg"></a>
-            <a href="#_11" class="lightbox trans" id="img_11"><img src="uploads/fashion2.jpg"></a>
-            <a href="#_12" class="lightbox trans" id="img_12"><img src="uploads/sport.jpg"></a>
-
+            <?php
+            foreach($allimages as $image){?>
+             <a href="#_1" class="lightbox trans" id="<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </div>
