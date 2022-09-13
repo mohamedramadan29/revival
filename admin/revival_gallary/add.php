@@ -9,6 +9,7 @@
                     <li class="breadcrumb-item active" aria-current="page"> اضافة بانر </li>
                 </ol>
             </nav>
+            
         </div>
         <div class="title text-right">
             <h6> <i class="fa fa-plus"></i> اضافة بانر </h6>
