@@ -886,7 +886,7 @@ include 'init.php';
                 <div class="carousel-item">
                     <div class="data">
                         <div class="row">
-                            <h4> <?php echo $lang["last_article_fashion"] ?></h4>
+                            <h4> <?php echo $lang["last_article_fash"] ?></h4>
                             <?php
                             $stmt = $connect->prepare("SELECT * FROM articles WHERE article_category = 'fashion' ORDER BY article_id DESC LIMIT 3 ");
                             $stmt->execute();
