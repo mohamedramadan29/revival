@@ -1,0 +1,148 @@
+.contact_form .data .upload-file {
+    float: left;
+    width: 100%;
+}
+
+.contact_form .data .box .upload-wrapper p {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.upload-file .upload-wrapper {}
+
+.upload-file .upload-wrapper label {
+
+    text-align: center;
+    background: url(../../uploads/2813838.jpg) top center no-repeat #fff;
+    background-size: 284px;
+    position: relative;
+    height: 60px;
+    width: 200px;
+    box-shadow: 5px 5px 0px #ffbe32, -5px -5px 0px #08481e;
+}
+
+.upload-file .upload-wrapper label>input[type=file] {
+    display: none !important;
+}
+
+.upload-file .upload-wrapper label p {
+    font-size: 16px;
+
+}
+
+.upload-file .upload-wrapper label p a {
+    font-weight: 700;
+    color: #007bff;
+}
+
+#image-gallery,
+#image-gallery2,
+#image-gallery3,
+#image-gallery4,
+#image-gallery5,
+#image-gallery6,
+#image-gallery7,
+#image-gallery8,
+#image-gallery9 {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#image-gallery .thumb-Images {}
+
+#image-gallery .thumb-Images li,
+#image-gallery2 .thumb-Images li,
+#image-gallery3 .thumb-Images li,
+#image-gallery4 .thumb-Images li,
+#image-gallery5 .thumb-Images li,
+#image-gallery6 .thumb-Images li,
+#image-gallery7 .thumb-Images li,
+#image-gallery8 .thumb-Images li,
+#image-gallery9 .thumb-Images li {
+    float: left;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    padding: 10px 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: -10px -10px 0px #ffbe32, 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+#image-gallery .thumb-Images li .file-info,
+#image-gallery2 .thumb-Images li .file-info,
+#image-gallery3 .thumb-Images li .file-info,
+#image-gallery4 .thumb-Images li .file-info,
+#image-gallery5 .thumb-Images li .file-info,
+#image-gallery6 .thumb-Images li .file-info,
+#image-gallery7 .thumb-Images li .file-info,
+#image-gallery8 .thumb-Images li .file-info,
+#image-gallery9 .thumb-Images li .file-info {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 30px;
+}
+
+#image-gallery .thumb-Images li .img-wrap,
+#image-gallery2 .thumb-Images li .img-wrap,
+#image-gallery3 .thumb-Images li .img-wrap,
+#image-gallery4 .thumb-Images li .img-wrap,
+#image-gallery5 .thumb-Images li .img-wrap,
+#image-gallery6 .thumb-Images li .img-wrap,
+#image-gallery7 .thumb-Images li .img-wrap,
+#image-gallery8 .thumb-Images li .img-wrap,
+#image-gallery9 .thumb-Images li .img-wrap {
+    margin-right: 10px;
+}
+
+#image-gallery .thumb-Images li .img-wrap img.thumb,
+#image-gallery2 .thumb-Images li .img-wrap img.thumb,
+#image-gallery3 .thumb-Images li .img-wrap img.thumb,
+#image-gallery4 .thumb-Images li .img-wrap img.thumb,
+#image-gallery5 .thumb-Images li .img-wrap img.thumb,
+#image-gallery6 .thumb-Images li .img-wrap img.thumb,
+#image-gallery7 .thumb-Images li .img-wrap img.thumb,
+#image-gallery8 .thumb-Images li .img-wrap img.thumb,
+#image-gallery9 .thumb-Images li .img-wrap img.thumb {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+#image-gallery .thumb-Images li .img-wrap .close,
+#image-gallery2 .thumb-Images li .img-wrap .close,
+#image-gallery3 .thumb-Images li .img-wrap .close,
+#image-gallery4 .thumb-Images li .img-wrap .close,
+#image-gallery5 .thumb-Images li .img-wrap .close,
+#image-gallery6 .thumb-Images li .img-wrap .close,
+#image-gallery7 .thumb-Images li .img-wrap .close,
+#image-gallery8 .thumb-Images li .img-wrap .close,
+#image-gallery9 .thumb-Images li .img-wrap .close {
+    position: absolute;
+    right: 12px;
+    color: red;
+}
+
+#image-gallery .thumb-Images li .img-wrap .close i,
+#image-gallery2 .thumb-Images li .img-wrap .close i,
+#image-gallery3 .thumb-Images li .img-wrap .close i,
+#image-gallery4 .thumb-Images li .img-wrap .close i,
+#image-gallery5 .thumb-Images li .img-wrap .close i,
+#image-gallery6 .thumb-Images li .img-wrap .close i,
+#image-gallery7 .thumb-Images li .img-wrap .close i,
+#image-gallery8 .thumb-Images li .img-wrap .close i,
+#image-gallery9 .thumb-Images li .img-wrap .close i {
+    font-size: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */
