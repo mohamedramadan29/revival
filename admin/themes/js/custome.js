@@ -479,6 +479,14 @@ $(document).ready(function () {
       $("#lnk-rep-rev-goals").addClass("active-tab");
     }
   }
+  if (window.location.href.indexOf("dir=revival_gallary") != -1) {
+    $("#lnk-revival_gallary").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-rev-gallary").addClass("active-tab");
+    } else {
+      $("#lnk-rep-rev-gallary").addClass("active-tab");
+    }
+  }
   if (window.location.href.indexOf("dir=revival_order") != -1) {
     $("#lnk-revival_order").addClass("active menu-is-opening menu-open");
     if (window.location.href.indexOf("add") != -1) {

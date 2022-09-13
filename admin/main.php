@@ -191,6 +191,16 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'revival_goals' && $page == 'report') {
             include 'revival_goals/report.php';
         }
+          // START Revival Gallary
+          if ($dir == 'revival_gallary' && $page == 'add') {
+            include 'revival_gallary/add.php';
+        } elseif ($dir == 'revival_gallary' && $page == 'edit') {
+            include 'revival_gallary/edit.php';
+        } elseif ($dir == 'revival_gallary' && $page == 'delete') {
+            include 'revival_gallary/delete.php';
+        } elseif ($dir == 'revival_gallary' && $page == 'report') {
+            include 'revival_gallary/report.php';
+        }
 
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {

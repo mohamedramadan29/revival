@@ -53,6 +53,10 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'form_selection') {
         include 'form_selection/lang/' . $_SESSION['lang'] . '.php';
     }
+    
+    elseif ($dir == 'revival_gallary') {
+        include 'revival_gallary/lang/' . $_SESSION['lang'] . '.php';
+    }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
 }
