@@ -91,49 +91,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $project_name = $_POST["project_name"];
     $project_desc = $_POST["about_project"];
-
-    $stmt = $connect->prepare("INSERT INTO revival_add_project (
-        project_name, project_desc, certificate_register, eng_draw,
-        prototype,project_images,project_video, username) VALUES (
-            :zproject_name, :zproject_desc , :zcert_register,:zeng_draw,
-            :zprototype,:zproject_image,:zproject_video,:zusername
-        )");
-    $stmt->execute(array(
-        "zproject_name" => $project_name,
-        "zproject_desc" => $project_desc,
-        "zcert_register" => $location,
-        "zeng_draw" => $location2,
-        "zprototype" => $location3,
-        "zproject_image" => $location4,
-        "zproject_video" => $location5,
-        "zusername" =>  $_SESSION["username"],
-    ));
-    if ($stmt) {
-
-        $to_email = $email;
-        $subject = "اضافة مشروع جديد";
-        $body =  $lang["add_new_project_from_user"];
-        $headers = "From: info@revivals.site";
-        mail($to_email, $subject, $body, $headers)
-
-?>
-<style>
-.message_form {
-    display: none !important;
-}
-</style>
-<div class='container'>
-    <div class='alert alert-success text-center'> <?php echo $lang["add_new_project_from_user"]; ?>
+    $errormessage = [];
+    if(empty($project_name)){
+        $errormessage[] = $lang["add_project_name_error"];
+    }
+    if(empty($project_desc)){
+        $errormessage[] = $lang["add_project_decs_error"];
+    }
+    if(empty($errormessage)){
+        $stmt = $connect->prepare("INSERT INTO revival_add_project (
+            project_name, project_desc, certificate_register, eng_draw,
+            prototype,project_images,project_video, username) VALUES (
+                :zproject_name, :zproject_desc , :zcert_register,:zeng_draw,
+                :zprototype,:zproject_image,:zproject_video,:zusername
+            )");
+        $stmt->execute(array(
+            "zproject_name" => $project_name,
+            "zproject_desc" => $project_desc,
+            "zcert_register" => $location,
+            "zeng_draw" => $location2,
+            "zprototype" => $location3,
+            "zproject_image" => $location4,
+            "zproject_video" => $location5,
+            "zusername" =>  $_SESSION["username"],
+        ));
+        if ($stmt) {
+            $to_email = $email;
+            $subject = "اضافة مشروع جديد";
+            $body =  $lang["add_new_project_from_user"];
+            $headers = "From: info@revivals.site";
+            mail($to_email, $subject, $body, $headers)
+    
+    ?>
+    <style>
+    .message_form {
+        display: none !important;
+    }
+    </style>
+    <div class='container'>
+        <div class='alert alert-success text-center'> <?php echo $lang["add_new_project_from_user"]; ?>
+        </div>
     </div>
-</div>
-<?php
+    <?php
+    }
+    }else{
+        foreach ($errormessage as $message) { ?>
+            <div class="error_message">
+                <div class="alert alert-danger"> <?php echo $message ?> </div>
+            </div>
+            <?php
+                        }
     }
 }
-
-
-
-
-
 ?>
 <!-- START CONTACT FORM -->
 <div class="contact_form">
@@ -144,7 +153,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="col-lg-12 col-12">
                         <div class="info">
                             <div class="row">
-
                                 <div class="col-lg-6 col-12">
                                     <div class="box mb-3">
                                         <label for="first_name"><?php echo $lang["project_name"];  ?><span class="star">
@@ -156,12 +164,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h3> <?php echo  $lang["legal_information"]; ?> </h3>
                                     <div class="row">
                                         <div class="col-lg-12">
-
                                             <div class="">
                                                 <div class="">
                                                     <label> <?php echo  $lang["registration_certificate"]; ?> </label>
                                                     <div class="check_prototype_resualt">
-
                                                         <div class="box mb-3">
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
@@ -273,8 +279,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control" name="about_project" id="floatingInput" cols="30"
                                             rows="6"></textarea>
-
-                                        <label for="floatingInput"><?php echo  $lang["about_project"]; ?></label>
                                     </div>
 
                                     <div class="row">

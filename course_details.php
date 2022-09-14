@@ -28,7 +28,7 @@ if (isset($_GET['course_id'])) {
             <div class="row">
                 <div class="col-lg-8">
                     <div class="course_learn">
-                        <h2> ماذا ستتعلم من هذا الكورس </h2>
+                        <h2> <?php echo $lang["what_learn_course"]; ?> </h2>
                         <ul class="list-unstyled">
                             <?php
                             if ($_SESSION["lang"] == "ar") {
@@ -48,7 +48,7 @@ if (isset($_GET['course_id'])) {
 
                     </div>
                     <div class="course_requiremt">
-                        <h2> متطلبات الكورس </h2>
+                        <h2>   <?php echo $lang["course_requirment"]; ?>  </h2>
                         <ul class="list-unstyled">
                             <?php
                             if ($_SESSION["lang"] == "ar") {
@@ -67,7 +67,7 @@ if (isset($_GET['course_id'])) {
                         </ul>
                     </div>
                     <div class="course_description">
-                        <h2> وصف الكورس </h2>
+                        <h2>    <?php echo $lang["course_description"]; ?>   </h2>
                         <?php
                         if ($_SESSION["lang"] == "ar") { ?>
                         <p> <?php echo $course_details['course_description']; ?> </p>
@@ -81,7 +81,7 @@ if (isset($_GET['course_id'])) {
 
                     </div>
                     <div class="course_who">
-                        <h2>لمن هذا الكورس</h2>
+                        <h2>     <?php echo $lang["who_course"]; ?>  </h2>
                         <ul class="list-unstyled">
                             <?php
                             if ($_SESSION["lang"] == "ar") {
@@ -101,7 +101,7 @@ if (isset($_GET['course_id'])) {
 
                     </div>
                     <div class="course_instructor">
-                        <h2> مقدم الكورس </h2>
+                        <h2>    <?php echo $lang["course_constuctor"]; ?>   </h2>
                         <h4> <?php echo $course_details['course_constructor']; ?> </h4>
                         <h6> <?php echo $course_details['course_constructor_learn']; ?> </h6>
                         <div class="row">
@@ -118,7 +118,6 @@ if (isset($_GET['course_id'])) {
                         <?php
                         }
                         ?>
-
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -155,10 +154,25 @@ if (isset($_GET['course_id'])) {
                                         "zmobile"=>$mobile,
                                         "zcountry"=>$country,
                                         "zcourse_id"=>$course_id,
-                                    ));
-                                    if($stmt){?>
-                                    <div class="alert alert-success"> تم التسجيل في الكورس بنجاح </div>
-                                    <?php
+                                    )); if ($stmt) {
+
+                                        $to_email = $email;
+                                        $subject = " التسجيل في الكورس ";
+                                        $body =  $lang["course_success_register"];
+                                        $headers = "From: info@revivals.site";
+                                        mail($to_email, $subject, $body, $headers)
+            
+                            ?>
+                        <style>
+                        .message_form {
+                            display: none !important;
+                        }
+                        </style>
+                        <div class='container'>
+                            <div class='alert alert-success text-center'> <?php echo $lang["course_success_register"]; ?>
+                            </div>
+                        </div>
+                        <?php
                                     }
                                 }else{
                                     foreach ($errormessage as $message) { ?>

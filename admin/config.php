@@ -57,6 +57,13 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'revival_gallary') {
         include 'revival_gallary/lang/' . $_SESSION['lang'] . '.php';
     }
+    elseif ($dir == 'course_register') {
+        include 'course_register/lang/' . $_SESSION['lang'] . '.php';
+    }
+    
+    elseif ($dir == 'company_talent') {
+        include 'company_talent/lang/' . $_SESSION['lang'] . '.php';
+    }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
 }

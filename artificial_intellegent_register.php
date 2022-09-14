@@ -269,15 +269,14 @@ if (isset($_SESSION["username"])) { ?>
                         $stmt = $connect->prepare("INSERT INTO art_register (first_name, last_name, email, mobile , country, specialist ,
     certificate , field , sub_field , register_type,
     experience_info, language_speak , project_details , project_name,
-    project_field, 	project_tools , project_date,project_design,project_prototype,
-    project_video,project_certificate,project_competation,project_prize
-     ,national_id,certificate_image,last_certificate,cv,username, password) 
+    project_field, project_tools , project_date,project_competation,project_prize
+    ,username, password) 
         VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
          :zcountry , :zspecialist ,
          :zcertificate,:zfield,:zsub_field,:zregister_type,
          :zexperience_info, :zlanguage_speak, :zproject_details,
-         :zproject_name,:zproject_field,:zproject_tools,:zproject_date,:zproject_design,:zproject_prototype,:zproject_video,:zproject_certificate,:zproject_competation,
-         :zproject_prize,:znational_id,:zcertificate_image,:zlast_certificate,:zcv,:zusername,:zpassword)");
+         :zproject_name,:zproject_field,:zproject_tools,:zproject_date,:zproject_competation,
+         :zproject_prize,:zusername,:zpassword)");
                         $stmt->execute(array(
                             "zfirst_name" => $first_name,
                             "zlast_name" => $last_name,
@@ -296,16 +295,8 @@ if (isset($_SESSION["username"])) { ?>
                             "zproject_field" => $project_field,
                             "zproject_tools" => $project_tools,
                             "zproject_date" => $project_date,
-                            "zproject_design" => $location,
-                            "zproject_prototype" => $location2,
-                            "zproject_video" => $location3,
-                            "zproject_certificate" => $location4,
                             "zproject_competation" => $project_competation,
                             "zproject_prize" => $project_prize,
-                            "znational_id" => $location5,
-                            "zcertificate_image" => $location6,
-                            "zlast_certificate" => $location7,
-                            "zcv" => $location8,
                             "zusername" => $username,
                             "zpassword" => $password,
                         ));
@@ -458,6 +449,38 @@ if (isset($_SESSION["username"])) { ?>
 
 
                                     </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="box mb-3">
+                                        <label for="floatingInput"> <?php echo $lang["last_name"];  ?><span
+                                                class="star"> * </span></label>
+                                        <input name="last_name" type="text" class="form-control" id="floatingInput"
+                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+
+                                    </div>
+
+                                    <div class="box mb-3">
+                                        <label for="floatingInput"><?php echo $lang["specialist"];  ?> <span
+                                                class="star"> * </span></label>
+                                        <input name="specialist" type="text" class="form-control" id="floatingInput"
+                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['specialist']; ?>">
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="floatingInput"> <?php echo $lang["password"];  ?><span class="star">
+                                                * </span></label>
+                                        <input name="password" type="password" class="form-control passwordinput"
+                                            id="floatingInput"
+                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password']; ?>">
+                                        <i class="fa fa-eye"></i>
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="floatingInput"> <?php echo $lang["confirm_password"];  ?><span
+                                                class="star"> *
+                                            </span></label>
+                                        <input name="password_repeat" type="password" class="form-control"
+                                            id="floatingInput"
+                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password_repeat']; ?>">
+                                    </div>
                                     <div class="box">
                                         <label for="country9"><?php echo $lang["select_field"];  ?><span class="star"> *
                                             </span></label>
@@ -503,38 +526,6 @@ if (isset($_SESSION["username"])) { ?>
 
                                     </div>
 
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="box mb-3">
-                                        <label for="floatingInput"> <?php echo $lang["last_name"];  ?><span
-                                                class="star"> * </span></label>
-                                        <input name="last_name" type="text" class="form-control" id="floatingInput"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
-
-                                    </div>
-
-                                    <div class="box mb-3">
-                                        <label for="floatingInput"><?php echo $lang["specialist"];  ?> <span
-                                                class="star"> * </span></label>
-                                        <input name="specialist" type="text" class="form-control" id="floatingInput"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['specialist']; ?>">
-                                    </div>
-                                    <div class="box mb-3">
-                                        <label for="floatingInput"> <?php echo $lang["password"];  ?><span class="star">
-                                                * </span></label>
-                                        <input name="password" type="password" class="form-control passwordinput"
-                                            id="floatingInput"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password']; ?>">
-                                        <i class="fa fa-eye"></i>
-                                    </div>
-                                    <div class="box mb-3">
-                                        <label for="floatingInput"> <?php echo $lang["confirm_password"];  ?><span
-                                                class="star"> *
-                                            </span></label>
-                                        <input name="password_repeat" type="password" class="form-control"
-                                            id="floatingInput"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password_repeat']; ?>">
-                                    </div>
                                     <div class="box">
                                         <label for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?><span
                                                 class="star"> *

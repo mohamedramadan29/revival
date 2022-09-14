@@ -2,10 +2,7 @@
 ob_start();
 session_start();
 include 'init.php';
-
-
 ?>
-
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
@@ -91,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mail($to_email, $subject, $body, $headers)
 ?>
 <style>
-.message_form {
+.contact_form {
     display: none !important;
 }
 </style>

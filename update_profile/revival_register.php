@@ -5,7 +5,6 @@ $stmt->execute(array($_SESSION["username"]));
 $userdata = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
-
     // START UPDATE CODE 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $first_name = $_POST["first_name"];
@@ -23,24 +22,19 @@ if ($count > 0) {
         $password = $_POST["password"];
 
         $personal_information = $_POST["personal_information"];
-
         $file = '';
         $file_tmp = '';
         $location = '';
         $location2 = '';
-
-
         $uploadplace = "admin/upload/";
         // START UPLOAD CV FIELS
         foreach ($_FILES['cv']['name'] as $key => $val) {
             $file = $_FILES['cv']['name'][$key];
             $file = str_replace(' ', '', $file);
             $file_tmp1 = $_FILES['cv']['tmp_name'][$key];
-
             move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
         }
-
         // START VIDEOS UPLOAD FIELS 
         foreach ($_FILES['videos']['name'] as $key => $val) {
             $file = $_FILES['videos']['name'][$key];
@@ -49,8 +43,6 @@ if ($count > 0) {
             move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
         }
-
-
         $errormessage = [];
         /*
         if (isset($_POST["check_privacy"])) {
@@ -113,16 +105,14 @@ if ($count > 0) {
                     $location,
                     $location2,
                     $_SESSION["username"]
-
                 ));
                 if ($stmt) {
-                    header("refresh: 0");
+                    header("Location:profile.php");
 ?>
-
-
 <div class='container'>
     <div class='alert alert-success text-center'>
-        تم تعديل البيانات بنجاح
+       
+    <?php echo $lang["suc_profile_message"];  ?>
     </div>
 </div>
 <?php
@@ -147,13 +137,14 @@ if ($count > 0) {
 
                 ));
                 if ($stmt) {
-                    header("refresh: 2");
+                    header("Location:profile.php");
                 ?>
 
 
 <div class='container'>
     <div class='alert alert-success text-center'>
-        تم تعديل البيانات بنجاح
+       
+    <?php echo $lang["suc_profile_message"];  ?>
     </div>
 </div>
 <?php
@@ -179,13 +170,15 @@ if ($count > 0) {
 
                 ));
                 if ($stmt) {
-                    header("refresh: 2");
+                    header("Location:profile.php");
+
                 ?>
 
 
 <div class='container'>
     <div class='alert alert-success text-center'>
-        تم تعديل البيانات بنجاح
+       
+    <?php echo $lang["suc_profile_message"];  ?>
     </div>
 </div>
 <?php
@@ -208,13 +201,14 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 2");
+                    header("Location:profile.php");
+
                 ?>
 
 
 <div class='container'>
     <div class='alert alert-success text-center'>
-        تم تعديل البيانات بنجاح
+    <?php echo $lang["suc_profile_message"];  ?>
     </div>
 </div>
 <?php

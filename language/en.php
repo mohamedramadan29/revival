@@ -499,6 +499,19 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "add_talent" =>   "Add New Talent",
     "add_talent_suc" =>   "New Talent Added Successfully",
 
+      ///////////////////////// Courses
+  "what_learn_course" =>   "   What will you learn from this course?  ", 
+  "course_requirment" =>   "   course requirements  ", 
+  "course_description" =>   "  Course Description   ", 
+  "who_course" =>   " Who is this course for?  ", 
+  "course_constuctor" =>   " Course presenter  ", 
+  "course_success_register" =>   "  The course has been successfully registered  ", 
+  "suc_profile_message" =>   " The data has been modified successfully ",
+  
+    /**** add individual project  */
+    "add_project_name_error" =>   " Please enter the project name ", 
+    "add_project_decs_error" =>   " Please enter an overview of the project   ", 
+
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

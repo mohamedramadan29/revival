@@ -2,12 +2,6 @@
 <div class="profile_data">
     <?php
     if ($userinfo['user_status'] == 'active') { ?>
-
-        <div class="alert_message alert alert-primary d-flex align-items-center" role="alert">
-            <div>
-                تم تفعيل حسابك بنجاح
-            </div>
-        </div>
     <?php
     } else { ?>
         <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
@@ -68,7 +62,7 @@
                             }
 
                             if ($stmt) {
-                                header("refresh: 0");
+                                header("Location:profile.php");
                             }
                         }
 
@@ -90,13 +84,13 @@
                                 <li class="d-none"> <a href="ticket.php" class="btn button">
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
-                                <?php 
-                                if($userinfo['register_type'] == ' شركه ' || $userinfo['reg_type'] == 'company'){ ?>
-                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username'];?>" class="btn button">
-                                        <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
-                                </li>
-                                <?php 
-                                } 
+                                <?php
+                                if ($userinfo['register_type'] == ' شركه ' || $userinfo['reg_type'] == 'company') { ?>
+                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username']; ?>" class="btn button">
+                                            <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
+                                    </li>
+                                <?php
+                                }
                                 ?>
                                 <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i class="fa fa-chevron-down"></i>
@@ -148,8 +142,105 @@
                             <div class="information">
                                 <textarea readonly placeholder="<?php echo $lang["your_experiences"]; ?> ">  <?php echo $userinfo['experience_info']; ?> </textarea>
                             </div>
+                            <div class="box">
+                                <label id="name"> <?php echo $lang["scientific_certificate"]; ?> </label>
+                                <div class="row">
+                                    <?php
+                                    $files1 = $userinfo['last_certificate'];
+                                    $files1 = explode(" ", $files1);
+                                    $countfile = count($files1) - 1;
+                                    if ($countfile > 0) {
+                                        for ($i = 0; $i < $countfile; ++$i) {
+                                    ?>
+                                            <div class="col-12">
+
+                                                <div class="files_style">
+                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
+                                                            <i class="fa fa-file"></i>
+                                                            <?= $files1[$i] ?></a></p>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                    } else { ?>
+                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label id="name"><?php echo $lang["upload_cv_document"]; ?> </label>
+                                <div class="row">
+                                    <?php
+                                    $files1 = $userinfo['certificate_image'];
+                                    $files1 = explode(" ", $files1);
+                                    $countfile = count($files1) - 1;
+                                    if ($countfile > 0) {
+                                        for ($i = 0; $i < $countfile; ++$i) {
+                                    ?>
+                                            <div class="col-12">
+
+                                                <div class="files_style">
+                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
+                                                            <i class="fa fa-file"></i>
+                                                            <?= $files1[$i] ?></a></p>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                    } else { ?>
+                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                    <?php
+                                    }
+
+
+
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <label id="name"> الفيديوهات </label>
+                                <div class="row">
+                                    <?php
+                                    $files1 = $userinfo['project_video'];
+                                    $files1 = explode(" ", $files1);
+                                    $countfile = count($files1) - 1;
+                                    if ($countfile > 0) {
+                                        for ($i = 0; $i < $countfile; ++$i) {
+                                    ?>
+                                            <div class="col-12">
+
+                                                <div class="files_style">
+                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
+                                                            <i class="fa fa-file"></i>
+                                                            <?= $files1[$i] ?></a></p>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                    } else { ?>
+                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                    <?php
+                                    }
+
+
+
+                                    ?>
+                                </div>
+                            </div>
                         </div>
-                        <!--
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!--
                         <div class="data2">
                             <h4> السيرة الذاتية والمستندات</h4>
                             <div class="person_files">
@@ -173,7 +264,7 @@
                             </div>
                         </div>
                                 -->
-                        <!--
+<!--
                         <div class="data2">
                             <h4> الفيديوهات </h4>
                             <div class="person_files">
@@ -200,11 +291,11 @@
                             </div>
                         </div>
                                 -->
-                    </div>
-                    <!-- END GET DATA -->
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
+<!-- END GET DATA -->
+</div>
+</div>
+</div>
+</div>
 </div>
 <!-- END PROFILE DATA -->

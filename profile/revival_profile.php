@@ -2,12 +2,6 @@
 <div class="profile_data">
     <?php
     if ($userinfo['user_status'] == 'active') { ?>
-
-    <div class="alert_message alert alert-primary d-flex align-items-center" role="alert">
-        <div>
-            تم تفعيل حسابك بنجاح
-        </div>
-    </div>
     <?php
     } else { ?>
     <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
@@ -74,7 +68,7 @@
                             }
 
                             if ($stmt) {
-                                header("refresh: 0");
+                                header("Location:profile.php");
                             }
                         }
 
@@ -159,31 +153,39 @@
                                     placeholder="<?php echo $lang["your_experiences"]; ?> ">  <?php echo $userinfo['personal_information']; ?> </textarea>
                             </div>
                         </div>
-                        <!--
+                        
                         <div class="data2">
                             <h4> السيرة الذاتية والمستندات</h4>
                             <div class="person_files">
                                 <div class="row">
-                                    <?php
-                                    $files1 = $userinfo['cv'];
-                                    $files1 = explode(" ", $files1);
-                                    $countfile = count($files1) - 1;
-                                    for ($i = 0; $i < $countfile; ++$i) {
-                                    ?>
-                                    <div class="col-lg-6 col-12">
-                                        <img src="admin/upload/<?= $files1[$i] ?>" alt="<?= $files1[$i] ?>" />
+                                <?php
+                                        $files1 = $userinfo['cv'];
+                                        $files1 = explode(" ", $files1);
+                                        $countfile = count($files1) - 1;
+                                        if ($countfile > 0) {
+                                            for ($i = 0; $i < $countfile; ++$i) {
+                                        ?>
+                                <div class="col-12">
+
+                                    <div class="files_style">
+                                        <p> <a class="btn bg-success" target="_blank"
+                                                href="admin/upload/<?= $files1[$i] ?>">
+                                                <i class="fa fa-file"></i>
+                                                <?= $files1[$i] ?></a></p>
                                     </div>
-                                    <?php
-                                    }
-                                    // echo "<p style='color:green;font-size:26px'>عدد " . $count . " images found.";
-                                    ?>
-
-
                                 </div>
+                                <?php
+                                            }
+                                        } else { ?>
+                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                <?php
+                                        }
+                                        ?>
+                            </div>
                             </div>
                         </div>
-                                -->
-                        <!--
+                            
+                        
                         <div class="data2">
                             <h4> الفيديوهات </h4>
                             <div class="person_files">
@@ -209,7 +211,7 @@
                                 </div>
                             </div>
                         </div>
-                                -->
+                            
                     </div>
                     <!-- END GET DATA -->
                 </div>

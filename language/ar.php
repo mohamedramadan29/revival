@@ -409,7 +409,7 @@ $lang = array(
   // Update Profile
 
   "update_profile_page" =>   " تحديث الملف الشخصى ",
-  "upload_cv_document" =>   " ارفع السيرة الذاتية والمستندات الخاصة بك من هنا ",
+  "upload_cv_document" =>   " السيرة الذاتية والمستندات الخاصة بك     ",
   "upload_video" =>   "  ارفع الفيديوهات الخاصة بك من هنا ",
   // "update_profile_page" =>   " تحديث الملف الشخصى ",
 
@@ -478,6 +478,19 @@ $lang = array(
 
   "add_talent" =>   "اضافة موهبة جديدة",
   "add_talent_suc" =>   " تم اضافة موهبة جديدة بنجاح",
+  ///////////////////////// Courses
+  "what_learn_course" =>   "   ماذا ستتعلم من هذا الكورس   ", 
+  "course_requirment" =>   "   متطلبات الكورس   ", 
+  "course_description" =>   "   وصف الكورس    ", 
+  "who_course" =>   "  لمن هذا الكورس   ", 
+  "course_constuctor" =>   "   مقدم الكورس   ", 
+  "course_success_register" =>   "    تم التسجيل في الكورس بنجاح   ", 
+  "suc_profile_message" =>   " تم تعديل البيانات بنجاح ", 
+  
+  /**** add individual project  */
+  "add_project_name_error" =>   "  من فضلك ادخل اسم المشروع  ", 
+  "add_project_decs_error" =>   "  من فضلك ادخل  نبذة عن المشروع    ", 
+
 
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"

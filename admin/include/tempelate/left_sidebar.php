@@ -18,7 +18,7 @@
                       <a href="main.php?dir=dashboard&page=dashboard" class="nav-link">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
-                              <?php echo $lang['dashboard']; ?>
+                              الرئيسية
                           </p>
                       </a>
                   </li>
@@ -243,6 +243,25 @@
                       </ul>
                   </li>
 
+                  <li class="nav-item" id="lnk-company-talent">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              المواهب المسجلة من وسيط  
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                          <li class="nav-item" id="lnk-rep-company-talent">
+                              <a href="main.php?dir=company_talent&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المواهب </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
 
                   <li class="nav-item" id="lnk-revival_order">
                       <a href="#" class="nav-link nav-link2">
@@ -350,6 +369,25 @@
                               <a href="main.php?dir=courses&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
                                   <p> مشاهدة جميع الكورسات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item" id="lnk-course-register">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              تسجيلات  الكورسات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                          <li class="nav-item" id="lnk-rep-course-register">
+                              <a href="main.php?dir=course_register&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة التسجيلات </p>
                               </a>
                           </li>
                       </ul>

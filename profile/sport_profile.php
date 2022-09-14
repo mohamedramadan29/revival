@@ -72,7 +72,7 @@
                             }
 
                             if ($stmt) {
-                                header("refresh: 0");
+                                header("Location:profile.php");
                             }
                         }
 

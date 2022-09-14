@@ -136,9 +136,6 @@
 
     ?>
 
-
-
-
 <div class="profile_data update_profile">
     <div class="container">
         <div class="data">
@@ -166,7 +163,7 @@
                                                                     </span></label>
                                                                 <input name="first_name2" type="text"
                                                                     class="form-control" id="first_name"
-                                                                    value="">
+                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
                                                             </div>
 
                                                             <div class="box mb-3">
@@ -176,7 +173,7 @@
                                                                 </label>
                                                                 <input name="email" type="email" class="form-control"
                                                                     id="floatingInput"
-                                                                    value="">
+                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
                                                             </div>
                                                              
                                                             <div class="box mb-3">
@@ -188,55 +185,43 @@
                                                                         * </span></label>
                                                                 <input type="tel" name="mobile" id="phone"
                                                                     class="form-control"
-                                                                    value="">
+                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['mobile']; ?>">
 
                                                             </div>
 
                                                             <div class="box mb-3">
-                                                                <label
-                                                                    for="floatingInput"><?php echo $lang["certificate"];  ?><span
-                                                                        class="star"> *
+                                                                <label for="floatingInput"> <?php echo $lang["certificate"];  ?><span class="star"> *
                                                                     </span></label>
 
-                                                                <select name="certificate" class="form-select country9"
-                                                                    id="floatingSelectGrid"
-                                                                    aria-label="Floating label country2 example">
+                                                                <select name="certificate" class="form-select country9" id="floatingSelectGrid" aria-label="Floating label country2 example">
 
                                                                     <?php
-                                                                        if (strlen($userdata["certificate"]) > 2) { ?>
-                                                                    <option
-                                                                        value="<?php echo $userdata["certificate"] ?>">
-                                                                        <?php echo $userdata["certificate"] ?>
-                                                                    </option>
+                                                                    if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                                                                        <option value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['certificate']; ?>">
+                                                                            <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['certificate']; ?>
+                                                                        </option>
                                                                     <?php
-                                                                        } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
+                                                                    } else { ?>
+                                                                        <option value=""><?php echo $lang["select"];  ?></option>
 
                                                                     <?php
-                                                                        }
-                                                                        ?>
-
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
-
-                                                                    <option
-                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                    }
+                                                                    ?>
+                                                                    <!--  <option value=""> الموهل العلمي </option> -->
+                                                                    <option value=" <?php echo $lang["illiterate"];  ?> ">
                                                                         <?php echo $lang["illiterate"];  ?> </option>
-                                                                    <option
-                                                                        value=" <?php echo $lang["middle_school"];  ?>">
+                                                                    <option value=" <?php echo $lang["middle_school"];  ?>">
                                                                         <?php echo $lang["middle_school"];  ?> </option>
                                                                     <option value="<?php echo $lang["secondary"];  ?>">
                                                                         <?php echo $lang["secondary"];  ?> </option>
-                                                                    <option value="<?php echo $lang["ba"];  ?>">
-                                                                        <?php echo $lang["ba"];  ?>
+                                                                    <option value="<?php echo $lang["ba"];  ?>"> <?php echo $lang["ba"];  ?>
                                                                     </option>
                                                                     <option value="<?php echo $lang["masters"];  ?> ">
                                                                         <?php echo $lang["masters"];  ?> </option>
                                                                 </select>
 
 
-                                                            </div>
+                                                            </div> 
 
                                                         </div>
                                                         <div class="col-lg-6 col-12">
@@ -246,7 +231,7 @@
                                                                         class="star"> * </span></label>
                                                                 <input name="last_name" type="text" class="form-control"
                                                                     id="floatingInput"
-                                                                    value="">
+                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
 
                                                             </div>
 
@@ -256,10 +241,8 @@
                                                                     <span class="star"> * </span></label>
                                                                 <input name="specialist" type="text"
                                                                     class="form-control" id="floatingInput"
-                                                                    value="">
+                                                                    value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['specialist']; ?>">
                                                             </div>
-                                                             
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -278,7 +261,7 @@
                                     <div class="box mb-3">
                                         <label for="floatingInput"> اكتب نبذةعن خبراتك</label>
                                         <textarea class="form-control" name="experience_info"
-                                            id="floatingInput"></textarea>
+                                            id="floatingInput"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['experience_info']; ?></textarea>
 
                                     </div>
 
@@ -293,7 +276,7 @@
                                                 <div class="form-group mb-3">
                                                     <label for="floatingInput"> اسم النادي </label>
                                                     <input name="team_name" type="text" class="form-control"
-                                                        id="floatingInput" value="">
+                                                        id="floatingInput" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['team_name']; ?>">
 
                                                 </div>
                                                 <!-- Do Design -->
@@ -325,19 +308,19 @@
                                                     <label for="floatingInput"> العمر </label>
                                                     <input name="player_position" type="text" class="form-control"
                                                         id="floatingInput"
-                                                        value="">
+                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['player_position']; ?>">
                                                 </div>
                                                 <div class="box mb-3">
                                                     <label for="floatingInput"> الوزن</label>
                                                     <input name="player_weight" type="text" class="form-control"
                                                         id="floatingInput"
-                                                        value="">
+                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['player_weight']; ?>">
                                                 </div>
                                                 <div class="box mb-3">
                                                     <label for="floatingInput"> الطول</label>
                                                     <input name="player_taller" type="text" class="form-control"
                                                         id="floatingInput"
-                                                        value="">
+                                                        value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['player_taller']; ?>">
 
                                                 </div>
 

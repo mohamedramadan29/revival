@@ -138,6 +138,10 @@ include $tem . 'left_sidebar.php';
             // echo 'test test';
             include 'contact/report.php';
         }
+        elseif ($dir == 'contact' && $page == 'edit') {
+            // echo 'test test';
+            include 'contact/edit.php';
+        }
         // START BANNERS
         if ($dir == 'banner' && $page == 'add') {
             include 'banner/add.php';
@@ -200,6 +204,28 @@ include $tem . 'left_sidebar.php';
             include 'revival_gallary/delete.php';
         } elseif ($dir == 'revival_gallary' && $page == 'report') {
             include 'revival_gallary/report.php';
+        }
+
+           // START Revival Gallary
+           if ($dir == 'course_register' && $page == 'add') {
+            include 'course_register/add.php';
+        } elseif ($dir == 'course_register' && $page == 'edit') {
+            include 'course_register/edit.php';
+        } elseif ($dir == 'course_register' && $page == 'delete') {
+            include 'course_register/delete.php';
+        } elseif ($dir == 'course_register' && $page == 'report') {
+            include 'course_register/report.php';
+        }
+
+           // START Company Talent
+           if ($dir == 'company_talent' && $page == 'add') {
+            include 'company_talent/add.php';
+        } elseif ($dir == 'company_talent' && $page == 'edit') {
+            include 'company_talent/edit.php';
+        } elseif ($dir == 'company_talent' && $page == 'delete') {
+            include 'company_talent/delete.php';
+        } elseif ($dir == 'company_talent' && $page == 'report') {
+            include 'company_talent/report.php';
         }
 
         // START DASHBOARD

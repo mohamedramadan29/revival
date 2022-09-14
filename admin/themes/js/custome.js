@@ -434,6 +434,14 @@ $(document).ready(function () {
       $("#lnk-rep-courses").addClass("active-tab");
     }
   }
+  if (window.location.href.indexOf("dir=course_register") != -1) {
+    $("#lnk-course-register").addClass("active menu-is-opening menu-open");
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-course-register").addClass("active-tab");
+    } else {
+      $("#lnk-rep-course-register").addClass("active-tab");
+    }
+  }
 
   if (window.location.href.indexOf("dir=banner") != -1) {
     $("#lnk-banner").addClass("active menu-is-opening menu-open");
@@ -504,6 +512,16 @@ $(document).ready(function () {
       $("#lnk-rep-revival_add_new_project").addClass("active-tab");
     } else {
       $("#lnk-rep-revival_add_new_project").addClass("active-tab");
+    }
+  }
+  if (window.location.href.indexOf("dir=company_talent") != -1) {
+    $("#lnk-company-talent").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-rep-company-talent").addClass("active-tab");
+    } else {
+      $("#lnk-rep-company-talent").addClass("active-tab");
     }
   }
 

@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$pagetitle = 'Customer report ';
+$pagetitle = ' لوحة تحكم ريفايفال ';
 ?>
 <div class="container dashboard">
     <div class="bread bread_dasha">
