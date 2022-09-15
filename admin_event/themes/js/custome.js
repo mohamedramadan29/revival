@@ -537,6 +537,31 @@ $(document).ready(function () {
       $("#lnk-rep-main-event").addClass("active-tab");
     }
   }
+  if (window.location.href.indexOf("dir=home_event/banner") != -1) {
+    $("#lnk-main-event-page").addClass(
+      "active menu-is-opening menu-open"
+    );
+  }
+  if (window.location.href.indexOf("dir=home_event/about") != -1) {
+    $("#lnk-main-event-page").addClass(
+      "active menu-is-opening menu-open"
+    );
+  }
+  if (window.location.href.indexOf("dir=home_event/reason") != -1) {
+    $("#lnk-main-event-page").addClass(
+      "active menu-is-opening menu-open"
+    );
+  }
+  if (window.location.href.indexOf("dir=home_event/banner") != -1) {
+    $("#lnk-add-main-event-banner").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-home-event-banner").addClass("active-tab");
+    } else {
+      $("#lnk-rep-home-event-banner").addClass("active-tab");
+    }
+  }
 
   /********************* END EVENT DAHSBOARD ******************/
  

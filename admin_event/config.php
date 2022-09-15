@@ -68,6 +68,15 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'main_event') {
         include 'main_event/lang/' . $_SESSION['lang'] . '.php';
     }
+    elseif ($dir == 'home_event/about') {
+        include 'home_event/about/lang/' . $_SESSION['lang'] . '.php';
+    }
+    elseif ($dir == 'home_event/banner') {
+        include 'home_event/banner/lang/' . $_SESSION['lang'] . '.php';
+    }
+    elseif ($dir == 'home_event/reason') {
+        include 'home_event/reason/lang/' . $_SESSION['lang'] . '.php';
+    }
     /////////////////////////////////// END EVENT DASHBOARD 
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
