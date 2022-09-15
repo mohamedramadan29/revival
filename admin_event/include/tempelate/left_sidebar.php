@@ -58,7 +58,7 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item" id="lnk-add-main-event-banner">
-                              <a href="main.php?dir=main_event&page=add" class="nav-link">
+                              <a href="main.php?dir=home_event/banner&page=add" class="nav-link">
                                   <i class="fa fa-images color7"></i>
                                   <p> البانرات </p>
                               </a>
@@ -86,15 +86,15 @@
                               </a>
                               <ul class="nav nav-treeview">
                                   <li class="nav-item" id="lnk-add-home-event-about">
-                                      <a href="main.php?dir=main_event&page=add" class="nav-link">
+                                      <a href="main.php?dir=home_event/about&page=add" class="nav-link">
                                           <i class="fa fa-plus color2"></i>
                                           <p> اضافة </p>
                                       </a>
                                   </li>
                                   <li class="nav-item" id="lnk-rep-home-event-about">
-                                      <a href="main.php?dir=main_event&page=report" class="nav-link">
+                                      <a href="main.php?dir=home_event/about&page=report" class="nav-link">
                                           <i class="far fa-eye nav-icon color3"></i>
-                                          <p> مشاهدة البانرات </p>
+                                          <p> مشاهدة المحتوي </p>
                                       </a>
                                   </li>
                               </ul>
@@ -103,22 +103,22 @@
                       </ul>
 
                       <ul class="nav nav-treeview">
-                          <li class="nav-item" id="lnk-add-main-event-about">
+                          <li class="nav-item" id="lnk-add-main-event-reason">
                               <a href="main.php?dir=main_event&page=add" class="nav-link">
                                   <i class="fa fa-images color7"></i>
                                   <p> اسباب المشاركه </p>
                               </a>
                               <ul class="nav nav-treeview">
-                                  <li class="nav-item" id="lnk-add-main-event">
-                                      <a href="main.php?dir=main_event&page=add" class="nav-link">
+                                  <li class="nav-item" id="lnk-add-home-event-reason">
+                                      <a href="main.php?dir=home_event/reason&page=add" class="nav-link">
                                           <i class="fa fa-plus color2"></i>
                                           <p> اضافة </p>
                                       </a>
                                   </li>
-                                  <li class="nav-item" id="lnk-rep-main-event">
-                                      <a href="main.php?dir=main_event&page=report" class="nav-link">
+                                  <li class="nav-item" id="lnk-rep-home-event-reason">
+                                      <a href="main.php?dir=home_event/reason&page=report" class="nav-link">
                                           <i class="far fa-eye nav-icon color3"></i>
-                                          <p> مشاهدة البانرات </p>
+                                          <p> مشاهدة المحتوي </p>
                                       </a>
                                   </li>
                               </ul>

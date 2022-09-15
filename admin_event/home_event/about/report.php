@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم من نحن </li>
                 </ol>
@@ -18,25 +18,23 @@
             <table id="table" class="table table-light table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th> اسم القسم </th>
-                        <th> صفحة القسم </th>
+                        <th> اسم القسم </th> 
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody> <?php
-                        $stmt = $connect->prepare('SELECT * FROM revival_about_us ORDER BY about_id DESC');
+                        $stmt = $connect->prepare('SELECT * FROM event_home_about ORDER BY about_id DESC');
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>
-                        <td><?php echo $type['about_name']; ?> </td>
-                        <td><?php echo $type['about_page']; ?> </td>
+                        <td><?php echo $type['about_name']; ?> </td> 
                         <td>
                             <a class=" btn btn-success"
-                                href="main.php?dir=revival_about&page=edit&about_id=<?php echo $type['about_id']; ?> ">
+                                href="main.php?dir=home_event/about&page=edit&about_id=<?php echo $type['about_id']; ?> ">
                                 <i class="fa fa-edit"></i>
                             </a>
                             <a class="confirm btn btn-danger"
-                                href="main.php?dir=revival_about&page=delete&about_id=<?php echo $type['about_id']; ?> ">
+                                href="main.php?dir=home_event/about&page=delete&about_id=<?php echo $type['about_id']; ?> ">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>

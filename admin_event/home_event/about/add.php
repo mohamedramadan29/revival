@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم من نحن </li>
                 </ol>
@@ -47,19 +47,6 @@
                             <textarea name="about_sub_desc_en" id="" class="form-control"
                                 placeholder="من فضلك افصل بين كل نقطة والاخري ب(,)"></textarea>
                         </div>
-
-
-                        <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
-                            <select required class="form-control" name="about_page" id="cat_active6">
-                                <option value=""> اختر الصفحة </option>
-                                <option value="الرئيسية"> الرئيسية </option>
-                                <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
-                                <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
-                                <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
-                            </select>
-                        </div>
-
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -138,8 +125,6 @@
             $about_desc_en =   $_POST['about_desc_en'];
             $about_sub_desc =   $_POST['about_sub_desc'];
             $about_sub_desc_en =   $_POST['about_sub_desc_en'];
-            $about_page =   $_POST['about_page'];
-
             /// More Validation To Show Error
             $formerror = [];
             if (empty($about_name)) {
@@ -176,9 +161,9 @@
                     $video_video2_tem,
                     'upload/' . $video_video2_uploaded
                 );
-                $stmt = $connect->prepare("INSERT INTO revival_about_us
-                 (about_name, about_desc, about_desc_en , about_sub_desc , about_sub_desc_en , image1 , image2 , video1, video2 , about_page)
-                VALUES (:zname,:zabout_desc,:zabout_desc_en,:zabout_sub_desc,:zabout_sub_desc_en,:zimage1,:zimage2, :zvideo1, :zvideo2, :zabout_page)");
+                $stmt = $connect->prepare("INSERT INTO event_home_about
+                 (about_name, about_desc, about_desc_en , about_sub_desc , about_sub_desc_en , image1 , image2 , video1, video2 )
+                VALUES (:zname,:zabout_desc,:zabout_desc_en,:zabout_sub_desc,:zabout_sub_desc_en,:zimage1,:zimage2, :zvideo1, :zvideo2)");
                 $stmt->execute([
                     'zname' => $about_name,
                     'zabout_desc' => $about_desc,
@@ -188,14 +173,13 @@
                     'zimage1' =>  $image_image1_uploaded,
                     'zimage2' => $image_image2_uploaded,
                     'zvideo1' => $video_video1_uploaded,
-                    'zvideo2' => $video_video2_uploaded,
-                    'zabout_page' => $about_page,
+                    'zvideo2' => $video_video2_uploaded, 
 
                 ]);
                 if ($stmt) { ?>
     <div class="alert-success">
         تم اضافة محتوي جديد بنجاح
-        <?php header('refresh:3;url=main.php?dir=revival_about&page=report'); ?>
+        <?php header('refresh:3;url=main.php?dir=home_event/about&page=report'); ?>
     </div>
 
 </div>

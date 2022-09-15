@@ -18,28 +18,25 @@
             <table id="table" class="table table-light table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th> اسم البانر </th>
-                        <th> صفحة البانر </th>
+                        <th> اسم البانر </th> 
                         <th> عنوان البانر </th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody> <?php
-                        $stmt = $connect->prepare('SELECT * FROM event_banner ORDER BY banner_id DESC');
+                        $stmt = $connect->prepare('SELECT * FROM event_home_banner ORDER BY banner_id DESC');
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>
-                        <td><?php echo $type['banner_name']; ?> </td>
-                        <td><?php echo $type['banner_page']; ?> </td>
+                        <td><?php echo $type['banner_name']; ?> </td> 
                         <td><?php echo $type['banner_head']; ?> </td>
-
                         <td>
                             <a class=" btn btn-success"
-                                href="main.php?dir=banner&page=edit&ban_id=<?php echo $type['banner_id']; ?> ">
+                                href="main.php?dir=home_event/banner&page=edit&ban_id=<?php echo $type['banner_id']; ?> ">
                                 <i class="fa fa-edit"></i>
                             </a>
                             <a class="confirm btn btn-danger"
-                                href="main.php?dir=banner&page=delete&ban_id=<?php echo $type['banner_id']; ?> ">
+                                href="main.php?dir=home_event/banner&page=delete&ban_id=<?php echo $type['banner_id']; ?> ">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>

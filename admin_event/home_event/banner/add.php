@@ -6,7 +6,7 @@
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
                             href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page"> اضافة بانر </li>
+                    <li class="breadcrumb-item active" aria-current="page"> اضافة بانر في الرئيسية</li>
                 </ol>
             </nav>
         </div>
@@ -42,23 +42,7 @@
                             <label id="name"> وصف البانر باللغه الانجليزية
                             </label>
                             <input required class="form-control" type="text" name="banner_desc_en">
-                        </div>
-                        <div class="box">
-                            <label id="name_en"> اختر الحدث <span> * </span></label>
-                            <select class="form-control" name="banner_page" id="cat_active6">
-                                <option value=""> اختر الحدث </option>
-                                <option value="الرئيسية"> الرئيسية </option>
-                                <?php
-                                $stmt = $connect->prepare("SELECT * FROM main_events");
-                                $stmt->execute();
-                                $allevent = $stmt->fetchAll();
-                                foreach($allevent as $event){?>
-                                <option value="<?php echo $event["event_name"]; ?> "> <?php echo $event["event_name"]; ?> </option>
-                                <?php
-                                }
-                                ?> 
-                            </select>
-                        </div>
+                        </div> 
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -104,8 +88,7 @@
             $image_image2_type = $_FILES['image2']['type'];
             $image_image2_size = $_FILES['image2']['size'];
             $image_allowed_extention = ['jpg', 'jpeg', 'png'];
-            $banner_name =  $_POST['banner_name'];
-            $banner_page = $_POST['banner_page'];
+            $banner_name =  $_POST['banner_name']; 
             $banner_head =   $_POST['banner_head'];
             $banner_head_en =   $_POST['banner_head_en'];
             $banner_desc =   $_POST['banner_desc'];
@@ -135,13 +118,12 @@
                     $image_image2_tem,
                     'upload/' . $image_image2_uploaded
                 );
-                $stmt = $connect->prepare("INSERT INTO event_banner (banner_name, image1, image2 , banner_page , banner_head , banner_head_en , banner_desc , banner_desc_en)
-                VALUES (:zname,:zimage1,:zimage2,:zbanner_page,:zbanner_head,:zbanner_head_en,:zbanner_desc, :zbanner_desc_en)");
+                $stmt = $connect->prepare("INSERT INTO event_home_banner (banner_name, image1, image2 , banner_head , banner_head_en , banner_desc , banner_desc_en)
+                VALUES (:zname,:zimage1,:zimage2,:zbanner_head,:zbanner_head_en,:zbanner_desc, :zbanner_desc_en)");
                 $stmt->execute([
                     'zname' => $banner_name,
                     'zimage1' => $image_image1_uploaded,
-                    'zimage2' => $image_image2_uploaded,
-                    'zbanner_page' => $banner_page,
+                    'zimage2' => $image_image2_uploaded, 
                     'zbanner_head' => $banner_head,
                     'zbanner_head_en' => $banner_head_en,
                     'zbanner_desc' => $banner_desc,
@@ -151,7 +133,7 @@
                 if ($stmt) { ?>
     <div class="alert-success">
         تم اضافة بانر جديد بنجاح
-        <?php header('refresh:3;url=main.php?dir=banner&page=report'); ?>
+        <?php header('refresh:3;url=main.php?dir=home_event/banner&page=report'); ?>
     </div>
 </div>
 <?php }

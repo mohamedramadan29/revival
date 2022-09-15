@@ -2,7 +2,7 @@
 
 if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
     $ban_id = $_GET['ban_id'];
-    $stmt = $connect->prepare('SELECT * FROM event_banner WHERE banner_id=?');
+    $stmt = $connect->prepare('SELECT * FROM event_home_banner WHERE banner_id=?');
     $stmt->execute([$ban_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -61,25 +61,6 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                             <input required class="form-control" type="text" name="banner_desc_en"
                                 value="<?php echo $alltype["banner_desc_en"]; ?>">
                         </div>
-                        <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
-                            <select class="form-control" name="banner_page" id="cat_active6">
-                                <option value="">
-                                    اختر الصفحة </option>
-                                <option <?php if ($alltype["banner_page"] == "الرئيسية") echo "selected"; ?>
-                                    value="الرئيسية"> الرئيسية </option>
-                                    <?php
-                                $stmt = $connect->prepare("SELECT * FROM main_events");
-                                $stmt->execute();
-                                $allevent = $stmt->fetchAll();
-                                foreach($allevent as $event){?>
-                                <option value="<?php echo $event["event_name"]; ?>" <?php if ($alltype["banner_page"] == $event["event_name"]) echo "selected"; ?>> <?php echo $event["event_name"]; ?> </option>
-                                <?php
-                                }
-                                ?>  
-                            </select>
-                        </div>
-
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -129,8 +110,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
             $image_image2_type = $_FILES['image2']['type'];
             $image_image2_size = $_FILES['image2']['size'];
             $image_allowed_extention = ['jpg', 'jpeg', 'png'];
-            $banner_name =  $_POST['banner_name'];
-            $banner_page = $_POST['banner_page'];
+            $banner_name =  $_POST['banner_name']; 
             $banner_head =   $_POST['banner_head'];
             $banner_head_en =   $_POST['banner_head_en'];
             $banner_desc =   $_POST['banner_desc'];
@@ -160,14 +140,13 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         $image_image1_tem,
                         'upload/' . $image_image1_uploaded
                     );
-                    $stmt = $connect->prepare("UPDATE event_banner SET banner_name=?,image1=?,image2=?,
-            banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
+                    $stmt = $connect->prepare("UPDATE event_home_banner SET banner_name=?,image1=?,image2=?
+                    ,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
                 WHERE banner_id=?");
                     $stmt->execute([
                         $banner_name,
                         $image_image1_uploaded,
-                        $image_image2_uploaded,
-                        $banner_page,
+                        $image_image2_uploaded, 
                         $banner_head,
                         $banner_head_en,
                         $banner_desc,
@@ -179,7 +158,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
     <div class="alert-success">
         تم تعديل البانر بنجاح
 
-        <?php header('refresh:3,url=main.php?dir=banner&page=report'); ?>
+        <?php header('refresh:3,url=main.php?dir=home_event/banner&page=report'); ?>
 
 
     </div>
@@ -194,13 +173,11 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         $image_image1_tem,
                         'upload/' . $image_image1_uploaded
                     );
-                    $stmt = $connect->prepare("UPDATE event_banner SET banner_name=?,image1=?,
-            banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
+                    $stmt = $connect->prepare("UPDATE event_home_banner SET banner_name=?,image1=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
                 WHERE banner_id=?");
                     $stmt->execute([
                         $banner_name,
                         $image_image1_uploaded,
-                        $banner_page,
                         $banner_head,
                         $banner_head_en,
                         $banner_desc,
@@ -212,7 +189,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
     <div class="alert-success">
         تم تعديل البانر بنجاح
 
-        <?php header('refresh:3,url=main.php?dir=banner&page=report'); ?>
+        <?php header('refresh:3,url=main.php?dir=home_event/banner&page=report'); ?>
 
 
     </div>
@@ -226,13 +203,12 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         $image_image2_tem,
                         'upload/' . $image_image2_uploaded
                     );
-                    $stmt = $connect->prepare("UPDATE event_banner SET banner_name=?,image2=?,
-                    banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
+                    $stmt = $connect->prepare("UPDATE event_home_banner SET banner_name=?,image2=?,
+                    banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
                         WHERE banner_id=?");
                     $stmt->execute([
                         $banner_name,
-                        $image_image2_uploaded,
-                        $banner_page,
+                        $image_image2_uploaded, 
                         $banner_head,
                         $banner_head_en,
                         $banner_desc,
@@ -244,7 +220,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
     <div class="alert-success">
         تم تعديل البانر بنجاح
 
-        <?php header('refresh:3,url=main.php?dir=banner&page=report'); ?>
+        <?php header('refresh:3,url=main.php?dir=home_event/banner&page=report'); ?>
 
 
     </div>
@@ -252,13 +228,11 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
 
 <?php }
                 }  else {
-                    $stmt = $connect->prepare("UPDATE event_banner SET banner_name=?, 
-            banner_page=?,banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
+                    $stmt = $connect->prepare("UPDATE event_home_banner SET banner_name=?, 
+            banner_head=?,banner_head_en=?,banner_desc=?,banner_desc_en=?
                 WHERE banner_id=?");
                     $stmt->execute([
-                        $banner_name,
-
-                        $banner_page,
+                        $banner_name, 
                         $banner_head,
                         $banner_head_en,
                         $banner_desc,
@@ -269,7 +243,7 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
 <div class="container">
     <div class="alert-success">
         تم تعديل النوع بنجاح
-        <?php header('refresh:3,url=main.php?dir=banner&page=report'); ?>
+        <?php header('refresh:3,url=main.php?dir=home_event/banner&page=report'); ?>
     </div>
 </div>
 <?php }
