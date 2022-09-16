@@ -306,6 +306,16 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'event_sponser' && $page == 'report') {
             include 'event_sponser/report.php';
         }
+
+        if ($dir == 'event_add_section' && $page == 'add') {
+            include 'event_add_section/add.php';
+        } elseif ($dir == 'event_add_section' && $page == 'edit') {
+            include 'event_add_section/edit.php';
+        } elseif ($dir == 'event_add_section' && $page == 'delete') {
+            include 'event_add_section/delete.php';
+        } elseif ($dir == 'event_add_section' && $page == 'report') {
+            include 'event_add_section/report.php';
+        }
         
         ////////////////////////////////////////// END EVENT DASHBOARD ///
 

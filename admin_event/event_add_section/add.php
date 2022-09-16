@@ -4,12 +4,12 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page"> المتحدثين </li>
+                    <li class="breadcrumb-item active" aria-current="page"> اضافة اقسام اضافية </li>
                 </ol>
             </nav>
         </div>
         <div class="title text-right">
-            <h6> <i class="fa fa-plus"></i> المتحدثين </h6>
+            <h6> <i class="fa fa-plus"></i>  اضافة اقسام اضافية  </h6>
         </div>
         <div class="myform">
             <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
@@ -18,28 +18,37 @@
                         <div class="box">
                             <label id="name"> الاسم
                             </label>
-                            <input type="text" class="form-control" name="speaker_name">
+                            <input type="text" class="form-control" name="add_name">
                         </div>
                         <div class="box">
-                            <label id="name"> التخصص
+                            <label id="name"> الاسم باللغه الانجليزية
                             </label>
-                            <input type="text" class="form-control" name="speaker_jop">
+                            <input type="text" class="form-control" name="add_name_en">
+                        </div> 
+                        <div class="box">
+                            <label id="name"> الوصف
+                            </label>
+                            <textarea name="add_desc" class="form-control"></textarea>
+                        </div> 
+                        <div class="box">
+                            <label id="name"> الوصف باللغه الانجليزية
+                            </label>
+                            <textarea name="add_desc_en" class="form-control"></textarea>
                         </div> 
 
                     </div>
                     <div class="col-lg-6">
+                    <div class="box">
+                            <label id="name"> الوصف الفرعي
+                            </label>
+                            <textarea name="add_sub_desc" class="form-control" placeholder=" من فضلك ادخل بين كل عنصر والاخر  (,) "></textarea>
+                        </div> 
                         <div class="box">
-                            <div class="row uploadimage">
-                                <div class="col-lg-6">
-                                    <div class="">
-                                        <label> الصورة </label>
-                                        <input id="logo" class="form-control dropify_" data-default-file="" type="file" name="image1" value="">
-                                    </div>
-                                    <div id="logo_" class="col-md-3">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <label id="name"> الوصف الفرعي باللغه الانجليزية
+                            </label>
+                            <textarea name="add_sub_desc_en" class="form-control" placeholder=" من فضلك ادخل بين كل عنصر والاخر  (,) "></textarea>
+                        </div> 
+                        
                         <div class="box">
                             <label id="name_en"> اختر الحدث <span> * </span></label>
                             <select required class="form-control" name="event_page" id="cat_active6">
@@ -52,7 +61,6 @@
                                     <option value="<?php echo $event["event_name"] ?>"> <?php echo $event["event_name"] ?></option>
                                 <?php
                                 }
-
                                 ?>
                             </select>
                         </div>
@@ -65,43 +73,34 @@
         </div>
     </div>
     <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['add_car'])) {
-            // START IMAGE car_imageside
-            $image_image1_name = $_FILES['image1']['name'];
-            $image_image1_tem = $_FILES['image1']['tmp_name'];
-            $image_image1_type = $_FILES['image1']['type'];
-            $image_image1_size = $_FILES['image1']['size'];
-            $image_allowed_extention = ['jpg', 'jpeg', 'png'];
+        if (isset($_POST['add_car'])) { 
 
-            $speaker_name =   $_POST['speaker_name'];
-            $speaker_jop =   $_POST['speaker_jop'];
-            $event_page =   $_POST['event_page'];
-
-            /// More Validation To Show Error
-
-            $image_image1_uploaded =
-                rand(0, 100000000) . '.' . $image_image1_name;
-            move_uploaded_file(
-                $image_image1_tem,
-                'upload/' . $image_image1_uploaded
-            );
-            $stmt = $connect->prepare("INSERT INTO event_speaker
-                (speaker_name,speaker_jop,image1,event_page)
-                VALUES (:zspeaker_name,:zspeaker_jop,:zimage,:zevent_page)");
+            $add_name = $_POST["add_name"];
+            $add_name_en = $_POST["add_name_en"];
+            $add_desc = $_POST["add_desc"];
+            $add_desc_en = $_POST["add_desc_en"];
+            $add_sub_desc = $_POST["add_sub_desc"];
+            $add_sub_desc_en = $_POST["add_sub_desc_en"];
+            $event_page = $_POST["event_page"];
+            
+            $stmt = $connect->prepare("INSERT INTO addition_section
+                (add_name,add_name_en,add_desc,add_desc_en,add_sub_desc,add_sub_desc_en,event_page)
+                VALUES (:zadd_name,:zadd_name_en,:zadd_desc,:zadd_desc_en,:zadd_sub_desc,:zadd_sub_desc_en,:zevent_page)");
             $stmt->execute([
-                'zspeaker_name' => $speaker_name,
-                'zspeaker_jop' => $speaker_jop,
-                'zimage' => $image_image1_uploaded,
+                'zadd_name' => $add_name,
+                'zadd_name_en' => $add_name_en,
+                'zadd_desc' => $add_desc,
+                'zadd_desc_en' => $add_desc_en,
+                'zadd_sub_desc' => $add_sub_desc,
+                'zadd_sub_desc_en' => $add_sub_desc_en,
                 'zevent_page' => $event_page,
             ]);
             if ($stmt) { ?>
                 <div class="alert-success">
                     تم اضافة محتوي جديد بنجاح
-                    <?php header('refresh:3;url=main.php?dir=event_speakers&page=report'); ?>
+                    <?php header('refresh:3;url=main.php?dir=event_add_section&page=report'); ?>
                 </div>
-
 </div>
-
 <?php }
         }
     }

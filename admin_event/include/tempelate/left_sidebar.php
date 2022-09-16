@@ -299,6 +299,30 @@
                       </ul>
                   </li>
 
+                  <li class="nav-item" id="lnk-event_add_section">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                            اقسام اضافية
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-event_add_section">
+                              <a href="main.php?dir=event_add_section&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-event_add_section">
+                              <a href="main.php?dir=event_add_section&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة  المحتوي </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
                   <li class="nav-item" id="lnk-revival_gallary">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>

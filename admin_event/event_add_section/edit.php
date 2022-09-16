@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_GET['speaker_id']) && is_numeric($_GET['speaker_id'])) {
-    $speaker_id = $_GET['speaker_id'];
-    $stmt = $connect->prepare('SELECT * FROM  event_speaker WHERE speaker_id=?');
-    $stmt->execute([$speaker_id]);
+if (isset($_GET['add_id']) && is_numeric($_GET['add_id'])) {
+    $add_id = $_GET['add_id'];
+    $stmt = $connect->prepare('SELECT * FROM addition_section WHERE add_id=?');
+    $stmt->execute([$add_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
     if ($count > 0) { ?>
@@ -23,37 +23,47 @@ if (isset($_GET['speaker_id']) && is_numeric($_GET['speaker_id'])) {
                 </div>
                 <div class="myform">
                     <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
-                        <input type="hidden" name="typ_id" value="<?php echo $speaker_id; ?>">
+                        <input type="hidden" name="typ_id" value="<?php echo $add_id; ?>">
                         <div class="row">
-                    <div class="col-lg-6">
-                        <div class="box">
-                            <label id="name"> الاسم
-                            </label>
-                            <input type="text" class="form-control" name="speaker_name" value="<?php echo $alltype["speaker_name"] ?>">
-                        </div>
-                        <div class="box">
-                            <label id="name"> التخصص
-                            </label>
-                            <input type="text" class="form-control" name="speaker_jop" value="<?php echo $alltype["speaker_jop"] ?>">
-                        </div> 
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="box">
-                            <div class="row uploadimage">
-                                <div class="col-lg-6">
-                                    <div class="">
-                                        <label> الصورة </label>
-                                        <input id="logo" class="form-control dropify_" data-default-file="upload/<?php echo $alltype["image1"] ?>" type="file" name="image1" value="">
-                                    </div>
-                                    <div id="logo_" class="col-md-3">
-                                    </div>
+                            <div class="col-lg-6">
+                                <div class="box">
+                                    <label id="name"> الاسم
+                                    </label>
+                                    <input type="text" class="form-control" name="add_name" value="<?php echo $alltype["add_name"]; ?>">
                                 </div>
+                                <div class="box">
+                                    <label id="name"> الاسم باللغه الانجليزية
+                                    </label>
+                                    <input type="text" class="form-control" name="add_name_en" value="<?php echo $alltype["add_name_en"]; ?>">
+                                </div>
+                                <div class="box">
+                                    <label id="name"> الوصف
+                                    </label>
+                                    <textarea name="add_desc" class="form-control"><?php echo $alltype["add_desc"]; ?></textarea>
+                                </div>
+                                <div class="box">
+                                    <label id="name"> الوصف باللغه الانجليزية
+                                    </label>
+                                    <textarea name="add_desc_en" class="form-control"><?php echo $alltype["add_desc_en"]; ?></textarea>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="box">
-                            <label id="name_en"> اختر الحدث <span> * </span></label>
-                            <select required class="form-control" name="event_page" id="cat_active6">
-                            <option value="">
+                            <div class="col-lg-6">
+                                <div class="box">
+                                    <label id="name"> الوصف الفرعي
+                                    </label>
+                                    <textarea name="add_sub_desc" class="form-control" placeholder=" من فضلك ادخل بين كل عنصر والاخر  (,) "><?php echo $alltype["add_sub_desc"]; ?></textarea>
+                                </div>
+                                <div class="box">
+                                    <label id="name"> الوصف الفرعي باللغه الانجليزية
+                                    </label>
+                                    <textarea name="add_sub_desc_en" class="form-control" placeholder=" من فضلك ادخل بين كل عنصر والاخر  (,) "><?php echo $alltype["add_sub_desc_en"]; ?></textarea>
+                                </div>
+
+                                <div class="box">
+                                    <label id="name_en"> اختر الحدث <span> * </span></label>
+                                    <select required class="form-control" name="event_page" id="cat_active6">
+                                    <option value="">
                                     اختر الحدث </option>
                                     <?php
                                 $stmt = $connect->prepare("SELECT * FROM main_events");
@@ -64,13 +74,13 @@ if (isset($_GET['speaker_id']) && is_numeric($_GET['speaker_id'])) {
                                 <?php
                                 }
                                 ?>
-                            </select>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="box submit_box">
+                                <input class="btn btn-primary" name="add_car" type="submit" value="تعديل المحتوي">
+                            </div>
                         </div>
-                    </div>
-                    <div class="box submit_box">
-                        <input class="btn btn-primary" name="add_car" type="submit" value="تعديل المحتوي">
-                    </div>
-                </div>
                     </form>
                 </div>
             </div>
@@ -80,56 +90,39 @@ if (isset($_GET['speaker_id']) && is_numeric($_GET['speaker_id'])) {
 
         <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // START IMAGE car_imageside
-            $image_image1_name = $_FILES['image1']['name'];
-            $image_image1_tem = $_FILES['image1']['tmp_name'];
-            $image_image1_type = $_FILES['image1']['type'];
-            $image_image1_size = $_FILES['image1']['size'];
-            $image_allowed_extention = ['jpg', 'jpeg', 'png'];
-
-            $speaker_name =   $_POST['speaker_name'];
-            $speaker_jop =   $_POST['speaker_jop'];
-            $event_page =   $_POST['event_page'];
+            $add_name = $_POST["add_name"];
+            $add_name_en = $_POST["add_name_en"];
+            $add_desc = $_POST["add_desc"];
+            $add_desc_en = $_POST["add_desc_en"];
+            $add_sub_desc = $_POST["add_sub_desc"];
+            $add_sub_desc_en = $_POST["add_sub_desc_en"];
+            $event_page = $_POST["event_page"];
 
             $formerror = [];
 
-            foreach ($formerror as $errors) {
-                echo "<div class='alert alert-danger danger_message'>" .
-                    $errors .
-                    '</div>';
-            }
-
-            $image_image1_uploaded =
-                rand(0, 100000000) . '.' . $image_image1_name;
-            move_uploaded_file(
-                $image_image1_tem,
-                'upload/' . $image_image1_uploaded
-            );
+    
 
             if (empty($formerror)) {
 
-                $stmt = $connect->prepare("UPDATE event_speaker SET 
-                    speaker_name=?,speaker_jop=?,event_page=?
-                WHERE speaker_id =?");
+                $stmt = $connect->prepare("UPDATE addition_section SET 
+                    add_name=?,add_name_en=?,add_desc=?,add_desc_en=?,add_sub_desc=?,
+                    add_sub_desc_en=?,event_page=?
+                WHERE add_id =?");
                 $stmt->execute([
-                    $speaker_name,
-                    $speaker_jop,
+                    $add_name,
+                    $add_name_en,
+                    $add_desc,
+                    $add_desc_en,
+                    $add_sub_desc,
+                    $add_sub_desc_en,
                     $event_page,
-                    $speaker_id
-                ]);
-                if ($image_image1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE event_speaker SET image1=?
-                    WHERE speaker_id =?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $speaker_id,
-                    ]);
-                }
+                    $add_id
+                ]); 
                 if ($stmt) { ?>
                     <div class="container">
                         <div class="alert-success">
                             تم تعديل المحتوي بنجاح
-
-                            <?php header('refresh:3,url=main.php?dir=event_speakers&page=report'); ?>
+                            <?php header('refresh:3,url=main.php?dir=event_add_section&page=report'); ?>
                         </div>
                     </div>
 

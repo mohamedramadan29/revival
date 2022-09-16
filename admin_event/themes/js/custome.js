@@ -616,6 +616,17 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=event_add_section") != -1) {
+    $("#lnk-event_add_section").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-event_add_section").addClass("active-tab");
+    } else {
+      $("#lnk-rep-event_add_section").addClass("active-tab");
+    }
+  }
+
   /********************* END EVENT DAHSBOARD ******************/
  
   $(function () {
