@@ -227,6 +227,78 @@
                       </ul>
                   </li>
 
+                  <li class="nav-item" id="lnk-target-category">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              قسم الفئات المستهدفه
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-target-category">
+                              <a href="main.php?dir=target_category&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-target-category">
+                              <a href="main.php?dir=target_category&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المحتوي </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item" id="lnk-event_speakers">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                            قسم المتحدثين
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-event_speakers">
+                              <a href="main.php?dir=event_speakers&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-event_speakers">
+                              <a href="main.php?dir=event_speakers&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة المتحدثين </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="nav-item" id="lnk-event_sponser">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                            قسم الرعاه
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-event_sponser">
+                              <a href="main.php?dir=event_sponser&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-event_sponser">
+                              <a href="main.php?dir=event_sponser&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة الرعاه </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
                   <li class="nav-item" id="lnk-revival_gallary">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>

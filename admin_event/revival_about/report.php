@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم من نحن </li>
                 </ol>
@@ -19,12 +19,12 @@
                 <thead>
                     <tr>
                         <th> اسم القسم </th>
-                        <th> صفحة القسم </th>
+                        <th> الحدث </th>
                         <th> </th>
                     </tr>
                 </thead>
                 <tbody> <?php
-                        $stmt = $connect->prepare('SELECT * FROM revival_about_us ORDER BY about_id DESC');
+                        $stmt = $connect->prepare('SELECT * FROM event_about_us ORDER BY about_id DESC');
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>

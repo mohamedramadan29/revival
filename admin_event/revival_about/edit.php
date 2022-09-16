@@ -2,7 +2,7 @@
 
 if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
     $about_id = $_GET['about_id'];
-    $stmt = $connect->prepare('SELECT * FROM revival_about_us WHERE about_id=?');
+    $stmt = $connect->prepare('SELECT * FROM event_about_us WHERE about_id=?');
     $stmt->execute([$about_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -35,7 +35,6 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                                     <label id="name"> الوصف
                                     </label>
                                     <textarea name="about_desc" id="" class="form-control"><?php echo $alltype["about_desc"]; ?></textarea>
-
                                 </div>
                                 <div class="box">
                                     <label id="name"> الوصف باللغه الانجليزية
@@ -57,14 +56,19 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
 
 
                                 <div class="box">
-                                    <label id="name_en"> اختر الصفحة <span> * </span></label>
+                                    <label id="name_en"> اختر الحدث <span> * </span></label>
                                     <select class="form-control" name="about_page" id="cat_active6">
                                         <option value="">
-                                            اختر الصفحة </option>
-                                        <option <?php if ($alltype["about_page"] == "الرئيسية") echo "selected"; ?> value="الرئيسية"> الرئيسية </option>
-                                        <option <?php if ($alltype["about_page"] == "مدينة الذكاء الإصطناعي") echo "selected"; ?> value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
-                                        <option <?php if ($alltype["about_page"] == "مواهب العالم الرياضية") echo "selected"; ?> value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
-                                        <option <?php if ($alltype["about_page"] == "الأزياء والمجوهرات") echo "selected"; ?> value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                            اختر الحدث </option>
+                                            <?php
+                                $stmt = $connect->prepare("SELECT * FROM main_events");
+                                $stmt->execute();
+                                $allevent = $stmt->fetchAll();
+                                foreach($allevent as $event){?>
+                                <option value="<?php echo $event["event_name"]; ?>" <?php if ($alltype["about_page"] == $event["event_name"]) echo "selected"; ?>> <?php echo $event["event_name"]; ?> </option>
+                                <?php
+                                }
+                                ?>
                                     </select>
                                 </div>
 
@@ -184,7 +188,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
 
             if (empty($formerror)) {
 
-                $stmt = $connect->prepare("UPDATE revival_about_us SET 
+                $stmt = $connect->prepare("UPDATE event_about_us SET 
                     about_name=?,about_desc=?,about_desc_en=?,about_sub_desc=?,about_sub_desc_en=?,about_page=?
                 WHERE about_id=?");
                 $stmt->execute([
@@ -197,7 +201,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     $about_id,
                 ]);
                 if ($image_image1_tem != "" && $image_image2_tem != "" && $video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video1=?, video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,image2=?,video1=?, video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -207,7 +211,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "" && $image_image2_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video1=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,image2=?,video1=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -216,7 +220,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "" && $image_image2_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,image2=?,video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -225,7 +229,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image2_tem != "" && $video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video1=?,video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image2=?,video1=?,video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image2_uploaded,
@@ -234,7 +238,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,video1=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,video1=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -242,7 +246,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -250,7 +254,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video1=?, video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET video1=?, video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $video_video1_uploaded,
@@ -258,7 +262,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "" && $image_image2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=? 
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?,image2=? 
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
@@ -266,7 +270,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image2_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video1=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image2=?,video1=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image2_uploaded,
@@ -274,7 +278,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image2_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image2=?,video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image2_uploaded,
@@ -282,28 +286,28 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                         $about_id,
                     ]);
                 } elseif ($image_image1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image1=?
                 WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
                         $about_id,
                     ]);
                 } elseif ($image_image2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET image2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image2_uploaded,
                         $about_id,
                     ]);
                 } elseif ($video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video1=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET video1=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $video_video1_uploaded,
                         $about_id,
                     ]);
                 } elseif ($video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video2=?
+                    $stmt = $connect->prepare("UPDATE event_about_us SET video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $video_video2_uploaded,

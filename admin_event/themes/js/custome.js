@@ -583,6 +583,39 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=target_category") != -1) {
+    $("#lnk-target-category").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-target-category").addClass("active-tab");
+    } else {
+      $("#lnk-rep-target-category").addClass("active-tab");
+    }
+  }
+
+  if (window.location.href.indexOf("dir=event_speakers") != -1) {
+    $("#lnk-event_speakers").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-event_speakers").addClass("active-tab");
+    } else {
+      $("#lnk-rep-event_speakers").addClass("active-tab");
+    }
+  }
+
+  if (window.location.href.indexOf("dir=event_sponser") != -1) {
+    $("#lnk-event_sponser").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-event_sponser").addClass("active-tab");
+    } else {
+      $("#lnk-rep-event_sponser").addClass("active-tab");
+    }
+  }
+
   /********************* END EVENT DAHSBOARD ******************/
  
   $(function () {

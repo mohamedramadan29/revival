@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody> <?php
-                        $stmt = $connect->prepare('SELECT * FROM faq');
+                        $stmt = $connect->prepare('SELECT * FROM event_faq');
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>

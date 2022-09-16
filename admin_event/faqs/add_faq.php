@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"><?php echo $lang['website_title']; ?></a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> الاسئلة الشائعه </li>
                 </ol>
@@ -67,7 +67,7 @@
             }
 
             if (empty($formerror)) {
-                $stmt = $connect->prepare("INSERT INTO faq (faq_q,faq_q_en,
+                $stmt = $connect->prepare("INSERT INTO event_faq (faq_q,faq_q_en,
                 faq_an , faq_an_en)
                 VALUES (:zfaq_q,:zfaq_q_en,:zfaq_an,:zfaq_an_en)");
                 $stmt->execute([

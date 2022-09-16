@@ -259,20 +259,20 @@ $lang = array(
 
     // START SUCCESS MESSAGE
 
-    "contact_us_succ_message" => " Thank you for contacting us, we will contact you as soon as possible
-    maybe ",
-    "revival_register_message" => "  Thank you for registering with us at Revival, we will contact you as soon as possible
-    time",
-    "artificial_register_message" => "Thank you for registering with us in the city of artificial intelligence will
-    We will contact you as soon as possible
-    All files must be uploaded in order for the account to be activated by the administration",
-    "sport_talent_register_message" => "Thank you for registering with us in Sprot Talent will
-    We will contact you as soon as possible
-    All files must be uploaded in order for the account to be activated by the administration",
 
-    "fashion_register_message" => "Thank you for registering with us in Fashion will
-    We will contact you as soon as possible
-    All files must be uploaded in order for the account to be activated by the administration",
+    "contact_us_succ_message" => "  We thank you for contacting Revival management, and it is our pleasure to have you as one of our customers.. As for your email, please note that it has been sent directly to the relevant team, and it will be dealt with as soon as possible.. We always welcome your contact with us..   Wishing you all the best. ",
+
+    "revival_register_message" => " We congratulate you for joining the elite of thinkers, experts and entrepreneurs in Revival
+And we wish you to realize your dream by seeing your proposed idea or talent into reality through Revival.
+",
+    "artificial_register_message" => "We congratulate you for joining the  Artificial Intellignce in Revival
+And we wish you to realize your dream by seeing your proposed idea or talent into reality through Revival.
+",
+    "sport_talent_register_message" => "We congratulate you for joining the  Sport Talent in Revival
+And we wish you to realize your dream by seeing your proposed idea or talent into reality through Revival.",
+
+    "fashion_register_message" => "We congratulate you for joining the Fashion in Revival
+And we wish you to realize your dream by seeing your proposed idea or talent into reality through Revival.",
 
 
     // END SUCCESS MESSAGE

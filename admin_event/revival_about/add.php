@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard">  الاحداث  </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم من نحن </li>
                 </ol>
@@ -50,16 +50,21 @@
 
 
                         <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
+                            <label id="name_en"> اختر الحدث <span> * </span></label>
                             <select required class="form-control" name="about_page" id="cat_active6">
-                                <option value=""> اختر الصفحة </option>
-                                <option value="الرئيسية"> الرئيسية </option>
-                                <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
-                                <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
-                                <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                <option value=""> اختر الحدث </option>
+                                <?php
+                                $stmt = $connect->prepare("SELECT * FROM main_events WHERE event_active='فعال'");
+                                $stmt->execute();
+                                $allevent = $stmt->fetchAll();
+                                foreach($allevent as $event){?>
+                                <option value="<?php echo $event ["event_name"] ?>"> <?php echo $event ["event_name"] ?></option>
+                                <?php
+                                }
+                                
+                                ?>
                             </select>
                         </div>
-
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -176,7 +181,7 @@
                     $video_video2_tem,
                     'upload/' . $video_video2_uploaded
                 );
-                $stmt = $connect->prepare("INSERT INTO revival_about_us
+                $stmt = $connect->prepare("INSERT INTO event_about_us
                  (about_name, about_desc, about_desc_en , about_sub_desc , about_sub_desc_en , image1 , image2 , video1, video2 , about_page)
                 VALUES (:zname,:zabout_desc,:zabout_desc_en,:zabout_sub_desc,:zabout_sub_desc_en,:zimage1,:zimage2, :zvideo1, :zvideo2, :zabout_page)");
                 $stmt->execute([

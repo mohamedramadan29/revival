@@ -1,5 +1,5 @@
 <?php
-//include 'connect.php';
+include '../connect.php';
 include 'config.php';
 $tem = 'include/';
 $css = '../themes/css/';

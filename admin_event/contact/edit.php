@@ -2,7 +2,7 @@
 
 if (isset($_GET['message_id']) && is_numeric($_GET['message_id'])) {
     $message_id = $_GET['message_id'];
-    $stmt = $connect->prepare('SELECT * FROM contact_us WHERE contact_id=?');
+    $stmt = $connect->prepare('SELECT * FROM event_contact WHERE contact_id=?');
     $stmt->execute([$message_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -70,7 +70,7 @@ if (isset($_GET['message_id']) && is_numeric($_GET['message_id'])) {
 
                                     <div class="files_style">
                                         <p> <a class="btn bg-gradient-light" target="_blank"
-                                                href="upload/<?= $files1[$i] ?>">
+                                                href="../admin/upload/<?= $files1[$i] ?>">
                                                 <i class="fa fa-file"></i>
                                                 <?= $files1[$i] ?></a></p>
                                     </div>

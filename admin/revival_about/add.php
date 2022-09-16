@@ -3,9 +3,7 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
-                            class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم من نحن </li>
                 </ol>
             </nav>
@@ -37,15 +35,13 @@
                         <div class="box">
                             <label id="name"> اضافة وصف فرعي
                             </label>
-                            <textarea name="about_sub_desc" id="" class="form-control"
-                                placeholder="من فضلك افصل بين كل نقطة والاخري ب(,)"></textarea>
+                            <textarea name="about_sub_desc" id="" class="form-control" placeholder="من فضلك افصل بين كل نقطة والاخري ب(,)"></textarea>
                         </div>
 
                         <div class="box">
                             <label id="name"> اضافة وصف فرعي باللغه الانجليزية
                             </label>
-                            <textarea name="about_sub_desc_en" id="" class="form-control"
-                                placeholder="من فضلك افصل بين كل نقطة والاخري ب(,)"></textarea>
+                            <textarea name="about_sub_desc_en" id="" class="form-control" placeholder="من فضلك افصل بين كل نقطة والاخري ب(,)"></textarea>
                         </div>
 
 
@@ -59,7 +55,6 @@
                                 <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
                             </select>
                         </div>
-
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -67,8 +62,7 @@
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> الصورة </label>
-                                        <input id="logo" class="form-control dropify_" data-default-file="" type="file"
-                                            name="image1" value="">
+                                        <input id="logo" class="form-control dropify_" data-default-file="" type="file" name="image1" value="">
                                     </div>
                                     <div id="logo_" class="col-md-3">
                                     </div>
@@ -76,8 +70,7 @@
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> الصورة الانجليزية </label>
-                                        <input id="logo2" class="form-control dropify_" data-default-file="" type="file"
-                                            name="image2" value="">
+                                        <input id="logo2" class="form-control dropify_" data-default-file="" type="file" name="image2" value="">
                                     </div>
                                     <div id="logo_" class="col-md-3">
                                     </div>
@@ -85,17 +78,19 @@
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> الفيديو </label>
-                                        <input id="logo3" class="form-control dropify_" data-default-file="" type="file"
-                                            name="video1" value="">
+                                        <input id="logo3" class="form-control dropify_" data-default-file="" type="file" name="video1" value="">
                                     </div>
+
                                     <div id="logo_" class="col-md-3">
                                     </div>
+                                    <div id='percent'></div>
+                                    <!-- area to display a message after completion of upload -->
+                                    <div id='status'></div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> الفيديو الانجليزية</label>
-                                        <input id="logo4" class="form-control dropify_" data-default-file="" type="file"
-                                            name="video2" value="">
+                                        <input id="logo4" class="form-control dropify_" data-default-file="" type="file" name="video2" value="">
                                     </div>
                                     <div id="logo_" class="col-md-3">
                                     </div>
@@ -193,10 +188,10 @@
 
                 ]);
                 if ($stmt) { ?>
-    <div class="alert-success">
-        تم اضافة محتوي جديد بنجاح
-        <?php header('refresh:3;url=main.php?dir=revival_about&page=report'); ?>
-    </div>
+                    <div class="alert-success">
+                        تم اضافة محتوي جديد بنجاح
+                        <?php header('refresh:3;url=main.php?dir=revival_about&page=report'); ?>
+                    </div>
 
 </div>
 

@@ -66,8 +66,6 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                             <select class="form-control" name="banner_page" id="cat_active6">
                                 <option value="">
                                     اختر الصفحة </option>
-                                <option <?php if ($alltype["banner_page"] == "الرئيسية") echo "selected"; ?>
-                                    value="الرئيسية"> الرئيسية </option>
                                     <?php
                                 $stmt = $connect->prepare("SELECT * FROM main_events");
                                 $stmt->execute();

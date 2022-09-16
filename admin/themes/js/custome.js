@@ -525,7 +525,7 @@ $(document).ready(function () {
     }
   }
 
- 
+
   $(function () {
     $(".rateyo")
       .rateYo()
@@ -542,6 +542,27 @@ $(document).ready(function () {
         $(this).parent().find("input[name=rating]").val(rating); //add rating value to input field
       });
   });
+ 
+    $(function() {
+      $(document).ready(function () {
+        var percent = $('#percent');
+        var status = $('#status');
 
+        $('form').ajaxForm({
+          beforeSend: function () {
+            status.empty();
+            var percentVal = '0%';
+            percent.html(percentVal);
+          },
+          uploadProgress: function (event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            percent.html(percentVal);
+          },
+          complete: function (xhr) {
+            status.html(xhr.responseText);
+          }
+        });
+      });
+ });
   // END ACTIVE LINK
 });

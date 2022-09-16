@@ -19,6 +19,9 @@
 $.widget.bridge('uibutton', $.ui.button)
   </script>
 
+  
+ <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+
   <!-- Bootstrap 4 -->
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
   </script>

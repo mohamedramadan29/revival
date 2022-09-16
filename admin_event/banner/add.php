@@ -44,10 +44,9 @@
                             <input required class="form-control" type="text" name="banner_desc_en">
                         </div>
                         <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
+                            <label id="name_en"> اختر الحدث <span> * </span></label>
                             <select class="form-control" name="banner_page" id="cat_active6">
-                                <option value=""> اختر الصفحة </option>
-                                <option value="الرئيسية"> الرئيسية </option>
+                                <option value=""> اختر الحدث </option> 
                                 <?php
                                 $stmt = $connect->prepare("SELECT * FROM main_events");
                                 $stmt->execute();
@@ -135,7 +134,7 @@
                     $image_image2_tem,
                     'upload/' . $image_image2_uploaded
                 );
-                $stmt = $connect->prepare("INSERT INTO revival_banner (banner_name, image1, image2 , banner_page , banner_head , banner_head_en , banner_desc , banner_desc_en)
+                $stmt = $connect->prepare("INSERT INTO event_banner (banner_name, image1, image2 , banner_page , banner_head , banner_head_en , banner_desc , banner_desc_en)
                 VALUES (:zname,:zimage1,:zimage2,:zbanner_page,:zbanner_head,:zbanner_head_en,:zbanner_desc, :zbanner_desc_en)");
                 $stmt->execute([
                     'zname' => $banner_name,

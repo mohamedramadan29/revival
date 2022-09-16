@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['goal_id']) && is_numeric($_GET['goal_id'])) {
     $goal_id = $_GET['goal_id'];
-    $stmt = $connect->prepare('SELECT * FROM revival_goals WHERE goal_id=?');
+    $stmt = $connect->prepare('SELECT * FROM event_goals WHERE goal_id=?');
     $stmt->execute([$goal_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -13,7 +13,7 @@ if (isset($_GET['goal_id']) && is_numeric($_GET['goal_id'])) {
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> تعديل محتوي الاهداف </li>
                 </ol>
@@ -116,21 +116,21 @@ if (isset($_GET['goal_id']) && is_numeric($_GET['goal_id'])) {
                         </div>
 
                         <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
+                            <label id="name_en"> اختر الحدث <span> * </span></label>
                             <select class="form-control" name="goal_page" id="cat_active6">
                                 <option value="">
-                                    اختر الصفحة </option>
-                                <option <?php if ($alltype["goal_page"] == "الرئيسية") echo "selected"; ?>
-                                    value="الرئيسية"> الرئيسية </option>
-                                <option <?php if ($alltype["goal_page"] == "مدينة الذكاء الإصطناعي") echo "selected"; ?>
-                                    value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
-                                <option <?php if ($alltype["goal_page"] == "مواهب العالم الرياضية") echo "selected"; ?>
-                                    value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
-                                <option <?php if ($alltype["goal_page"] == "الأزياء والمجوهرات") echo "selected"; ?>
-                                    value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                    اختر الحدث </option>
+                                    <?php
+                                $stmt = $connect->prepare("SELECT * FROM main_events");
+                                $stmt->execute();
+                                $allevent = $stmt->fetchAll();
+                                foreach($allevent as $event){?>
+                                <option value="<?php echo $event["event_name"]; ?>" <?php if ($alltype["goal_page"] == $event["event_name"]) echo "selected"; ?>> <?php echo $event["event_name"]; ?> </option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
-
                     </div>
                     <div class="box submit_box">
                         <input class="btn btn-primary" name="add_car" type="submit" value="تعديل المحتوي">
@@ -172,7 +172,7 @@ if (isset($_GET['goal_id']) && is_numeric($_GET['goal_id'])) {
 
             if (empty($formerror)) {
 
-                $stmt = $connect->prepare("UPDATE revival_goals SET 
+                $stmt = $connect->prepare("UPDATE event_goals SET 
                     goal_head=?,goal_head_en=?,goal_desc=?,
                     goal_desc_en=?,vision_head=?,vision_head_en=?,vision_desc=?,vision_desc_en=?,message_head=?,message_head_en=?,message_desc=?,message_desc_en=?,goal_page=?
                 WHERE goal_id=?");
@@ -198,7 +198,7 @@ if (isset($_GET['goal_id']) && is_numeric($_GET['goal_id'])) {
     <div class="alert-success">
         تم تعديل المحتوي بنجاح
 
-        <?php header('refresh:3,url=main.php?dir=revival_goals&page=report'); ?>
+        <?php header('refresh:3,url=main.php?dir=event_goals&page=report'); ?>
 
 
     </div>

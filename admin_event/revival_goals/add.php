@@ -4,7 +4,7 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم الاهداف </li>
                 </ol>
@@ -64,9 +64,6 @@
 
                         </div>
 
-
-
-
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -92,15 +89,20 @@
                             <textarea name="message_desc_en" id="" class="form-control"></textarea>
 
                         </div>
-
                         <div class="box">
-                            <label id="name_en"> اختر الصفحة <span> * </span></label>
+                            <label id="name_en"> اختر الحدث <span> * </span></label>
                             <select required class="form-control" name="goal_page" id="cat_active6">
-                                <option value=""> اختر الصفحة </option>
-                                <option value="الرئيسية"> الرئيسية </option>
-                                <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
-                                <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
-                                <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                <option value=""> اختر الحدث </option>
+                                <?php
+                                $stmt = $connect->prepare("SELECT * FROM main_events WHERE event_active='فعال'");
+                                $stmt->execute();
+                                $allevent = $stmt->fetchAll();
+                                foreach($allevent as $event){?>
+                                <option value="<?php echo $event ["event_name"] ?>"> <?php echo $event ["event_name"] ?></option>
+                                <?php
+                                }
+                                
+                                ?>
                             </select>
                         </div>
 
@@ -141,7 +143,7 @@
 
             if (empty($formerror)) {
 
-                $stmt = $connect->prepare("INSERT INTO revival_goals
+                $stmt = $connect->prepare("INSERT INTO event_goals
                  (goal_head, goal_head_en, goal_desc , goal_desc_en , vision_head , vision_head_en , vision_desc , vision_desc_en, message_head , message_head_en,message_desc,message_desc_en,goal_page)
                 VALUES (:zgoal_head,:zgoal_head_en,:zgoal_desc,:zgoal_desc_en,:zvision_head,:zvision_head_en,:zvision_dec, :zvision_desc_en, :zmessage_head, :zmessage_head_en,:zmessage_desc,:zmessage_desc_en,:zgoal_page)");
                 $stmt->execute([

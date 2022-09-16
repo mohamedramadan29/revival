@@ -2,7 +2,7 @@
 
 if (isset($_GET['faq_id']) && is_numeric($_GET['faq_id'])) {
     $faq_id = $_GET['faq_id'];
-    $stmt = $connect->prepare('SELECT * FROM faq WHERE faq_id=?');
+    $stmt = $connect->prepare('SELECT * FROM event_faq WHERE faq_id=?');
     $stmt->execute([$faq_id]);
     $alltype = $stmt->fetch();
     $count = $stmt->rowCount();
@@ -15,7 +15,7 @@ if (isset($_GET['faq_id']) && is_numeric($_GET['faq_id'])) {
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> <?php echo $lang['website_title']; ?> </a> <i
+                            href="main.php?dir=dashboard&page=dashboard"> الاحداث </a> <i
                             class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page">الاسئلة الشائعه</li>
                 </ol>
@@ -82,7 +82,7 @@ if (isset($_GET['faq_id']) && is_numeric($_GET['faq_id'])) {
             }
 
             if (empty($formerror)) {
-                $stmt = $connect->prepare("UPDATE faq SET faq_q=?,faq_q_en=?,
+                $stmt = $connect->prepare("UPDATE event_faq SET faq_q=?,faq_q_en=?,
     faq_an=?,faq_an_en=?
         WHERE faq_id=?");
                 $stmt->execute([

@@ -277,10 +277,36 @@ include $tem . 'left_sidebar.php';
             include 'home_event/reason/report.php';
         }
 
+        if ($dir == 'target_category' && $page == 'add') {
+            include 'target_category/add.php';
+        } elseif ($dir == 'target_category' && $page == 'edit') {
+            include 'target_category/edit.php';
+        } elseif ($dir == 'target_category' && $page == 'delete') {
+            include 'target_category/delete.php';
+        } elseif ($dir == 'target_category' && $page == 'report') {
+            include 'target_category/report.php';
+        }
 
+        if ($dir == 'event_speakers' && $page == 'add') {
+            include 'event_speakers/add.php';
+        } elseif ($dir == 'event_speakers' && $page == 'edit') {
+            include 'event_speakers/edit.php';
+        } elseif ($dir == 'event_speakers' && $page == 'delete') {
+            include 'event_speakers/delete.php';
+        } elseif ($dir == 'event_speakers' && $page == 'report') {
+            include 'event_speakers/report.php';
+        }
 
-
-
+        if ($dir == 'event_sponser' && $page == 'add') {
+            include 'event_sponser/add.php';
+        } elseif ($dir == 'event_sponser' && $page == 'edit') {
+            include 'event_sponser/edit.php';
+        } elseif ($dir == 'event_sponser' && $page == 'delete') {
+            include 'event_sponser/delete.php';
+        } elseif ($dir == 'event_sponser' && $page == 'report') {
+            include 'event_sponser/report.php';
+        }
+        
         ////////////////////////////////////////// END EVENT DASHBOARD ///
 
         // START DASHBOARD
