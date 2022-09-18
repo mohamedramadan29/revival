@@ -3,6 +3,9 @@ ob_start();
 session_start();
 $artificial_event = 'artificial_event';
 include 'init.php';
+
+
+echo 'tes test';
 ?>
 
 <div class="cars hero faq booking">
