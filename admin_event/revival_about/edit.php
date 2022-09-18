@@ -32,6 +32,11 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                                     <input required class="form-control" type="text" name="about_name" value="<?php echo $alltype["about_name"]; ?>">
                                 </div>
                                 <div class="box">
+                                    <label id="name"> الاسم الانجليزية
+                                    </label>
+                                    <input required class="form-control" type="text" name="about_name_en" value="<?php echo $alltype["about_name_en"]; ?>">
+                                </div>
+                                <div class="box">
                                     <label id="name"> الوصف
                                     </label>
                                     <textarea name="about_desc" id="" class="form-control"><?php echo $alltype["about_desc"]; ?></textarea>
@@ -145,6 +150,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
             $video_video2_size = $_FILES['video2']['size'];
             //  $image_allowed_extention = ['jpg', 'jpeg', 'png'];
             $about_name =  $_POST['about_name'];
+            $about_name_en =  $_POST['about_name_en'];
             $about_desc = $_POST['about_desc'];
             $about_desc_en =   $_POST['about_desc_en'];
             $about_sub_desc =   $_POST['about_sub_desc'];
@@ -189,10 +195,11 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
             if (empty($formerror)) {
 
                 $stmt = $connect->prepare("UPDATE event_about_us SET 
-                    about_name=?,about_desc=?,about_desc_en=?,about_sub_desc=?,about_sub_desc_en=?,about_page=?
+                    about_name=?,about_name_en=?,about_desc=?,about_desc_en=?,about_sub_desc=?,about_sub_desc_en=?,about_page=?
                 WHERE about_id=?");
                 $stmt->execute([
                     $about_name,
+                    $about_name_en,
                     $about_desc,
                     $about_desc_en,
                     $about_sub_desc,

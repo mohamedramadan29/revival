@@ -23,6 +23,11 @@
                             <input required class="form-control" type="text" name="about_name">
                         </div>
                         <div class="box">
+                            <label id="name"> الاسم الانجليزية
+                            </label>
+                            <input required class="form-control" type="text" name="about_name_en">
+                        </div>
+                        <div class="box">
                             <label id="name"> الوصف
                             </label>
                             <textarea name="about_desc" id="" class="form-control"></textarea>
@@ -139,6 +144,7 @@
             $video_video2_size = $_FILES['video2']['size'];
             //  $image_allowed_extention = ['jpg', 'jpeg', 'png'];
             $about_name =  $_POST['about_name'];
+            $about_name_en =  $_POST['about_name_en'];
             $about_desc = $_POST['about_desc'];
             $about_desc_en =   $_POST['about_desc_en'];
             $about_sub_desc =   $_POST['about_sub_desc'];
@@ -182,10 +188,11 @@
                     'upload/' . $video_video2_uploaded
                 );
                 $stmt = $connect->prepare("INSERT INTO event_about_us
-                 (about_name, about_desc, about_desc_en , about_sub_desc , about_sub_desc_en , image1 , image2 , video1, video2 , about_page)
-                VALUES (:zname,:zabout_desc,:zabout_desc_en,:zabout_sub_desc,:zabout_sub_desc_en,:zimage1,:zimage2, :zvideo1, :zvideo2, :zabout_page)");
+                 (about_name,about_name_en, about_desc, about_desc_en , about_sub_desc , about_sub_desc_en , image1 , image2 , video1, video2 , about_page)
+                VALUES (:zname,:zname_en,:zabout_desc,:zabout_desc_en,:zabout_sub_desc,:zabout_sub_desc_en,:zimage1,:zimage2, :zvideo1, :zvideo2, :zabout_page)");
                 $stmt->execute([
                     'zname' => $about_name,
+                    'zname_en' => $about_name_en,
                     'zabout_desc' => $about_desc,
                     'zabout_desc_en' => $about_desc_en,
                     'zabout_sub_desc' => $about_sub_desc,

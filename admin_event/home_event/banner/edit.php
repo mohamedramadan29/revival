@@ -32,33 +32,33 @@ if (isset($_GET['ban_id']) && is_numeric($_GET['ban_id'])) {
                         <div class="box">
                             <label id="name"> اسم البانر
                             </label>
-                            <input required class="form-control" type="text" name="banner_name"
+                            <input class="form-control" type="text" name="banner_name"
                                 value="<?php echo $alltype["banner_name"]; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> عنوان البانر
                             </label>
-                            <input required class="form-control" type="text" name="banner_head"
+                            <input class="form-control" type="text" name="banner_head"
                                 value="<?php echo $alltype["banner_head"]; ?>"
                                 value="<?php echo $alltype["banner_head"]; ?>">
                         </div>
                         <div class=" box">
                             <label id="name"> عنوان البانر باللغه الانجليزية
                             </label>
-                            <input required class="form-control" type="text" name="banner_head_en"
+                            <input class="form-control" type="text" name="banner_head_en"
                                 value="<?php echo $alltype["banner_head_en"]; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> وصف البانر
                             </label>
-                            <input required class="form-control" type="text" name="banner_desc"
+                            <input class="form-control" type="text" name="banner_desc"
                                 value="<?php echo $alltype["banner_desc"]; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> وصف البانر باللغه الانجليزية
                             </label>
-                            <input required class="form-control" type="text" name="banner_desc_en"
+                            <input class="form-control" type="text" name="banner_desc_en"
                                 value="<?php echo $alltype["banner_desc_en"]; ?>">
                         </div>
                     </div>

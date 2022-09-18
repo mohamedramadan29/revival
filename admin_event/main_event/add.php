@@ -25,6 +25,14 @@
                             </label>
                             <input required class="form-control" type="text" name="event_name_en">
                         </div>
+                        <div class="col-lg-6">
+                            <div class="">
+                                <label> البانر </label>
+                                <input id="logo" class="form-control dropify_" data-default-file="" type="file" name="image1" value="">
+                            </div>
+                            <div id="logo_" class="col-md-3">
+                            </div>
+                        </div>
                         <div class="box">
                             <label id="car_color"> الحالة </label>
                             <select id="cat_active2" class="form-control" name="event_active" id="">
@@ -44,17 +52,29 @@
     </div>
     <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['add_car'])) {
+            $image_image1_name = $_FILES['image1']['name'];
+            $image_image1_tem = $_FILES['image1']['tmp_name'];
+            $image_image1_type = $_FILES['image1']['type'];
+            $image_image1_size = $_FILES['image1']['size'];
+            $image_allowed_extention = ['jpg', 'jpeg', 'png'];
 
             $event_name = $_POST['event_name'];
             $event_name_en = $_POST['event_name_en'];
             $event_active = $_POST['event_active'];
+            $image_image1_uploaded =
+                rand(0, 100000000) . '.' . $image_image1_name;
+            move_uploaded_file(
+                $image_image1_tem,
+                'upload/' . $image_image1_uploaded
+            );
 
             /// More Validation To Show Error 
-            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_active)
-                VALUES (:zevent_name,:zevent_name_en,:zevent_active)");
+            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_logo,event_active)
+                VALUES (:zevent_name,:zevent_name_en,:zimage1,:zevent_active)");
             $stmt->execute([
                 'zevent_name' => $event_name,
                 'zevent_name_en' => $event_name_en,
+                'zimage1' => $image_image1_uploaded,
                 'zevent_active' => $event_active,
             ]);
             if ($stmt) { ?>

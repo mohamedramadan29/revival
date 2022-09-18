@@ -263,16 +263,10 @@ body {
     text-align: right;
     position: relative;
     margin-right: 15px;
+    margin-bottom:-10px;
 }
 
-.vision .data .info ul li::after {
-    content: "*";
-    position: absolute;
-    right: -15px;
-    top: 3px;
-    color: var(--maincolor);
-    font-size: 18px;
-}
+ 
 
 .vision .data .info i {
     width: 80px;
@@ -291,7 +285,20 @@ body {
     width: 12px;
     height: 12px;
 }
-
+.vision .data .info li span i{
+    color: var(--maincolor);
+    width: 0;
+    height: 0;
+    border: 0;
+    font-size: 12px;
+    position: relative;
+    right: -15px;
+    left: 15px;
+}
+.vision .data .info:hover span i{
+border:0;
+color:var(--maincolor);
+}
 .vision .data .info:hover i {
     background-color: transparent;
     color: var(--maincolor);
@@ -2263,6 +2270,7 @@ body {
     text-align: right;
     margin: auto;
     padding-bottom: 60px;
+    padding-top: 60px;
 }
 
 .why_avir .data {}
@@ -2271,14 +2279,22 @@ body {
     color: var(--maincolor);
     font-weight: bold;
     font-size: 22px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top:20px;
 }
 
 .why_avir .data p {
     max-width: 800px;
 
 }
-
+.why_avir .data li i{
+    color:var(--maincolor);
+    margin-right:10px;
+    margin-left:10px;
+}
+.why_avir .data li{
+    margin-top:10px;
+}
 .art_state {
     background-image: url(../../uploads/art_state.jpg);
     background-position: center;

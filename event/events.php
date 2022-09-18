@@ -8,19 +8,52 @@ include 'init.php';
 <div class="hero artif">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="overlay">
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM event_home_banner ORDER BY banner_id DESC LIMIT 1");
+            $stmt->execute();
+            $allbanner = $stmt->fetchAll();
+            foreach ($allbanner as $banner) { ?>
+                <div class="carousel-item active">
+                    <div class="overlay">
+                    </div>
+
+                    <img src="../admin_event/upload/<?php
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        echo $banner["image1"];
+                                                    } else {
+                                                        echo $banner["image2"];
+                                                    }
+                                                    ?>
+                " class="d-block w-100" alt="image1">
                 </div>
-                <img src="../uploads/event1.jpg" class="d-block w-100" alt="image1">
-            </div>
-            <div class="carousel-item">
-                <div class="overlay"> </div>
-                <img src="../uploads/event2.jpg" class="d-block w-100" alt="image2">
-            </div>
-            <div class="carousel-item">
-                <div class="overlay"> </div>
-                <img src="../uploads/event3.jpg" class="d-block w-100" alt="image3">
-            </div>
+            <?php
+            }
+            ?>
+
+
+
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM event_home_banner ORDER BY banner_id  LIMIT 2");
+            $stmt->execute();
+            $allbanners = $stmt->fetchAll();
+            foreach ($allbanners as $banners) { ?>
+                <div class="carousel-item">
+                    <div class="overlay">
+                    </div>
+
+                    <img src="../admin_event/upload/<?php
+                                                    if ($_SESSION["lang"]  == "ar") {
+                                                        echo $banners["image1"];
+                                                    } else {
+                                                        echo $banners["image2"];
+                                                    }
+                                                    ?>
+                " class="d-block w-100" alt="image1">
+                </div>
+            <?php
+            }
+            ?>
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,55 +65,121 @@ include 'init.php';
         </button>
     </div>
     <div class="data container ">
-        <h2> <?php echo $lang["event_head1"]; ?></h2>
-        <p> </p>
+        <?php
+        $stmt = $connect->prepare("SELECT * FROM event_home_banner ORDER BY banner_id  LIMIT 1");
+        $stmt->execute();
+        $allbanners = $stmt->fetchAll();
+        foreach ($allbanners as $banners) { ?>
+            <h2>
+                <?php
+                if ($_SESSION["lang"] == "ar") {
+                    echo $banners["banner_head"];
+                } else {
+                    echo $banners["banner_head_en"];
+                }
+                ?>
+            </h2>
+            <p>
+                <?php
+                if ($_SESSION["lang"] == "ar") {
+                    echo $banners["banner_desc"];
+                } else {
+                    echo $banners["banner_desc_en"];
+                }
+                ?>
+            </p>
+
+        <?php
+        } ?>
+
     </div>
 </div>
 </div>
 <!-- END HERO SECTION -->
 
+
 <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel"> Events Video </h3>
+                <h3 class="modal-title" id="exampleModalLabel"> </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Video Modal End -->
-
 <!-- START ABOUT -->
 <div class="about">
     <div class="container">
         <div class="data">
             <div class="row">
-
                 <div class="col-lg-6 col-12">
                     <div class="info">
-                        <h3> <?php echo $lang["event_head2"]; ?></h3>
-                        <p> <?php echo $lang["event_p1"]; ?> </p>
+                        <h3> <?php echo $lang["index_h2"] ?></h3>
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM event_home_about  ORDER BY about_id LIMIT 1 ");
+                        $stmt->execute();
+                        $allabout = $stmt->fetchAll();
+                        foreach ($allabout as $about) {
+
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <p> <?php echo $about["about_desc"] ?> </span> </p>
+                            <?php
+                            } else { ?>
+                                <p> <?php echo $about["about_desc_en"] ?> </span> </p>
+
+                            <?php
+                            }
+                            ?>
+
+
+                            <ul class="list-unstyled">
+                                <?php
+                                if ($_SESSION["lang"] == "ar") {
+                                    $learn = $about['about_sub_desc'];
+                                } else {
+                                    $learn = $about['about_sub_desc_en'];
+                                }
+                                $learn = explode(",", $learn);
+                                $countfile = count($learn) - 1;
+                                for ($i = 0; $i < $countfile; ++$i) { ?>
+
+                                    <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                                <?php
+                                }
+                                ?>
+
+                            </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 about_events about_event2">
+                <div class="col-lg-6 col-12 about_events" style="background-image: url(../admin_event/upload/<?php if ($_SESSION["lang"] == "ar") {
+                                                                                                                    echo $about["image1"];
+                                                                                                                } else {
+                                                                                                                    echo $about["image2"];
+                                                                                                                } ?>) ;">
                     <div class="d-flex align-items-center pt-5">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="uploads/video.mp4"
-                            data-bs-target="#videoModal">
+                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="../admin_event/upload/<?php if ($_SESSION["lang"] == "ar") {
+                                                                                                                            echo $about["video1"];
+                                                                                                                        } else {
+                                                                                                                            echo $about["video2"];
+                                                                                                                        } ?>" data-bs-target="#videoModal">
                             <span></span>
                         </button>
 
                     </div>
                 </div>
+            <?php
+
+                        }
+            ?>
             </div>
         </div>
     </div>
@@ -130,19 +229,46 @@ include 'init.php';
             <div class="row info_data">
                 <div class="col-lg-6 col-12">
 
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-star"></i><?php echo $lang["event_p2"]; ?>
-                        <li><i class="fa fa-star"></i> <?php echo $lang["event_p3"]; ?></li>
-                        <li><i class="fa fa-star"></i><?php echo $lang["event_p4"]; ?></li>
-                        <li><i class="fa fa-star"></i><?php echo $lang["event_p6"]; ?></li>
-                        <li><i class="fa fa-star"></i> <?php echo $lang["event_p7"]; ?> </li>
+                    <?php
+                    $stmt = $connect->prepare("SELECT * FROM event_home_reason  ORDER BY reason_id LIMIT 1 ");
+                    $stmt->execute();
+                    $allabout = $stmt->fetchAll();
+                    foreach ($allabout as $about) { ?>
+                        <ul class="list-unstyled">
+                            <?php
+                            if ($_SESSION["lang"] == "ar") {
+                                $learn = $about['reasons'];
+                            } else {
+                                $learn = $about['reasons_en'];
+                            }
+                            $learn = explode(",", $learn);
+                            $countfile = count($learn) - 1;
+                            for ($i = 0; $i < $countfile; ++$i) { ?>
 
+                                <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                            <?php
+                            }
+                            ?>
 
-                    </ul>
+                        </ul>
+
+                    <?php
+                    }
+
+                    ?>
+
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="out_team_image">
-                        <img src="../uploads/event2.jpg" alt="">
+
+
+                        <?php
+                        foreach ($allabout as $about) { ?>
+                            <img src="../admin_event/upload/<?php echo $about["reason_image"]; ?>" alt="">
+
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

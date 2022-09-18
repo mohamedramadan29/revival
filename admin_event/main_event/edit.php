@@ -37,12 +37,20 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                                     </label>
                                     <input required class="form-control" type="text" name="event_name_en" value="<?php echo $alltype["event_name_en"]; ?>">
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="">
+                                        <label> البانر </label>
+                                        <input id="logo" class="form-control dropify_" data-default-file="upload/<?php echo $alltype["event_logo"]; ?>" type="file" name="image1" value="">
+                                    </div>
+                                    <div id="logo_" class="col-md-3">
+                                    </div>
+                                </div>
                                 <div class="box">
                                     <label id="car_color"> الحالة </label>
                                     <select id="cat_active2" class="form-control" name="event_active" id="">
                                         <option value=""> اختر الحالة </option>
-                                        <option value="فعال" <?php if($alltype["event_name"] ="فعال") echo "selected";?>> فعال </option>
-                                        <option value="غير فعال" <?php if($alltype["event_name"] ="غير فعال") echo "selected";?>> غير فعال </option>
+                                        <option value="فعال" <?php if ($alltype["event_active"] == "فعال") echo "selected"; ?>> فعال </option>
+                                        <option value="غير فعال" <?php if ($alltype["event_active"] == "غير فعال") echo "selected"; ?>> غير فعال </option>
                                     </select>
                                 </div>
                                 <div class="box submit_box">
@@ -64,24 +72,13 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
             $image1_tem = $_FILES['image1']['tmp_name'];
             $image1_type = $_FILES['image1']['type'];
             $image1_size = $_FILES['image1']['size'];
-
             $image_allowed_extention = ['jpg', 'jpeg', 'png'];
 
-            // START Engish Arabic
-            $image2_name = $_FILES['image2']['name'];
-            $image2_tem = $_FILES['image2']['tmp_name'];
-            $image2_type = $_FILES['image2']['type'];
-            $image2_size = $_FILES['image2']['size'];
-
-            $art_title = $_POST['ques'];
-            $art_title_en = $_POST['ques_en'];
-            $art_desc = $_POST['answer1'];
-            $art_desc_en = $_POST['answer2'];
-            $art_category = $_POST['category'];
+            $event_name = $_POST['event_name'];
+            $event_name_en = $_POST['event_name_en'];
+            $event_active = $_POST['event_active']; 
             $formerror = [];
-            if (empty($art_title)) {
-                $formerror[] = 'Please Insert Title';
-            }
+             
             foreach ($formerror as $errors) {
                 echo "<div class='alert alert-danger danger_message'>" .
                     $errors .
@@ -90,123 +87,50 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
 
             if (empty($formerror)) {
 
-                if ($image1_tem != '' && $image2_tem != '') {
+                if ($image1_tem != '') {
                     $image1_uploaded = rand(0, 100000000) . '.' . $image1_name;
                     move_uploaded_file(
                         $image1_tem,
                         'upload/' . $image1_uploaded
-                    );
-
-                    $image2_uploaded = rand(0, 100000000) . '.' . $image2_name;
-                    move_uploaded_file(
-                        $image2_tem,
-                        'upload/' . $image2_uploaded
-                    );
-                    $stmt = $connect->prepare("UPDATE articles SET article_title=?,article_title_en=?,
-                    article_desc=?,article_desc_en=?,article_category=?,image1=?,image2=?
-                        WHERE article_id=?");
+                    ); 
+                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,
+                    event_logo=?,event_active=?
+                        WHERE event_id=?");
                     $stmt->execute([
-                        $art_title,
-                        $art_title_en,
-                        $art_desc,
-                        $art_desc_en,
-                        $art_category,
+                        $event_name,
+                        $event_name_en,
                         $image1_uploaded,
-                        $image2_uploaded,
-                        $article_id
+                        $event_active,
+                        $event_id
                     ]);
                     if ($stmt) { ?>
                         <div class="container">
                             <div class="alert-success">
-                                تم تعديل المقال بنجاح
+                                تم تعديل الحدث بنجاح
 
-                                <?php header('refresh:3,url=main.php?dir=articles&page=report'); ?>
+                                <?php header('refresh:3,url=main.php?dir=main_event&page=report'); ?>
 
 
                             </div>
                         </div>
 
                     <?php }
-                } elseif ($image1_tem != '') {
-                    $image1_uploaded = rand(0, 100000000) . '.' . $image1_name;
-                    move_uploaded_file(
-                        $image1_tem,
-                        'upload/' . $image1_uploaded
-                    );
+                }  else {
 
-                    $stmt = $connect->prepare("UPDATE articles SET article_title=?,article_title_en=?,
-                    article_desc=?,article_desc_en=?,article_category=?,image1=?
-                        WHERE article_id=?");
+                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,event_active=?
+                        WHERE event_id=?");
                     $stmt->execute([
-                        $art_title,
-                        $art_title_en,
-                        $art_desc,
-                        $art_desc_en,
-                        $art_category,
-                        $image1_uploaded,
-                        $article_id
+                        $event_name,
+                        $event_name_en, 
+                        $event_active,
+                        $event_id
                     ]);
                     if ($stmt) { ?>
                         <div class="container">
                             <div class="alert-success">
                                 تم تعديل المقال بنجاح
 
-                                <?php header('refresh:3,url=main.php?dir=articles&page=report'); ?>
-
-
-                            </div>
-                        </div>
-
-                    <?php }
-                } elseif ($image2_tem != '') {
-                    $image2_uploaded = rand(0, 100000000) . '.' . $image2_name;
-                    move_uploaded_file(
-                        $image2_tem,
-                        'upload/' . $image2_uploaded
-                    );
-                    $stmt = $connect->prepare("UPDATE articles SET article_title=?,article_title_en=?,
-                    article_desc=?,article_desc_en=?,article_category=?,image2=?
-                        WHERE article_id=?");
-                    $stmt->execute([
-                        $art_title,
-                        $art_title_en,
-                        $art_desc,
-                        $art_desc_en,
-                        $art_category,
-                        $image2_uploaded,
-                        $article_id
-                    ]);
-                    if ($stmt) { ?>
-                        <div class="container">
-                            <div class="alert-success">
-                                تم تعديل المقال بنجاح
-
-                                <?php header('refresh:3,url=main.php?dir=articles&page=report'); ?>
-
-
-                            </div>
-                        </div>
-
-                    <?php }
-                } else {
-
-                    $stmt = $connect->prepare("UPDATE articles SET article_title=?,article_title_en=?,
-                    article_desc=?,article_desc_en=?,article_category=?
-                        WHERE article_id=?");
-                    $stmt->execute([
-                        $art_title,
-                        $art_title_en,
-                        $art_desc,
-                        $art_desc_en,
-                        $art_category,
-                        $article_id
-                    ]);
-                    if ($stmt) { ?>
-                        <div class="container">
-                            <div class="alert-success">
-                                تم تعديل المقال بنجاح
-
-                                <?php header('refresh:3,url=main.php?dir=articles&page=report'); ?>
+                                <?php header('refresh:3,url=main.php?dir=main_event&page=report'); ?>
 
 
                             </div>

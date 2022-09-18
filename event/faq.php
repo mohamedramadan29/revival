@@ -8,7 +8,7 @@ include 'init.php';
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2> اهم الاسئلة الشائعه </h2>
+            <h2><?php echo $lang["faq_head1"]; ?></h2>
         </div>
     </div>
 </div>
@@ -17,34 +17,34 @@ include 'init.php';
 <!-- START FAQ SECTION -->
 <div class="faq_section">
     <div class="container">
-
         <div class="accordion">
+            <?php
+            $stmt = $connect->prepare("SELECT * FROM event_faq");
+            $stmt->execute();
+            $allfaq = $stmt->fetchAll();
+            foreach ($allfaq as $faq) { ?>
             <div class="accordion-item">
-                <a> لماذا رفايفال </a>
+                <?php
+                    if ($_SESSION["lang"] == "ar") { ?>
+                <a><?php echo $faq["faq_q"]; ?></a>
                 <div class="content">
-                    <p> ببساطة كوادر مميزة تتكون من نخبة من المواهب من مختلف الدول تعمل في تطوير مشروع ابداعي ومبتكر في
-                        مختلف المجالات </p>
+                    <p> <?php echo $faq["faq_an"]; ?> </p>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <a> أهمية الخدمات التي نقدمها </a>
+                <?php
+                    } else { ?>
+                <a> <?php echo $faq["faq_q_en"]; ?> </a>
                 <div class="content">
-                    <p> أهمية خدماتنا تكمن في أنها رافدا أساسيا لتجديد الاستراتيجيات التنموية وتوفير وصول أفضل إلى
-                        التنمية المستدامة من خلال الاقتصاد القائم على المعرفة حيث نطور مشاريع جديده ومبتكرة بمفهوم جديد
-                        وابداعي للحكومات والمؤسسات والافراد تسهم في جذب المستمرين ودعم التنمية الاقتصادية.</p>
+                    <p> <?php echo $faq["faq_an_en"]; ?></p>
                 </div>
-            </div>
-            <div class="accordion-item">
-                <a> انضم الان </a>
-                <div class="content">
-                    <p> انظم الآن الى نخبة من محترفي تصميم وصناعة الأزياء والمجوهرات في العالم لتكون واحدا من أدوات نجاح
-                        وتميز الملتقى العالمي "أدو للأزياء والموضة وفن الجسم والمجوهرات" الذي يعتبر منصّة متميزة تلتقي
-                        فيها المواهب الناشئة بالنخب العالمية في مجال التصميم والأزياء وفن الجسم والمجوهرات والمصانع
-                        والماركات العالمية والمشاهير، ومحبي الموضة والأزياء، </p>
-                </div>
-            </div>
-        </div>
+                <?php
+                    }
+                    ?>
 
+            </div>
+            <?php
+            }
+            ?>
+        </div>
 
     </div>
 </div>

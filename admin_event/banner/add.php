@@ -35,13 +35,13 @@
                         <div class="box">
                             <label id="name"> وصف البانر
                             </label>
-                            <input required class="form-control" type="text" name="banner_desc">
+                            <input class="form-control" type="text" name="banner_desc">
                         </div>
 
                         <div class="box">
                             <label id="name"> وصف البانر باللغه الانجليزية
                             </label>
-                            <input required class="form-control" type="text" name="banner_desc_en">
+                            <input   class="form-control" type="text" name="banner_desc_en">
                         </div>
                         <div class="box">
                             <label id="name_en"> اختر الحدث <span> * </span></label>

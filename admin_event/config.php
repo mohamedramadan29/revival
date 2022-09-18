@@ -84,6 +84,10 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'event_speakers') {
         include 'event_speakers/lang/' . $_SESSION['lang'] . '.php';
     }
+    
+    elseif ($dir == 'event_programme') {
+        include 'event_programme/lang/' . $_SESSION['lang'] . '.php';
+    }
     /////////////////////////////////// END EVENT DASHBOARD 
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
