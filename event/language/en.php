@@ -273,7 +273,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
 
     "fashion_register_message" => "We congratulate you for joining the Fashion in Revival
 And we wish you to realize your dream by seeing your proposed idea or talent into reality through Revival.",
-
+"share_event_message" => "Thank you for registering with us to participate in the event ",
 
     // END SUCCESS MESSAGE
 

@@ -55,7 +55,15 @@
 <!-- START NEW NAVABR  -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="index.php"><img class="logo_class" src="../../uploads/ai_logo.png" alt=""></a>
+	<?php
+				$stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
+				$stmt->execute(array($event_id));
+				$event_data = $stmt->fetchAll();
+				foreach ($event_data as $data) {?>
+					<a class="navbar-brand" href="index.php"><img class="logo_class" src="../../admin_event/upload/<?php echo $data["event_logo"];?>" alt=""></a>
+					<?php
+				} ?>
+		
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

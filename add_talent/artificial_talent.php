@@ -1,6 +1,7 @@
 <?php
 $username = $_GET["username"];
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $file = '';

@@ -670,7 +670,7 @@ if (isset($_GET['event_id'])) {
             <div class="data">
                 <h2> <?php echo $lang["index_h14"]; ?> </h2>
 
-                <a href="register.php" class="btn button"> <?php echo $lang["register"]; ?> </a>
+                <a href="register.php?event_id=<?php echo $event_id; ?> " class="btn button"> <?php echo $lang["register"]; ?> </a>
             </div>
         </div>
     </div>

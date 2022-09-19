@@ -166,7 +166,7 @@ $lang = array(
   "enter_first_name" => "  Please Enter First Name ",
   "enter_last_name" => " Please Enter Last Name",
   "enter_mobile" => " Please Enter Your Mobile ",
-  "enter_specialist" => "Please Enter Your Specialist",
+  "enter_message" => "Please Enter Your Message",
   "enter_cartificate" => "Please Enter Your Certificate",
   "enter_field" => "Please Enter  Field",
   "enter_sub_field" => "Please Enter Sub Field",
@@ -199,7 +199,8 @@ $lang = array(
     We will contact you as soon as possible
     All files must be uploaded in order for the account to be activated by the administration",
 
-
+    "goin_team_message" => "Thank you for registering with us in the team. We will contact you",
+    "share_event_message" => " Thank you for participating in the event, we will contact you",
   // END SUCCESS MESSAGE
 
 

@@ -579,8 +579,6 @@ if (isset($_SESSION["username"])) { ?>
                                             id="register_type" aria-label="country example">
                                             <?php
                                                 if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-
-
                                             <option
                                                 value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>">
                                                 <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['register_type']; ?>

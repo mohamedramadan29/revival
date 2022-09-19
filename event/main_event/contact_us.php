@@ -3,6 +3,8 @@ ob_start();
 session_start();
 $artificial_event = 'artificial_event';
 include 'init.php';
+$event_id = $_GET["event_id"];
+//echo $event_id;
 ?>
 <div class="cars hero faq">
     <div class="overlay">
@@ -21,9 +23,23 @@ include 'init.php';
                 <div class="col-lg-6 col-12">
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        $file = '';
+                        $file_tmp = '';
+                        $location = "";
+                        $uploadplace = "../../admin_event/upload/";
+                        // START UPLOAD contact_files
+
+                        foreach ($_FILES['contact_files']['name'] as $key => $val) {
+                            $file = $_FILES['contact_files']['name'][$key];
+                            $file = str_replace(' ', '', $file);
+                            $file_tmp = $_FILES['contact_files']['tmp_name'][$key];
+                            move_uploaded_file($file_tmp, $uploadplace . $file);
+                            $location .= $file . " ";
+                        }
                         $user_name = $_POST["user_name"];
                         $user_email = $_POST["user_email"];
                         $user_message = $_POST["user_message"];
+                      //  $event_id = $_GET["event_id"];
 
                         $errormessage = [];
 
@@ -40,30 +56,39 @@ include 'init.php';
                         }
 
                         if (empty($errormessage)) {
-                            $stmt = $connect->prepare("INSERT INTO contact_us (contact_name, contact_email, contact_message) 
-                            VALUES (:zname, :zemail,:zmessage)");
+                            $stmt = $connect->prepare("INSERT INTO event_contact_us (contact_name, contact_email, contact_message,fiels,event_id)
+                            VALUES (:zname, :zemail,:zmessage,:zfiles,:zevent_id)");
                             $stmt->execute(array(
                                 "zname" => $user_name,
                                 "zemail" => $user_email,
                                 "zmessage" => $user_message,
+                                "zfiles" => $location,
+                                "zevent_id" => $event_id,
                             ));
-                            if ($stmt) { ?>
-                    <style>
-                    .message_form {
-                        display: none !important;
-                    }
-                    </style>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'> <?php echo $lang["contact_us_succ_message"];  ?>
-                        </div>
-                    </div>
-                    <?php
+                            if ($stmt) {
+                                $to_email = $user_email;
+                                $subject = "اللتسجيل في ريفايفال";
+                                $body =  $lang["contact_us_succ_message"];
+                                $headers = "From: info@revivals.site";
+                                mail($to_email, $subject, $body, $headers)
+
+                    ?>
+                                <style>
+                                    .message_form {
+                                        display: none !important;
+                                    }
+                                </style>
+                                <div class='container'>
+                                    <div class='alert alert-success text-center'> <?php echo $lang["contact_us_succ_message"];  ?>
+                                    </div>
+                                </div>
+                            <?php
                             }
                         } else {
                             foreach ($errormessage as $message) { ?>
-                    <div class="error_message">
-                        <div class="alert alert-danger"> <?php echo $message ?> </div>
-                    </div>
+                                <div class="error_message">
+                                    <div class="alert alert-danger"> <?php echo $message ?> </div>
+                                </div>
                     <?php
                             }
                         }
@@ -78,18 +103,17 @@ include 'init.php';
 
                             </div>
                             <div class="box mb-3">
-                                <label for="floatingInput"> <?php echo $lang["email"];  ?> <span
-                                        class="star">*</span></label>
+                                <label for="floatingInput"> <?php echo $lang["email"];  ?> <span class="star">*</span></label>
                                 <input name="user_email" type="email" class="form-control" id="floatingInput">
 
                             </div>
 
                             <div class="box mb-3">
-                                <label for="floatingTextarea"><?php echo $lang["message"];  ?> <span
-                                        class="star">*</span></label>
+                                <label for="floatingTextarea"><?php echo $lang["message"];  ?> <span class="star">*</span></label>
                                 <textarea name="user_message" class="form-control" id="floatingTextarea"></textarea>
 
                             </div>
+
 
                             <div class="col-lg-6">
                                 <label> <?php echo $lang["files"];  ?> </label>
@@ -114,14 +138,15 @@ include 'init.php';
 
                                 </div>
 
-                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
 
                             </div>
 
 
-                            <div>
-                                <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  ">
-                            </div>
+
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  ">
                         </div>
                     </form>
 
