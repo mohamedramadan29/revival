@@ -1356,9 +1356,13 @@ color:var(--maincolor);
     line-height: 2;
     padding: 10px;
 }
+.profile_data .personal_information .data2 table{
+    text-align: center;
+}
 
-
-
+.profile_data .personal_information .data2 table tbody tr td{
+    padding:4px !important; 
+}
 /*END PERSONAL INFORMATION*/
 /* START UPDATE PROFILE FORM */
 .profile_data .update_profile_form {

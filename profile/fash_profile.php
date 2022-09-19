@@ -214,6 +214,51 @@
                                 -->
                     </div>
                     <!-- END GET DATA -->
+                               <!--  START TALENT REGISTER  -->
+                               <div class="personal_information">
+                        <div class="data2">
+                            <h4> المواهب المسجلة </h4>
+                            <div class="table-responsive">
+                                <table id="table" class="table table-light table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th> حالة الموهبة </th>
+                                            <th> الاسم الاول </th>
+                                            <th> الاسم الثاني </th>
+                                            <th> البريد الالكتروني </th>
+                                            <th> الهاتف </th>
+                                            <th> التخصص </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody> <?php
+
+                                            $stmt = $connect->prepare('SELECT * FROM company_register WHERE username=?');
+                                            $stmt->execute(array($userinfo['username']));
+                                            $alltype = $stmt->fetchAll();
+                                            foreach ($alltype as $type) { ?> <tr>
+                                                <?php if ($type['user_status'] == 'active') { ?>
+                                                    <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                                                <?php
+
+                                                } ?>
+                                                <td><?php echo $type['first_name']; ?> </td>
+                                                <td><?php echo $type['last_name']; ?> </td>
+                                                <td><?php echo $type['email']; ?> </td>
+                                                <td><?php echo $type['mobile']; ?> </td>
+                                                <td><?php echo $type['specialist']; ?> </td>
+
+                                            </tr> <?php }
+                                                    ?> </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  END TALENT REGISTER  -->
                 </div>
             </div>
         </div>
