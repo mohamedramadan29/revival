@@ -8,9 +8,6 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
     $count = $stmt->rowCount();
     if ($count > 0) {
 ?>
-
-
-
 <div class="container">
 
     <!-- start new data -->
@@ -36,27 +33,27 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                     <div class="col-lg-6">
                         <div class="box">
                             <label id="name"> الاسم الاول </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['first_name2']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> الاسم الاخير </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['last_name']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> البريد الالكتروني </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['email']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> رقم الهاتف </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['mobile']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> الدولة </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['country']; ?>">
                         </div>
 
@@ -72,30 +69,30 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 
                         <div class="box">
                             <label id="name"> التخصص </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['specialist']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> الموهل العلمي </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['certificate']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> المجال </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['field']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> المجال الفرعي </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['sub_field']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> نوع التسجيل </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['register_type']; ?>">
                         </div>
                         <div class="box">
@@ -112,6 +109,18 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                     value="active"> تفعيل </option>
                                 <option <?php if ($alltype['user_status'] == 'pending')  echo 'selected'; ?>
                                     value="pending"> تحت المراجعه </option>
+                            </select>
+                        </div>
+
+                        <div class="box">
+                            <label id="name"> العرض في المعرض </label>
+                            <select class="form-control" name="user_show" id="">
+                                <option value=""> اختر </option>
+
+                                <option <?php if ($alltype['user_show'] == 'نعم')  echo 'selected'; ?>
+                                    value="نعم"> نعم </option>
+                                <option <?php if ($alltype['user_show'] == 'لا')  echo 'selected'; ?>
+                                    value="لا"> لا </option>
                             </select>
                         </div>
                         <div class="box">
@@ -192,11 +201,13 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $user_status =  $_POST['user_status'];
+            $user_show =  $_POST['user_show'];
             $customer_message =  $_POST['customer_message'];
 
-            $stmt = $connect->prepare("UPDATE sport_register SET user_status=?,customer_message=? WHERE sport_register_id =? ");
+            $stmt = $connect->prepare("UPDATE sport_register SET user_status=?,user_show=?,customer_message=? WHERE sport_register_id =? ");
             $stmt->execute([
                 $user_status,
+                $user_show,
                 $customer_message,
                 $register_id,
 

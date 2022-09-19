@@ -92,13 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $project_name = $_POST["project_name"];
     $project_desc = $_POST["about_project"];
     $errormessage = [];
-    if(empty($project_name)){
+    if (empty($project_name)) {
         $errormessage[] = $lang["add_project_name_error"];
     }
-    if(empty($project_desc)){
+    if (empty($project_desc)) {
         $errormessage[] = $lang["add_project_decs_error"];
     }
-    if(empty($errormessage)){
+    if (empty($errormessage)) {
         $stmt = $connect->prepare("INSERT INTO revival_add_project (
             project_name, project_desc, certificate_register, eng_draw,
             prototype,project_images,project_video, username) VALUES (
@@ -121,26 +121,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $body =  $lang["add_new_project_from_user"];
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
-    
-    ?>
-    <style>
-    .message_form {
-        display: none !important;
-    }
-    </style>
-    <div class='container'>
-        <div class='alert alert-success text-center'> <?php echo $lang["add_new_project_from_user"]; ?>
-        </div>
-    </div>
-    <?php
-    }
-    }else{
+?>
+            <style>
+                .message_form {
+                    display: none !important;
+                }
+            </style>
+            <div class='container'>
+                <div class='alert alert-success text-center'> <?php echo $lang["add_new_project_from_user"]; ?>
+                </div>
+            </div>
+        <?php
+        }
+    } else {
         foreach ($errormessage as $message) { ?>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>
             </div>
-            <?php
-                        }
+<?php
+        }
     }
 }
 ?>
@@ -158,8 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <label for="first_name"><?php echo $lang["project_name"];  ?><span class="star">
                                                 *
                                             </span></label>
-                                        <input name="project_name" type="text" class="form-control" id="first_name"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['project_name']; ?>">
+                                        <input name="project_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['project_name']; ?>">
                                     </div>
                                     <h3> <?php echo  $lang["legal_information"]; ?> </h3>
                                     <div class="row">
@@ -172,8 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
-                                                                        <input type="file" name="files1[]" id="files"
-                                                                            multiple>
+                                                                        <input type="file" name="files1[]" id="files" multiple>
                                                                         <p> <a>
                                                                                 <?php echo  $lang["select_files"]; ?></a>
                                                                         </p>
@@ -210,8 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
-                                                                        <input type="file" name="files2[]" id="files2"
-                                                                            multiple>
+                                                                        <input type="file" name="files2[]" id="files2" multiple>
                                                                         <p> <a> <?php echo  $lang["select_files"]; ?>
                                                                             </a>
                                                                         </p>
@@ -246,8 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             <div class="upload-file">
                                                                 <div class="upload-wrapper">
                                                                     <label>
-                                                                        <input type="file" name="files3[]" id="files3"
-                                                                            multiple>
+                                                                        <input type="file" name="files3[]" id="files3" multiple>
                                                                         <p> <a><?php echo  $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
@@ -277,8 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="col-lg-6 col-12">
                                     <h3><?php echo  $lang["about_project"]; ?></h3>
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="about_project" id="floatingInput" cols="30"
-                                            rows="6"></textarea>
+                                        <textarea class="form-control" name="about_project" id="floatingInput" cols="30" rows="6"></textarea>
                                     </div>
 
                                     <div class="row">
@@ -291,8 +285,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         <div class="upload-file">
                                                             <div class="upload-wrapper">
                                                                 <label>
-                                                                    <input type="file" name="files4[]" id="files4"
-                                                                        multiple>
+                                                                    <input type="file" name="files4[]" id="files4" multiple>
                                                                     <p> <a> <?php echo  $lang["select_files"]; ?></a>
                                                                     </p>
                                                                 </label>
@@ -324,8 +317,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         <div class="upload-file">
                                                             <div class="upload-wrapper">
                                                                 <label>
-                                                                    <input type="file" name="files5[]" id="files5"
-                                                                        multiple>
+                                                                    <input type="file" name="files5[]" id="files5" multiple>
                                                                     <p> <a> <?php echo  $lang["select_files"]; ?></a>
                                                                     </p>
                                                                 </label>
@@ -353,8 +345,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="">
                                     <div class="reservation_button">
-                                        <input class="btn button" type="submit"
-                                            value="<?php echo  $lang["add_new_project_h1"]; ?>">
+                                        <input class="btn button" type="submit" value="<?php echo  $lang["add_new_project_h1"]; ?>">
                                     </div>
                                 </div>
                             </div>

@@ -593,11 +593,12 @@ if (isset($_SESSION["username"])) { ?>
 
 
                                             <option value="<?php echo $lang["Individually"];  ?> ">
-                                                <?php echo $lang["Individually"];  ?> </option>
-                                            <option value=" <?php echo $lang["broker_company"];  ?> ">
+                                                <?php echo $lang["Individually"];?> </option>
+                                            <option value="<?php echo $lang["broker_company"];?>">
                                                 <?php echo $lang["broker_company"];  ?> </option>
                                         </select>
                                     </div>
+                                    <br>
 
                                 </div>
                             </div>

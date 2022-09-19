@@ -350,7 +350,7 @@ $lang = array(
   "data_analysis_sub_f" =>   "     تحليل بيانات   ",
   // /////////////////// Register Type 
   "Individually" =>   "فردي",
-  "broker_company" =>   "شركه",
+  "broker_company" => "وسيط / منشأة",
   ///////////////////////////////
   /////////////////// START SPORT TALENT FILED
   "football_f" =>   "  كرة قدم  ",

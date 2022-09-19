@@ -139,6 +139,19 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                     value="pending"> تحت المراجعه </option>
                             </select>
                         </div>
+                        
+                        <div class="box">
+                            <label id="name"> العرض في المعرض </label>
+                            <select class="form-control" name="user_show" id="">
+                                <option value=""> اختر </option>
+
+                                <option <?php if ($alltype['user_show'] == 'نعم')  echo 'selected'; ?>
+                                    value="نعم"> نعم </option>
+                                <option <?php if ($alltype['user_show'] == 'لا')  echo 'selected'; ?>
+                                    value="لا"> لا </option>
+                            </select>
+                        </div>
+
                         <div class="box">
                             <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> هل حصل أعمالك على جوائز؟ </h6>
                             <label id="name"> الجوائز</label>
@@ -258,11 +271,13 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $user_status =  $_POST['user_status'];
+            $user_show =  $_POST['user_show'];
             $customer_message =  $_POST['customer_message'];
 
-            $stmt = $connect->prepare("UPDATE  fash_register SET user_status=?,customer_message=? WHERE fash_register_id  =? ");
+            $stmt = $connect->prepare("UPDATE fash_register SET user_status=?,user_show=?,customer_message=? WHERE fash_register_id  =? ");
             $stmt->execute([
                 $user_status,
+                $user_show,
                 $customer_message,
                 $register_id,
 
