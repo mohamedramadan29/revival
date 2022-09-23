@@ -206,8 +206,14 @@ if ($count >  0) { ?>
     <div class="profile_data update_profile">
         <div class="container">
             <div class="data">
+                <?
+                if(){
 
-
+                }else{
+                    
+                }
+                
+                ?>
                 <form class="message_form" action="" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">
@@ -221,7 +227,6 @@ if ($count >  0) { ?>
                                                     <div class="info">
                                                         <div class="row">
                                                             <div class="col-lg-6 col-12">
-
                                                                 <div class="box mb-3">
                                                                     <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> *
                                                                         </span></label>
