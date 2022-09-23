@@ -60,6 +60,10 @@ include 'init.php';
                     </div>
                 </div>
                 <div class="col-lg-9">
+                <?php 
+                $stmt = $connect->prepare("SELECT * FROM ");
+                
+                ?>
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="info">
