@@ -446,7 +446,7 @@ if (isset($_SESSION["username"])) { ?>
                                     <div class="terms_conditions">
                                         <input type="checkbox" id="checkterms" name="check_privacy">
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <a href="rev_terms.php?page=الرئيسية"> <?php echo $lang["terms"];  ?></a>
+                                            <a target="_blank" href="rev_terms.php?page=الرئيسية"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <hr>

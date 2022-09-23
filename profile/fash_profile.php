@@ -3,11 +3,6 @@
     <?php
     if ($userinfo['user_status'] == 'active') { ?>
 
-    <div class="alert_message alert alert-primary d-flex align-items-center" role="alert">
-        <div>
-            تم تفعيل حسابك بنجاح
-        </div>
-    </div>
     <?php
     } else { ?>
     <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
@@ -101,7 +96,7 @@
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
                                 <?php 
-                                if($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company'){ ?>
+                                if($userinfo['register_type'] == ' وسيط / منشأة ' || $userinfo['register_type'] == 'company'){ ?>
                                     <li> <a href="add_talent.php?username=<?php echo $userinfo['username'];?>" class="btn button">
                                         <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
                                 </li>

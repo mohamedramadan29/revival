@@ -120,7 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $subject = "اضافة مشروع جديد";
             $body =  $lang["add_new_project_from_user"];
             $headers = "From: info@revivals.site";
-            mail($to_email, $subject, $body, $headers)
+            mail($to_email, $subject, $body, $headers);
+            header("Location:profile.php");
 ?>
             <style>
                 .message_form {
