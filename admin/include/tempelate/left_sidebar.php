@@ -247,7 +247,7 @@
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
                           <p>
-                              المواهب المسجلة من وسيط  
+                              المواهب المسجلة من وسيط
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
@@ -378,7 +378,7 @@
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
                           <p>
-                              تسجيلات  الكورسات
+                              تسجيلات الكورسات
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
@@ -437,11 +437,35 @@
                           </li>
                       </ul>
                   </li>
+
+                  <li class="nav-item" id="lnk-email_section">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              قسم الايميلات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-add-email">
+                              <a href="main.php?dir=emails_section&page=add" class="nav-link">
+                                  <i class="fa fa-plus color2"></i>
+                                  <p> اضافة محتوي جديد </p>
+                              </a>
+                          </li>
+                          <li class="nav-item" id="lnk-rep-email">
+                              <a href="main.php?dir=emails_section&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p>  مشاهدة محتوي الايميلات  </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
                   <li class="nav-item">
                       <a href="signout.php" class="nav-link">
                           <i class="fa-solid fa-arrow-right-from-bracket color11"></i>
                           <p>
-                              <?php echo $lang['logout']; ?>
+                              تسجيل خروج
                               <i class=""></i>
                           </p>
                       </a>

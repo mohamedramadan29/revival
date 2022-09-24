@@ -64,6 +64,9 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'company_talent') {
         include 'company_talent/lang/' . $_SESSION['lang'] . '.php';
     }
+    elseif ($dir == 'emails_section') {
+        include 'emails_section/lang/' . $_SESSION['lang'] . '.php';
+    }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
 }

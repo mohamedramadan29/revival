@@ -2263,10 +2263,12 @@ color:var(--maincolor);
 /*NAVBAR EDIT*/
 #carouselExampleFade .carousel-control-next {
     left: 0 !important;
+    z-index: 99999999999;
 }
 
 #carouselExampleFade .carousel-control-prev {
     right: 0 !important;
+    z-index: 9999999999;
 }
 
 /*START WHY AVIR*/

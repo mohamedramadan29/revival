@@ -33,10 +33,10 @@
                             <td> <?php echo $type['contact_message']; ?> </td>
                             <td> <?php echo $type['contact_date']; ?> </td>
                             <td>
-                                <a class="btn btn-success" href="main.php?dir=contact&page=edit&message_id=<?php echo $type['contact_id']; ?> ">
+                                <a class="btn btn-success btn-sm" href="main.php?dir=contact&page=edit&message_id=<?php echo $type['contact_id']; ?> ">
                                     <i class="fa fa-eye"></i>
                                 </a>
-                                <a class="confirm btn btn-danger" href="main.php?dir=contact&page=delete&message_id=<?php echo $type['contact_id']; ?> ">
+                                <a class="confirm btn btn-danger btn-sm" href="main.php?dir=contact&page=delete&message_id=<?php echo $type['contact_id']; ?> ">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

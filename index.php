@@ -15,11 +15,11 @@ include 'init.php';
             $stmt->execute();
             $allbanner = $stmt->fetchAll();
             foreach ($allbanner as $banner) { ?>
-            <div class="carousel-item active">
-                <div class="overlay">
-                </div>
+                <div class="carousel-item active">
+                    <div class="overlay">
+                    </div>
 
-                <img src="admin/upload/<?php
+                    <img src="admin/upload/<?php
                                             if ($_SESSION["lang"] == "ar") {
                                                 echo $banner["image1"];
                                             } else {
@@ -27,7 +27,7 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
-            </div>
+                </div>
             <?php
             }
             ?>
@@ -39,11 +39,11 @@ include 'init.php';
             $stmt->execute();
             $allbanners = $stmt->fetchAll();
             foreach ($allbanners as $banners) { ?>
-            <div class="carousel-item">
-                <div class="overlay">
-                </div>
+                <div class="carousel-item">
+                    <div class="overlay">
+                    </div>
 
-                <img src="admin/upload/<?php
+                    <img src="admin/upload/<?php
                                             if ($_SESSION["lang"]  == "ar") {
                                                 echo $banners["image1"];
                                             } else {
@@ -51,7 +51,7 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
-            </div>
+                </div>
             <?php
             }
             ?>
@@ -72,24 +72,24 @@ include 'init.php';
         $stmt->execute();
         $allbanners = $stmt->fetchAll();
         foreach ($allbanners as $banners) { ?>
-        <h2>
-            <?php
+            <h2>
+                <?php
                 if ($_SESSION["lang"] == "ar") {
                     echo $banners["banner_head"];
                 } else {
                     echo $banners["banner_head_en"];
                 }
                 ?>
-        </h2>
-        <p>
-            <?php
+            </h2>
+            <p>
+                <?php
                 if ($_SESSION["lang"] == "ar") {
                     echo $banners["banner_desc"];
                 } else {
                     echo $banners["banner_desc_en"];
                 }
                 ?>
-        </p>
+            </p>
 
         <?php
         } ?>
@@ -101,8 +101,7 @@ include 'init.php';
 <!-- END HERO SECTION -->
 
 <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
@@ -112,8 +111,7 @@ include 'init.php';
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
@@ -135,18 +133,18 @@ include 'init.php';
                         foreach ($allabout as $about) {
 
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <p> <?php echo $about["about_desc"] ?> </span> </p>
-                        <?php
+                                <p> <?php echo $about["about_desc"] ?> </span> </p>
+                            <?php
                             } else { ?>
-                        <p> <?php echo $about["about_desc_en"] ?> </span> </p>
+                                <p> <?php echo $about["about_desc_en"] ?> </span> </p>
 
-                        <?php
+                            <?php
                             }
                             ?>
 
 
-                        <ul class="list-unstyled">
-                            <?php
+                            <ul class="list-unstyled">
+                                <?php
                                 if ($_SESSION["lang"] == "ar") {
                                     $learn = $about['about_sub_desc'];
                                 } else {
@@ -156,29 +154,31 @@ include 'init.php';
                                 $countfile = count($learn) - 1;
                                 for ($i = 0; $i < $countfile; ++$i) { ?>
 
-                            <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
-                            <?php
+                                    <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                                <?php
                                 }
                                 ?>
 
-                        </ul>
+                            </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 about_events"
-                    style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar"){echo $about["image1"];}else{echo $about["image2"];}?>) ;">
+                <div class="col-lg-6 col-12 about_events" style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar") {
+                                                                                                        echo $about["image1"];
+                                                                                                    } else {
+                                                                                                        echo $about["image2"];
+                                                                                                    } ?>) ;">
                     <div class="d-flex align-items-center pt-5">
                         <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
                                                                                                                     echo $about["video1"];
                                                                                                                 } else {
                                                                                                                     echo $about["video2"];
-                                                                                                                } ?>"
-                            data-bs-target="#videoModal">
+                                                                                                                } ?>" data-bs-target="#videoModal">
                             <span></span>
                         </button>
 
                     </div>
                 </div>
-                <?php
+            <?php
 
                         }
             ?>
@@ -197,62 +197,62 @@ include 'init.php';
                 $stmt->execute();
                 $allgoals = $stmt->fetchAll();
                 foreach ($allgoals as $goal) { ?>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa-solid fa-bullseye"></i>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-bullseye"></i>
 
-                        <?php ?>
+                            <?php ?>
 
 
-                        <?php
+                            <?php
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["goal_head"] ?> </h3>
-                        <p> <?php echo $goal["goal_desc"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["goal_head"] ?> </h3>
+                                <p> <?php echo $goal["goal_desc"] ?> </p>
+                            <?php
                             } else { ?>
-                        <h3> <?php echo $goal["goal_head_en"] ?> </h3>
-                        <p> <?php echo $goal["goal_desc_en"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["goal_head_en"] ?> </h3>
+                                <p> <?php echo $goal["goal_desc_en"] ?> </p>
+                            <?php
                             }
                             ?>
 
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa fa-signal"></i>
-                        <?php
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa fa-signal"></i>
+                            <?php
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["vision_head"] ?> </h3>
-                        <p> <?php echo $goal["vision_desc"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["vision_head"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc"] ?> </p>
+                            <?php
                             } else { ?>
-                        <h3> <?php echo $goal["vision_head_en"] ?> </h3>
-                        <p> <?php echo $goal["vision_desc_en"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["vision_head_en"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc_en"] ?> </p>
+                            <?php
                             }
                             ?>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <?php
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <?php
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["message_head"] ?> </h3>
-                        <p> <?php echo $goal["message_desc"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["message_head"] ?> </h3>
+                                <p> <?php echo $goal["message_desc"] ?> </p>
+                            <?php
                             } else { ?>
-                        <h3> <?php echo $goal["message_head_en"] ?> </h3>
-                        <p> <?php echo $goal["message_desc_en"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["message_head_en"] ?> </h3>
+                                <p> <?php echo $goal["message_desc_en"] ?> </p>
+                            <?php
                             }
                             ?>
 
+                        </div>
                     </div>
-                </div>
                 <?php
                 } ?>
 
@@ -369,60 +369,55 @@ include 'init.php';
             $stmt->execute();
             $allcourses = $stmt->fetchAll();
             foreach ($allcourses as $course) { ?>
-            <div class="col-lg-4">
-                <div class="item">
-                    <div class="car-wrap rounded ftco-animate">
-                        <div class="img rounded d-flex align-items-end"
-                            style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar") {
+                <div class="col-lg-4">
+                    <div class="item">
+                        <div class="car-wrap rounded ftco-animate">
+                            <div class="img rounded d-flex align-items-end" style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar") {
                                                                                                                             echo $course["image1"];
                                                                                                                         } else {
                                                                                                                             echo $course["image2"];
                                                                                                                         }
                                                                                                                         ?>);">
-                        </div>
-                        <div class="text">
-                            <h2 class="mb-0"><a href="#">
-                                    <?php
+                            </div>
+                            <div class="text">
+                                <h2 class="mb-0"><a href="#">
+                                        <?php
                                         if ($_SESSION["lang"] == "ar") {
                                             echo $course["course_name"];
                                         } else {
                                             echo $course["course_name_en"];
                                         }
                                         ?>
-                                </a></h2>
-                            <div class="mb-3">
-                                <span class="cat"> <?php echo $course["course_place"] ?></span>
-                            </div>
-                            <div class="d-flex mb-0 justify-content-between prop">
-                                <ul class="list-unstyled">
-
-                                    <li> <?php echo $lang["course_head3"] ?>: </li>
-                                    <li> <?php echo $lang["course_head4"] ?> : </li>
-                                </ul>
-                                <ul class="list-unstyled">
-
-                                    <li> <?php echo $course["course_num_days"] ?> ايام </li>
-                                    <li> <?php echo $course["course_constructor"] ?> </li>
-                                </ul>
-                            </div>
-                            <div class="d-flex justify-content-between mb-0 check">
-                                <div> <span> <?php echo $lang["course_head6"] ?> </span>
-                                    <h6> <?php echo $course["course_price"] ?> $ </h6>
+                                    </a></h2>
+                                <div class="mb-3">
+                                    <span class="cat"> <?php echo $course["course_place"] ?></span>
                                 </div>
-                                <div>
-                                    <a href="course_details.php?course_id=<?php echo $course["course_id"] ?>"
-                                        class="btn button">
-                                        <?php echo $lang["course_button"] ?></a>
+                                <div class="d-flex mb-0 justify-content-between prop">
+                                    <ul class="list-unstyled">
+                                        <li> <?php echo $lang["course_head3"] ?>: </li>
+                                        <li> <?php echo $lang["course_head4"] ?> : </li>
+                                    </ul>
+                                    <ul class="list-unstyled">
+                                        <li> <?php echo $course["course_num_days"] ?> ايام </li>
+                                        <li> <?php echo $course["course_constructor"] ?> </li>
+                                    </ul>
+                                </div>
+                                <div class="d-flex justify-content-between mb-0 check">
+                                    <div> <span> <?php echo $lang["course_head6"] ?> </span>
+                                        <h6> <?php echo $course["course_price"] ?> $ </h6>
+                                    </div>
+                                    <div>
+                                        <a href="course_details.php?course_id=<?php echo $course["course_id"] ?>" class="btn button">
+                                            <?php echo $lang["course_button"] ?></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php
             }
             ?>
-
             <a href="courses.php" class="btn button show_course_button"> <?php echo $lang["watch_course"] ?></a>
         </div>
     </div>
@@ -444,7 +439,6 @@ include 'init.php';
                 <div class="col-lg-2 col-6">
                     <div class="info">
                         <i class="fa-solid fa-futbol"></i>
-
                         <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">60</h2>
                         <p> <?php echo $lang["sport_talent"] ?> </p>
                     </div>
@@ -452,7 +446,6 @@ include 'init.php';
                 <div class="col-lg-2 col-6">
                     <div class="info">
                         <i class="fa fa-brain"></i>
-
                         <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">100</h2>
                         <p><?php echo $lang["art_talent"] ?></p>
                     </div>
@@ -546,39 +539,38 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["new_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?> <a
-                                            href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?> <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["new_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?>
-                                        <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?>
+                                                <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -587,7 +579,7 @@ include 'init.php';
                         </div>
                         <div class="read_more">
                             <button class="btn button"> <a href="news.php?cat=sport">
-                                    <?php echo $lang["read_more_art"] ?> </a>
+                                    <?php echo $lang["read_more_sport"] ?> </a>
                             </button>
                         </div>
                     </div>
@@ -603,39 +595,39 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["new_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?>
-                                        <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?>
+                                                <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["new_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?>
-                                        <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?>
+                                                <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -660,39 +652,38 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["new_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?>
-                                        <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?>
+                                                <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["new_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?> <a
-                                            href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?> <a href="new_new.php?new_id=<?php echo $sport_new["new_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -708,13 +699,11 @@ include 'init.php';
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -729,20 +718,20 @@ include 'init.php';
     <div class="container">
         <div class="top">
             <ul>
-            <?php
-            $stmt = $connect->prepare("SELECT * FROM revival_gallary");
-            $stmt->execute();
-            $allimages = $stmt->fetchAll();
-            foreach($allimages as $image){?>
-             <li><a href="#<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
-                </li>
-            <?php
-            }
-            ?>
+                <?php
+                $stmt = $connect->prepare("SELECT * FROM revival_gallary");
+                $stmt->execute();
+                $allimages = $stmt->fetchAll();
+                foreach ($allimages as $image) { ?>
+                    <li><a href="#<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
+                    </li>
+                <?php
+                }
+                ?>
             </ul>
             <?php
-            foreach($allimages as $image){?>
-             <a href="#_1" class="lightbox trans" id="<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
+            foreach ($allimages as $image) { ?>
+                <a href="#_1" class="lightbox trans" id="<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
             <?php
             }
             ?>
@@ -767,39 +756,38 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["article_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?> <a
-                                            href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?> <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["article_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?>
-                                        <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?>
+                                                <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -808,7 +796,7 @@ include 'init.php';
                         </div>
                         <div class="read_more">
                             <button class="btn button"> <a href="articles.php?cat=sport">
-                                    <?php echo $lang["read_more_art"] ?> </a>
+                                    <?php echo $lang["read_more_sport"] ?> </a>
                             </button>
                         </div>
                     </div>
@@ -823,39 +811,38 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["article_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?> <a
-                                            href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?> <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["article_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?>
-                                        <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?>
+                                                <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -879,39 +866,38 @@ include 'init.php';
                             $allsportnews = $stmt->fetchAll();
                             foreach ($allsportnews as $sport_new) {
                                 if ($_SESSION["lang"] == "ar") { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
-                                    </div>
-                                    <?php
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image1"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_ar =  $sport_new["article_desc"];
                                             ?>
-                                    <p> <?php echo substr($desc_ar, 0, 100); ?> <a
-                                            href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?> </a>
-                                    </p>
+                                            <p> <?php echo substr($desc_ar, 0, 100); ?> <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?> </a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
-                                } else { ?>
-                            <div class="col-lg-4">
-                                <div class="art_info">
-                                    <div class="image">
-                                        <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                        </div>
                                     </div>
-                                    <?php
+                                <?php
+                                } else { ?>
+                                    <div class="col-lg-4">
+                                        <div class="art_info">
+                                            <div class="image">
+                                                <img src="admin/upload/<?php echo $sport_new["image2"] ?>" alt="">
+                                            </div>
+                                            <?php
                                             $desc_en =  $sport_new["article_desc_en"];
                                             ?>
-                                    <p> <?php echo substr($desc_en, 0, 100); ?>
-                                        <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
-                                            <?php echo $lang["read_more"] ?></a>
-                                    </p>
+                                            <p> <?php echo substr($desc_en, 0, 100); ?>
+                                                <a href="article.php?article_id=<?php echo $sport_new["article_id"] ?>">
+                                                    <?php echo $lang["read_more"] ?></a>
+                                            </p>
 
-                                </div>
-                            </div>
-                            <?php
+                                        </div>
+                                    </div>
+                                <?php
                                 } ?>
 
                             <?php
@@ -920,19 +906,17 @@ include 'init.php';
                         </div>
                         <div class="read_more">
                             <button class="btn button"> <a href="articles.php?cat=fashion">
-                                    <?php echo $lang["read_more_art"] ?> </a>
+                                    <?php echo $lang["read_more_fash"] ?> </a>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>

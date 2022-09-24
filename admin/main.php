@@ -228,6 +228,17 @@ include $tem . 'left_sidebar.php';
             include 'company_talent/report.php';
         }
 
+           // START Emails Section
+           if ($dir == 'emails_section' && $page == 'add') {
+            include 'emails_section/add.php';
+        } elseif ($dir == 'emails_section' && $page == 'edit') {
+            include 'emails_section/edit.php';
+        } elseif ($dir == 'emails_section' && $page == 'delete') {
+            include 'emails_section/delete.php';
+        } elseif ($dir == 'emails_section' && $page == 'report') {
+            include 'emails_section/report.php';
+        }
+
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

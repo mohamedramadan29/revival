@@ -2074,3 +2074,6 @@ input[type="radio"], input[type="checkbox"] {
 .main-sidebar, .main-sidebar::before {
   width: 270px;
 }
+.btn {
+  margin: 4px;
+}

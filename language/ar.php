@@ -479,19 +479,28 @@ $lang = array(
   "add_talent" =>   "اضافة موهبة جديدة",
   "add_talent_suc" =>   " تم اضافة موهبة جديدة بنجاح",
   ///////////////////////// Courses
-  "what_learn_course" =>   "   ماذا ستتعلم من هذا الكورس   ", 
-  "course_requirment" =>   "   متطلبات الكورس   ", 
-  "course_description" =>   "   وصف الكورس    ", 
-  "who_course" =>   "  لمن هذا الكورس   ", 
-  "course_constuctor" =>   "   مقدم الكورس   ", 
-  "course_success_register" =>   "    تم التسجيل في الكورس بنجاح   ", 
-  "suc_profile_message" =>   " تم تعديل البيانات بنجاح ", 
-  
+  "what_learn_course" =>   "   ماذا ستتعلم من هذا الكورس   ",
+  "course_requirment" =>   "   متطلبات الكورس   ",
+  "course_description" =>   "   وصف الكورس    ",
+  "who_course" =>   "  لمن هذا الكورس   ",
+  "course_constuctor" =>   "   مقدم الكورس   ",
+  "course_success_register" =>   "    تم التسجيل في الكورس بنجاح   ",
+  "suc_profile_message" =>   " تم تعديل البيانات بنجاح ",
+
   /**** add individual project  */
-  "add_project_name_error" =>   "  من فضلك ادخل اسم المشروع  ", 
-  "add_project_decs_error" =>   "  من فضلك ادخل  نبذة عن المشروع    ", 
+  "add_project_name_error" =>   "  من فضلك ادخل اسم المشروع  ",
+  "add_project_decs_error" =>   "  من فضلك ادخل  نبذة عن المشروع    ",
+
+  "message_head" => " موضوع الرسالة ",
+  "message_art" => " الذكاء الاصطناعي ",
+  "message_sport" => " المواهب الرياضية ",
+  "message_fash" => " الازياء والمجوهرات ",
+  "message_revival" => "ريفايفال",
+  "message_other" => "اخري",
 
 
+
+  
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

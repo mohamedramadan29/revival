@@ -525,6 +525,17 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=emails_section") != -1) {
+    $("#lnk-email_section").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-email").addClass("active-tab");
+    } else {
+      $("#lnk-rep-email").addClass("active-tab");
+    }
+  }
+
 
   $(function () {
     $(".rateyo")

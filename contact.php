@@ -36,6 +36,7 @@ include 'init.php';
                         $user_name = $_POST["user_name"];
                         $user_email = $_POST["user_email"];
                         $user_message = $_POST["user_message"];
+                        $email_subject = $_POST["email_subject"];
 
                         $errormessage = [];
 
@@ -52,11 +53,12 @@ include 'init.php';
                         }
 
                         if (empty($errormessage)) {
-                            $stmt = $connect->prepare("INSERT INTO contact_us (contact_name, contact_email, contact_message,fiels)
-                            VALUES (:zname, :zemail,:zmessage,:zfiles)");
+                            $stmt = $connect->prepare("INSERT INTO contact_us (contact_name, contact_email,email_subject ,contact_message,fiels)
+                            VALUES (:zname, :zemail,:zemail_subject,:zmessage,:zfiles)");
                             $stmt->execute(array(
                                 "zname" => $user_name,
                                 "zemail" => $user_email,
+                                "zemail_subject" => $email_subject,
                                 "zmessage" => $user_message,
                                 "zfiles" => $location,
                             ));
@@ -100,6 +102,19 @@ include 'init.php';
                             <div class="box mb-3">
                                 <label for="floatingInput"> <?php echo $lang["email"];  ?> <span class="star">*</span></label>
                                 <input name="user_email" type="email" class="form-control" id="floatingInput">
+
+                            </div>
+
+                            <div class="box mb-3">
+                                <label for="floatingInput"> <?php echo $lang["message_head"];?> <span class="star">*</span></label>
+                                <select id="cat_active2" class="form-control" name="email_subject" id="">
+                                    <option value="">  <?php echo $lang["message_head"];?> </option>
+                                    <option value=" الذكاء الاصطناعي"> <?php echo $lang["message_art"];?></option>
+                                    <option value=" الرياضة">  <?php echo $lang["message_sport"];?> </option>
+                                    <option value=" الازياء">  <?php echo $lang["message_fash"];?> </option>
+                                    <option value=" ريفايفال">  <?php echo $lang["message_revival"];?> </option>
+                                    <option value="اخري">  <?php echo $lang["message_other"];?>   </option> 
+                                </select>
 
                             </div>
 

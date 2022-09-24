@@ -56,6 +56,17 @@ if (isset($_GET['project_id']) && is_numeric($_GET['project_id'])) {
                             </select>
                         </div>
 
+                        <div class="box">
+                            <label id="name"> العرض في المعرض </label>
+                            <select class="form-control" name="project_show" id="">
+                                <option value=""> اختر </option>
+
+                                <option <?php if ($alltype['project_show'] == 'نعم')  echo 'selected'; ?>
+                                    value="نعم"> نعم </option>
+                                <option <?php if ($alltype['project_show'] == 'لا')  echo 'selected'; ?>
+                                    value="لا"> لا </option>
+                            </select>
+                        </div>
 
 
 
@@ -230,11 +241,12 @@ if (isset($_GET['project_id']) && is_numeric($_GET['project_id'])) {
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $project_status =  $_POST['project_status'];
+            $project_show =  $_POST['project_show'];
 
-            $stmt = $connect->prepare("UPDATE revival_add_project SET project_status=?  WHERE project_id   =? ");
+            $stmt = $connect->prepare("UPDATE revival_add_project SET project_status=? , project_show=? WHERE project_id   =? ");
             $stmt->execute([
                 $project_status,
-
+                $project_show,
                 $project_id,
 
 
