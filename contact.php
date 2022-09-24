@@ -11,6 +11,13 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION -->
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='رسالة التواصل'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
+<!-- END GET EMAIL CONTENT -->
 <!-- START CONTACT FORM -->
 <div class="contact_form">
     <div class="container">
@@ -65,7 +72,13 @@ include 'init.php';
                             if ($stmt) {
                                 $to_email = $user_email;
                                 $subject = "اللتسجيل في ريفايفال";
-                                $body =  $lang["contact_us_succ_message"];
+                                foreach ($emaildata as $data) {
+                                    if ($_SESSION['lang'] == 'ar') {
+                                        $body =  $data['email_text'];
+                                    } else {
+                                        $body =  $data['email_text_en'];
+                                    }
+                                }
                                 $headers = "From: info@revivals.site";
                                 mail($to_email, $subject, $body, $headers)
 
@@ -76,7 +89,16 @@ include 'init.php';
                                     }
                                 </style>
                                 <div class='container'>
-                                    <div class='alert alert-success text-center'> <?php echo $lang["contact_us_succ_message"];  ?>
+                                    <div class='alert alert-success text-center'>
+                                        <?php
+                                        foreach ($emaildata as $data) {
+                                            if ($_SESSION['lang'] == 'ar') {
+                                                echo   $data['email_text'];
+                                            } else {
+                                                echo  $data['email_text_en'];
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             <?php
@@ -106,14 +128,14 @@ include 'init.php';
                             </div>
 
                             <div class="box mb-3">
-                                <label for="floatingInput"> <?php echo $lang["message_head"];?> <span class="star">*</span></label>
+                                <label for="floatingInput"> <?php echo $lang["message_head"]; ?> <span class="star">*</span></label>
                                 <select id="cat_active2" class="form-control" name="email_subject" id="">
-                                    <option value="">  <?php echo $lang["message_head"];?> </option>
-                                    <option value=" الذكاء الاصطناعي"> <?php echo $lang["message_art"];?></option>
-                                    <option value=" الرياضة">  <?php echo $lang["message_sport"];?> </option>
-                                    <option value=" الازياء">  <?php echo $lang["message_fash"];?> </option>
-                                    <option value=" ريفايفال">  <?php echo $lang["message_revival"];?> </option>
-                                    <option value="اخري">  <?php echo $lang["message_other"];?>   </option> 
+                                    <option value=""> <?php echo $lang["message_head"]; ?> </option>
+                                    <option value=" الذكاء الاصطناعي"> <?php echo $lang["message_art"]; ?></option>
+                                    <option value=" الرياضة"> <?php echo $lang["message_sport"]; ?> </option>
+                                    <option value=" الازياء"> <?php echo $lang["message_fash"]; ?> </option>
+                                    <option value=" ريفايفال"> <?php echo $lang["message_revival"]; ?> </option>
+                                    <option value="اخري"> <?php echo $lang["message_other"]; ?> </option>
                                 </select>
 
                             </div>

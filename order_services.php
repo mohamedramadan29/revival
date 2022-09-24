@@ -10,7 +10,17 @@ include 'init.php';
         </div>
     </div>
 </div>
+
 <!-- END HERO SECTION -->
+
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='طلب خدمة جديد'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
+<!-- END GET EMAIL CONTENT -->
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -83,26 +93,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
-            $body =  $lang["revival_register_message"];
+            foreach ($emaildata as $data) {
+                if ($_SESSION['lang'] == 'ar') {
+                    $body =  $data['email_text'];
+                } else {
+                    $body =  $data['email_text_en'];
+                }
+            }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
 ?>
-<style>
-.contact_form {
-    display: none !important;
-}
-</style>
-<div class='container'>
-    <div class='alert alert-success text-center'> <?php echo $lang["revival_order_services"]; ?>
-    </div>
-</div>
-<?php
+            <style>
+                .contact_form {
+                    display: none !important;
+                }
+            </style>
+            <div class='container'>
+                <div class='alert alert-success text-center'> <?php
+                                                                foreach ($emaildata as $data) {
+                                                                    if ($_SESSION['lang'] == 'ar') {
+                                                                        echo   $data['email_text'];
+                                                                    } else {
+                                                                        echo  $data['email_text_en'];
+                                                                    }
+                                                                }
+                                                                ?>
+                </div>
+            </div>
+        <?php
         }
     } else {
         foreach ($errormessage as $message) { ?>
-<div class="error_message">
-    <div class="alert alert-danger"> <?php echo $message ?> </div>
-</div>
+            <div class="error_message">
+                <div class="alert alert-danger"> <?php echo $message ?> </div>
+            </div>
 <?php
         }
     }
@@ -120,33 +144,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="box mb-3">
-                                        <label for="floatingInput"> <?php echo $lang["first_name"]; ?> <span
-                                                class="star"> * </span> </label>
-                                        <input name="first_name" type="text" class="form-control" id="floatingInput"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
+                                        <label for="floatingInput"> <?php echo $lang["first_name"]; ?> <span class="star"> * </span> </label>
+                                        <input name="first_name" type="text" class="form-control" id="floatingInput" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
 
                                     </div>
                                     <div class="box mb-3">
                                         <label for="floatingInput"><?php echo $lang["email"]; ?> <span class="star"> *
                                             </span> </label>
-                                        <input name="email" type="text" class="form-control" id="floatingInput"
-                                            placeholder=""
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
+                                        <input name="email" type="text" class="form-control" id="floatingInput" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
 
                                     </div>
                                     <div class="box mb-3">
                                         <label for="country2"><?php echo $lang["select_services"]; ?> </label>
-                                        <select name="service_name" class="form-select country2" id="country2"
-                                            aria-label="Floating label select example">
+                                        <select name="service_name" class="form-select country2" id="country2" aria-label="Floating label select example">
                                             <?php
                                             if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                            <option
-                                                value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['service_name']; ?>">
-                                                <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['service_name']; ?>
-                                            </option>
+                                                <option value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['service_name']; ?>">
+                                                    <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['service_name']; ?>
+                                                </option>
                                             <?php
                                             } else { ?>
-                                            <option value=""><?php echo $lang["select"];  ?></option>
+                                                <option value=""><?php echo $lang["select"];  ?></option>
 
                                             <?php
                                             }
@@ -192,11 +210,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="box mb-3">
-                                        <label for="floatingInput"> <?php echo $lang["last_name"]; ?> <span
-                                                class="star"> * </span> </label>
-                                        <input name="last_name" type="text" class="form-control" id="floatingInput"
-                                            placeholder=""
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+                                        <label for="floatingInput"> <?php echo $lang["last_name"]; ?> <span class="star"> * </span> </label>
+                                        <input name="last_name" type="text" class="form-control" id="floatingInput" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
 
                                     </div>
 
@@ -206,26 +221,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             placeholder="name@example.com">-->
                                         <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
                                                 * </span></label>
-                                        <input type="tel" name="mobile" id="phone" class="form-control"
-                                            value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['mobile']; ?>">
+                                        <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['mobile']; ?>">
 
                                     </div>
 
 
                                     <div class="box mb-3">
                                         <label for="selectcountry"><?php echo $lang["country"];  ?></label>
-                                        <select name="country" class="form-select country3" id="selectcountry"
-                                            aria-label="Floating label select example">
+                                        <select name="country" class="form-select country3" id="selectcountry" aria-label="Floating label select example">
 
                                             <?php
                                             if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
-                                            <option
-                                                value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
-                                                <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
-                                            </option>
+                                                <option value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
+                                                    <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
+                                                </option>
                                             <?php
                                             } else { ?>
-                                            <option value=""><?php echo $lang["select"];  ?></option>
+                                                <option value=""><?php echo $lang["select"];  ?></option>
 
                                             <?php
                                             }
@@ -235,15 +247,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             $stmt->execute();
                                             $allcountry = $stmt->fetchall();
                                             foreach ($allcountry as $country) { ?>
-                                            <option value="<?php echo $country["country_code"]; ?>">
-                                                <?php
+                                                <option value="<?php echo $country["country_code"]; ?>">
+                                                    <?php
                                                     if ($_SESSION["lang"] == "ar") {
                                                         echo $country["country_arName"];
                                                     } else {
                                                         echo $country["country_enName"];
                                                     }
                                                     ?>
-                                            </option>
+                                                </option>
                                             <?php
                                             }
                                             ?>
@@ -252,8 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     </div>
                                     <div class="box mb-3">
                                         <label for="floatingTextarea"><?php echo $lang["message"]; ?> </label>
-                                        <textarea name="message" class="form-control" placeholder=""
-                                            id="floatingTextarea"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['message']; ?></textarea>
+                                        <textarea name="message" class="form-control" placeholder="" id="floatingTextarea"><?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['message']; ?></textarea>
 
                                     </div>
                                 </div>
@@ -263,8 +274,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="col-lg-4 cars_sections">
                         <div class="item">
                             <div class="car-wrap rounded ftco-animate">
-                                <div class="img rounded d-flex align-items-end"
-                                    style="background-image: url(uploads/header2.jpg);">
+                                <div class="img rounded d-flex align-items-end" style="background-image: url(uploads/header2.jpg);">
                                 </div>
                                 <div class="text">
 
@@ -273,10 +283,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <label for="checkterms"> <?php echo $lang["iagree"];  ?>
                                             <?php if (isset($_SESSION["lang"]) == "ar") { ?>
 
-                                            <a href="fash_terms.php"> <?php echo $lang["terms"];  ?> </a>
+                                                <a href="fash_terms.php"> <?php echo $lang["terms"];  ?> </a>
                                             <?php
                                             } else { ?>
-                                            <a href="fash_terms_en.php"> <?php echo $lang["terms"];  ?> </a>
+                                                <a href="fash_terms_en.php"> <?php echo $lang["terms"];  ?> </a>
                                             <?php
                                             } ?>
                                         </label>

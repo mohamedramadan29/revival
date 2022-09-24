@@ -2,6 +2,7 @@
 ob_start();
 session_start();
 include 'init.php';
+
 $stmt = $connect->prepare("SELECT * FROM register WHERE username=?");
 $stmt->execute(array($_SESSION["username"]));
 $data = $stmt->fetch();
@@ -31,6 +32,14 @@ if ($count > 0) {
     $email = $data["email"];
 }
 ?>
+
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='اضافة مشروع جديد'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
+<!-- END GET EMAIL CONTENT -->
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
@@ -118,7 +127,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt) {
             $to_email = $email;
             $subject = "اضافة مشروع جديد";
-            $body =  $lang["add_new_project_from_user"];
+            foreach ($emaildata as $data) {
+                if ($_SESSION['lang'] == 'ar') {
+                    $body =  $data['email_text'];
+                } else {
+                    $body =  $data['email_text_en'];
+                }
+            }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers);
             header("Location:profile.php");
@@ -129,7 +144,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             </style>
             <div class='container'>
-                <div class='alert alert-success text-center'> <?php echo $lang["add_new_project_from_user"]; ?>
+                <div class='alert alert-success text-center'>
+                    <?php
+                    foreach ($emaildata as $data) {
+                        if ($_SESSION['lang'] == 'ar') {
+                            echo   $data['email_text'];
+                        } else {
+                            echo  $data['email_text_en'];
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         <?php
