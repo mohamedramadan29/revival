@@ -155,7 +155,7 @@
                                             <div class="col-12">
 
                                                 <div class="files_style">
-                                                    <p class="btn bg-success"> <?= $files1[$i] ?>  </p>
+                                                    <p class="btn bg-success"> <?= $files1[$i] ?> </p>
                                                 </div>
                                             </div>
                                         <?php
@@ -226,11 +226,12 @@
                         </div>
                     </div>
                     <!--  START TALENT REGISTER  -->
-                    <div class="personal_information">
+                    <?php
+                    if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company') { ?>
+                     <div class="personal_information">
                         <div class="data2">
                             <h4> المواهب المسجلة </h4>
                             <?php
-
                             $stmt = $connect->prepare('SELECT * FROM company_register WHERE username=?');
                             $stmt->execute(array($userinfo['username']));
                             $count = $stmt->rowCount();
@@ -498,9 +499,6 @@
                                                                                 <div class="alert alert-danger"> لا يوجد ملفات </div>
                                                                             <?php
                                                                             }
-
-
-
                                                                             ?>
                                                                         </div>
                                                                     </div>
@@ -604,6 +602,10 @@
 
                         </div>
                     </div>
+                    <?php
+                    }
+                    ?>
+
                     <!--  END TALENT REGISTER  -->
 
                     <!--  START TALENT REGISTER  -->
@@ -685,54 +687,54 @@
 
                                                                     </div>
                                                                     <label for=""> صور المشروع </label>
-                                                                        <div class="row">
-                                                                            <?php
-                                                                            $files1 = $type['project_images'];
-                                                                            $files1 = explode(" ", $files1);
-                                                                            $countfile = count($files1) - 1;
-                                                                            if ($countfile > 0) {
-                                                                                for ($i = 0; $i < $countfile; ++$i) {
-                                                                            ?>
-                                                                                    <div class="col-12">
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $files1 = $type['project_images'];
+                                                                        $files1 = explode(" ", $files1);
+                                                                        $countfile = count($files1) - 1;
+                                                                        if ($countfile > 0) {
+                                                                            for ($i = 0; $i < $countfile; ++$i) {
+                                                                        ?>
+                                                                                <div class="col-12">
 
-                                                                                        <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?>  </p>
-                                                                                        </div>
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
                                                                                     </div>
-                                                                                <?php
-                                                                                }
-                                                                            } else { ?>
-                                                                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                </div>
                                                                             <?php
                                                                             }
-                                                                            ?>
-                                                                        </div>
-                                                                        <label for=""> فيديو المشروع </label>
-                                                                        <div class="row">
-                                                                            <?php
-                                                                            $files1 = $type['project_video'];
-                                                                            $files1 = explode(" ", $files1);
-                                                                            $countfile = count($files1) - 1;
-                                                                            if ($countfile > 0) {
-                                                                                for ($i = 0; $i < $countfile; ++$i) {
-                                                                            ?>
-                                                                                    <div class="col-12">
+                                                                        } else { ?>
+                                                                            <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                    <label for=""> فيديو المشروع </label>
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $files1 = $type['project_video'];
+                                                                        $files1 = explode(" ", $files1);
+                                                                        $countfile = count($files1) - 1;
+                                                                        if ($countfile > 0) {
+                                                                            for ($i = 0; $i < $countfile; ++$i) {
+                                                                        ?>
+                                                                                <div class="col-12">
 
-                                                                                        <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light" >  <?= $files1[$i] ?>  </p>
-                                                                                        </div>
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
                                                                                     </div>
-                                                                                <?php
-                                                                                }
-                                                                            } else { ?>
-                                                                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                </div>
                                                                             <?php
                                                                             }
+                                                                        } else { ?>
+                                                                            <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <?php
+                                                                        }
 
 
 
-                                                                            ?>
-                                                                        </div>
+                                                                        ?>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="box">
@@ -776,7 +778,7 @@
                                                                                     <div class="col-12">
 
                                                                                         <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?>  </p>
+                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 <?php
@@ -817,7 +819,7 @@
 
                                                                             ?>
                                                                         </div>
-                                                                      
+
                                                                     </div>
                                                                 </div>
 

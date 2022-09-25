@@ -57,7 +57,7 @@
                             $count = $stmt->rowCount();
                             if ($count > 0) {
                                 foreach ($alldata as $data) { ?>
-                                    <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=sport_register&page=edit&register_id=<?php echo $data["sport_register_id "]; ?>"> <?php echo $type['username']; ?> </a></td>
+                                    <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=sport_register&page=edit&register_id=<?php echo $data["sport_register_id"]; ?>"> <?php echo $type['username']; ?> </a></td>
                                 <?php
                                 }
                                 ?>
@@ -75,7 +75,7 @@
                             $count = $stmt->rowCount();
                             if ($count > 0) {
                                 foreach ($alldata as $data) { ?>
-                                    <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=fash_register&page=edit&register_id=<?php echo $data["fash_register_id  "]; ?>"> <?php echo $type['username']; ?> </a></td>
+                                    <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=fash_register&page=edit&register_id=<?php echo $data["fash_register_id"]; ?>"> <?php echo $type['username']; ?> </a></td>
                                 <?php
                                 }
                                 ?>

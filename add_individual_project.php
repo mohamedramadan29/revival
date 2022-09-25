@@ -9,6 +9,7 @@ $data = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     $email = $data["email"];
+    $cat_name = "revival_register";
 }
 $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=?");
 $stmt->execute(array($_SESSION["username"]));
@@ -16,6 +17,7 @@ $data = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     $email = $data["email"];
+    $cat_name = "fash";
 }
 $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=?");
 $stmt->execute(array($_SESSION["username"]));
@@ -23,6 +25,7 @@ $data = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     $email = $data["email"];
+    $cat_name = "art";
 }
 $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username=?");
 $stmt->execute(array($_SESSION["username"]));
@@ -30,6 +33,7 @@ $data = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     $email = $data["email"];
+    $cat_name = "sport";
 }
 ?>
 
@@ -110,9 +114,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errormessage)) {
         $stmt = $connect->prepare("INSERT INTO revival_add_project (
             project_name, project_desc, certificate_register, eng_draw,
-            prototype,project_images,project_video, username) VALUES (
+            prototype,project_images,project_video, username,cat_name) VALUES (
                 :zproject_name, :zproject_desc , :zcert_register,:zeng_draw,
-                :zprototype,:zproject_image,:zproject_video,:zusername
+                :zprototype,:zproject_image,:zproject_video,:zusername,:zcat_name
             )");
         $stmt->execute(array(
             "zproject_name" => $project_name,
@@ -123,6 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zproject_image" => $location4,
             "zproject_video" => $location5,
             "zusername" =>  $_SESSION["username"],
+            "zcat_name" => $cat_name,
         ));
         if ($stmt) {
             $to_email = $email;

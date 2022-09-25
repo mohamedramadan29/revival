@@ -257,7 +257,7 @@ if ($count > 0) {
                     $_SESSION['username'],
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
                     <div class='container'>
                         <div class='alert alert-success text-center'>
@@ -414,7 +414,7 @@ if ($count > 0) {
                 }
             } elseif ($file_tmp1 != '' && $file_tmp2 != '') {
                 $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?
-                  WHERE username=?");
+                WHERE username=?");
                 $stmt->execute(array(
                     $location,
                     $location2,
@@ -450,7 +450,7 @@ if ($count > 0) {
                 }
             } elseif ($file_tmp1 != ''  && $file_tmp4 != '') {
                 $stmt = $connect->prepare("UPDATE art_register SET project_design=?
-               ,project_certificate=?  WHERE username=?");
+            ,project_certificate=?  WHERE username=?");
                 $stmt->execute(array(
                     $location,
                     $location4,

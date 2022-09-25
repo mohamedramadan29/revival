@@ -143,101 +143,503 @@
                                 <textarea readonly placeholder="<?php echo $lang["your_experiences"]; ?>">  <?php echo $userinfo['experience_info']; ?> </textarea>
                             </div>
                         </div>
-                        <!--
+
                         <div class="data2">
                             <h4> السيرة الذاتية والمستندات</h4>
                             <div class="person_files">
                                 <div class="row">
                                     <?php
-                                    $files1 = $userinfo['cv'];
+                                    $files1 = $userinfo['fiels_talent'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
                                     for ($i = 0; $i < $countfile; ++$i) {
                                     ?>
-                                    <div class="col-lg-6 col-12">
-                                        <img src="admin/upload/<?= $files1[$i] ?>" alt="<?= $files1[$i] ?>" />
-                                    </div>
+                                        <div class="col-lg-6 col-12">
+                                            <p class="btn bg-success"> <?= $files1[$i] ?> </p>
+
+                                        </div>
                                     <?php
                                     }
-                                    // echo "<p style='color:green;font-size:26px'>عدد " . $count . " images found.";
                                     ?>
 
 
                                 </div>
                             </div>
                         </div>
-                                -->
-                        <!--
+
+
                         <div class="data2">
                             <h4> الفيديوهات </h4>
                             <div class="person_files">
                                 <div class="row">
                                     <?php
-                                    $files1 = $userinfo['videos'];
+                                    $files1 = $userinfo['video_talent'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
                                     for ($i = 0; $i < $countfile; ++$i) {
                                     ?>
-                                    <div class="col-lg-6 col-12">
-                                        <video src="admin/upload/<?= $files1[$i] ?>" width="320" height="240" controls>
-                                            <source src="admin/upload/<?= $files1[$i] ?>" type="">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
+                                        <div class="col-lg-6 col-12">
+                                            <p class="btn bg-success"> <?= $files1[$i] ?> </p>
+                                        </div>
                                     <?php
                                     }
                                     // echo "<p style='color:green;font-size:26px'>عدد " . $count . " images found.";
                                     ?>
-
-
                                 </div>
                             </div>
                         </div>
-                                -->
+
                     </div>
                     <!-- END GET DATA -->
-                               <!--  START TALENT REGISTER  -->
-                               <div class="personal_information">
+                    <!--  START TALENT REGISTER  -->
+                    <?php
+                    if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company') { ?>
+                        <div class="personal_information">
+                            <div class="data2">
+                                <h4> المواهب المسجلة </h4>
+                                <?php
+                                $stmt = $connect->prepare('SELECT * FROM company_register WHERE username=?');
+                                $stmt->execute(array($userinfo['username']));
+                                $count = $stmt->rowCount();
+                                if ($count > 0) { ?>
+
+                                    <div class="table-responsive">
+                                        <table id="table" class="table table-light table-striped table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th> حالة الموهبة </th>
+                                                    <th> مشاهدة الموهبة </th>
+                                                    <th> الاسم الاول </th>
+                                                    <th> الاسم الثاني </th>
+                                                    <th> البريد الالكتروني </th>
+                                                    <th> الهاتف </th>
+                                                    <th> التخصص </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $alltype = $stmt->fetchAll();
+                                                foreach ($alltype as $type) { ?> <tr>
+                                                        <?php if ($type['user_status'] == 'active') { ?>
+                                                            <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                                                        <?php
+
+                                                        } ?>
+                                                        <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#talent<?php echo $type['reg_id']; ?> ">
+                                                                مشاهدة الموهبة
+                                                            </button> </td>
+                                                        <td><?php echo $type['first_name']; ?> </td>
+                                                        <td><?php echo $type['last_name']; ?> </td>
+                                                        <td><?php echo $type['email']; ?> </td>
+                                                        <td><?php echo $type['mobile']; ?> </td>
+                                                        <td><?php echo $type['specialist']; ?> </td>
+
+                                                    </tr> <?php
+                                                        }
+                                                            ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- START MODEL -->
+
+                                    <!-- Modal -->
+                                    <?php foreach ($alltype as $type) {
+                                    ?>
+                                        <div class="modal fade" id="talent<?php echo $type['reg_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+
+                                                    <div class="modal-body">
+
+                                                        <div class="myform">
+                                                            <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
+                                                                <input type="hidden" name="register_id" value="<?php echo $register_id; ?>">
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="box">
+                                                                            <label id="name"> الاسم الاول </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['first_name2']; ?>">
+                                                                        </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> الاسم الاخير </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['last_name']; ?>">
+                                                                        </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> البريد الالكتروني </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['email']; ?>">
+                                                                        </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> رقم الهاتف </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['mobile']; ?>">
+                                                                        </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> الدولة </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['country']; ?>">
+                                                                        </div>
+
+                                                                        <div class="box">
+                                                                            <label id="name"> نبذة مختصرة </label>
+                                                                            <textarea name="" class="form-control"><?php echo $type['experience_info']; ?></textarea>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+
+
+                                                                        <div class="box">
+                                                                            <label id="name"> التخصص </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['specialist']; ?>">
+                                                                        </div>
+
+                                                                        <div class="box">
+                                                                            <label id="name"> الموهل العلمي </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['certificate']; ?>">
+                                                                        </div>
+
+                                                                        <div class="box">
+                                                                            <label id="name"> المجال </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['field']; ?>">
+                                                                        </div>
+
+                                                                        <div class="box">
+                                                                            <label id="name"> المجال الفرعي </label>
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['sub_field']; ?>">
+                                                                        </div>
+
+                                                                        <div class="box">
+                                                                            <label id="name"> السيرة الذاتية والمستندات </label>
+                                                                            <div class="row">
+                                                                                <?php
+                                                                                $files1 = $type['fiels_talent'];
+                                                                                $files1 = explode(" ", $files1);
+                                                                                $countfile = count($files1) - 1;
+                                                                                if ($countfile > 0) {
+                                                                                    for ($i = 0; $i < $countfile; ++$i) {
+                                                                                ?>
+                                                                                        <div class="col-12">
+
+                                                                                            <div class="files_style">
+                                                                                                <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    <?php
+                                                                                    }
+                                                                                } else { ?>
+                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="box">
+                                                                        <label id="name"> الفيديوهات </label>
+                                                                        <div class="row">
+                                                                            <?php
+                                                                            $files1 = $type['video_talent'];
+                                                                            $files1 = explode(" ", $files1);
+                                                                            $countfile = count($files1) - 1;
+                                                                            if ($countfile > 0) {
+                                                                                for ($i = 0; $i < $countfile; ++$i) {
+                                                                            ?>
+                                                                                    <div class="col-lg-4 col-12">
+                                                                                        <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                    </div>
+                                                                                <?php
+                                                                                }
+                                                                            } else { ?>
+
+                                                                                <div class="alert alert-danger"> لا يوجد فيديوهات </div>
+
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div> 
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <!-- END MODEL  -->
+
+                                <?php
+
+                                } else { ?>
+
+                                    <div class="alert alert-warning">
+                                        لا يوجد مواهب مسجلة من خلالك الان
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+                    <!--  END TALENT REGISTER  -->
+
+                    <!--  START TALENT REGISTER  -->
+                    <div class="personal_information">
                         <div class="data2">
-                            <h4> المواهب المسجلة </h4>
-                            <div class="table-responsive">
-                                <table id="table" class="table table-light table-striped table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th> حالة الموهبة </th>
-                                            <th> الاسم الاول </th>
-                                            <th> الاسم الثاني </th>
-                                            <th> البريد الالكتروني </th>
-                                            <th> الهاتف </th>
-                                            <th> التخصص </th>
+                            <h4> المشاريع الخاصة بك </h4>
+                            <?php
 
-                                        </tr>
-                                    </thead>
-                                    <tbody> <?php
+                            $stmt = $connect->prepare('SELECT * FROM revival_add_project WHERE username=?');
+                            $stmt->execute(array($userinfo['username']));
+                            $count = $stmt->rowCount();
+                            if ($count > 0) { ?>
 
-                                            $stmt = $connect->prepare('SELECT * FROM company_register WHERE username=?');
-                                            $stmt->execute(array($userinfo['username']));
+                                <div class="table-responsive">
+                                    <table id="table" class="table table-light table-striped table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th> حالة المشروع </th>
+                                                <th> مشاهدة المشروع </th>
+                                                <th> اسم المشروع </th>
+                                                <th> وصف مختصر عن المشروع </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
                                             $alltype = $stmt->fetchAll();
                                             foreach ($alltype as $type) { ?> <tr>
-                                                <?php if ($type['user_status'] == 'active') { ?>
-                                                    <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
-                                                <?php
-                                                } else {
-                                                ?>
-                                                    <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
-                                                <?php
+                                                    <?php if ($type['project_status'] == 'active') { ?>
+                                                        <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                                                    <?php
 
-                                                } ?>
-                                                <td><?php echo $type['first_name']; ?> </td>
-                                                <td><?php echo $type['last_name']; ?> </td>
-                                                <td><?php echo $type['email']; ?> </td>
-                                                <td><?php echo $type['mobile']; ?> </td>
-                                                <td><?php echo $type['specialist']; ?> </td>
+                                                    } ?>
+                                                    <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project<?php echo $type['project_id']; ?>">
+                                                            مشاهدة المشروع
+                                                        </button> </td>
+                                                    <td><?php echo $type['project_name']; ?> </td>
 
-                                            </tr> <?php }
-                                                    ?> </tbody>
-                                </table>
-                            </div>
+                                                    <td><?php
+                                                        $desc = $type['project_desc'];
+                                                        $project_desc = substr($desc, 0, 100);
+                                                        echo $project_desc; ?> </td>
+                                                </tr> <?php }
+                                                        ?> </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- START MODEL -->
+
+                                <!-- Modal -->
+                                <?php foreach ($alltype as $type) {
+                                ?>
+                                    <div class="modal fade" id="project<?php echo $type['project_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+
+                                                <div class="modal-body">
+
+                                                    <div class="myform">
+                                                        <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
+                                                            <input type="hidden" name="register_id" value="<?php echo $project_id; ?>">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="box">
+                                                                        <label id="name"> اسم المشروع </label>
+                                                                        <input disabled class="form-control" type="text" name="car_name" value="<?php echo $type['project_name']; ?>">
+                                                                    </div>
+
+
+                                                                    <div class="box">
+                                                                        <label id="name"> وصف المشروع </label>
+                                                                        <textarea disabled name="" class="form-control"><?php echo $type['project_desc']; ?></textarea>
+
+                                                                    </div>
+                                                                    <label for=""> صور المشروع </label>
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $files1 = $type['project_images'];
+                                                                        $files1 = explode(" ", $files1);
+                                                                        $countfile = count($files1) - 1;
+                                                                        if ($countfile > 0) {
+                                                                            for ($i = 0; $i < $countfile; ++$i) {
+                                                                        ?>
+                                                                                <div class="col-12">
+
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                    <label for=""> فيديو المشروع </label>
+                                                                    <div class="row">
+                                                                        <?php
+                                                                        $files1 = $type['project_video'];
+                                                                        $files1 = explode(" ", $files1);
+                                                                        $countfile = count($files1) - 1;
+                                                                        if ($countfile > 0) {
+                                                                            for ($i = 0; $i < $countfile; ++$i) {
+                                                                        ?>
+                                                                                <div class="col-12">
+
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php
+                                                                            }
+                                                                        } else { ?>
+                                                                            <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <?php
+                                                                        }
+
+
+
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="box">
+                                                                        <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> المعلومات القانوينة </h6>
+                                                                        <label for=""> شهادة التسجيل </label>
+                                                                        <div class="row">
+                                                                            <?php
+                                                                            $files1 = $type['certificate_register'];
+                                                                            $files1 = explode(" ", $files1);
+                                                                            $countfile = count($files1) - 1;
+                                                                            if ($countfile > 0) {
+                                                                                for ($i = 0; $i < $countfile; ++$i) {
+                                                                            ?>
+                                                                                    <div class="col-12">
+
+                                                                                        <div class="files_style">
+                                                                                            <p class="btn bg-gradient-light"><?= $files1[$i] ?> </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php
+                                                                                }
+                                                                            } else { ?>
+                                                                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                            <?php
+                                                                            }
+
+
+
+                                                                            ?>
+                                                                        </div>
+
+                                                                        <label for="">الرسومات الهندسية</label>
+                                                                        <div class="row">
+                                                                            <?php
+                                                                            $files1 = $type['eng_draw'];
+                                                                            $files1 = explode(" ", $files1);
+                                                                            $countfile = count($files1) - 1;
+                                                                            if ($countfile > 0) {
+                                                                                for ($i = 0; $i < $countfile; ++$i) {
+                                                                            ?>
+                                                                                    <div class="col-12">
+
+                                                                                        <div class="files_style">
+                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php
+                                                                                }
+                                                                            } else { ?>
+                                                                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                            <?php
+                                                                            }
+
+
+
+                                                                            ?>
+                                                                        </div>
+
+                                                                        <label for=""> النموذج المبدئي </label>
+                                                                        <div class="row">
+                                                                            <?php
+                                                                            $files1 = $type['prototype'];
+                                                                            $files1 = explode(" ", $files1);
+                                                                            $countfile = count($files1) - 1;
+                                                                            if ($countfile > 0) {
+                                                                                for ($i = 0; $i < $countfile; ++$i) {
+                                                                            ?>
+                                                                                    <div class="col-12">
+
+                                                                                        <div class="files_style">
+                                                                                            <p class="btn bg-gradient-light"><?= $files1[$i] ?> </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php
+                                                                                }
+                                                                            } else { ?>
+                                                                                <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                            <?php
+                                                                            }
+
+
+
+                                                                            ?>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                                <!-- END MODEL  -->
+
+                            <?php
+
+                            } else { ?>
+
+                                <div class="alert alert-warning">
+                                    لا يوجد مشاريع لديك في الوقت الحالي
+                                </div>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                     <!--  END TALENT REGISTER  -->

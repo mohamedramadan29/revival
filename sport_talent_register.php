@@ -32,21 +32,18 @@ if (isset($_SESSION["username"])) { ?>
             <div class="data">
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $file = '';
+                    $file_tmp = '';
+                    $location = '';
+                    $uploadplace = "admin/upload/";
 
-                    // START UPLOAD PROJECT DESIGN (project_design)
-                    foreach ($_FILES['video_talent']['name'] as $key => $video_talent) {
-
-                        $newvideo_talent = time() . "_" . $video_talent;
-                        move_uploaded_file($_FILES['video_talent']['tmp_name'][$key], 'admin/upload/art_upload/' . $newvideo_talent);
-                        $location1 = 'admin/upload/art_upload/' . $newvideo_talent;
+                    foreach ($_FILES['talent_image']['name'] as $key => $val) {
+                        $file = $_FILES['talent_image']['name'][$key];
+                        $file_tmp = $_FILES['talent_image']['tmp_name'][$key];
+                        move_uploaded_file($file_tmp, $uploadplace . $file);
+                        $location .= $file . " ";
                     }
-                    // START UPLOAD PROJECT DESIGN (project_design)
-                    foreach ($_FILES['fiels_talent']['name'] as $key => $fiels_talent) {
 
-                        $newfiels_talent = time() . "_" . $fiels_talent;
-                        move_uploaded_file($_FILES['fiels_talent']['tmp_name'][$key], 'admin/upload/art_upload/' . $newfiels_talent);
-                        $location2 = 'admin/upload/art_upload/' . $newfiels_talent;
-                    }
                     $first_name2 = $_POST["first_name2"];
                     $last_name = $_POST["last_name"];
                     $email = $_POST["email"];
@@ -148,10 +145,10 @@ if (isset($_SESSION["username"])) { ?>
                         $errormessage[] = $lang["username_found"];
                     }
                     if (empty($errormessage)) {
-                        $stmt = $connect->prepare("INSERT INTO sport_register (first_name2, last_name, email, mobile , country, specialist ,
+                        $stmt = $connect->prepare("INSERT INTO sport_register (first_name2, last_name, email, mobile ,talent_image ,country, specialist ,
     certificate , field , sub_field , register_type,
     experience_info,team_name,team_register,video_talent, fiels_talent, username, password,player_weight,player_position,player_taller) 
-        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
+        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,:ztalent_image,
          :zcountry , :zspecialist ,
          :zcertificate,:zfield,:zsub_field,:zregister_type,
          :zexperience_info, :zteam_name , :zteam_register, :zvideo_talent,:zfiels_talent,:zusername, :zpassword,:zpweight,:zpposition,:zptall)");
@@ -160,6 +157,7 @@ if (isset($_SESSION["username"])) { ?>
                             "zlast_name" => $last_name,
                             "zemail" => $email,
                             "zmobile" => $mobile,
+                            "ztalent_image" => $location,
                             "zcountry" => $country,
                             "zspecialist" => $specialist,
                             "zcertificate" => $certificate,
@@ -459,6 +457,28 @@ if (isset($_SESSION["username"])) { ?>
                                                         <option value=" <?php echo $lang["broker_company"];  ?> ">
                                                             <?php echo $lang["broker_company"];  ?> </option>
                                                     </select>
+                                                </div>
+
+                                                <label> <?php echo $lang["talent_image"];  ?> </label>
+
+                                                <div class="box mb-3">
+                                                    <div class="upload-file">
+                                                        <div class="upload-wrapper">
+                                                            <label>
+                                                                <input type="file" name="talent_image[]" id="files">
+                                                                <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+
+                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                        </div>
+                                                    </div>
+                                                    <output id="image-gallery"></output>
+
                                                 </div>
                                             </div>
                                         </div>

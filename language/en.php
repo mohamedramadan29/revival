@@ -521,6 +521,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "watch_new_talent" => "Watch Talent",
     "talent_image" => "An image of talent or an image that expresses it ",
     "select_image" => "  Select Image ",
+    "our_talent" => " Talents ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

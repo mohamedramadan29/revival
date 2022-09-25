@@ -25,7 +25,7 @@ include 'init.php';
 <div class="our_services">
     <div class="container-fluid">
         <div class="data">
-            <h2>المواهب</h2>
+            <h2><?php echo $lang["our_talent"]; ?></h2>
             <div class="row">
                 <div class="col-lg-3">
                     <h2> الاقسام </h2>
@@ -91,7 +91,7 @@ include 'init.php';
                     <div class="row">
                         <?php
                         $stmt = $connect->prepare("SELECT * FROM company_register
-                        WHERE user_show='نعم'");
+                        WHERE user_show='نعم' AND cat_name='art'");
                         $stmt->execute();
                         $count = $stmt->rowCount();
                         $alltalent_register = $stmt->fetchAll();
@@ -105,6 +105,35 @@ include 'init.php';
                                         $exp = substr($exp_info, 0, 150);
                                         echo $exp; ?> <?php echo " ... ";  ?> </p>
                                     <a href="project_details.php?cat=art&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM  revival_add_project 
+                        WHERE project_show='نعم' AND cat_name='art'");
+                        $stmt->execute();
+                        $count = $stmt->rowCount();
+                        $alltalent_register = $stmt->fetchAll();
+                        foreach ($alltalent_register as $talent) { ?>
+                            <div class="col-lg-4">
+                                <div class="info">
+                                    <img src="admin/upload/<?php echo $talent['project_images']; ?>" alt="">
+                                    <?php
+                                    $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=?");
+                                    $stmt->execute(array($talent['username']));
+                                    $user_project_data = $stmt->fetch();
+                                    ?>
+                                    <h3> <?php echo $user_project_data['first_name'] ?> # <?php echo  $user_project_data['art_register_id']; ?> </h3>
+                                    <p> <?php
+                                        $exp_info = $user_project_data['experience_info'];
+                                        $exp = substr($exp_info, 0, 150);
+                                        echo $exp; ?> <?php echo " ... ";  ?> </p>
+                                    <a href="project_details.php?cat=art&talent_id=<?php echo $user_project_data['art_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
                                 </div>
                             </div>
                         <?php

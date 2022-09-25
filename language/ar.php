@@ -500,6 +500,7 @@ $lang = array(
   "watch_new_talent" => "مشاهدة المواهب",
   "talent_image" => "صورة الموهبة او صورة تعبر عنها ",
   "select_image" => " اختر الصورة ",
+  "our_talent" => " المواهب ",
 
 
 
