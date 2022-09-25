@@ -2,12 +2,36 @@
 ob_start();
 session_start();
 include 'init.php';
+if (isset($_GET['cat'])) {
+    $cat = $_GET['cat'];
+    if(isset($_GET['talent_id'])){
+        $talent_id = $_GET['talent_id'];
+        $stmt = $connect->prepare("SELECT * FROM art_register WHERE art_register_id=?");
+        $stmt->execute(array($talent_id));
+        $talent_info = $stmt->fetch();
+
+    }elseif(isset($_GET['talent_id_sub'])){
+        $talent_id_sub = $_GET['talent_id_sub'];
+        $stmt = $connect->prepare("SELECT * FROM company_register WHERE reg_id=?");
+        $stmt->execute(array($talent_id_sub));
+        $talent_info = $stmt->fetch();
+
+    }
+}
 ?>
 
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2> اسم الموهبة </h2>
+            <h2><?php echo $talent_info['first_name']; ?> # 
+            <?php
+            if(isset($_GET["talent_id"])){
+                echo $talent_info['art_register_id']; 
+            }elseif(isset($_GET["talent_id_sub"])){ 
+                echo $talent_info['reg_id']; 
+            }
+            ?>
+        </h2>
         </div>
     </div>
 </div>
@@ -22,25 +46,18 @@ include 'init.php';
                     <div class="info2">
                         <h2> معلومات عن الموهبة </h2>
                         <ul class="list-unstyled">
-                            <li> <span> مجال العمل : </span> الذكاء الاصطناعى</li>
-                            <li> <span> التخصص : </span> البرمجة </li>
-                            <li> <span> الموهل العلمي : </span> هندسة حاسبات ومعلومات</li>
-                            <li> <span> اللغات : </span> العربية والانجليزية </li>
+                            <li> <span> الاسم الاول : </span> <?php echo $talent_info['first_name']; ?> </li>
+                            <li> <span> الاسم الاخير : </span> <?php echo $talent_info['last_name']; ?> </li>
+                            <li> <span> التخصص : </span> <?php echo $talent_info['specialist']; ?> </li>
+                            <li> <span> الموهل العلمي : </span> <?php echo $talent_info['certificate']; ?> </li>
+                            <li> <span> اللغات : </span> <?php echo $talent_info['language_speak']; ?></li>
 
                         </ul>
 
                     </div>
                     <div class="info2">
                         <h2> نبذة عن الموهبة </h2>
-                        <p>كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت بالفعل،
-                            وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                            الشعور بالسعادة،
-                            ول استنكار النشوة وتمجيد الألم نشأت بالفعل،
-                            وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                            الشعور بالسعادة،
-                            ول استنكار النشوة وتمجيد الألم نشأت بالفعل،
-                            وسأعرض لك التفاصيل لتكتشف حقيقة وأساس تلك السعادة البشرية، فلا أحد يرفض أو يكره أو يتجنب
-                            الشعور بالسعادة،
+                        <p> <?php echo $talent_info['experience_info']; ?>
                         </p>
                         <a href="invest_project.php" class="btn button"> استثمر الان <i class="fa fa-chart-bar"></i>
                         </a>
@@ -61,13 +78,11 @@ include 'init.php';
                                     <img src="uploads/art3.jpg" class="d-block w-100" alt="...">
                                 </div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -75,8 +90,7 @@ include 'init.php';
                     </div>
                     <div class="talent_video">
                         <div class="d-flex align-items-center pt-5">
-                            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="uploads/video.mp4"
-                                data-bs-target="#videoModal">
+                            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['cv']; ?>" data-bs-target="#videoModal">
                                 <span></span>
                             </button>
                         </div>
@@ -101,19 +115,16 @@ include 'init.php';
 </div>
 <!-- END PROJECT DETAILS -->
 <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel"> شركه ريفايفال </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>

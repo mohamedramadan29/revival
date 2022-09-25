@@ -15,8 +15,8 @@
                 <h2> <?php echo $lang["footer_head2"]; ?> </h2>
                 <p> <?php echo $lang["footer_p4"]; ?>
                 </p>
-                <form action="#">
-                    <input type="email" placeholder="   <?php echo $lang["footer_email"]; ?> "><input type="submit"
+                <form action="" method="">
+                    <input name="email" type="email" placeholder="<?php echo $lang["footer_email"]; ?> "><input type="submit"
                         value="<?php echo $lang["footer_subscripe"]; ?> ">
                 </form>
             </div>

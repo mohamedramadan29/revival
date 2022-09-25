@@ -54,8 +54,40 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
   </script>
+
+  <!-- START UPLOAD FILES WITH FILEPOND PLUGIN -->
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+
+  <script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
+  <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+
+  <script type="text/javascript">
+    /*
+    var pond = FilePond.create(document.querySelector('input[type="file"]'));
+    // get a collection of elements with class filepond
+    const inputElements = document.querySelectorAll('input.filepond');
+
+    // loop over input elements
+    Array.from(inputElements).forEach(inputElement => {
+
+      // create a FilePond instance at the input element location
+      FilePond.create(inputElement);
+
+    })
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFilePoster);
+    FilePond.registerPlugin(FilePondPluginImageTransform);
+
+    FilePond.setOptions({
+      server: './',
+    });
+    */
+  </script>
+  <!-- END UPLOAD FILES WITH FILEPOND PLUGIN -->
   <script src="<?php echo $js; ?>google-map.js"></script>
   <script src="<?php echo $js; ?>main.js"></script>
+
 
   </body>
 

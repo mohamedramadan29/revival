@@ -40,35 +40,40 @@
                             $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
-                            if($count > 0){?>
+                            $userdata = $stmt->fetch();
+                            if ($count > 0) { ?>
                                 <td> مسجل في الذكاء الاصطناعي </td>
-                                <?php
+                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['art_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
+                            <?php
                             }
                             $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
-                            if($count > 0){?>
-                                <td> مسجل في  الازياء والموضة </td>
-                                <?php
+                            if ($count > 0) { ?>
+                                <td> مسجل في الازياء والموضة </td>
+                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['fash_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
+                            <?php
                             }
 
                             $stmt = $connect->prepare("SELECT * FROM register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
-                            if($count > 0){?>
-                                <td> مسجل في   ريفايفال </td>
-                                <?php
+                            if ($count > 0) { ?>
+                                <td> مسجل في ريفايفال </td>
+                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['reg_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
+                            <?php
                             }
                             $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
-                            if($count > 0){?>
+                            if ($count > 0) { ?>
                                 <td> مسجل في الرياضة</td>
-                                <?php
+                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['sport_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
+                            <?php
                             }
 
                             ?>
-                            <td class="bg bg-blue"> <a class="" href="#"> <?php echo $type['username']; ?> </a> </td>
+
                             <td>
                                 <a class=" btn btn-success" href="main.php?dir=company_talent&page=edit&register_id=<?php echo $type['reg_id']; ?> ">
                                     <i class="fa fa-edit"></i>

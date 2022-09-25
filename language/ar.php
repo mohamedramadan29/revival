@@ -497,6 +497,9 @@ $lang = array(
   "message_fash" => " الازياء والمجوهرات ",
   "message_revival" => "ريفايفال",
   "message_other" => "اخري",
+  "watch_new_talent" => "مشاهدة المواهب",
+  "talent_image" => "صورة الموهبة او صورة تعبر عنها ",
+  "select_image" => " اختر الصورة ",
 
 
 

@@ -1,3 +1,14 @@
+<!-- ****
+**
+***
+Attention Yastaaaaaaaaaaaaaaaa
+
+Cv =====> Talent Video 
+
+-->
+
+
+
 <?php
 $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=?");
 $stmt->execute(array($_SESSION["username"]));
@@ -171,7 +182,7 @@ if ($count > 0) {
                 $_SESSION['username'],
             ));
             if ($stmt) {
-                header("Location:profile.php");
+                //  header("Location:profile.php");
 ?>
                 <div class='container'>
                     <div class='alert alert-success text-center'>
@@ -179,7 +190,8 @@ if ($count > 0) {
                     </div>
                 </div>
                 <?php
-            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
+            }
+            if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {
                 $stmt = $connect->prepare("UPDATE art_register SET project_design=?,project_prototype=?,
       project_video=?,project_certificate=?
       ,national_id=?,certificate_image=?,last_certificate=?,cv=?  WHERE username=?");
@@ -245,7 +257,7 @@ if ($count > 0) {
                     $_SESSION['username'],
                 ));
                 if ($stmt) {
-                    header("Location:profile.php");
+                     header("Location:profile.php");
                 ?>
                     <div class='container'>
                         <div class='alert alert-success text-center'>
@@ -310,7 +322,6 @@ if ($count > 0) {
                     $location,
                     $location2,
                     $location3,
-
                     $location5,
                     $location6,
                     $location7,
@@ -525,152 +536,6 @@ if ($count > 0) {
                     </div>
                 <?php
                 }
-            } elseif ($file_tmp1 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET project_design=?  WHERE username=?");
-                $stmt->execute(array(
-                    $location,
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp2 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET project_design=? WHERE username=?");
-                $stmt->execute(array(
-                    $location2,
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp3 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET
-                project_video=?
-                 WHERE username=?");
-                $stmt->execute(array(
-
-                    $location3,
-
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp4 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET  project_certificate=?
-                WHERE username=?");
-                $stmt->execute(array(
-
-                    $location4,
-
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp5 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET national_id=? WHERE username=?");
-                $stmt->execute(array(
-
-                    $location5,
-
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp6 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET certificate_image=?  WHERE username=?");
-                $stmt->execute(array(
-
-                    $location6,
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp7 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET last_certificate=?  WHERE username=?");
-                $stmt->execute(array(
-
-                    $location7,
-
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
-            } elseif ($file_tmp8 != '') {
-                $stmt = $connect->prepare("UPDATE art_register SET cv=?  WHERE username=?");
-                $stmt->execute(array(
-                    $location8,
-                    $_SESSION['username'],
-                ));
-                if ($stmt) {
-                    header("Location:profile.php");
-                ?>
-                    <div class='container'>
-                        <div class='alert alert-success text-center'>
-                            <?php echo $lang["suc_profile_message"];  ?>
-                        </div>
-                    </div>
-                <?php
-                }
             } elseif ($file_tmp2 != '' && $file_tmp3 != '') {
                 $stmt = $connect->prepare("UPDATE art_register SET project_prototype=?,
                 project_video=?  WHERE username=?");
@@ -856,6 +721,149 @@ if ($count > 0) {
                 $stmt = $connect->prepare("UPDATE art_register SET project_video=? ,last_certificate=?  WHERE username=?");
                 $stmt->execute(array(
                     $location3,
+                    $location8,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp1 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=?  WHERE username=?");
+                $stmt->execute(array(
+                    $location,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp2 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET project_design=? WHERE username=?");
+                $stmt->execute(array(
+                    $location2,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp3 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET
+                project_video=?
+                 WHERE username=?");
+                $stmt->execute(array(
+                    $location3,
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET  project_certificate=?
+                WHERE username=?");
+                $stmt->execute(array(
+
+                    $location4,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp5 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET national_id=? WHERE username=?");
+                $stmt->execute(array(
+
+                    $location5,
+
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp6 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET certificate_image=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location6,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp7 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET last_certificate=?  WHERE username=?");
+                $stmt->execute(array(
+
+                    $location7,
+
+                    $_SESSION['username'],
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+                    <div class='container'>
+                        <div class='alert alert-success text-center'>
+                            <?php echo $lang["suc_profile_message"];  ?>
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp8 != '') {
+                $stmt = $connect->prepare("UPDATE art_register SET cv=?  WHERE username=?");
+                $stmt->execute(array(
                     $location8,
                     $_SESSION['username'],
                 ));
@@ -1362,7 +1370,7 @@ if ($count > 0) {
 
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <label> <?php echo $lang["upload_video"]; ?> </label>
+                                                    <label> <?php echo $lang["upload_video"]; ?></label>
 
                                                     <div class="box mb-3">
                                                         <div class="upload-file">

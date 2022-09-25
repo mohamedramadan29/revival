@@ -118,7 +118,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
 ?>
 
 <div class='container'>
@@ -151,7 +151,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>
@@ -183,7 +183,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>
@@ -215,7 +215,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>
@@ -246,7 +246,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>
@@ -277,7 +277,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>
@@ -308,7 +308,7 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
                 ?>
 
 <div class='container'>

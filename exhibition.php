@@ -32,8 +32,8 @@ include 'init.php';
                     <div class="info">
                         <img src="uploads/header2.jpg" alt="">
                         <h3> <?php echo $lang["exhiption_head3"]; ?></h3>
-                        <p> <?php echo $lang["exhiption_p1"]; ?></p>
-                        <a href="talent_project.php" class="btn button">
+                        <p> <?php echo $lang["exhiption_p1"]; ?></p> 
+                        <a href="artificial_project.php" class="btn button">
                             <?php echo $lang["exhiption_button"]; ?></a>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ include 'init.php';
                         <img src="uploads/fashion.jpg" alt="">
                         <h3><?php echo $lang["exhiption_head4"]; ?></h3>
                         <p> <?php echo $lang["exhiption_p2"]; ?> </p>
-                        <a href="talent_project.php" class="btn button"> <?php echo $lang["exhiption_button"]; ?> </a>
+                        <a href="fashion_project.php" class="btn button"> <?php echo $lang["exhiption_button"]; ?> </a>
                     </div>
                 </div>
                 <div class="col-lg-4">

@@ -104,7 +104,6 @@ if ($count > 0) {
                     $mobile,
                     $specialist,
                     $certificate,
-
                     $experience_info,
                     $team_name,
                     $team_register,
@@ -117,7 +116,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
 
 ?>
 
@@ -139,12 +138,10 @@ if ($count > 0) {
                     $mobile,
                     $specialist,
                     $certificate,
-
                     $experience_info,
                     $team_name,
                     $team_register,
                     $location,
-
                     $password,
                     $player_weight,
                     $player_postion,
@@ -152,7 +149,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
 
                 ?>
 
@@ -187,7 +184,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
 
                 ?>
 
@@ -222,7 +219,7 @@ if ($count > 0) {
                     $_SESSION["username"],
                 ));
                 if ($stmt) {
-                    header("refresh: 3");
+                     header("Location:profile.php");
 
                 ?>
 

@@ -372,7 +372,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                             <label id="name"> الفيديوهات </label>
                             <div class="row">
                                 <?php
-                                        $files1 = $alltype['project_video'];
+                                        $files1 = $alltype['cv'];
                                         $files1 = explode(" ", $files1);
                                         $countfile = count($files1) - 1;
                                         if ($countfile > 0) {

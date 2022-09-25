@@ -3266,3 +3266,8 @@ time {
     margin-bottom: 10px;
     color:#FFFFFF;
 }
+
+.ftco-animate{
+    visibility: visible !important;
+    opacity: 1 !important;
+}

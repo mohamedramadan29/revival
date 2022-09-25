@@ -44,27 +44,6 @@ if ($count > 0) {
             $location2 .= $file . " ";
         }
         $errormessage = [];
-        /*
-        if (isset($_POST["check_privacy"])) {
-        } else {
-            $errormessage[] = $lang["check_privacy"];
-        }
-        if (empty($field)) {
-            $errormessage[] = $lang["enter_field"];
-        }
-        if (empty($sub_field)) {
-            $errormessage[] = $lang["enter_sub_field"];
-        }
-        if (empty($username)) {
-            $errormessage[] =  $lang["enter_username"];
-        }
-        if (empty($password)) {
-            $errormessage[] =  $lang["enter_password"];
-        }
-        if (strlen($password) < 8) {
-            $errormessage[] =  $lang["weak_pass"];
-        }
-*/
 
         if (empty($first_name)) {
             $errormessage[] = $lang["enter_first_name"];

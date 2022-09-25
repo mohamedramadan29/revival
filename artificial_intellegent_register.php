@@ -35,137 +35,13 @@ if (isset($_SESSION["username"])) { ?>
 
                     $file = '';
                     $file_tmp = '';
-                    $location = "admin/upload/art_upload/";
-                    $location2 = 'admin/upload/art_upload/';
-                    $location3 = 'admin/upload/art_upload/';
-                    $location4 = 'admin/upload/art_upload/';
-                    $location5 = 'admin/upload/art_upload/';
-                    $location6 = 'admin/upload/art_upload/';
-                    $location7 = 'admin/upload/art_upload/';
-                    $location8 = 'admin/upload/art_upload/';
-
-                    // START UPLOAD PROJECT DESIGN (project_design)
-                    /*
-                foreach ($_FILES['project_design']['name'] as $key => $project_design) {
-
-                    $newproject_design = time() . "_" . $project_design;
-                    move_uploaded_file($_FILES['project_design']['tmp_name'][$key], 'admin/upload/art_upload/' . $newproject_design);
-
-                    $location = 'admin/upload/art_upload/' . $newproject_design;
-                }
-                */
-                    foreach ($_FILES['project_design']['name'] as $key => $val) {
-                        $file = $_FILES['project_design']['name'][$key];
-                        $file_tmp = $_FILES['project_design']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location . $file);
+                    $location = '';
+                    $uploadplace = "admin/upload/";
+                    foreach ($_FILES['talent_image']['name'] as $key => $val) {
+                        $file = $_FILES['talent_image']['name'][$key];
+                        $file_tmp = $_FILES['talent_image']['tmp_name'][$key];
+                        move_uploaded_file($file_tmp, $uploadplace . $file);
                         $location .= $file . " ";
-                    }
-                    /////////////////
-                    // START UPLOAD PROJECT PROTOTYPE TYPE (project_prototype)
-                    /*
-                foreach ($_FILES['project_prototype']['name'] as $key => $project_prototype) {
-
-                    $newproject_prototype = time() . "_" . $project_prototype;
-                    move_uploaded_file($_FILES['project_prototype']['tmp_name'][$key], 'admin/upload/art_upload/' . $newproject_prototype);
-                    $location2 = 'admin/upload/art_upload/' . $newproject_prototype;
-                }
-                */
-
-                    foreach ($_FILES['project_prototype']['name'] as $key => $val) {
-                        $file = $_FILES['project_prototype']['name'][$key];
-                        $file_tmp = $_FILES['project_prototype']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location2 . $file);
-                        $location2 .= $file . " ";
-                    }
-
-                    // START UPLOAD project_video (project_video)
-                    /*
-                foreach ($_FILES['project_video']['name'] as $key => $project_video) {
-
-                    $newproject_video = time() . "_" . $project_video;
-                    move_uploaded_file($_FILES['project_video']['tmp_name'][$key], 'admin/upload/art_upload/' . $newproject_video);
-                    $location3 = 'admin/upload/art_upload/' . $newproject_video;
-                }
-                */
-
-                    foreach ($_FILES['project_video']['name'] as $key => $val) {
-                        $file = $_FILES['project_video']['name'][$key];
-                        $file_tmp = $_FILES['project_video']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location3 . $file);
-                        $location3 .= $file . " ";
-                    }
-
-                    // START UPLOAD project_certificate(project_certificate)
-                    /*
-                foreach ($_FILES['project_certificate']['name'] as $key => $project_certificate) {
-
-                    $newproject_certificate = time() . "_" . $project_certificate;
-                    move_uploaded_file($_FILES['project_certificate']['tmp_name'][$key], 'admin/upload/art_upload/' . $newproject_certificate);
-                    $location4 = 'admin/upload/art_upload/' . $newproject_certificate;
-                }
-                */
-
-                    foreach ($_FILES['project_certificate']['name'] as $key => $val) {
-                        $file = $_FILES['project_certificate']['name'][$key];
-                        $file_tmp = $_FILES['project_certificate']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location4 . $file);
-                        $location4 .= $file . " ";
-                    }
-
-                    // START UPLOAD national_id (national_id)
-                    foreach ($_FILES['national_id']['name'] as $key => $val) {
-                        $file = $_FILES['national_id']['name'][$key];
-                        $file_tmp = $_FILES['national_id']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location . $file);
-                        $location5 .= $file . " ";
-                    }
-
-
-                    // START UPLOAD certificate_image
-                    /*
-                foreach ($_FILES['certificate_image']['name'] as $key => $certificate_image) {
-                    $newcertificate_image = time() . "_" . $certificate_image;
-                    move_uploaded_file($_FILES['certificate_image']['tmp_name'][$key], 'admin/upload/art_upload/' . $newcertificate_image);
-                    $location6 = 'admin/upload/art_upload/' . $newcertificate_image;
-                }
-                */
-
-                    foreach ($_FILES['certificate_image']['name'] as $key => $val) {
-                        $file = $_FILES['certificate_image']['name'][$key];
-                        $file_tmp = $_FILES['certificate_image']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location6 . $file);
-                        $location6 .= $file . " ";
-                    }
-                    // START UPLOAD last_certificate 
-                    /*
-                foreach ($_FILES['last_certificate']['name'] as $key => $last_certificate) {
-                    $newlast_certificate = time() . "_" . $last_certificate;
-                    move_uploaded_file($_FILES['last_certificate']['tmp_name'][$key], 'admin/upload/art_upload/' . $newlast_certificate);
-                    $location7 = 'admin/upload/art_upload/' . $newlast_certificate;
-                }
-                */
-
-                    foreach ($_FILES['last_certificate']['name'] as $key => $val) {
-                        $file = $_FILES['last_certificate']['name'][$key];
-                        $file_tmp = $_FILES['last_certificate']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location7 . $file);
-                        $location7 .= $file . " ";
-                    }
-
-                    // START UPLOAD CV
-                    /*
-                foreach ($_FILES['cv']['name'] as $key => $cv) {
-                    $newcv = time() . "_" . $cv;
-                    move_uploaded_file($_FILES['cv']['tmp_name'][$key], 'admin/upload/art_upload/' . $newcv);
-                    $location8 = 'admin/upload/art_upload/' . $newcv;
-                }
-                */
-
-                    foreach ($_FILES['cv']['name'] as $key => $val) {
-                        $file = $_FILES['cv']['name'][$key];
-                        $file_tmp = $_FILES['cv']['tmp_name'][$key];
-                        move_uploaded_file($file_tmp, $location8 . $file);
-                        $location8 .= $file . " ";
                     }
                     $first_name = $_POST["first_name"];
                     $last_name = $_POST["last_name"];
@@ -269,12 +145,12 @@ if (isset($_SESSION["username"])) { ?>
                         $errormessage[] =  $lang["username_found"];
                     }
                     if (empty($errormessage)) {
-                        $stmt = $connect->prepare("INSERT INTO art_register (first_name, last_name, email, mobile , country, specialist ,
+                        $stmt = $connect->prepare("INSERT INTO art_register (first_name, last_name, email, mobile , talent_image, country, specialist ,
     certificate , field , sub_field , register_type,
     experience_info, language_speak , project_details , project_name,
     project_field, project_tools , project_date,project_competation,project_prize
     ,username, password) 
-        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
+        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,:ztalent_image,
          :zcountry , :zspecialist ,
          :zcertificate,:zfield,:zsub_field,:zregister_type,
          :zexperience_info, :zlanguage_speak, :zproject_details,
@@ -285,6 +161,7 @@ if (isset($_SESSION["username"])) { ?>
                             "zlast_name" => $last_name,
                             "zemail" => $email,
                             "zmobile" => $mobile,
+                            "ztalent_image" => $location,
                             "zcountry" => $country,
                             "zspecialist" => $specialist,
                             "zcertificate" => $certificate,
@@ -328,9 +205,9 @@ if (isset($_SESSION["username"])) { ?>
                                     <?php
                                     foreach ($emaildata as $data) {
                                         if ($_SESSION['lang'] == 'ar') {
-                                          echo   $data['email_text'];
+                                            echo   $data['email_text'];
                                         } else {
-                                          echo  $data['email_text_en'];
+                                            echo  $data['email_text_en'];
                                         }
                                     }
                                     ?>
@@ -438,11 +315,6 @@ if (isset($_SESSION["username"])) { ?>
                                                 <?php
                                                 }
                                                 ?>
-
-
-
-
-
                                                 <!--  <option value=""> الموهل العلمي </option> -->
                                                 <option value=" <?php echo $lang["illiterate"];  ?> ">
                                                     <?php echo $lang["illiterate"];  ?> </option>
@@ -455,7 +327,27 @@ if (isset($_SESSION["username"])) { ?>
                                                 <option value="<?php echo $lang["masters"];  ?> ">
                                                     <?php echo $lang["masters"];  ?> </option>
                                             </select>
+                                        </div>
 
+                                        <label> <?php echo $lang["talent_image"];  ?> </label>
+
+                                        <div class="box mb-3">
+                                            <div class="upload-file">
+                                                <div class="upload-wrapper">
+                                                    <label>
+                                                        <input type="file" name="talent_image[]" id="files">
+                                                        <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                </div>
+                                            </div>
+                                            <output id="image-gallery"></output>
 
                                         </div>
                                     </div>

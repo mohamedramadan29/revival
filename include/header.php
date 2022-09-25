@@ -5,8 +5,7 @@
     <title> ريفايفال </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="uploads/logo3.png" type="image/x-icon"/>
-
+    <link rel="icon" href="uploads/logo3.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">
@@ -23,6 +22,14 @@
     <link rel="stylesheet" href="<?php echo $css; ?>owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo $css; ?>magnific-popup.css">
 
+    <!-- START UPLOAD FILES WITH FILEPOND PLUGIN  -->
+
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css" rel="stylesheet" />
+
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+
+    <!-- END UPLOAD FILES WITH FILEPOND PLUGIN -->
     <link rel="stylesheet" href="<?php echo $css; ?>aos.css">
     <script src="<?php echo $js; ?>jquery.countdown.min.js"></script>
     <link rel="stylesheet" href="<?php echo $css; ?>ionicons.min.css">
@@ -43,10 +50,10 @@
     <?php if ($_SESSION['lang'] == 'ar') { ?>
 
     <?php } else { ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="<?php echo $css; ?>custome2.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="<?php echo $css; ?>custome2.css" rel="stylesheet">
     <?php } ?>
 
 

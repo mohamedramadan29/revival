@@ -518,7 +518,9 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "message_fash" => " Fashion and jewelry",
     "message_revival" => "Revival",
     "message_other" => "Others..",
-
+    "watch_new_talent" => "Watch Talent",
+    "talent_image" => "An image of talent or an image that expresses it ",
+    "select_image" => "  Select Image ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

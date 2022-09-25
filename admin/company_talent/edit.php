@@ -289,9 +289,9 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                 <option value=""> اختر </option>
 
                                 <option <?php if ($alltype['user_show'] == 'active')  echo 'selected'; ?>
-                                    value="active"> نعم </option>
+                                    value="نعم"> نعم </option>
                                 <option <?php if ($alltype['user_show'] == 'pending')  echo 'selected'; ?>
-                                    value="pending"> لا </option>
+                                    value="لا"> لا </option>
                             </select>
                         </div>
 

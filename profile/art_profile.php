@@ -155,9 +155,7 @@
                                             <div class="col-12">
 
                                                 <div class="files_style">
-                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
-
-                                                            <?= $files1[$i] ?></a></p>
+                                                    <p class="btn bg-success"> <?= $files1[$i] ?>  </p>
                                                 </div>
                                             </div>
                                         <?php
@@ -182,9 +180,7 @@
                                             <div class="col-12">
 
                                                 <div class="files_style">
-                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
-
-                                                            <?= $files1[$i] ?></a></p>
+                                                    <p class="btn bg-success"> <?= $files1[$i] ?></p>
                                                 </div>
                                             </div>
                                         <?php
@@ -203,7 +199,7 @@
                                 <label id="name"> الفيديوهات </label>
                                 <div class="row">
                                     <?php
-                                    $files1 = $userinfo['project_video'];
+                                    $files1 = $userinfo['cv'];
                                     $files1 = explode(" ", $files1);
                                     $countfile = count($files1) - 1;
                                     if ($countfile > 0) {
@@ -212,9 +208,7 @@
                                             <div class="col-12">
 
                                                 <div class="files_style">
-                                                    <p> <a class="btn bg-success" target="_blank" href="admin/upload/<?= $files1[$i] ?>">
-
-                                                            <?= $files1[$i] ?></a></p>
+                                                    <p class="btn bg-success"><?= $files1[$i] ?> </p>
                                                 </div>
                                             </div>
                                         <?php
@@ -514,7 +508,7 @@
                                                                         <label id="name"> الفيديوهات </label>
                                                                         <div class="row">
                                                                             <?php
-                                                                            $files1 = $type['project_video'];
+                                                                            $files1 = $type['cv'];
                                                                             $files1 = explode(" ", $files1);
                                                                             $countfile = count($files1) - 1;
                                                                             if ($countfile > 0) {

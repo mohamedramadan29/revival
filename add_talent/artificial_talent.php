@@ -1,5 +1,6 @@
 <?php
 $username = $_GET["username"];
+$cat_name = "art";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location6 = '';
     $location7 = '';
     $location8 = '';
+    $location9 = '';
 
     $uploadplace = "admin/upload/";
 
@@ -98,6 +100,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($file_tmp8, $uploadplace . $file);
         $location8 .= $file . " ";
     }
+
+     // START Talent Image
+
+     foreach ($_FILES['talent_image']['name'] as $key => $val) {
+        $file = $_FILES['talent_image']['name'][$key];
+        $file = str_replace(' ', '', $file);
+        $file_tmp9 = $_FILES['talent_image']['tmp_name'][$key];
+        move_uploaded_file($file_tmp9, $uploadplace . $file);
+        $location9 .= $file . " ";
+    }
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $email = $_POST["email"];
@@ -143,17 +155,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /*  if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {*/
 
         $stmt = $connect->prepare("INSERT INTO company_register  (
-                first_name, last_name, email,mobile, specialist,certificate ,
+                first_name, last_name, email,mobile,talent_image, specialist,certificate ,
   experience_info, language_speak , project_details, project_name,
   project_field,project_tools, project_date,project_competation,project_prize,project_design,project_prototype,
       project_video,project_certificate
-      ,national_id,certificate_image,last_certificate,cv,username
-  ) VALUES(:zfname,:zlname,:zemail,:zmobile,:zspecialist,:zcertificate,:zexperience_info,:zlanguage_speak,:zproject_details,:zproject_name,:zproject_field,:zproject_tools,:zproject_data,:zproject_competation,:zproject_prize,:zproject_design,:zproject_prototype,:zproject_video,:zproject_certificate,:znational_id,:zcertificate_image,:zlast_certificate,:zcv,:zusername)");
+      ,national_id,certificate_image,last_certificate,cv,username,cat_name
+  ) VALUES(:zfname,:zlname,:zemail,:zmobile,:ztalent_image,:zspecialist,:zcertificate,:zexperience_info,
+  :zlanguage_speak,:zproject_details,:zproject_name,:zproject_field,:zproject_tools,:zproject_data,:zproject_competation,
+  :zproject_prize,:zproject_design,:zproject_prototype,:zproject_video,:zproject_certificate,:znational_id,:zcertificate_image,
+  :zlast_certificate,:zcv,:zusername,:zcat_name)");
         $stmt->execute(array(
             "zfname" => $first_name,
             "zlname" => $last_name,
             "zemail" => $email,
             "zmobile" => $mobile,
+            "ztalent_image" => $location9,
             "zspecialist" => $specialist,
             "zcertificate" => $certificate,
             "zexperience_info" => $experience_info,
@@ -174,6 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zlast_certificate" => $location7,
             "zcv" => $location8,
             "zusername" => $username,
+            "zcat_name" => $cat_name,
         ));
         if ($stmt) {
             header("Location:profile.php");
@@ -290,6 +307,28 @@ if ($count >  0) { ?>
                                                                     <label for="floatingInput"><?php echo $lang["specialist"];  ?>
                                                                         <span class="star"> * </span></label>
                                                                     <input name="specialist" type="text" class="form-control" id="floatingInput" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['specialist']; ?>">
+                                                                </div>
+                                                                
+
+                                                                <div class="box mb-3">
+                                                                <label> <?php echo $lang["talent_image"];  ?> </label>
+                                                                    <div class="upload-file">
+                                                                        <div class="upload-wrapper">
+                                                                            <label>
+                                                                                <input type="file" name="talent_image[]" id="files9">
+                                                                                <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+
+                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <output id="image-gallery9"></output>
+
                                                                 </div>
 
                                                             </div>
