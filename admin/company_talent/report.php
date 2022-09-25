@@ -49,15 +49,17 @@
                             $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
+                            $userdata = $stmt->fetch();
                             if ($count > 0) { ?>
                                 <td> مسجل في الازياء والموضة </td>
-                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['fash_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
+                                <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=fash_register&page=edit&register_id=<?php echo $userdata['fash_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
                             <?php
                             }
 
                             $stmt = $connect->prepare("SELECT * FROM register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
+                            $userdata = $stmt->fetch();
                             if ($count > 0) { ?>
                                 <td> مسجل في ريفايفال </td>
                                 <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['reg_id']; ?>"> <?php echo $type['username']; ?> </a> </td>
@@ -66,6 +68,7 @@
                             $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username=?");
                             $stmt->execute(array($type['username']));
                             $count  = $stmt->rowCount();
+                            $userdata = $stmt->fetch();
                             if ($count > 0) { ?>
                                 <td> مسجل في الرياضة</td>
                                 <td class="bg bg-blue"> <a target="_blank" class="" href="main.php?dir=art_register&page=edit&register_id=<?php echo $userdata['sport_register_id']; ?>"> <?php echo $type['username']; ?> </a> </td>

@@ -137,8 +137,7 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'contact' && $page == 'report') {
             // echo 'test test';
             include 'contact/report.php';
-        }
-        elseif ($dir == 'contact' && $page == 'edit') {
+        } elseif ($dir == 'contact' && $page == 'edit') {
             // echo 'test test';
             include 'contact/edit.php';
         }
@@ -163,8 +162,8 @@ include $tem . 'left_sidebar.php';
             include 'revival_about/report.php';
         }
 
-         // START Form Selection
-         if ($dir == 'form_selection' && $page == 'add') {
+        // START Form Selection
+        if ($dir == 'form_selection' && $page == 'add') {
             include 'form_selection/add.php';
         } elseif ($dir == 'form_selection' && $page == 'edit') {
             include 'form_selection/edit.php';
@@ -174,8 +173,8 @@ include $tem . 'left_sidebar.php';
             include 'form_selection/report.php';
         }
 
-           // START REVIVAL TERMS
-           if ($dir == 'revival_terms' && $page == 'add') {
+        // START REVIVAL TERMS
+        if ($dir == 'revival_terms' && $page == 'add') {
             include 'revival_terms/add.php';
         } elseif ($dir == 'revival_terms' && $page == 'edit') {
             include 'revival_terms/edit.php';
@@ -195,8 +194,8 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'revival_goals' && $page == 'report') {
             include 'revival_goals/report.php';
         }
-          // START Revival Gallary
-          if ($dir == 'revival_gallary' && $page == 'add') {
+        // START Revival Gallary
+        if ($dir == 'revival_gallary' && $page == 'add') {
             include 'revival_gallary/add.php';
         } elseif ($dir == 'revival_gallary' && $page == 'edit') {
             include 'revival_gallary/edit.php';
@@ -206,8 +205,8 @@ include $tem . 'left_sidebar.php';
             include 'revival_gallary/report.php';
         }
 
-           // START Revival Gallary
-           if ($dir == 'course_register' && $page == 'add') {
+        // START Revival Gallary
+        if ($dir == 'course_register' && $page == 'add') {
             include 'course_register/add.php';
         } elseif ($dir == 'course_register' && $page == 'edit') {
             include 'course_register/edit.php';
@@ -217,8 +216,8 @@ include $tem . 'left_sidebar.php';
             include 'course_register/report.php';
         }
 
-           // START Company Talent
-           if ($dir == 'company_talent' && $page == 'add') {
+        // START Company Talent
+        if ($dir == 'company_talent' && $page == 'add') {
             include 'company_talent/add.php';
         } elseif ($dir == 'company_talent' && $page == 'edit') {
             include 'company_talent/edit.php';
@@ -228,8 +227,8 @@ include $tem . 'left_sidebar.php';
             include 'company_talent/report.php';
         }
 
-           // START Emails Section
-           if ($dir == 'emails_section' && $page == 'add') {
+        // START Emails Section
+        if ($dir == 'emails_section' && $page == 'add') {
             include 'emails_section/add.php';
         } elseif ($dir == 'emails_section' && $page == 'edit') {
             include 'emails_section/edit.php';
@@ -239,6 +238,16 @@ include $tem . 'left_sidebar.php';
             include 'emails_section/report.php';
         }
 
+        // START Subscrip Section
+        if ($dir == 'subscription_section' && $page == 'add') {
+            include 'subscription_section/add.php';
+        } elseif ($dir == 'subscription_section' && $page == 'edit') {
+            include 'subscription_section/edit.php';
+        } elseif ($dir == 'subscription_section' && $page == 'delete') {
+            include 'subscription_section/delete.php';
+        } elseif ($dir == 'subscription_section' && $page == 'report') {
+            include 'subscription_section/report.php';
+        }
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';
@@ -257,15 +266,15 @@ include $tem . 'footer.php';
 ob_end_flush();
 ?>
 <script type="text/javascript">
-// customer script
+    // customer script
 
 
-var dev = $("#logo").dropify({});
-dev = dev.data("dropify")
-var dev2 = $("#logo2").dropify({});
-dev2 = dev2.data("dropify")
-var dev3 = $("#logo3").dropify({});
-dev2 = dev3.data("dropify")
-var dev4 = $("#logo4").dropify({});
-dev4 = dev4.data("dropify")
+    var dev = $("#logo").dropify({});
+    dev = dev.data("dropify")
+    var dev2 = $("#logo2").dropify({});
+    dev2 = dev2.data("dropify")
+    var dev3 = $("#logo3").dropify({});
+    dev2 = dev3.data("dropify")
+    var dev4 = $("#logo4").dropify({});
+    dev4 = dev4.data("dropify")
 </script>

@@ -30,26 +30,17 @@ if (isset($_SESSION["username"])) { ?>
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-                    // START UPLOAD PROJECT DESIGN (project_design)
-                    foreach ($_FILES['project_certificate_image']['name'] as $key => $project_certificate_image) {
-
-                        $newproject_certificate_image = time() . "_" . $project_certificate_image;
-                        move_uploaded_file($_FILES['project_certificate_image']['tmp_name'][$key], 'admin/upload/art_upload/' . $newproject_certificate_image);
-                        $location = 'admin/upload/art_upload/' . $newproject_certificate_image;
+                    $file = '';
+                    $file_tmp = '';
+                    $location = '';
+                    $uploadplace = "admin/upload/";
+                    foreach ($_FILES['talent_image']['name'] as $key => $val) {
+                        $file = $_FILES['talent_image']['name'][$key];
+                        $file_tmp = $_FILES['talent_image']['tmp_name'][$key];
+                        move_uploaded_file($file_tmp, $uploadplace . $file);
+                        $location .= $file . " ";
                     }
-
-                    // START UPLOAD national_id (national_id)
-                    foreach ($_FILES['national_id']['name'] as $key => $national_id) {
-                        $newnational_id = time() . "_" . $national_id;
-                        move_uploaded_file($_FILES['national_id']['tmp_name'][$key], 'admin/upload/art_upload/' . $newnational_id);
-                        $location2 = 'admin/upload/art_upload/' . $newnational_id;
-                    }
-                    // START UPLOAD certificate_image
-                    foreach ($_FILES['certificate_image']['name'] as $key => $certificate_image) {
-                        $newcertificate_image = time() . "_" . $certificate_image;
-                        move_uploaded_file($_FILES['certificate_image']['tmp_name'][$key], 'admin/upload/art_upload/' . $newcertificate_image);
-                        $location3 = 'admin/upload/art_upload/' . $newcertificate_image;
-                    }
+ 
 
                     $first_name = $_POST["first_name"];
                     $last_name = $_POST["last_name"];
@@ -148,20 +139,20 @@ if (isset($_SESSION["username"])) { ?>
                         $errormessage[] =    $lang["username_found"];
                     }
                     if (empty($errormessage)) {
-                        $stmt = $connect->prepare("INSERT INTO fash_register (first_name, last_name, email, mobile , country, specialist ,
+                        $stmt = $connect->prepare("INSERT INTO fash_register (first_name, last_name, email, mobile ,talent_image, country, specialist ,
                 	certificate , field , sub_field , register_type  , project_name,
-                    project_field,project_competation,project_prize,project_certificate_image,
-                    national_id,certificate_image,username, password)
-                        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
+                    project_field,project_competation,project_prize,project_certificate_image,username, password)
+                        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,:ztalent_image,
                          :zcountry , :zspecialist ,
                          :zcertificate,:zfield,:zsub_field,:zregister_type,
                          :zproject_name,:zproject_field ,:zproject_competation,
-                         :zproject_prize,:zproject_certificate_image,:znational_id,:zcertificate_image,:zusername,:zpassword)");
+                         :zproject_prize,:zproject_certificate_image,:zusername,:zpassword)");
                         $stmt->execute(array(
                             "zfirst_name" => $first_name,
                             "zlast_name" => $last_name,
                             "zemail" => $email,
                             "zmobile" => $mobile,
+                            "ztalent_image" => $location,
                             "zcountry" => $country,
                             "zspecialist" => $specialist,
                             "zcertificate" => $certificate,
@@ -173,8 +164,6 @@ if (isset($_SESSION["username"])) { ?>
                             "zproject_competation" => $project_competation,
                             "zproject_prize" => $project_prize,
                             "zproject_certificate_image" => $location,
-                            "znational_id" => $location2,
-                            "zcertificate_image" => $location3,
                             "zusername" => $username,
                             "zpassword" => $password,
                         ));
@@ -456,6 +445,27 @@ if (isset($_SESSION["username"])) { ?>
                                                 <option value=" <?php echo $lang["broker_company"];  ?> ">
                                                     <?php echo $lang["broker_company"];  ?> </option>
                                             </select>
+                                        </div>
+                                        <label> <?php echo $lang["talent_image"];  ?> </label>
+
+                                        <div class="box mb-3">
+                                            <div class="upload-file">
+                                                <div class="upload-wrapper">
+                                                    <label>
+                                                        <input type="file" name="talent_image[]" id="files">
+                                                        <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                </div>
+                                            </div>
+                                            <output id="image-gallery"></output>
+
                                         </div>
                                     </div>
                                 </div>

@@ -15,10 +15,27 @@
                 <h2> <?php echo $lang["footer_head2"]; ?> </h2>
                 <p> <?php echo $lang["footer_p4"]; ?>
                 </p>
-                <form action="" method="">
-                    <input name="email" type="email" placeholder="<?php echo $lang["footer_email"]; ?> "><input type="submit"
+                <form action="" method="POST">
+                    <input name="email" type="email" placeholder="<?php echo $lang["footer_email"]; ?> "><input name="send_mail" type="submit"
                         value="<?php echo $lang["footer_subscripe"]; ?> ">
                 </form>
+                <?php
+                if(isset($_POST['send_mail']))
+                {
+                    $mail = $_POST['email'];
+                    $stmt = $connect->prepare("INSERT INTO subscribe (sub_email) VALUES(:zemail) ");
+                    $stmt->execute(array(
+                        "zemail"=>$mail
+                    ));
+                    if($stmt){?>
+                    <div class="alert alert-primary">
+                        تم الاشتراك في القائمة البريدية بنجاح
+                    </div>
+                        <?php
+                    }
+                }
+                
+                ?>
             </div>
             <div class="col-lg-4 follow_us">
                 <h2> <?php echo $lang["footer_head3"]; ?> </h2>

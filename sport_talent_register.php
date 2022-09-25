@@ -147,11 +147,11 @@ if (isset($_SESSION["username"])) { ?>
                     if (empty($errormessage)) {
                         $stmt = $connect->prepare("INSERT INTO sport_register (first_name2, last_name, email, mobile ,talent_image ,country, specialist ,
     certificate , field , sub_field , register_type,
-    experience_info,team_name,team_register,video_talent, fiels_talent, username, password,player_weight,player_position,player_taller) 
+    experience_info,team_name,team_register, username, password,player_weight,player_position,player_taller) 
         VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,:ztalent_image,
-         :zcountry , :zspecialist ,
-         :zcertificate,:zfield,:zsub_field,:zregister_type,
-         :zexperience_info, :zteam_name , :zteam_register, :zvideo_talent,:zfiels_talent,:zusername, :zpassword,:zpweight,:zpposition,:zptall)");
+        :zcountry , :zspecialist ,
+        :zcertificate,:zfield,:zsub_field,:zregister_type,
+        :zexperience_info, :zteam_name , :zteam_register,:zusername, :zpassword,:zpweight,:zpposition,:zptall)");
                         $stmt->execute(array(
                             "zfirst_name" => $first_name2,
                             "zlast_name" => $last_name,
@@ -166,9 +166,7 @@ if (isset($_SESSION["username"])) { ?>
                             "zregister_type" => $register_type,
                             "zexperience_info" => $experience_info,
                             "zteam_name" => $team_name,
-                            "zteam_register" => $team_register,
-                            "zvideo_talent" => $location1,
-                            "zfiels_talent" => $location2,
+                            "zteam_register" => $team_register, 
                             "zusername" => $username,
                             "zpassword" => $password,
                             "zpweight" => $player_weight,

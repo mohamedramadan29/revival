@@ -67,6 +67,10 @@ if (isset($_GET['dir'])) {
     elseif ($dir == 'emails_section') {
         include 'emails_section/lang/' . $_SESSION['lang'] . '.php';
     }
+    
+    elseif ($dir == 'subscription_section') {
+        include 'subscription_section/lang/' . $_SESSION['lang'] . '.php';
+    }
 } else {
     include 'languages/lang/' . $_SESSION['lang'] . '.php';
 }

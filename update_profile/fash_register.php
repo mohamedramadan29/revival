@@ -691,7 +691,7 @@ if ($count > 0) {
                                                         <?php echo $lang["project_name"]; ?></label>
                                                     <input name="project_name" type="text" class="form-control"
                                                         id="floatingInput"
-                                                        value="<?php echo $userdata["project_name"] ?>">s
+                                                        value="<?php echo $userdata["project_name"] ?>">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label for="floatingInput">

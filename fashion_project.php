@@ -66,80 +66,82 @@ include 'init.php';
                 </div>
                 <div class="col-lg-9">
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash1.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM fash_register WHERE user_show='نعم'");
+                        $stmt->execute();
+                        $count = $stmt->rowCount();
+                        $alltalent_register = $stmt->fetchAll();
+                        foreach ($alltalent_register as $talent) { ?>
+                            <div class="col-lg-4">
+                                <div class="info">
+                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['fash_register_id']; ?> </h3>
+                                    <p> <?php
+                                        $exp_info = $talent['personal_information'];
+                                        $exp = substr($exp_info, 0, 150);
+                                        echo $exp; ?> <?php echo " ... ";  ?> </p>
+                                    <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $talent['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash2.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash3.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash4.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash6.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fashion.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fashion2.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="info">
-                                <img src="uploads/fash3.jpg" alt="">
-                                <h3> الموهبة #1 </h3>
-                                <p> كن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار النشوة وتمجيد الألم نشأت
-                                    وسأعرض قيقة وأساس تلك </p>
-                                <a href="project_details.php" class="btn button"> مشاهدة الموهبة </a>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
+
+                    <div class="row">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM company_register
+                        WHERE user_show='نعم' AND cat_name='fash'");
+                        $stmt->execute();
+                        $count = $stmt->rowCount();
+                        $alltalent_register = $stmt->fetchAll();
+                        foreach ($alltalent_register as $talent) { ?>
+                            <div class="col-lg-4">
+                                <div class="info">
+                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['reg_id']; ?> </h3>
+                                    <p> <?php
+                                        $exp_info = $talent['experience_info'];
+                                        $exp = substr($exp_info, 0, 150);
+                                        echo $exp; ?> <?php echo " ... ";  ?> </p>
+                                    <a href="project_details_fash.php?cat=fash&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+
+                    <div class="row">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM  revival_add_project 
+                        WHERE project_show='نعم' AND cat_name='fash'");
+                        $stmt->execute();
+                        $count = $stmt->rowCount();
+                        $alltalent_register = $stmt->fetchAll();
+                        foreach ($alltalent_register as $talent) { ?>
+                            <div class="col-lg-4">
+                                <div class="info">
+                                    <img src="admin/upload/<?php echo $talent['project_images']; ?>" alt="">
+                                    <?php
+                                    $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=?");
+                                    $stmt->execute(array($talent['username']));
+                                    $user_project_data = $stmt->fetch();
+                                    ?>
+                                    <h3> <?php echo $user_project_data['first_name'] ?> # <?php echo  $user_project_data['fash_register_id']; ?> </h3>
+                                    <p> <?php
+                                        $exp_info = $user_project_data['personal_information'];
+                                        $exp = substr($exp_info, 0, 150);
+                                        echo $exp; ?> <?php echo " ... ";  ?> </p>
+                                    <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $user_project_data['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+
+
                 </div>
             </div>
 

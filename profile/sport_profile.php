@@ -193,7 +193,7 @@
                     <!-- END GET DATA -->
                     <!--  START TALENT REGISTER  -->
                     <?php
-                    if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company') { ?>
+                    if ($userinfo['register_type'] == ' وسيط / منشأة ' || $userinfo['register_type'] == 'company') { ?>
                         <div class="personal_information">
                             <div class="data2">
                                 <h4> المواهب المسجلة </h4>
@@ -266,7 +266,7 @@
                                                                     <div class="col-lg-6">
                                                                         <div class="box">
                                                                             <label id="name"> الاسم الاول </label>
-                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['first_name2']; ?>">
+                                                                            <input class="form-control" type="text" name="car_name" value="<?php echo $type['first_name']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <label id="name"> الاسم الاخير </label>
@@ -340,7 +340,9 @@
                                                                                 ?>
                                                                             </div>
                                                                         </div>
+
                                                                     </div>
+
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="box">
@@ -368,7 +370,11 @@
                                                                         </div>
                                                                     </div>
 
-                                                                </div> 
+                                                                </div>
+
+                                                                <div class="box submit_box">
+                                                                    <input class="btn btn-primary text-center" name="add_car" type="submit" value=" تعديل الحساب ">
+                                                                </div>
                                                             </form>
                                                         </div>
 

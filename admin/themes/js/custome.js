@@ -536,6 +536,16 @@ $(document).ready(function () {
     }
   }
 
+  if (window.location.href.indexOf("dir=subscription_section") != -1) {
+    $("#lnk-subscripe_section").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-add-email").addClass("active-tab");
+    } else {
+      $("#lnk-rep-subscripe").addClass("active-tab");
+    }
+  }
 
   $(function () {
     $(".rateyo")

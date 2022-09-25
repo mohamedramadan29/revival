@@ -456,11 +456,32 @@
                           <li class="nav-item" id="lnk-rep-email">
                               <a href="main.php?dir=emails_section&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
-                                  <p>  مشاهدة محتوي الايميلات  </p>
+                                  <p> مشاهدة محتوي الايميلات </p>
                               </a>
                           </li>
                       </ul>
                   </li>
+
+
+                  <li class="nav-item" id="lnk-subscripe_section">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              القائمة البريدية  
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item" id="lnk-rep-subscripe">
+                              <a href="main.php?dir=subscription_section&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة   القائمة </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+
+
                   <li class="nav-item">
                       <a href="signout.php" class="nav-link">
                           <i class="fa-solid fa-arrow-right-from-bracket color11"></i>

@@ -101,9 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location8 .= $file . " ";
     }
 
-     // START Talent Image
+    // START Talent Image
 
-     foreach ($_FILES['talent_image']['name'] as $key => $val) {
+    foreach ($_FILES['talent_image']['name'] as $key => $val) {
         $file = $_FILES['talent_image']['name'][$key];
         $file = str_replace(' ', '', $file);
         $file_tmp9 = $_FILES['talent_image']['tmp_name'][$key];
@@ -308,10 +308,10 @@ if ($count >  0) { ?>
                                                                         <span class="star"> * </span></label>
                                                                     <input name="specialist" type="text" class="form-control" id="floatingInput" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['specialist']; ?>">
                                                                 </div>
-                                                                
+
 
                                                                 <div class="box mb-3">
-                                                                <label> <?php echo $lang["talent_image"];  ?> </label>
+                                                                    <label> <?php echo $lang["talent_image"];  ?> </label>
                                                                     <div class="upload-file">
                                                                         <div class="upload-wrapper">
                                                                             <label>
