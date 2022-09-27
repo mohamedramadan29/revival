@@ -546,7 +546,16 @@ $(document).ready(function () {
       $("#lnk-rep-subscripe").addClass("active-tab");
     }
   }
-
+  if (window.location.href.indexOf("dir=investment") != -1) {
+    $("#lnk-revival_investment").addClass(
+      "active menu-is-opening menu-open"
+    );
+    if (window.location.href.indexOf("add") != -1) {
+      $("#lnk-revival_investment").addClass("active-tab");
+    } else {
+      $("#lnk-rep-investment").addClass("active-tab");
+    }
+  }
   $(function () {
     $(".rateyo")
       .rateYo()

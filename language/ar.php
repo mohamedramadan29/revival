@@ -501,6 +501,8 @@ $lang = array(
   "talent_image" => "صورة الموهبة او صورة تعبر عنها ",
   "select_image" => " اختر الصورة ",
   "our_talent" => " المواهب ",
+  "Facility_Name" => " اسم المنشأة ",
+  "invest_now" => " استثمر الان ",
 
 
 

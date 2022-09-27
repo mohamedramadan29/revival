@@ -248,6 +248,17 @@ include $tem . 'left_sidebar.php';
         } elseif ($dir == 'subscription_section' && $page == 'report') {
             include 'subscription_section/report.php';
         }
+
+        // START Subscrip Section
+        if ($dir == 'investment' && $page == 'add') {
+            include 'investment/add.php';
+        } elseif ($dir == 'investment' && $page == 'edit') {
+            include 'investment/edit.php';
+        } elseif ($dir == 'investment' && $page == 'delete') {
+            include 'investment/delete.php';
+        } elseif ($dir == 'investment' && $page == 'report') {
+            include 'investment/report.php';
+        }
         // START DASHBOARD
         if ($dir == 'dashboard' && $page == 'dashboard') {
             include 'dashboard.php';

@@ -300,6 +300,24 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item" id="lnk-revival_investment">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              الاستثمارات
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+
+                          <li class="nav-item" id="lnk-rep-investment">
+                              <a href="main.php?dir=investment&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة الاستثمارات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
 
 
 

@@ -31,36 +31,28 @@ include 'init.php';
                     <h2> الاقسام </h2>
                     <div class="form-group">
                         <div class="exhibition_cat">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="all">
-                                <label class="form-check-label" for="all">
-                                    مشاهدة جميع الاقسام
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check1">
-                                <label class="form-check-label" for="check1">
-                                    البرمجة
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check2" checked>
-                                <label class="form-check-label" for="check2">
-                                    الطب
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check3" checked>
-                                <label class="form-check-label" for="check3">
-                                    ميتافيرس
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="check3" checked>
-                                <label class="form-check-label" for="check3">
-                                    واقع افتراضي
-                                </label>
-                            </div>
+                            <?php
+                            $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='مدينة الذكاء الإصطناعي'");
+                            $stmt->execute();
+                            $selection = $stmt->fetch();
+
+                            if ($_SESSION["lang"] == "ar") {
+                                $main_filed = $selection['select_name'];
+                            } else {
+                                $main_filed = $selection['select_name_en'];
+                            }
+                            $main_filed = explode(",", $main_filed);
+                            $countfile = count($main_filed) - 1;
+                            for ($i = 0; $i < $countfile; ++$i) { ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="<?= $main_filed[$i] ?>">
+                                    <label class="form-check-label" for="<?= $main_filed[$i] ?>">
+                                        <?= $main_filed[$i] ?>
+                                    </label>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -86,9 +78,6 @@ include 'init.php';
                         <?php
                         }
                         ?>
-                    </div>
-
-                    <div class="row">
                         <?php
                         $stmt = $connect->prepare("SELECT * FROM company_register
                         WHERE user_show='نعم' AND cat_name='art'");
@@ -110,9 +99,6 @@ include 'init.php';
                         <?php
                         }
                         ?>
-                    </div>
-
-                    <div class="row">
                         <?php
                         $stmt = $connect->prepare("SELECT * FROM  revival_add_project 
                         WHERE project_show='نعم' AND cat_name='art'");

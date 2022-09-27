@@ -36,6 +36,7 @@
                                 <option value="اضافة مشروع جديد"> ايميل اضافة مشروع جديد </option>
                                 <option value="رسالة التواصل"> ايميل التواصل </option>
                                 <option value="طلب خدمة جديد"> ايميل طلب خدمة جديدة </option>
+                                <option value="استثمار في موهبة"> الاستثمار في موهبة </option>
                             </select>
                         </div>
                     </div>

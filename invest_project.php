@@ -2,340 +2,223 @@
 ob_start();
 session_start();
 include 'init.php';
-?>
+if(isset($_GET['talent_id'])){
+    $talent_id = $_GET['talent_id'];
+}
+if(isset($_GET['cat'])){
+    $cat_name = $_GET['cat'];
+}
 
+?>
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
-            <h2> استثمر الان </h2>
+            <h2><?php echo $lang["invest_now"];  ?> </h2>
         </div>
     </div>
 </div>
 <!-- END HERO SECTION -->
+<!-- START CODE -->
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='استثمار في موهبة'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
+<!-- END GET EMAIL CONTENT -->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $email = $_POST["email"];
+    $mobile = $_POST["mobile"];
+    $country = $_POST["country"];
+    $facility_name = $_POST["facility_name"];
+
+    $errormessage = [];
+    if (isset($_POST["check_privacy"])) {
+    } else {
+        $errormessage[] = $lang["check_privacy"];
+    }
+
+    if (empty($first_name)) {
+        $errormessage[] = $lang["enter_first_name"];
+    }
+
+    if (empty($last_name)) {
+        $errormessage[] =  $lang["enter_last_name"];
+    }
+    if (empty($email)) {
+        $errormessage[] =  $lang["enter_email"];
+    }
+    if (empty($mobile)) {
+        $errormessage[] =  $lang["enter_mobile"];
+    }
+    if (empty($errormessage)) {
+        $stmt = $connect->prepare("INSERT INTO investment (first_name, last_name, email, mobile , country, facility_name ,talent_id,cat_name) 
+        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
+         :zcountry ,:zfacility_name, :ztalent_id,:zcat_name)");
+        $stmt->execute(array(
+            "zfirst_name" => $first_name,
+            "zlast_name" => $last_name,
+            "zemail" => $email,
+            "zmobile" => $mobile, 
+            "zcountry" => $country,
+            "zfacility_name" => $facility_name,
+            "ztalent_id" => $talent_id,
+            "zcat_name" => $cat_name,
+        ));
+        if ($stmt) {
+            $to_email = $email;
+            $subject = "اللتسجيل في ريفايفال";
+            foreach ($emaildata as $data) {
+                if ($_SESSION['lang'] == 'ar') {
+                    $body =  $data['email_text'];
+                } else {
+                    $body =  $data['email_text_en'];
+                }
+            }
+
+            $headers = "From: info@revivals.site";
+            mail($to_email, $subject, $body, $headers)
+
+?>
+            <style>
+                .message_form {
+                    display: none !important;
+                }
+            </style>
+            <div class='container'>
+                <div class='alert alert-success text-center'>
+                    <?php
+                    foreach ($emaildata as $data) {
+                        if ($_SESSION['lang'] == 'ar') {
+                            echo   $data['email_text'];
+                        } else {
+                            echo  $data['email_text_en'];
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+        <?php
+        }
+    } else {
+        foreach ($errormessage as $message) { ?>
+            <div class="error_message">
+                <div class="alert alert-danger"> <?php echo $message ?> </div>
+            </div>
+<?php
+        }
+    }
+}
+
+?>
+<!--------------------END PHP  CODE VALIDATION --------------->
 <!-- START CONTACT FORM -->
 <div class="contact_form">
     <div class="container">
         <div class="data">
-            <div class="row">
-                <div class="col-lg-8 col-12">
-                    <div class="info">
+            <form action="" method="POST">
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <div class="info">
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="box mb-3">
+                                        <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> *
+                                            </span></label>
+                                        <input name="first_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="email"><?php echo $lang["email"];  ?><span class="star"> *
+                                            </span></label>
+                                        <input name="email" type="text" class="form-control" id="email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="Facility_Name"><?php echo $lang["Facility_Name"];  ?></label>
+                                        <input name="facility_name" type="text" class="form-control" id="Facility_Name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['facility_name']; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="box mb-3">
+                                        <label for="last_name"><?php echo $lang["last_name"];  ?><span class="star"> *
+                                            </span></label>
+                                        <input name="last_name" type="text" class="form-control" id="last_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+                                    </div>
+                                    <div class="box mb-3">
+                                        <!--
+                                        <input name="mobile" type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com">-->
+                                        <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
+                                                * </span></label>
+                                        <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?> ">
 
-                        <div class="row">
-                            <div class="col-lg-6 col-12">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">الاسم الاول </label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">البريد الالكتروني</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">تاريخ الميلاد (DD/MM/YYYY)</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-12">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">الاسم الاخير</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                    <label for="floatingInput">رقم الهاتف</label>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select country" id="floatingSelectGrid"
-                                        aria-label="Floating label select example">
-                                        <option value="">اختر</option>
-                                        <option value="Afghanistan">Afghanistan</option>
-                                        <option value="Albania">Albania</option>
-                                        <option value="Algeria">Algeria</option>
-                                        <option value="American Samoa">American Samoa</option>
-                                        <option value="Andorra">Andorra</option>
-                                        <option value="Angola">Angola</option>
-                                        <option value="Anguilla">Anguilla</option>
-                                        <option value="Antarctica">Antarctica</option>
-                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                                        <option value="Argentina">Argentina</option>
-                                        <option value="Armenia">Armenia</option>
-                                        <option value="Aruba">Aruba</option>
-                                        <option value="Australia">Australia</option>
-                                        <option value="Austria">Austria</option>
-                                        <option value="Azerbaijan">Azerbaijan</option>
-                                        <option value="Bahamas">Bahamas</option>
-                                        <option value="Bahrain">Bahrain</option>
-                                        <option value="Bangladesh">Bangladesh</option>
-                                        <option value="Barbados">Barbados</option>
-                                        <option value="Belarus">Belarus</option>
-                                        <option value="Belgium">Belgium</option>
-                                        <option value="Belize">Belize</option>
-                                        <option value="Benin">Benin</option>
-                                        <option value="Bermuda">Bermuda</option>
-                                        <option value="Bhutan">Bhutan</option>
-                                        <option value="Bolivia">Bolivia</option>
-                                        <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
-                                        <option value="Botswana">Botswana</option>
-                                        <option value="Bouvet Island">Bouvet Island</option>
-                                        <option value="Brazil">Brazil</option>
-                                        <option value="British Indian Ocean Territory">British Indian Ocean Territory
-                                        </option>
-                                        <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                        <option value="Bulgaria">Bulgaria</option>
-                                        <option value="Burkina Faso">Burkina Faso</option>
-                                        <option value="Burundi">Burundi</option>
-                                        <option value="Cambodia">Cambodia</option>
-                                        <option value="Cameroon">Cameroon</option>
-                                        <option value="Canada">Canada</option>
-                                        <option value="Cape Verde">Cape Verde</option>
-                                        <option value="Cayman Islands">Cayman Islands</option>
-                                        <option value="Central African Republic">Central African Republic</option>
-                                        <option value="Chad">Chad</option>
-                                        <option value="Chile">Chile</option>
-                                        <option value="China">China</option>
-                                        <option value="Christmas Island">Christmas Island</option>
-                                        <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-                                        <option value="Colombia">Colombia</option>
-                                        <option value="Comoros">Comoros</option>
-                                        <option value="Congo">Congo</option>
-                                        <option value="Congo, the Democratic Republic of the">Congo, the Democratic
-                                            Republic of the</option>
-                                        <option value="Cook Islands">Cook Islands</option>
-                                        <option value="Costa Rica">Costa Rica</option>
-                                        <option value="Cote d'Ivoire">Cote d'Ivoire</option>
-                                        <option value="Croatia (Hrvatska)">Croatia (Hrvatska)</option>
-                                        <option value="Cuba">Cuba</option>
-                                        <option value="Cyprus">Cyprus</option>
-                                        <option value="Czech Republic">Czech Republic</option>
-                                        <option value="Denmark">Denmark</option>
-                                        <option value="Djibouti">Djibouti</option>
-                                        <option value="Dominica">Dominica</option>
-                                        <option value="Dominican Republic">Dominican Republic</option>
-                                        <option value="East Timor">East Timor</option>
-                                        <option value="Ecuador">Ecuador</option>
-                                        <option value="Egypt">Egypt</option>
-                                        <option value="El Salvador">El Salvador</option>
-                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
-                                        <option value="Eritrea">Eritrea</option>
-                                        <option value="Estonia">Estonia</option>
-                                        <option value="Ethiopia">Ethiopia</option>
-                                        <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
-                                        <option value="Faroe Islands">Faroe Islands</option>
-                                        <option value="Fiji">Fiji</option>
-                                        <option value="Finland">Finland</option>
-                                        <option value="France">France</option>
-                                        <option value="France Metropolitan">France Metropolitan</option>
-                                        <option value="French Guiana">French Guiana</option>
-                                        <option value="French Polynesia">French Polynesia</option>
-                                        <option value="French Southern Territories">French Southern Territories</option>
-                                        <option value="Gabon">Gabon</option>
-                                        <option value="Gambia">Gambia</option>
-                                        <option value="Georgia">Georgia</option>
-                                        <option value="Germany">Germany</option>
-                                        <option value="Ghana">Ghana</option>
-                                        <option value="Gibraltar">Gibraltar</option>
-                                        <option value="Greece">Greece</option>
-                                        <option value="Greenland">Greenland</option>
-                                        <option value="Grenada">Grenada</option>
-                                        <option value="Guadeloupe">Guadeloupe</option>
-                                        <option value="Guam">Guam</option>
-                                        <option value="Guatemala">Guatemala</option>
-                                        <option value="Guinea">Guinea</option>
-                                        <option value="Guinea-Bissau">Guinea-Bissau</option>
-                                        <option value="Guyana">Guyana</option>
-                                        <option value="Haiti">Haiti</option>
-                                        <option value="Heard and Mc Donald Islands">Heard and Mc Donald Islands</option>
-                                        <option value="Holy See (Vatican City State)">Holy See (Vatican City State)
-                                        </option>
-                                        <option value="Honduras">Honduras</option>
-                                        <option value="Hong Kong">Hong Kong</option>
-                                        <option value="Hungary">Hungary</option>
-                                        <option value="Iceland">Iceland</option>
-                                        <option value="India">India</option>
-                                        <option value="Indonesia">Indonesia</option>
-                                        <option value="Iran (Islamic Republic of)">Iran (Islamic Republic of)</option>
-                                        <option value="Iraq">Iraq</option>
-                                        <option value="Ireland">Ireland</option>
-                                        <option value="Israel">Israel</option>
-                                        <option value="Italy">Italy</option>
-                                        <option value="Jamaica">Jamaica</option>
-                                        <option value="Japan">Japan</option>
-                                        <option value="Jordan">Jordan</option>
-                                        <option value="Kazakhstan">Kazakhstan</option>
-                                        <option value="Kenya">Kenya</option>
-                                        <option value="Kiribati">Kiribati</option>
-                                        <option value="Korea, Democratic People's Republic of">Korea, Democratic
-                                            People's Republic of</option>
-                                        <option value="Korea, Republic of">Korea, Republic of</option>
-                                        <option value="Kuwait">Kuwait</option>
-                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
-                                        <option value="Lao, People's Democratic Republic">Lao, People's Democratic
-                                            Republic</option>
-                                        <option value="Latvia">Latvia</option>
-                                        <option value="Lebanon">Lebanon</option>
-                                        <option value="Lesotho">Lesotho</option>
-                                        <option value="Liberia">Liberia</option>
-                                        <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                                        <option value="Liechtenstein">Liechtenstein</option>
-                                        <option value="Lithuania">Lithuania</option>
-                                        <option value="Luxembourg">Luxembourg</option>
-                                        <option value="Macau">Macau</option>
-                                        <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former
-                                            Yugoslav Republic of</option>
-                                        <option value="Madagascar">Madagascar</option>
-                                        <option value="Malawi">Malawi</option>
-                                        <option value="Malaysia">Malaysia</option>
-                                        <option value="Maldives">Maldives</option>
-                                        <option value="Mali">Mali</option>
-                                        <option value="Malta">Malta</option>
-                                        <option value="Marshall Islands">Marshall Islands</option>
-                                        <option value="Martinique">Martinique</option>
-                                        <option value="Mauritania">Mauritania</option>
-                                        <option value="Mauritius">Mauritius</option>
-                                        <option value="Mayotte">Mayotte</option>
-                                        <option value="Mexico">Mexico</option>
-                                        <option value="Micronesia, Federated States of">Micronesia, Federated States of
-                                        </option>
-                                        <option value="Moldova, Republic of">Moldova, Republic of</option>
-                                        <option value="Monaco">Monaco</option>
-                                        <option value="Mongolia">Mongolia</option>
-                                        <option value="Montserrat">Montserrat</option>
-                                        <option value="Morocco">Morocco</option>
-                                        <option value="Mozambique">Mozambique</option>
-                                        <option value="Myanmar">Myanmar</option>
-                                        <option value="Namibia">Namibia</option>
-                                        <option value="Nauru">Nauru</option>
-                                        <option value="Nepal">Nepal</option>
-                                        <option value="Netherlands">Netherlands</option>
-                                        <option value="Netherlands Antilles">Netherlands Antilles</option>
-                                        <option value="New Caledonia">New Caledonia</option>
-                                        <option value="New Zealand">New Zealand</option>
-                                        <option value="Nicaragua">Nicaragua</option>
-                                        <option value="Niger">Niger</option>
-                                        <option value="Nigeria">Nigeria</option>
-                                        <option value="Niue">Niue</option>
-                                        <option value="Norfolk Island">Norfolk Island</option>
-                                        <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                                        <option value="Norway">Norway</option>
-                                        <option value="Oman">Oman</option>
-                                        <option value="Pakistan">Pakistan</option>
-                                        <option value="Palau">Palau</option>
-                                        <option value="Panama">Panama</option>
-                                        <option value="Papua New Guinea">Papua New Guinea</option>
-                                        <option value="Paraguay">Paraguay</option>
-                                        <option value="Peru">Peru</option>
-                                        <option value="Philippines">Philippines</option>
-                                        <option value="Pitcairn">Pitcairn</option>
-                                        <option value="Poland">Poland</option>
-                                        <option value="Portugal">Portugal</option>
-                                        <option value="Puerto Rico">Puerto Rico</option>
-                                        <option value="Qatar">Qatar</option>
-                                        <option value="Reunion">Reunion</option>
-                                        <option value="Romania">Romania</option>
-                                        <option value="Russian Federation">Russian Federation</option>
-                                        <option value="Rwanda">Rwanda</option>
-                                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                                        <option value="Saint Lucia">Saint Lucia</option>
-                                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the
-                                            Grenadines</option>
-                                        <option value="Samoa">Samoa</option>
-                                        <option value="San Marino">San Marino</option>
-                                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                                        <option value="Saudi Arabia">Saudi Arabia</option>
-                                        <option value="Senegal">Senegal</option>
-                                        <option value="Seychelles">Seychelles</option>
-                                        <option value="Sierra Leone">Sierra Leone</option>
-                                        <option value="Singapore">Singapore</option>
-                                        <option value="Slovakia (Slovak Republic)">Slovakia (Slovak Republic)</option>
-                                        <option value="Slovenia">Slovenia</option>
-                                        <option value="Solomon Islands">Solomon Islands</option>
-                                        <option value="Somalia">Somalia</option>
-                                        <option value="South Africa">South Africa</option>
-                                        <option value="South Georgia and the South Sandwich Islands">South Georgia and
-                                            the South Sandwich Islands</option>
-                                        <option value="Spain">Spain</option>
-                                        <option value="Sri Lanka">Sri Lanka</option>
-                                        <option value="St. Helena">St. Helena</option>
-                                        <option value="St. Pierre and Miquelon">St. Pierre and Miquelon</option>
-                                        <option value="Sudan">Sudan</option>
-                                        <option value="Suriname">Suriname</option>
-                                        <option value="Svalbard and Jan Mayen Islands">Svalbard and Jan Mayen Islands
-                                        </option>
-                                        <option value="Swaziland">Swaziland</option>
-                                        <option value="Sweden">Sweden</option>
-                                        <option value="Switzerland">Switzerland</option>
-                                        <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                                        <option value="Taiwan, Province of China">Taiwan, Province of China</option>
-                                        <option value="Tajikistan">Tajikistan</option>
-                                        <option value="Tanzania, United Republic of">Tanzania, United Republic of
-                                        </option>
-                                        <option value="Thailand">Thailand</option>
-                                        <option value="Togo">Togo</option>
-                                        <option value="Tokelau">Tokelau</option>
-                                        <option value="Tonga">Tonga</option>
-                                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                                        <option value="Tunisia">Tunisia</option>
-                                        <option value="Turkey">Turkey</option>
-                                        <option value="Turkmenistan">Turkmenistan</option>
-                                        <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                                        <option value="Tuvalu">Tuvalu</option>
-                                        <option value="Uganda">Uganda</option>
-                                        <option value="Ukraine">Ukraine</option>
-                                        <option value="United Arab Emirates">United Arab Emirates</option>
-                                        <option value="United Kingdom">United Kingdom</option>
-                                        <option value="United States">United States</option>
-                                        <option value="United States Minor Outlying Islands">United States Minor
-                                            Outlying Islands</option>
-                                        <option value="Uruguay">Uruguay</option>
-                                        <option value="Uzbekistan">Uzbekistan</option>
-                                        <option value="Vanuatu">Vanuatu</option>
-                                        <option value="Venezuela">Venezuela</option>
-                                        <option value="Vietnam">Vietnam</option>
-                                        <option value="Virgin Islands (British)">Virgin Islands (British)</option>
-                                        <option value="Virgin Islands (U.S.)">Virgin Islands (U.S.)</option>
-                                        <option value="Wallis and Futuna Islands">Wallis and Futuna Islands</option>
-                                        <option value="Western Sahara">Western Sahara</option>
-                                        <option value="Yemen">Yemen</option>
-                                        <option value="Yugoslavia">Yugoslavia</option>
-                                        <option value="Zambia">Zambia</option>
-                                        <option value="Zimbabwe">Zimbabwe</option>
-                                    </select>
-                                    <label for="floatingSelectGrid">الدولة</label>
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="selectcountry"><?php echo $lang["country"];  ?></label>
+                                        <select name="country" class="form-select country3" id="selectcountry" aria-label="Floating label select example">
+                                            <?php
+                                            if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
+                                                <option value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>">
+                                                    <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['country']; ?>
+                                                </option>
+                                            <?php
+                                            } else { ?>
+                                                <option value=""><?php echo $lang["select"];  ?></option>
+
+                                            <?php
+                                            }
+                                            ?>
+                                            <?php
+                                            $stmt = $connect->prepare("SELECT * FROM countries");
+                                            $stmt->execute();
+                                            $allcountry = $stmt->fetchall();
+                                            foreach ($allcountry as $country) { ?>
+                                                <option value="<?php echo $country["country_code"]; ?>">
+                                                    <?php
+                                                    if ($_SESSION["lang"] == "ar") {
+                                                        echo $country["country_arName"];
+                                                    } else {
+                                                        echo $country["country_enName"];
+                                                    }
+                                                    ?>
+                                                </option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 cars_sections">
-                    <div class="item">
-                        <div class="car-wrap rounded ftco-animate">
-                            <div class="img rounded d-flex align-items-end"
-                                style="background-image: url(uploads/art1.jpg);">
-                            </div>
-                            <div class="text">
-                                <h2 class="mb-0"><a href="#"> استثمر فى المشروع </a></h2>
-                                <hr>
-                                <div class="terms_conditions">
-                                    <input type="checkbox" id="checkterms">
-                                    <label for="checkterms"> اوافق علي <a href="privacy_policy.php"> الشروط والاحكام
-                                        </a>
-                                    </label>
+                    <div class="col-lg-4 cars_sections">
+                        <div class="item">
+                            <div class="car-wrap rounded ftco-animate">
+                                <div class="img rounded d-flex align-items-end" style="background-image: url(uploads/1.jpg);">
                                 </div>
-                                <div class="">
-                                    <div class="reservation_button">
-                                        <button type="submit" class="btn btn-primary"> Invest </button>
+                                <div class="text">
+                                    <hr>
+
+                                    <div class="terms_conditions">
+                                        <input type="checkbox" id="checkterms" name="check_privacy">
+                                        <label for="checkterms"> <?php echo $lang["iagree"];  ?>
+                                            <a target="_blank" href="rev_terms.php?page=مدينة الذكاء الإصطناعي"> <?php echo $lang["terms"];  ?></a>
+                                        </label>
+                                    </div>
+                                    <div class="">
+                                        <div class="reservation_button">
+                                            <button type="submit" class="btn btn-primary"> <?php echo $lang["invest_now"];  ?> </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

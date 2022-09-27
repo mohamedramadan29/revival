@@ -42,7 +42,6 @@ if (isset($_GET['cat'])) {
         <div class="data">
             <div class="row">
                 <div class="col-lg-6">
-
                     <div class="info2">
                         <h2> معلومات عن الموهبة </h2>
                         <ul class="list-unstyled">
@@ -58,7 +57,9 @@ if (isset($_GET['cat'])) {
                         <h2> نبذة عن الموهبة </h2>
                         <p> <?php echo $talent_info['personal_information']; ?>
                         </p>
-                        <a href="invest_project.php" class="btn button"> استثمر الان <i class="fa fa-chart-bar"></i>
+                        <a href="invest_project.php?cat=<?php echo $cat;?>&talent_id=<?php if(isset($_GET['talent_id'])){ echo $_GET['talent_id'] ;} else{
+                            echo $_GET['talent_id_sub'];
+                        } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
                 </div>
