@@ -1,9 +1,28 @@
 <!-- START PROFILE DATA -->
+<?php
+// START GET EMAIL CONTENT  -->
+
+$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='تفعيل الحساب'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+
+// END GET EMAIL CONTENT -->
+?>
 <div class="profile_data">
     <?php
-    if ($userinfo['user_status'] == 'active') { ?>
-
-    <?php
+    $emailll =  $userinfo['email'];
+    if ($userinfo['user_status'] == 'active') {
+        $to_email = $emailll;
+        $subject = "تفعيل حسابك في ريفايفال";
+        foreach ($emaildata as $data) {
+            if ($_SESSION['lang'] == 'ar') {
+                $body =  $data['email_text'];
+            } else {
+                $body =  $data['email_text_en'];
+            }
+        }
+        $headers = "From: info@revivals.site";
+        mail($to_email, $subject, $body, $headers);
     } else { ?>
         <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
@@ -320,7 +339,7 @@
                                                                                         <div class="col-12">
 
                                                                                             <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                                <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
                                                                                             </div>
                                                                                         </div>
                                                                                     <?php
@@ -381,7 +400,7 @@
                                                                             ?>
                                                                                     <div class="col-12">
 
-                                                                                        <div class="files_style"> 
+                                                                                        <div class="files_style">
                                                                                             <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
                                                                                         </div>
                                                                                     </div>
@@ -429,8 +448,8 @@
                     ?>
 
                     <!--  END TALENT REGISTER  -->
-                     <!--  START TALENT REGISTER  -->
-                     <div class="personal_information">
+                    <!--  START TALENT REGISTER  -->
+                    <div class="personal_information">
                         <div class="data2">
                             <h4> المشاريع الخاصة بك </h4>
                             <?php

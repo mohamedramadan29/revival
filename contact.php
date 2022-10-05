@@ -129,7 +129,7 @@ $emaildata = $stmt->fetchAll();
 
                             <div class="box mb-3">
                                 <label for="floatingInput"> <?php echo $lang["message_head"]; ?> <span class="star">*</span></label>
-                                <select id="cat_active2" class="form-control" name="email_subject" id="">
+                                <select required id="cat_active2" class="form-control select_head" name="email_subject" id="">
                                     <option value=""> <?php echo $lang["message_head"]; ?> </option>
                                     <option value=" الذكاء الاصطناعي"> <?php echo $lang["message_art"]; ?></option>
                                     <option value=" الرياضة"> <?php echo $lang["message_sport"]; ?> </option>

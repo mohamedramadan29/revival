@@ -524,6 +524,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "our_talent" => " Talents ",
     "Facility_Name" => "Facility_Name",
     "invest_now" => " استثمر الان ",
+    "subscribe_error" => "The email is already subscribed to the mailing list",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

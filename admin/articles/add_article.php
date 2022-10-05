@@ -113,13 +113,11 @@
             }
 
             if (empty($formerror)) {
-
                 $image1_uploaded = rand(0, 100000000) . '.' . $image1_name;
                 move_uploaded_file(
                     $image1_tem,
                     'upload/' . $image1_uploaded
                 );
-
                 $image2_uploaded = rand(0, 100000000) . '.' . $image2_name;
                 move_uploaded_file(
                     $image2_tem,
@@ -142,6 +140,24 @@
         تم اضافة مقال جديد بنجاح
         <?php header('refresh:3000000;url=main.php?dir=articles&page=report'); ?>
     </div>
+
+    <?php
+    $stmt = $connect->prepare("SELECT * FROM articles ORDER BY article_id DESC LIMIT 1");
+    $stmt->execute();
+    $articledata = $stmt->fetch();
+
+    $stmt = $connect->prepare("SELECT * FROM subscribe");
+    $stmt->execute();
+    $allsub = $stmt->fetchAll();
+    foreach($allsub as $sub){
+        $to_email = $sub['sub_email'];
+        $subject = "تم اضافة مقال جديد في موقع ريفايفال";
+        $body = $articledata['article_title'];
+        $headers = "From: info@revivals.site";
+        mail($to_email, $subject, $body, $headers);
+    }
+    
+    ?>
 
 </div>
 

@@ -19,6 +19,7 @@
                         <th> الاسم </th>
                         <th> البريد الالكتروني </th>
                         <th> الرسالة </th>
+                        <th> قسم الرسالة </th>
                         <th> التاريخ </th>
                         <th> </th>
                     </tr>
@@ -31,6 +32,7 @@
                             <td><?php echo $type['contact_name']; ?> </td>
                             <td><?php echo $type['contact_email']; ?> </td>
                             <td> <?php echo $type['contact_message']; ?> </td>
+                            <td> <?php echo $type['email_subject']; ?> </td>
                             <td> <?php echo $type['contact_date']; ?> </td>
                             <td>
                                 <a class="btn btn-success btn-sm" href="main.php?dir=contact&page=edit&message_id=<?php echo $type['contact_id']; ?> ">

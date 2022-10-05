@@ -3,9 +3,11 @@ ob_start();
 session_start();
 include 'init.php';
 
+
 ?>
 <!-- START HERO SECTION -->
 <div class="hero artif">
+
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <?php
@@ -13,11 +15,11 @@ include 'init.php';
             $stmt->execute();
             $allbanner = $stmt->fetchAll();
             foreach ($allbanner as $banner) { ?>
-            <div class="carousel-item active">
-                <div class="overlay">
-                </div>
+                <div class="carousel-item active">
+                    <div class="overlay">
+                    </div>
 
-                <img src="admin/upload/<?php
+                    <img src="admin/upload/<?php
                                             if ($_SESSION["lang"] == "ar") {
                                                 echo $banner["image1"];
                                             } else {
@@ -25,7 +27,23 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
-            </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <img src="uploads/aia.jpg" alt="">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                                                                echo $banner['banner_head'];
+                                                                            } else {
+                                                                                echo $banner['banner_head_en'];
+                                                                            } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banner['banner_desc'];
+                            } else {
+                                echo $banner['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
+                </div>
+
             <?php
             }
             ?>
@@ -37,11 +55,10 @@ include 'init.php';
             $stmt->execute();
             $allbanners = $stmt->fetchAll();
             foreach ($allbanners as $banners) { ?>
-            <div class="carousel-item">
-                <div class="overlay">
-                </div>
-
-                <img src="admin/upload/<?php
+                <div class="carousel-item">
+                    <div class="overlay">
+                    </div>
+                    <img src="admin/upload/<?php
                                             if ($_SESSION["lang"]  == "ar") {
                                                 echo $banners["image1"];
                                             } else {
@@ -49,7 +66,22 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
-            </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <img src="uploads/aia.jpg" alt="">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                                                                echo $banners['banner_head'];
+                                                                            } else {
+                                                                                echo $banners['banner_head_en'];
+                                                                            } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banners['banner_desc'];
+                            } else {
+                                echo $banners['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
+                </div>
             <?php
             }
             ?>
@@ -64,43 +96,12 @@ include 'init.php';
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="data container data_logo">
-        <img src="uploads/ai.png" alt="">
-        <?php
-        $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='مدينة الذكاء الإصطناعي' ORDER BY banner_id  LIMIT 1");
-        $stmt->execute();
-        $allbanners = $stmt->fetchAll();
-        foreach ($allbanners as $banners) { ?>
-        <h2>
-            <?php
-                if ($_SESSION["lang"] == "ar") {
-                    echo $banners["banner_head"];
-                } else {
-                    echo $banners["banner_head_en"];
-                }
-                ?>
-        </h2>
-        <p>
-            <?php
-                if ($_SESSION["lang"] == "ar") {
-                    echo $banners["banner_desc"];
-                } else {
-                    echo $banners["banner_desc_en"];
-                }
-                ?>
-        </p>
-
-        <?php
-        } ?>
-
-    </div>
 </div>
 </div>
 <!-- END HERO SECTION -->
 
 <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
@@ -110,8 +111,7 @@ include 'init.php';
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>
@@ -133,18 +133,18 @@ include 'init.php';
                         foreach ($allabout as $about) {
 
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <p> <?php echo $about["about_desc"] ?> </span> </p>
-                        <?php
+                                <p> <?php echo $about["about_desc"] ?> </span> </p>
+                            <?php
                             } else { ?>
-                        <p> <?php echo $about["about_desc_en"] ?> </span> </p>
+                                <p> <?php echo $about["about_desc_en"] ?> </span> </p>
 
-                        <?php
+                            <?php
                             }
                             ?>
 
 
-                        <ul class="list-unstyled">
-                            <?php
+                            <ul class="list-unstyled">
+                                <?php
                                 if ($_SESSION["lang"] == "ar") {
                                     $learn = $about['about_sub_desc'];
                                 } else {
@@ -154,29 +154,27 @@ include 'init.php';
                                 $countfile = count($learn) - 1;
                                 for ($i = 0; $i < $countfile; ++$i) { ?>
 
-                            <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
-                            <?php
+                                    <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                                <?php
                                 }
                                 ?>
 
-                        </ul>
+                            </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12 about_events"
-                    style="background-image: url(admin/upload/<?php echo $about["image1"] ?>) ;">
+                <div class="col-lg-6 col-12 about_events" style="background-image: url(admin/upload/<?php echo $about["image1"] ?>) ;">
                     <div class="d-flex align-items-center pt-5">
-                    <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
+                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php if ($_SESSION["lang"] == "ar") {
                                                                                                                     echo $about["video1"];
                                                                                                                 } else {
                                                                                                                     echo $about["video2"];
-                                                                                                                } ?>"
-                            data-bs-target="#videoModal">
+                                                                                                                } ?>" data-bs-target="#videoModal">
                             <span></span>
                         </button>
 
                     </div>
                 </div>
-                <?php
+            <?php
 
                         }
             ?>
@@ -237,62 +235,82 @@ include 'init.php';
                 $stmt->execute();
                 $allgoals = $stmt->fetchAll();
                 foreach ($allgoals as $goal) { ?>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa-solid fa-bullseye"></i>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-bullseye"></i>
 
-                        <?php ?>
+                            <?php ?>
 
 
-                        <?php
+                            <?php
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["goal_head"] ?> </h3>
-                        <p> <?php echo $goal["goal_desc"] ?> </p>
+                                <h3> <?php echo $goal["goal_head"] ?> </h3>
+                                <p> <?php
+                                    $goal_desc = $goal['goal_desc'];
+                                    if (strpos($goal_desc, ",")) { ?>
+                                <ul class="list-unstyled">
+                                    <?php
+                                        if ($_SESSION["lang"] == "ar") {
+                                            $goal_desc = $goal['goal_desc'];
+                                        }
+                                        $goal_desc = explode(",", $goal_desc);
+                                        $countfile = count($goal_desc) - 1;
+                                        for ($i = 0; $i < $countfile; ++$i) { ?>
+                                        <li> <span><i class="fa fa-star"></i></span> <?= $goal_desc[$i] ?> </li>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
+                            <?php
+                                    } else {
+                                        echo $goal["goal_desc"];
+                                    }
+                            ?> </p>
                         <?php
                             } else { ?>
-                        <h3> <?php echo $goal["goal_head_en"] ?> </h3>
-                        <p> <?php echo $goal["goal_desc_en"] ?> </p>
+                            <h3> <?php echo $goal["goal_head_en"] ?> </h3>
+                            <p> <?php echo $goal["goal_desc_en"] ?> </p>
                         <?php
+                            }
+                        ?>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa fa-signal"></i>
+                            <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <h3> <?php echo $goal["vision_head"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc"] ?> </p>
+                            <?php
+                            } else { ?>
+                                <h3> <?php echo $goal["vision_head_en"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc_en"] ?> </p>
+                            <?php
                             }
                             ?>
 
-
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa fa-signal"></i>
-                        <?php
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <?php
                             if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["vision_head"] ?> </h3>
-                        <p> <?php echo $goal["vision_desc"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["message_head"] ?> </h3>
+                                <p> <?php echo $goal["message_desc"] ?> </p>
+                            <?php
                             } else { ?>
-                        <h3> <?php echo $goal["vision_head_en"] ?> </h3>
-                        <p> <?php echo $goal["vision_desc_en"] ?> </p>
-                        <?php
+                                <h3> <?php echo $goal["message_head_en"] ?> </h3>
+                                <p> <?php echo $goal["message_desc_en"] ?> </p>
+                            <?php
                             }
                             ?>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-12">
-                    <div class="info">
-                        <i class="fa-solid fa-handshake-angle"></i>
-                        <?php
-                            if ($_SESSION["lang"] == "ar") { ?>
-                        <h3> <?php echo $goal["message_head"] ?> </h3>
-                        <p> <?php echo $goal["message_desc"] ?> </p>
-                        <?php
-                            } else { ?>
-                        <h3> <?php echo $goal["message_head_en"] ?> </h3>
-                        <p> <?php echo $goal["message_desc_en"] ?> </p>
-                        <?php
-                            }
-                            ?>
-
-                    </div>
-                </div>
                 <?php
                 } ?>
 

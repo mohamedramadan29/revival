@@ -22,24 +22,68 @@ include 'init.php';
             $stmt->execute();
             $allfaq = $stmt->fetchAll();
             foreach ($allfaq as $faq) { ?>
-            <div class="accordion-item">
-                <?php
+                <div class="accordion-item">
+                    <?php
                     if ($_SESSION["lang"] == "ar") { ?>
-                <a><?php echo $faq["faq_q"]; ?></a>
-                <div class="content">
-                    <p> <?php echo $faq["faq_an"]; ?> </p>
-                </div>
-                <?php
+                        <a><?php echo $faq["faq_q"]; ?></a>
+                        <div class="content">
+                            <?php
+                            $faq_content = $faq['faq_an'];
+                            if (strpos($faq_content, ",")) { ?>
+                                <ul class="list-unstyled">
+                                    <?php
+                                    if ($_SESSION["lang"] == "ar") {
+                                        $faq_content = $faq['faq_an'];
+                                    }  
+                                    $faq_content = explode(",", $faq_content);
+                                    $countfile = count($faq_content) - 1;
+                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                        <li>  <?= $faq_content[$i] ?> </li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }else{
+                                ?>
+                                <p> <?php echo $faq["faq_an"]; ?> </p>
+                                <?php
+
+                            } ?>
+                        </div>
+                    <?php
                     } else { ?>
-                <a> <?php echo $faq["faq_q_en"]; ?> </a>
-                <div class="content">
-                    <p> <?php echo $faq["faq_an_en"]; ?></p>
-                </div>
-                <?php
+                        <a> <?php echo $faq["faq_q_en"]; ?> </a>
+                        <div class="content">
+                            <?php
+                            $faq_content = $faq['faq_an_en'];
+                            if (strpos($faq_content, ",")) { ?>
+                                <ul class="list-unstyled">
+                                    <?php
+                                    if ($_SESSION["lang"] == "ar") {
+                                        $faq_content = $faq['faq_an_en'];
+                                    }  
+                                    $faq_content = explode(",", $faq_content);
+                                    $countfile = count($faq_content) - 1;
+                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                        <li>  <?= $faq_content[$i] ?> </li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
+                            <?php
+                            }else{
+                                ?>
+                                <p> <?php echo $faq["faq_an_en"]; ?> </p>
+                                <?php
+
+                            } ?>
+                        </div>
+                    <?php
                     }
                     ?>
 
-            </div>
+                </div>
             <?php
             }
             ?>

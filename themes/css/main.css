@@ -141,50 +141,34 @@ body {
 
 }
 
-.hero .data h2 {
+.hero .carousel-caption h5 {
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 40px;
 }
 
-.hero .data p {
+
+.hero .carousel-caption p {
 
     color: #fffbfb;
     font-size: 21px;
 
 }
 
-
-.hero .data .search {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-bottom: 4px solid var(--maincolor);
-    padding: 40px 20px;
-    border-radius: 4px;
+.hero .carousel-caption {
+    bottom: 200px !important;
 }
 
-.hero .data .search input,
-.hero .data .search select {
-    background-color: transparent;
-    color: #fffdfd;
-    border: none;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    padding: 3px 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.hero .data .search select:focus {
-    background-color: #fff;
-    color: #111;
-}
-
-.hero .data .search button {
-    background-color: var(--maincolor) !important;
-    border-color: var(--maincolor) !important;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.hero .carousel-caption img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 /*END HERO SECTION*/
@@ -211,12 +195,12 @@ body {
     font-size: 22px;
 }
 
-    .about p {
-        text-align: justify;
-        margin-right: 10px;
-        margin-left: 10px;
-        font-size: 15px;
-    }
+.about p {
+    text-align: justify;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+}
 
 .about p span {
     color: var(--maincolor);
@@ -258,19 +242,21 @@ body {
     box-shadow: 0px 0px 10px 2px #eae9e9;
     height: 410px;
     margin-bottom: 20px;
-    overflow-y:auto !important;
+    overflow-y: auto !important;
 }
 
 .vision .data .info ul {
     text-align: right;
 }
+
 .vision .data .info ul li {
     text-align: right;
     position: relative;
     margin-right: 15px;
-    margin-bottom:-10px;
+    margin-bottom: -10px;
     font-size: 15px;
 }
+
 .vision .data .info i {
     width: 80px;
     height: 80px;
@@ -288,7 +274,8 @@ body {
     width: 12px;
     height: 12px;
 }
-.vision .data .info li span i{
+
+.vision .data .info li span i {
     color: var(--maincolor);
     width: 0;
     height: 0;
@@ -298,10 +285,12 @@ body {
     right: -15px;
     left: 15px;
 }
-.vision .data .info:hover span i{
-border:0;
-color:var(--maincolor);
+
+.vision .data .info:hover span i {
+    border: 0;
+    color: var(--maincolor);
 }
+
 .vision .data .info:hover i {
     background-color: transparent;
     color: var(--maincolor);
@@ -698,11 +687,13 @@ color:var(--maincolor);
     color: #fff;
     text-decoration: none;
 }
-@media(max-width:992px){
+
+@media(max-width:992px) {
     .footer .data .copy_right {
         margin-bottom: 80px;
     }
-    .footer .data .follow_us{
+
+    .footer .data .follow_us {
         margin-top: 80px;
     }
 }
@@ -873,9 +864,18 @@ color:var(--maincolor);
 }
 
 .faq .data h2 {
-    font-size: 28px;
+    color: #fff;
+    font-size: 35px;
 }
 
+.hero .data h2 {
+    color: #fff;
+    font-size: 35px;
+}
+.hero .data p{
+    color: #fff;
+    font-size: 18px;
+}
 /* START FAQ QUESTION SECTION*/
 .faq_section {
     margin-top: 70px;
@@ -895,7 +895,9 @@ color:var(--maincolor);
     font-size: 16px !important;
 
 }
-
+.accordion-item ul{
+    text-align: right;
+}
 .accordion a {
     text-align: right;
     position: relative;
@@ -1364,13 +1366,15 @@ color:var(--maincolor);
     line-height: 2;
     padding: 10px;
 }
-.profile_data .personal_information .data2 table{
+
+.profile_data .personal_information .data2 table {
     text-align: center;
 }
 
-.profile_data .personal_information .data2 table tbody tr td{
-    padding:4px !important; 
+.profile_data .personal_information .data2 table tbody tr td {
+    padding: 4px !important;
 }
+
 /*END PERSONAL INFORMATION*/
 /* START UPDATE PROFILE FORM */
 .profile_data .update_profile_form {
@@ -2291,7 +2295,7 @@ color:var(--maincolor);
     background-image: url(../../uploads/about_back.jpg);
     background-size: cover;
     background-position: center;
- 
+
 }
 
 .why_avir .data {}
@@ -2301,21 +2305,24 @@ color:var(--maincolor);
     font-weight: bold;
     font-size: 22px;
     margin-bottom: 20px;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 .why_avir .data p {
     max-width: 800px;
 
 }
-.why_avir .data li i{
-    color:var(--maincolor);
-    margin-right:10px;
-    margin-left:10px;
+
+.why_avir .data li i {
+    color: var(--maincolor);
+    margin-right: 10px;
+    margin-left: 10px;
 }
-.why_avir .data li{
-    margin-top:10px;
+
+.why_avir .data li {
+    margin-top: 10px;
 }
+
 .art_state {
     background-image: url(../../uploads/art_state.jpg);
     background-position: center;
@@ -2858,7 +2865,7 @@ time {
     margin-bottom: 20px;
 }
 
-.hero .data_logo img {
+.hero .data_logo {
     max-width: 140px;
     margin-bottom: 20px;
 }
@@ -3075,8 +3082,7 @@ time {
     border-color: #c3e6cb;
     max-width: 600px;
     margin: auto;
-    margin-bottom: 100px;
-    box-shadow: 0px 0px 10px 2px #e7e7e7;
+    margin-bottom: 100px; 
 }
 
 .star {
@@ -3269,21 +3275,23 @@ time {
     margin: auto;
     text-align: center;
 }
+
 .modal-open .modal {
     margin-top: 4%;
     z-index: 9999999999;
 }
 
-.modal-body h6{
+.modal-body h6 {
     font-size: 14px;
 }
-.bg-gradient-light{
+
+.bg-gradient-light {
     background-color: var(--maincolor);
     margin-bottom: 10px;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
-.ftco-animate{
+.ftco-animate {
     visibility: visible !important;
     opacity: 1 !important;
 }
@@ -3303,28 +3311,33 @@ time {
     -ms-border-radius: 100%;
     -o-border-radius: 100%;
 }
-.owl-carousel .owl-dots .owl-dot:after{
+
+.owl-carousel .owl-dots .owl-dot:after {
     border: 0 !important;
 }
 
-.main_event_speaker{
+.main_event_speaker {
     margin-top: 60px;
 }
 
-.our_services .data .main_event_speaker .info p{
+.our_services .data .main_event_speaker .info p {
     min-height: 1px !important;
     padding: 0px;
 }
+
 .our_services .data .main_event_speaker .owl-carousel.owl-drag .owl-item {
     background: #fff;
     box-shadow: 0px 0px 30px -10px #ccc;
 }
-.our_services .data .main_event_speaker  .info{
+
+.our_services .data .main_event_speaker .info {
     margin-bottom: 0;
 }
-.our_services .data .main_event_speaker .info h3{
+
+.our_services .data .main_event_speaker .info h3 {
     margin-bottom: 0;
 }
-.talent_images img{
+
+.talent_images img {
     max-width: 100%;
 }

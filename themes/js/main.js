@@ -367,6 +367,7 @@ AOS.init({
   $(".country8").select2();
   $(".country9").select2();
   $("#country9").select2();
+  $(".select_head").select2();
   // START DROPIFY
   var dev = $("#logo").dropify({});
   dev = dev.data("dropify");

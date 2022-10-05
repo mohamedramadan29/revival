@@ -37,6 +37,9 @@
                                 <option value="رسالة التواصل"> ايميل التواصل </option>
                                 <option value="طلب خدمة جديد"> ايميل طلب خدمة جديدة </option>
                                 <option value="استثمار في موهبة"> الاستثمار في موهبة </option>
+                                <option value="اضافة موهبة">اضافة موهبة</option>
+                                <option value="تفعيل الحساب">تفعيل الحساب</option>
+                                <option value="الاشتراك في القائمة البريدية">الاشتراك في القائمة البريدية</option>
                             </select>
                         </div>
                     </div>

@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="<?php echo $css; ?>ionicons.min.css">
     <link rel="stylesheet" href="<?php echo $css; ?>intlTelInput.min.css">
     <link rel="stylesheet" href="<?php echo $css; ?>demo.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="<?php echo $css; ?>bootstrap-datepicker.css">
     <link rel="stylesheet" href="<?php echo $css; ?>jquery.timepicker.css">
     <link rel="stylesheet" href="<?php echo $css; ?>flaticon.css">

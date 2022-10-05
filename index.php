@@ -27,7 +27,22 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                    echo $banner['banner_head'];
+                                } else {
+                                    echo $banner['banner_head_en'];
+                                } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banner['banner_desc'];
+                            } else {
+                                echo $banner['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
                 </div>
+
             <?php
             }
             ?>
@@ -51,6 +66,20 @@ include 'init.php';
                                             }
                                             ?>
                 " class="d-block w-100" alt="image1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                    echo $banners['banner_head'];
+                                } else {
+                                    echo $banners['banner_head_en'];
+                                } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banners['banner_desc'];
+                            } else {
+                                echo $banners['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
                 </div>
             <?php
             }
@@ -65,35 +94,6 @@ include 'init.php';
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
-    <div class="data container ">
-        <?php
-        $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الرئيسية' ORDER BY banner_id  LIMIT 1");
-        $stmt->execute();
-        $allbanners = $stmt->fetchAll();
-        foreach ($allbanners as $banners) { ?>
-            <h2>
-                <?php
-                if ($_SESSION["lang"] == "ar") {
-                    echo $banners["banner_head"];
-                } else {
-                    echo $banners["banner_head_en"];
-                }
-                ?>
-            </h2>
-            <p>
-                <?php
-                if ($_SESSION["lang"] == "ar") {
-                    echo $banners["banner_desc"];
-                } else {
-                    echo $banners["banner_desc_en"];
-                }
-                ?>
-            </p>
-
-        <?php
-        } ?>
-
     </div>
 </div>
 </div>

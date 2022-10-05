@@ -107,3 +107,6 @@ body {
 .course_content_info .course_instructor {
     text-align: left;
 }
+.accordion-item ul{
+    text-align: left;
+}

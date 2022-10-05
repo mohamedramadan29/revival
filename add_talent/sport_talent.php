@@ -20,6 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $uploadplace = "admin/upload/";
 
+    // START GET EMAIL CONTENT  -->
+
+    $stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='اضافة موهبة'");
+    $stmt->execute();
+    $emaildata = $stmt->fetchAll();
+
+    // END GET EMAIL CONTENT -->
+
     // START UPLOAD PROJECT DESIGN (project_design)
 
     foreach ($_FILES['videos']['name'] as $key => $val) {
@@ -40,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $location2 .= $file . " ";
     }
 
-    
+
     // START Talent Image
 
     foreach ($_FILES['talent_image']['name'] as $key => $val) {
@@ -130,19 +138,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zcat_name" => $cat_name,
         ));
         if ($stmt) {
-
-            header("Location:profile.php");
-
+            $to_email = $email;
+            $subject = "اللتسجيل في ريفايفال";
+            foreach ($emaildata as $data) {
+                if ($_SESSION['lang'] == 'ar') {
+                    $body =  $data['email_text'];
+                } else {
+                    $body =  $data['email_text_en'];
+                }
+            }
+            $headers = "From: info@revivals.site";
+            mail($to_email, $subject, $body, $headers)
 ?>
-
+            <style>
+                .message_form {
+                    display: none !important;
+                }
+            </style>
             <div class='container'>
-                <br>
                 <div class='alert alert-success text-center'>
-                    <?php echo $lang['add_talent_suc'];  ?>
+                    <?php
+                    foreach ($emaildata as $data) {
+                        if ($_SESSION['lang'] == 'ar') {
+                            echo   $data['email_text'];
+                        } else {
+                            echo  $data['email_text_en'];
+                        }
+                    }
+                    ?>
                 </div>
-                <br>
             </div>
         <?php
+            header("Location:profile.php");
         }
     } else {
         foreach ($errormessage as $message) { ?>
@@ -240,7 +267,7 @@ if ($count >  0) { ?>
 
 
                                                                 </div>
- 
+
 
                                                             </div>
                                                             <div class="col-lg-6 col-12">

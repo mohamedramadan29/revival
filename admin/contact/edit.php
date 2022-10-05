@@ -42,7 +42,7 @@ if (isset($_GET['message_id']) && is_numeric($_GET['message_id'])) {
                                 value="<?php echo $alltype["contact_email"]; ?>"> 
                         </div>
                         <div class="box">
-                            <label id="name"> عنوان الرسالة
+                            <label id="name"> قسم الرسالة
                             </label>
                             <input required class="form-control" type="text" name="banner_name"
                                 value="<?php echo $alltype["email_subject"]; ?>"> 

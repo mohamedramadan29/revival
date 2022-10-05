@@ -49,7 +49,10 @@ if (isset($_GET['email_id']) && is_numeric($_GET['email_id'])) {
                                         <option value="التسجيل في ريفايفال" <?php if($alltype["email_section"] == "التسجيل في ريفايفال") echo "selected"; ?>> ايميل التسجيل في ريفايفال </option>
                                         <option value="اضافة مشروع جديد" <?php if($alltype["email_section"] == "اضافة مشروع جديد") echo "selected"; ?>> ايميل اضافة مشروع جديد </option>
                                         <option value="رسالة التواصل" <?php if($alltype["email_section"] == "رسالة التواصل") echo "selected"; ?>> ايميل التواصل </option>
-                                        <option value="طلب خدمة جديد" <?php if($alltype["email_section"] == "طلب خدمة جديد") echo "selected"; ?>> ايميل طلب خدمة جديدة </option>
+                                        <option value="استثمار في موهبة" <?php if($alltype["email_section"] == "استثمار في موهبة") echo "selected"; ?>>استثمار في موهبة</option>
+                                        <option value="اضافة موهبة" <?php if($alltype["email_section"] == "اضافة موهبة") echo "selected"; ?>>اضافة موهبة</option>
+                                        <option value="تفعيل الحساب" <?php if($alltype["email_section"] == "تفعيل الحساب") echo "selected"; ?>>تفعيل الحساب</option>
+                                        <option value="الاشتراك في القائمة البريدية" <?php if($alltype["email_section"] == "الاشتراك في القائمة البريدية") echo "selected"; ?>>الاشتراك في القائمة البريدية</option>
                                     </select>
                                 </div>
                             </div>
