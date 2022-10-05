@@ -3270,7 +3270,8 @@ time {
     text-align: center;
 }
 .modal-open .modal {
-    margin-top: 8%;
+    margin-top: 4%;
+    z-index: 9999999999;
 }
 
 .modal-body h6{
