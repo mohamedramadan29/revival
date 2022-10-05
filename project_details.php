@@ -4,18 +4,16 @@ session_start();
 include 'init.php';
 if (isset($_GET['cat'])) {
     $cat = $_GET['cat'];
-    if(isset($_GET['talent_id'])){
+    if (isset($_GET['talent_id'])) {
         $talent_id = $_GET['talent_id'];
         $stmt = $connect->prepare("SELECT * FROM art_register WHERE art_register_id=?");
         $stmt->execute(array($talent_id));
         $talent_info = $stmt->fetch();
-
-    }elseif(isset($_GET['talent_id_sub'])){
+    } elseif (isset($_GET['talent_id_sub'])) {
         $talent_id_sub = $_GET['talent_id_sub'];
         $stmt = $connect->prepare("SELECT * FROM company_register WHERE reg_id=?");
         $stmt->execute(array($talent_id_sub));
         $talent_info = $stmt->fetch();
-
     }
 }
 ?>
@@ -23,15 +21,15 @@ if (isset($_GET['cat'])) {
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2><?php echo $talent_info['first_name']; ?> # 
-            <?php
-            if(isset($_GET["talent_id"])){
-                echo $talent_info['art_register_id']; 
-            }elseif(isset($_GET["talent_id_sub"])){ 
-                echo $talent_info['reg_id']; 
-            }
-            ?>
-        </h2>
+            <h2><?php echo $talent_info['first_name']; ?> #
+                <?php
+                if (isset($_GET["talent_id"])) {
+                    echo $talent_info['art_register_id'];
+                } elseif (isset($_GET["talent_id_sub"])) {
+                    echo $talent_info['reg_id'];
+                }
+                ?>
+            </h2>
         </div>
     </div>
 </div>
@@ -59,38 +57,20 @@ if (isset($_GET['cat'])) {
                         <h2> نبذة عن الموهبة </h2>
                         <p> <?php echo $talent_info['experience_info']; ?>
                         </p>
-                        <a href="invest_project.php?cat=<?php echo $cat;?>&talent_id=<?php if(isset($_GET['talent_id'])){ echo $_GET['talent_id'] ;} else{
-                            echo $_GET['talent_id_sub'];
-                        } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
+                        <a href="invest_project.php?cat=<?php echo $cat; ?>&talent_id=<?php if (isset($_GET['talent_id'])) {
+                                                                                            echo $_GET['talent_id'];
+                                                                                        } else {
+                                                                                            echo $_GET['talent_id_sub'];
+                                                                                        } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
-                </div>
+                </div> 
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
                     <div class="talent_images">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="uploads/art1.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="uploads/art2.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="uploads/art3.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                        <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
                     </div>
-                    <div class="talent_video">
+                    <div class="talent_video" style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['cv']; ?>" data-bs-target="#videoModal">
                                 <span></span>

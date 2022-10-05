@@ -13,7 +13,12 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION -->
-
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message_event WHERE email_section='حساب جديد'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
 <!-- START CODE -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -55,21 +60,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ));
         if ($stmt) {
             $to_email = $email;
-            $subject = "التسجيل  في الايفنتات";
-            $body =  $lang["register_in_event"];
+            $subject = "انشاء حساب جديد";
+            foreach ($emaildata as $data) {
+                if ($_SESSION['lang'] == 'ar') {
+                    $body =  $data['email_text'];
+                } else {
+                    $body =  $data['email_text_en'];
+                }
+            }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers);
+            //header("Location:profile.php");
 ?>
             <style>
-                .contact_form {
+                .message_form {
                     display: none !important;
                 }
             </style>
             <div class='container'>
-                <div class='alert alert-success text-center'> <?php echo $lang["register_in_event"]; ?>
+                <div class='alert alert-success text-center'>
+                    <?php
+                    foreach ($emaildata as $data) {
+                        if ($_SESSION['lang'] == 'ar') {
+                            echo   $data['email_text'];
+                        } else {
+                            echo  $data['email_text_en'];
+                        }
+                    }
+                    ?>
                 </div>
             </div>
-        <?php  }
+        <?php }
     } else {
 
         foreach ($errormessage as $message) { ?>

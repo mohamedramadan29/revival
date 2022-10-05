@@ -46,8 +46,10 @@ if (isset($_GET['cat'])) {
                         <ul class="list-unstyled">
                             <li> <span> الاسم الاول : </span> <?php echo $talent_info['first_name2']; ?> </li>
                             <li> <span> الاسم الاخير : </span> <?php echo $talent_info['last_name']; ?> </li>
-                            <li> <span> التخصص : </span> <?php echo $talent_info['specialist']; ?> </li>
-                            <li> <span> الموهل العلمي : </span> <?php echo $talent_info['certificate']; ?> </li>
+                            <li> <span> التخصص : </span> <?php echo $talent_info['specialist']; ?> </li> 
+                            <li> <span> الطول : </span> <?php echo $talent_info['player_taller']; ?> <span> cm </span> </li>
+                            <li> <span> الوزن : </span> <?php echo $talent_info['player_weight']; ?> <span> Kg </span> </li>
+                            <li> <span> العمر : </span> <?php echo $talent_info['player_position']; ?> </li>
                         </ul>
                     </div>
                     <div class="info2">
@@ -63,29 +65,9 @@ if (isset($_GET['cat'])) {
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
                     <div class="talent_images">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="uploads/art1.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="uploads/art2.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="uploads/art3.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                        <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
                     </div>
-                    <div class="talent_video">
+                    <div class="talent_video"  style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['video_talent']; ?>" data-bs-target="#videoModal">
                                 <span></span>

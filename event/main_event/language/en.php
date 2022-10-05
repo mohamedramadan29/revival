@@ -277,7 +277,7 @@ $lang = array(
 
   "share_event_h1" => "  Participate In The Event  ",
 
-  "choose_are_you" => " Choose Are You ",
+  "choose_are_you" => " Select your activity ",
   "Journalist" => " Journalist ",
   "you_speaker" => " speaker ",
   "my_media" => " my media ",

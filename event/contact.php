@@ -4,6 +4,13 @@ session_start();
 $eventpage = 'event';
 include 'init.php';
 ?>
+
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message_event WHERE email_section='تواصل من الصفحة الرئيسية'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
@@ -24,7 +31,7 @@ include 'init.php';
                         $file = '';
                         $file_tmp = '';
                         $location = "";
-                        $uploadplace = "admin/upload/";
+                        $uploadplace = "../admin/upload/";
                         // START UPLOAD contact_files
 
                         foreach ($_FILES['contact_files']['name'] as $key => $val) {
@@ -37,6 +44,7 @@ include 'init.php';
                         $user_name = $_POST["user_name"];
                         $user_email = $_POST["user_email"];
                         $user_message = $_POST["user_message"];
+                        $contact_head = " صفحة الاحداث الرئيسية ";
 
                         $errormessage = [];
 
@@ -53,21 +61,28 @@ include 'init.php';
                         }
 
                         if (empty($errormessage)) {
-                            $stmt = $connect->prepare("INSERT INTO  event_contact (contact_name, contact_email, contact_message,fiels)
-                            VALUES (:zname, :zemail,:zmessage,:zfiles)");
+                            $stmt = $connect->prepare("INSERT INTO  event_contact (contact_name, contact_email,contact_head, contact_message,fiels)
+                            VALUES (:zname, :zemail,:zcontact_head,:zmessage,:zfiles)");
                             $stmt->execute(array(
                                 "zname" => $user_name,
                                 "zemail" => $user_email,
+                                "zcontact_head" => $contact_head,
                                 "zmessage" => $user_message,
                                 "zfiles" => $location,
                             ));
                             if ($stmt) {
                                 $to_email = $user_email;
-                                $subject = "اللتسجيل في ريفايفال";
-                                $body =  $lang["contact_us_succ_message"];
+                                $subject = "تواصل من صفحةالاحداث الرئيسية ";
+                                foreach ($emaildata as $data) {
+                                    if ($_SESSION['lang'] == 'ar') {
+                                        $body =  $data['email_text'];
+                                    } else {
+                                        $body =  $data['email_text_en'];
+                                    }
+                                }
                                 $headers = "From: info@revivals.site";
-                                mail($to_email, $subject, $body, $headers)
-
+                                mail($to_email, $subject, $body, $headers);
+                                //header("Location:profile.php");
                     ?>
                                 <style>
                                     .message_form {
@@ -75,7 +90,16 @@ include 'init.php';
                                     }
                                 </style>
                                 <div class='container'>
-                                    <div class='alert alert-success text-center'> <?php echo $lang["contact_us_succ_message"];  ?>
+                                    <div class='alert alert-success text-center'>
+                                        <?php
+                                        foreach ($emaildata as $data) {
+                                            if ($_SESSION['lang'] == 'ar') {
+                                                echo   $data['email_text'];
+                                            } else {
+                                                echo  $data['email_text_en'];
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             <?php
@@ -171,10 +195,7 @@ include 'init.php';
 <!-- END CONTACT FORM -->
 <!-- START MAPS -->
 <div class="map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d950645.7063804097!2d39.77166654999316!3d21.450468415099117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d01fb1137e59%3A0xe059579737b118db!2z2KzYr9ipINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1657182468579!5m2!1sar!2seg"
-        height="600" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d950645.7063804097!2d39.77166654999316!3d21.450468415099117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d01fb1137e59%3A0xe059579737b118db!2z2KzYr9ipINin2YTYs9i52YjYr9mK2Kk!5e0!3m2!1sar!2seg!4v1657182468579!5m2!1sar!2seg" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 <!-- END MAPS -->

@@ -51,6 +51,13 @@ if ($count > 0) {
             $location3 .= $file . " ";
         }
 
+        foreach ($_FILES['talent_video']['name'] as $key => $val) {
+            $file = $_FILES['talent_video']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp4 = $_FILES['talent_video']['tmp_name'][$key];
+            move_uploaded_file($file_tmp4, $uploadplace . $file);
+            $location4 .= $file . " ";
+        }
 
         $first_name = $_POST["first_name"];
         $last_name = $_POST["last_name"];
@@ -91,10 +98,42 @@ if ($count > 0) {
         if (empty($certificate)) {
             $errormessage[] = $lang["enter_cartificate"];
         }
-
-
         if (empty($errormessage)) {
-            if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '') {
+            if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                national_id=?,certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $location2,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $location4,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+?>
+
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != "") {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
                 certificate=? , project_name=?,
                 project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
@@ -118,14 +157,47 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
-?>
+                    header("Location:profile.php");
+                ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,national_id=?,
+                certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location2,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $location4,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp1 != '' && $file_tmp2 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -151,14 +223,14 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp1 != '' && $file_tmp3 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -183,14 +255,46 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp1 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
+                certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location,
+                    $password,
+                    $personal_information,
+                    $location4,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp2 != '' && $file_tmp3 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -215,14 +319,78 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp2 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,national_id=?
+                , password=?,personal_information=?,talent_video=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location2,
+                    $password,
+                    $personal_information,
+                    $location4,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
+                }
+            } elseif ($file_tmp3 != '' && $file_tmp4 != '') {
+                $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+                certificate=? , project_name=?,
+                project_field=?,project_competation=?,project_prize=?,
+                certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
+                $stmt->execute(array(
+                    $first_name,
+                    $last_name,
+                    $email,
+                    $mobile,
+                    $specialist,
+                    $certificate,
+                    $project_name,
+                    $project_field,
+                    $project_competation,
+                    $project_prize,
+                    $location3,
+                    $password,
+                    $personal_information,
+                    $location4,
+                    $_SESSION["username"]
+                ));
+                if ($stmt) {
+                    header("Location:profile.php");
+                ?>
+
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp1 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -246,14 +414,14 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp2 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -277,14 +445,14 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             } elseif ($file_tmp3 != '') {
                 $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
@@ -308,22 +476,22 @@ if ($count > 0) {
                     $_SESSION["username"]
                 ));
                 if ($stmt) {
-                     header("Location:profile.php");
+                    header("Location:profile.php");
                 ?>
 
-<div class='container'>
-    <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
-    </div>
-</div>
-<?php
+                    <div class='container'>
+                        <div class='alert alert-success text-center'> تم تعديل البيانات بنجاح
+                        </div>
+                    </div>
+                <?php
                 }
             }
         } else {
             foreach ($errormessage as $message) { ?>
-<div class="error_message">
-    <div class="alert alert-danger"> <?php echo $message ?> </div>
-</div>
-<?php
+                <div class="error_message">
+                    <div class="alert alert-danger"> <?php echo $message ?> </div>
+                </div>
+    <?php
             }
         }
     }
@@ -333,93 +501,81 @@ if ($count > 0) {
 
 
 
-<div class="profile_data update_profile">
-    <div class="container">
-        <div class="data">
+    <div class="profile_data update_profile">
+        <div class="container">
+            <div class="data">
 
-            <form class="message_form" action="" method="post" enctype="multipart/form-data">
-                <div class="row">
+                <form class="message_form" action="" method="post" enctype="multipart/form-data">
+                    <div class="row">
 
-                    <div class="col-lg-4">
-                        <div class="info">
-                            <?php
+                        <div class="col-lg-4">
+                            <div class="info">
+                                <?php
                                 if (strlen($userdata['personal_image']) > 0) { ?>
-                            <div class="personal_image">
-                                <img src="admin/upload/<?php echo $userdata['personal_image']; ?>" alt="">
+                                    <div class="personal_image">
+                                        <img src="admin/upload/<?php echo $userdata['personal_image']; ?>" alt="">
 
-                            </div>
-                            <?php
+                                    </div>
+                                <?php
                                 } else { ?>
 
 
-                            <div class="personal_image">
-                                <img src="uploads/avatar.png" alt="">
+                                    <div class="personal_image">
+                                        <img src="uploads/avatar.png" alt="">
 
-                            </div>
+                                    </div>
 
-                            <?php
+                                <?php
                                 }
                                 ?>
-                            <h2> <?php echo $userdata["first_name"];  ?> <?php echo $userdata["last_name"];  ?> </h2>
-                            <p> <?php echo $userdata["email"];  ?></p>
+                                <h2> <?php echo $userdata["first_name"];  ?> <?php echo $userdata["last_name"];  ?> </h2>
+                                <p> <?php echo $userdata["email"];  ?></p>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="info2">
-                            <div class="contact_form">
-                                <div class="container">
-                                    <div class="data">
-                                        <!--------------------END PHP  CODE VALIDATION --------------->
+                        <div class="col-lg-8">
+                            <div class="info2">
+                                <div class="contact_form">
+                                    <div class="container">
+                                        <div class="data">
+                                            <!--------------------END PHP  CODE VALIDATION --------------->
 
-                                        <div class="row">
-                                            <div class="col-lg-12 col-12">
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-12">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-12">
+                                                    <div class="info">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-12">
 
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="first_name"><?php echo $lang["first_name"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
-                                                                <input name="first_name" type="text"
-                                                                    class="form-control" id="first_name"
-                                                                    value="<?php echo $userdata['first_name']; ?>">
-                                                            </div>
+                                                                <div class="box mb-3">
+                                                                    <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> *
+                                                                        </span></label>
+                                                                    <input name="first_name" type="text" class="form-control" id="first_name" value="<?php echo $userdata['first_name']; ?>">
+                                                                </div>
 
-                                                            <div class="box mb-3">
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["email"];  ?> <span class="star"> *
-                                                                    </span>
-                                                                </label>
-                                                                <input name="email" type="email" class="form-control"
-                                                                    id="floatingInput"
-                                                                    value="<?php echo $userdata['email']; ?>">
-                                                            </div>
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="floatingInput"><?php echo $lang["username"];  ?><span
-                                                                        class="star">
-                                                                        * </span>
-                                                                </label>
-                                                                <input disabled name="username" type="text"
-                                                                    class="form-control" id="floatingInput"
-                                                                    value="<?php echo $userdata['username']; ?>">
-                                                            </div>
-                                                            <div class="box mb-3">
-                                                                <!--
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput">
+                                                                        <?php echo $lang["email"];  ?> <span class="star"> *
+                                                                        </span>
+                                                                    </label>
+                                                                    <input name="email" type="email" class="form-control" id="floatingInput" value="<?php echo $userdata['email']; ?>">
+                                                                </div>
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput"><?php echo $lang["username"];  ?><span class="star">
+                                                                            * </span>
+                                                                    </label>
+                                                                    <input disabled name="username" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata['username']; ?>">
+                                                                </div>
+                                                                <div class="box mb-3">
+                                                                    <!--
                                            <input name="mobile" type="text" class="form-control" id="floatingInput"
                                             placeholder="name@example.com">-->
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["mobile"];  ?> <span class="star">
-                                                                        * </span></label>
-                                                                <input type="tel" name="mobile" id="phone"
-                                                                    class="form-control"
-                                                                    value="<?php echo $userdata['mobile']; ?>">
+                                                                    <label for="floatingInput">
+                                                                        <?php echo $lang["mobile"];  ?> <span class="star">
+                                                                            * </span></label>
+                                                                    <input type="tel" name="mobile" id="phone" class="form-control" value="<?php echo $userdata['mobile']; ?>">
 
-                                                            </div>
-                                                            <!--
+                                                                </div>
+                                                                <!--
                                                             <div class="box mb-3">
                                                                 <label
                                                                     for="selectcountry"><?php echo $lang["country"];  ?></label>
@@ -462,50 +618,43 @@ if ($count > 0) {
 
                                                             </div>
                                                                     -->
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="floatingInput"><?php echo $lang["certificate"];  ?><span
-                                                                        class="star"> *
-                                                                    </span></label>
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput"><?php echo $lang["certificate"];  ?><span class="star"> *
+                                                                        </span></label>
 
-                                                                <select name="certificate" class="form-select country9"
-                                                                    id="floatingSelectGrid"
-                                                                    aria-label="Floating label country2 example">
+                                                                    <select name="certificate" class="form-select country9" id="floatingSelectGrid" aria-label="Floating label country2 example">
 
-                                                                    <?php
+                                                                        <?php
                                                                         if (strlen($userdata["certificate"]) > 2) { ?>
-                                                                    <option
-                                                                        value="<?php echo $userdata["certificate"] ?>">
-                                                                        <?php echo $userdata["certificate"] ?>
-                                                                    </option>
-                                                                    <?php
+                                                                            <option value="<?php echo $userdata["certificate"] ?>">
+                                                                                <?php echo $userdata["certificate"] ?>
+                                                                            </option>
+                                                                        <?php
                                                                         } else { ?>
-                                                                    <option value=""><?php echo $lang["select"];  ?>
-                                                                    </option>
+                                                                            <option value=""><?php echo $lang["select"];  ?>
+                                                                            </option>
 
-                                                                    <?php
+                                                                        <?php
                                                                         }
                                                                         ?>
 
-                                                                    <option
-                                                                        value=" <?php echo $lang["illiterate"];  ?> ">
-                                                                        <?php echo $lang["illiterate"];  ?> </option>
-                                                                    <option
-                                                                        value=" <?php echo $lang["middle_school"];  ?>">
-                                                                        <?php echo $lang["middle_school"];  ?> </option>
-                                                                    <option value="<?php echo $lang["secondary"];  ?>">
-                                                                        <?php echo $lang["secondary"];  ?> </option>
-                                                                    <option value="<?php echo $lang["ba"];  ?>">
-                                                                        <?php echo $lang["ba"];  ?>
-                                                                    </option>
-                                                                    <option value="<?php echo $lang["masters"];  ?> ">
-                                                                        <?php echo $lang["masters"];  ?> </option>
-                                                                </select>
-                                                                </select>
+                                                                        <option value=" <?php echo $lang["illiterate"];  ?> ">
+                                                                            <?php echo $lang["illiterate"];  ?> </option>
+                                                                        <option value=" <?php echo $lang["middle_school"];  ?>">
+                                                                            <?php echo $lang["middle_school"];  ?> </option>
+                                                                        <option value="<?php echo $lang["secondary"];  ?>">
+                                                                            <?php echo $lang["secondary"];  ?> </option>
+                                                                        <option value="<?php echo $lang["ba"];  ?>">
+                                                                            <?php echo $lang["ba"];  ?>
+                                                                        </option>
+                                                                        <option value="<?php echo $lang["masters"];  ?> ">
+                                                                            <?php echo $lang["masters"];  ?> </option>
+                                                                    </select>
+                                                                    </select>
 
 
-                                                            </div>
-                                                            <!--
+                                                                </div>
+                                                                <!--
                                                             <div class="box">
                                                                 <label
                                                                     for="country9"><?php echo $lang["select_field"];  ?><span
@@ -543,47 +692,36 @@ if ($count > 0) {
                                                             </div>
                                                                     -->
 
-                                                        </div>
-                                                        <div class="col-lg-6 col-12">
-                                                            <div class="box mb-3">
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["last_name"];  ?><span
-                                                                        class="star"> * </span></label>
-                                                                <input name="last_name" type="text" class="form-control"
-                                                                    id="floatingInput"
-                                                                    value="<?php echo $userdata["last_name"] ?>">
-
                                                             </div>
-
-                                                            <div class="box mb-3">
-                                                                <label
-                                                                    for="floatingInput"><?php echo $lang["specialist"];  ?>
-                                                                    <span class="star"> * </span></label>
-                                                                <input name="specialist" type="text"
-                                                                    class="form-control" id="floatingInput"
-                                                                    value="<?php echo $userdata["specialist"] ?>">
-                                                            </div>
-                                                            <div class="box mb-3">
-                                                                <label for="floatingInput">
-                                                                    <?php echo $lang["password"];  ?><span class="star">
-                                                                        * </span></label>
-                                                                <input name="password" type="password"
-                                                                    class="form-control passwordinput"
-                                                                    id="floatingInput"
-                                                                    value="<?php echo $userdata["password"] ?>">
-                                                                <i class="fa fa-eye"></i>
-                                                            </div>
-                                                            <div class=" mb-3">
+                                                            <div class="col-lg-6 col-12">
                                                                 <div class="box mb-3">
                                                                     <label for="floatingInput">
-                                                                        <?php echo $lang["Brief_about_you"]; ?> <span
-                                                                            class="star">
-                                                                            * </span></label>
-                                                                    <textarea name="personal_information"
-                                                                        class="form-control"><?php echo $userdata["personal_information"] ?></textarea>
+                                                                        <?php echo $lang["last_name"];  ?><span class="star"> * </span></label>
+                                                                    <input name="last_name" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["last_name"] ?>">
+
                                                                 </div>
-                                                            </div>
-                                                            <!--
+
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput"><?php echo $lang["specialist"];  ?>
+                                                                        <span class="star"> * </span></label>
+                                                                    <input name="specialist" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["specialist"] ?>">
+                                                                </div>
+                                                                <div class="box mb-3">
+                                                                    <label for="floatingInput">
+                                                                        <?php echo $lang["password"];  ?><span class="star">
+                                                                            * </span></label>
+                                                                    <input name="password" type="password" class="form-control passwordinput" id="floatingInput" value="<?php echo $userdata["password"] ?>">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </div>
+                                                                <div class=" mb-3">
+                                                                    <div class="box mb-3">
+                                                                        <label for="floatingInput">
+                                                                            <?php echo $lang["Brief_about_you"]; ?> <span class="star">
+                                                                                * </span></label>
+                                                                        <textarea name="personal_information" class="form-control"><?php echo $userdata["personal_information"] ?></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <!--
                                                             <div class="box mb-3">
                                                                 <label for="floatingInput">
                                                                     <?php echo $lang["confirm_password"];  ?><span
@@ -594,7 +732,7 @@ if ($count > 0) {
                                                                     value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['password_repeat']; ?>">
                                                             </div>
                                                                     -->
-                                                            <!--
+                                                                <!--
                                                             <div class="box">
                                                                 <label
                                                                     for="floatingSelectGrid"><?php echo $lang["select_sub_field"];  ?><span
@@ -630,7 +768,7 @@ if ($count > 0) {
 
                                                             </div>
                                                                     -->
-                                                            <!--
+                                                                <!--
                                                             <div class="box">
                                                                 <label for="register_type">
                                                                     <?php echo $lang["register_type"];  ?><span
@@ -664,6 +802,7 @@ if ($count > 0) {
                                                             </div>
                                                                     -->
 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -673,224 +812,240 @@ if ($count > 0) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="experience data">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="check_exp">
-                                        <h4> <?php echo $lang["existing_project"]; ?> </h4>
-                                        <div class="main_check">
-                                            <input class="" name="check_exp" type="radio" value="" id="check_exp1">
-                                            <label class="" for="check_exp1"> <?php echo $lang["no"]; ?> </label>
-                                            <input class="" name="check_exp" type="radio" value="" id="check_exp2">
-                                            <label class="" for="check_exp2"> <?php echo $lang["yes"]; ?> </label>
-                                            <div class="check_exp1_project">
-                                                <div class="form-group mb-3">
-                                                    <label for="floatingInput">
-                                                        <?php echo $lang["project_name"]; ?></label>
-                                                    <input name="project_name" type="text" class="form-control"
-                                                        id="floatingInput"
-                                                        value="<?php echo $userdata["project_name"] ?>">
-                                                </div>
-                                                <div class="form-group mb-3">
-                                                    <label for="floatingInput">
-                                                        <?php echo $lang["project_filed"]; ?></label>
-                                                    <input name="project_field" type="text" class="form-control"
-                                                        id="floatingInput" placeholder=""
-                                                        value="<?php echo $userdata["project_field"] ?>">
+                        <div class="row">
+                            <div class="experience data">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="check_exp">
+                                            <h4> <?php echo $lang["existing_project"]; ?> </h4>
+                                            <div class="main_check">
+                                                <input class="" name="check_exp" type="radio" value="" id="check_exp1">
+                                                <label class="" for="check_exp1"> <?php echo $lang["no"]; ?> </label>
+                                                <input class="" name="check_exp" type="radio" value="" id="check_exp2">
+                                                <label class="" for="check_exp2"> <?php echo $lang["yes"]; ?> </label>
+                                                <div class="check_exp1_project">
+                                                    <div class="form-group mb-3">
+                                                        <label for="floatingInput">
+                                                            <?php echo $lang["project_name"]; ?></label>
+                                                        <input name="project_name" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["project_name"] ?>">
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="floatingInput">
+                                                            <?php echo $lang["project_filed"]; ?></label>
+                                                        <input name="project_field" type="text" class="form-control" id="floatingInput" placeholder="" value="<?php echo $userdata["project_field"] ?>">
 
-                                                </div>
-                                                <!-- Do Design -->
-                                                <div class="prototype_deisgn">
-                                                    <h4> <?php echo $lang["works_participated"]; ?> </h4>
-                                                    <input class="" name="check_design" type="radio" value=""
-                                                        id="check_design1">
-                                                    <label class="" for="check_design1">
-                                                        <?php echo $lang["no"]; ?></label>
-                                                    <input class="" name="check_design" type="radio" value=""
-                                                        id="check_design2">
-                                                    <label class="" for="check_design2"> <?php echo $lang["yes"]; ?>
-                                                    </label>
-                                                    <div class="check_prototype_resualt">
-                                                        <div class="form-group mb-3">
-                                                            <label for=""> <?php echo $lang["What_competitions"]; ?>
-                                                            </label>
-                                                            <textarea name="project_competation" class="form-control"
-                                                                name=""
-                                                                id="floatingInput"><?php echo $userdata["project_competation"] ?></textarea>
+                                                    </div>
+                                                    <!-- Do Design -->
+                                                    <div class="prototype_deisgn">
+                                                        <h4> <?php echo $lang["works_participated"]; ?> </h4>
+                                                        <input class="" name="check_design" type="radio" value="" id="check_design1">
+                                                        <label class="" for="check_design1">
+                                                            <?php echo $lang["no"]; ?></label>
+                                                        <input class="" name="check_design" type="radio" value="" id="check_design2">
+                                                        <label class="" for="check_design2"> <?php echo $lang["yes"]; ?>
+                                                        </label>
+                                                        <div class="check_prototype_resualt">
+                                                            <div class="form-group mb-3">
+                                                                <label for=""> <?php echo $lang["What_competitions"]; ?>
+                                                                </label>
+                                                                <textarea name="project_competation" class="form-control" name="" id="floatingInput"><?php echo $userdata["project_competation"] ?></textarea>
 
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- Do first prototype -->
-                                                <div class="prototype_deisgn">
-                                                    <h4> <?php echo $lang["work_received_awards"]; ?></h4>
+                                                    <!-- Do first prototype -->
+                                                    <div class="prototype_deisgn">
+                                                        <h4> <?php echo $lang["work_received_awards"]; ?></h4>
 
-                                                    <input class="" name="first_prototype" type="radio" value=""
-                                                        id="first_prototype1">
-                                                    <label class="" for="first_prototype1"> <?php echo $lang["no"]; ?>
-                                                    </label>
+                                                        <input class="" name="first_prototype" type="radio" value="" id="first_prototype1">
+                                                        <label class="" for="first_prototype1"> <?php echo $lang["no"]; ?>
+                                                        </label>
 
-                                                    <input class="" name="first_prototype" type="radio" value=""
-                                                        id="first_prototype2">
-                                                    <label class="" for="first_prototype2"> <?php echo $lang["yes"]; ?>
-                                                    </label>
+                                                        <input class="" name="first_prototype" type="radio" value="" id="first_prototype2">
+                                                        <label class="" for="first_prototype2"> <?php echo $lang["yes"]; ?>
+                                                        </label>
 
-                                                    <div class="check_prototype_resualt">
-                                                        <div class="form-group mb-3">
-                                                            <label for=""> <?php echo $lang["Awards"]; ?> </label>
-                                                            <textarea class="form-control" name="project_prize"
-                                                                id="floatingInput"> <?php echo $userdata["project_prize"] ?> </textarea>
-
-                                                        </div>
-
-                                                        <div class="col-lg-12">
-                                                            <label> <?php echo $lang["Certificate_images"]; ?> </label>
-
-                                                            <div class="box mb-3">
-                                                                <div class="upload-file">
-                                                                    <div class="upload-wrapper">
-                                                                        <label>
-                                                                            <input type="file"
-                                                                                name="project_certificate_image[]"
-                                                                                id="files" multiple accept="image/*">
-                                                                            <p> <a> <?php echo $lang["select_files"]; ?>
-                                                                                </a></p>
-                                                                        </label>
-                                                                        <span class="files_type"> .jpg, .jpeg,
-                                                                            .png, .gif </span>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="col-12">
-
-                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
-                                                                    </div>
-                                                                </div>
-                                                                <output id="image-gallery"></output>
+                                                        <div class="check_prototype_resualt">
+                                                            <div class="form-group mb-3">
+                                                                <label for=""> <?php echo $lang["Awards"]; ?> </label>
+                                                                <textarea class="form-control" name="project_prize" id="floatingInput"> <?php echo $userdata["project_prize"] ?> </textarea>
 
                                                             </div>
 
-                                                            <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+                                                            <div class="col-lg-12">
+                                                                <label> <?php echo $lang["Certificate_images"]; ?> </label>
 
+                                                                <div class="box mb-3">
+                                                                    <div class="upload-file">
+                                                                        <div class="upload-wrapper">
+                                                                            <label>
+                                                                                <input type="file" name="project_certificate_image[]" id="files" multiple accept="image/*">
+                                                                                <p> <a> <?php echo $lang["select_files"]; ?>
+                                                                                    </a></p>
+                                                                            </label>
+                                                                            <span class="files_type"> .jpg, .jpeg,
+                                                                                .png, .gif </span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+
+                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <output id="image-gallery"></output>
+
+                                                                </div>
+
+                                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
-
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
+                                    <div class="col-lg-6">
 
-                                    <div class="row">
+                                        <div class="row">
 
-                                        <div class="col-lg-12">
-                                            <label> <?php echo $lang["national_id_image"]; ?> </label>
+                                            <div class="col-lg-12">
+                                                <label> <?php echo $lang["national_id_image"]; ?> </label>
 
-                                            <div class="box mb-3">
-                                                <div class="upload-file">
-                                                    <div class="upload-wrapper">
-                                                        <label>
-                                                            <input type="file" name="national_id[]" id="files2" multiple
-                                                                accept="image/*">
-                                                            <p> <?php echo $lang["select_files"]; ?>
-                                                            </p>
-                                                        </label>
-                                                        <span class="files_type"> .jpg, .jpeg,
-                                                            .png, .gif </span>
+                                                <div class="box mb-3">
+                                                    <div class="upload-file">
+                                                        <div class="upload-wrapper">
+                                                            <label>
+                                                                <input type="file" name="national_id[]" id="files2" multiple accept="image/*">
+                                                                <p> <?php echo $lang["select_files"]; ?>
+                                                                </p>
+                                                            </label>
+                                                            <span class="files_type"> .jpg, .jpeg,
+                                                                .png, .gif </span>
+                                                        </div>
                                                     </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+
+                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                        </div>
+                                                    </div>
+                                                    <output id="image-gallery2"></output>
+
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-12">
-
-                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
-                                                    </div>
-                                                </div>
-                                                <output id="image-gallery2"></output>
+                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
 
                                             </div>
 
-                                            <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+                                            <div class="col-lg-12">
+                                                <!-- ارفع الفيديوهات الخص  -->
+                                                <label>
+                                                    <p> <?php echo $lang["upload_video"]; ?>
+                                                    </p>
+                                                </label>
 
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <label>
-                                                <p> <?php echo $lang["upload_cv_document"]; ?>
-                                                </p>
-                                            </label>
-
-                                            <div class="box mb-3">
-                                                <div class="upload-file">
-                                                    <div class="upload-wrapper">
-                                                        <label>
-                                                            <input type="file" name="certificate_image[]" id="files3"
-                                                                multiple accept=".doc, .docx, .pdf">
-                                                            <p> <?php echo $lang["select_files"]; ?>
-                                                            </p>
-                                                        </label>
-                                                        <span class="files_type"> .doc, .docs,
-                                                            .pdf </span>
+                                                <div class="box mb-3">
+                                                    <div class="upload-file">
+                                                        <div class="upload-wrapper">
+                                                            <label>
+                                                                <input type="file" name="talent_video[]" id="files4" multiple>
+                                                                <p> <?php echo $lang["select_files"]; ?>
+                                                                </p>
+                                                            </label>
+                                                        </div>
                                                     </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+
+                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                        </div>
+                                                    </div>
+                                                    <output id="image-gallery4"></output>
+
                                                 </div>
 
-                                                <div class="row">
-                                                    <div class="col-12">
-
-                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
-                                                    </div>
-                                                </div>
-                                                <output id="image-gallery3"></output>
+                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
 
                                             </div>
 
-                                            <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+                                            <div class="col-lg-12">
+                                                <label>
+                                                    <p> <?php echo $lang["upload_cv_document"]; ?>
+                                                    </p>
+                                                </label>
+
+                                                <div class="box mb-3">
+                                                    <div class="upload-file">
+                                                        <div class="upload-wrapper">
+                                                            <label>
+                                                                <input type="file" name="certificate_image[]" id="files3" multiple accept=".doc, .docx, .pdf">
+                                                                <p> <?php echo $lang["select_files"]; ?>
+                                                                </p>
+                                                            </label>
+                                                            <span class="files_type"> .doc, .docs,
+                                                                .pdf </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+
+                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                        </div>
+                                                    </div>
+                                                    <output id="image-gallery3"></output>
+
+                                                </div>
+
+                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                            </div>
 
                                         </div>
 
+
+
                                     </div>
-
-
 
                                 </div>
 
                             </div>
 
+
                         </div>
-
-
                     </div>
-                </div>
-                <div class="">
-                    <div class="reservation_button">
-                        <button type="submit" class="btn main_button">
-                            <?php echo $lang["account_update"]; ?></button>
+                    <div class="">
+                        <div class="reservation_button">
+                            <button type="submit" class="btn main_button">
+                                <?php echo $lang["account_update"]; ?></button>
+                        </div>
                     </div>
-                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
 
-</form>
-
+    </form>
 
 
-</div>
-</div>
-</div>
-</div>
-</div>
 
-</div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
 
 
 

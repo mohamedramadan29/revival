@@ -88,65 +88,6 @@ if (isset($_GET['event_id'])) {
         <div class="data">
             <div class="row">
 
-                <div class="col-lg-6 col-12">
-                    <div class="info">
-                        <?php
-                        $stmt = $connect->prepare("SELECT * FROM event_about_us WHERE about_page=?");
-                        $stmt->execute(array($event_name));
-                        $allbanners = $stmt->fetchAll();
-                        foreach ($allbanners as $data) {
-                            $about_desc = $data["about_desc"];
-                            $about_desc_en = $data["about_desc_en"];
-                        ?>
-                            <h3> <?php
-                                    if ($_SESSION["lang"] == "ar") {
-                                        echo $data["about_name"];
-                                    } else {
-                                        echo $data["about_name_en"];
-                                    }
-                                    ?>
-                            </h3>
-                            <p> <?php
-                                if ($_SESSION["lang"] == "ar") {
-                                    echo substr($about_desc, 0, 700);
-                                } else {
-                                    echo substr($about_desc_en, 0, 700);
-                                }
-                                ?> </p>
-                        <?php
-                        }
-                        ?>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div class="info">
-                        <?php
-                        $stmt = $connect->prepare("SELECT * FROM event_about_us WHERE about_page=?");
-                        $stmt->execute(array($event_name));
-                        $allbanners = $stmt->fetchAll();
-                        foreach ($allbanners as $data) {
-                            if ($_SESSION["lang"] == "ar") { ?>
-                                <img src="../../admin_event/upload/<?php echo $data["image1"]; ?>" alt="">
-                            <?php
-                            } else { ?>
-                                <img src="../../admin_event/upload/<?php echo $data["image2"]; ?>" alt="">
-                        <?php
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END ARTIFICIAL IDEA -->
-<!-- START ARTIFICAIL IDEA -->
-<div class="idea">
-    <div class="container">
-        <div class="data">
-            <div class="row">
                 <div class="col-lg-12 col-12">
                     <div class="info">
                         <?php
@@ -172,11 +113,51 @@ if (isset($_GET['event_id'])) {
                                     echo $about_desc_en;
                                 }
                                 ?> </p>
+                            <?php
+                            if (!empty($data["about_sub_desc"])) { ?>
+                                <ul class="list-unstyled">
+                                    <?php
+                                    if ($_SESSION["lang"] == "ar") {
+                                        $learn = $data['about_sub_desc'];
+                                    } else {
+                                        $learn = $data['about_sub_desc_en'];
+                                    }
+                                    $learn = explode(",", $learn);
+                                    $countfile = count($learn) - 1;
+                                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                                        <li><i class="fa fa-star"> </i> <?= $learn[$i] ?></li>
+                                    <?php
+                                    }
+                                    ?>
+                                </ul>
                         <?php
+                            }
+                        }
+                        ?>
+                    </div>
+
+
+                </div>
+                <!--
+                <div class="col-lg-6 col-12">
+                    <div class="info">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM event_about_us WHERE about_page=?");
+                        $stmt->execute(array($event_name));
+                        $allbanners = $stmt->fetchAll();
+                        foreach ($allbanners as $data) {
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <img src="../../admin_event/upload/<?php echo $data["image1"]; ?>" alt="">
+                            <?php
+                            } else { ?>
+                                <img src="../../admin_event/upload/<?php echo $data["image2"]; ?>" alt="">
+                        <?php
+                            }
                         }
                         ?>
                     </div>
                 </div>
+                    -->
             </div>
         </div>
     </div>
@@ -332,26 +313,49 @@ if (isset($_GET['event_id'])) {
                     </div>
                 </div>
             </div>
-            <div class="row" id="speakers">
-                <h2> <?php echo $lang["index_h11"]; ?> </h2>
-                <?php
-                $stmt = $connect->prepare("SELECT * FROM event_speaker WHERE event_page=?");
-                $stmt->execute(array($event_name));
-                $about_event = $stmt->fetchAll();
-                foreach ($about_event as $about) { ?>
-                    <div class="col-lg-3">
-                        <div class="info">
-                            <img class="" src="../../admin_event/upload/<?php echo $about["image1"]; ?>" alt="">
-                            <h3> <a href="#"> <?php echo $about["speaker_name"]; ?> </a> </h3>
-                            <p> <?php echo $about["speaker_jop"]; ?> </p>
+
+            <div class="main_event_speaker">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="carousel-car owl-carousel">
+                            <?php
+                            $stmt = $connect->prepare("SELECT * FROM event_speaker WHERE event_page=?");
+                            $stmt->execute(array($event_name));
+                            $about_event = $stmt->fetchAll();
+                            foreach ($about_event as $about) { ?>
+                                <a href="">
+                                    <div class="item">
+                                        <div class="car-wrap ftco-animate">
+                                            <div class="img d-flex align-items-end" style="background-image: url(../../admin_event/upload/<?php if ($_SESSION['lang'] == 'ar') {
+                                                                                                                                                echo $about["image1"];
+                                                                                                                                            } else {
+                                                                                                                                                echo $about["image2"];
+                                                                                                                                            } ?>);">
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <h3> <?php
+                                                    if ($_SESSION['lang'] == 'ar') {
+                                                        echo $about["speaker_name"];
+                                                    } else {
+                                                        echo $about["speaker_name_en"];
+                                                    }
+                                                    ?> </h3>
+                                            <p> <?php
+                                                if ($_SESSION['lang'] == 'ar') {
+                                                    echo $about["speaker_jop"];
+                                                } else {
+                                                    echo $about["speaker_jop_en"];
+                                                }
+                                                ?> </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php
+                            } ?>
                         </div>
                     </div>
-                    <?php
-                    ?>
-
-                <?php
-                }
-                ?>
+                </div>
             </div>
         </div>
     </div>
@@ -530,7 +534,6 @@ if (isset($_GET['event_id'])) {
         <div class="row">
             <div class="col-md-12">
                 <div class="carousel-car owl-carousel">
-
                     <?php
                     $stmt = $connect->prepare("SELECT * FROM event_sponser WHERE event_page=?");
                     $stmt->execute(array($event_name));
@@ -539,7 +542,11 @@ if (isset($_GET['event_id'])) {
                         <a href="<?php echo $about["sponser_link"]; ?>">
                             <div class="item">
                                 <div class="car-wrap ftco-animate">
-                                    <div class="img d-flex align-items-end" style="background-image: url(../../admin_event/upload/<?php echo $about["image1"]; ?>);">
+                                    <div class="img d-flex align-items-end" style="background-image: url(../../admin_event/upload/<?php if ($_SESSION['lang'] == 'ar') {
+                                                                                                                                        echo $about["image1"];
+                                                                                                                                    } else {
+                                                                                                                                        echo $about["image2"];
+                                                                                                                                    } ?>);">
                                     </div>
                                 </div>
                             </div>

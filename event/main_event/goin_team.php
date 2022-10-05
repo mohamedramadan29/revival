@@ -6,6 +6,12 @@ $artificial_event = 'artificial_event';
 include 'init.php';
 ?>
 
+<!-- START GET EMAIL CONTENT  -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM email_message_event WHERE email_section='انضم الي فريق'");
+$stmt->execute();
+$emaildata = $stmt->fetchAll();
+?>
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
@@ -81,12 +87,19 @@ include 'init.php';
                     ));
                     if ($stmt) {
 
-                        $to_email = $email;
-                        $subject = "اللتسجيل في ريفايفال";
-                        $body =  $lang["goin_team_message"];
-                        $headers = "From: info@revivals.site";
-                        mail($to_email, $subject, $body, $headers)
 
+                        $to_email = $email;
+                        $subject = "الانضمام الي فريق";
+                        foreach ($emaildata as $data) {
+                            if ($_SESSION['lang'] == 'ar') {
+                                $body =  $data['email_text'];
+                            } else {
+                                $body =  $data['email_text_en'];
+                            }
+                        }
+                        $headers = "From: info@revivals.site";
+                        mail($to_email, $subject, $body, $headers);
+                        //header("Location:profile.php");
             ?>
                         <style>
                             .message_form {
@@ -94,7 +107,16 @@ include 'init.php';
                             }
                         </style>
                         <div class='container'>
-                            <div class='alert alert-success text-center'> <?php echo $lang["goin_team_message"]; ?>
+                            <div class='alert alert-success text-center'>
+                                <?php
+                                foreach ($emaildata as $data) {
+                                    if ($_SESSION['lang'] == 'ar') {
+                                        echo   $data['email_text'];
+                                    } else {
+                                        echo  $data['email_text_en'];
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     <?php
@@ -200,12 +222,27 @@ include 'init.php';
                                             <?php
                                             }
                                             ?>
-                                            <option value="<?php echo $lang["Journalist"];  ?>">
-                                                <?php echo $lang["Journalist"];  ?> </option>
-                                            <option value="<?php echo $lang["you_speaker"];  ?>">
-                                                <?php echo $lang["you_speaker"];  ?> </option>
-                                            <option value=" <?php echo $lang["my_media"];  ?>">
-                                                <?php echo $lang["my_media"];  ?> </option>
+                                            <?php
+                                            $stmt = $connect->prepare("SELECT * FROM  form_selection_event WHERE select_form='انضم الي فريق'");
+                                            $stmt->execute();
+                                            $mainfiled = $stmt->fetchAll();
+                                            foreach ($mainfiled as $filed) {
+                                                if ($_SESSION["lang"] == "ar") {
+                                                    $fileds = $filed['select_name'];
+                                                } else {
+                                                    $fileds = $filed['select_name_en'];
+                                                }
+                                                $fileds =  explode(",", $fileds);
+
+                                                $countfile = count($fileds) - 1;
+                                                for ($i = 0; $i < $countfile; ++$i) { ?>
+                                                    <option value="<?= $fileds[$i] ?>"><?= $fileds[$i] ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="col-lg-6">

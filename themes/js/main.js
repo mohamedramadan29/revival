@@ -74,7 +74,7 @@ AOS.init({
       items: 1,
       margin: 30,
       stagePadding: 0,
-      nav: false,
+      nav: true,
       navText: [
         '<span class="ion-ios-arrow-back">',
         '<span class="ion-ios-arrow-forward">',
@@ -97,7 +97,7 @@ AOS.init({
       items: 1,
       margin: 30,
       stagePadding: 0,
-      nav: false,
+      nav: true,
       navText: [
         '<span class="ion-ios-arrow-back">',
         '<span class="ion-ios-arrow-forward">',
