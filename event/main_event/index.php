@@ -35,6 +35,27 @@ if (isset($_GET['event_id'])) {
                                                         }
                                                         ?>
                 " class="d-block w-100" alt="image1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <?php
+                        $stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
+                        $stmt->execute(array($event_id));
+                        $event_logo = $stmt->fetch();
+
+                        ?>
+                        <img src="../../admin_event/upload/<?php echo $event_logo["event_logo"]; ?>" alt="">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                                                                echo $banner['banner_head'];
+                                                                            } else {
+                                                                                echo $banner['banner_head_en'];
+                                                                            } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banner['banner_desc'];
+                            } else {
+                                echo $banner['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
                 </div>
             <?php
             }
@@ -56,6 +77,21 @@ if (isset($_GET['event_id'])) {
                                                         }
                                                         ?>
                 " class="d-block w-100" alt="image1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <img src="../../admin_event/upload/<?php echo $event_logo["event_logo"]; ?>" alt="">
+                        <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
+                                                                                echo $banners['banner_head'];
+                                                                            } else {
+                                                                                echo $banners['banner_head_en'];
+                                                                            } ?> </h5>
+                        <p class="animate__animated animate__fadeInUp animate__slow">
+                            <?php if ($_SESSION['lang'] == 'ar') {
+                                echo $banners['banner_desc'];
+                            } else {
+                                echo $banners['banner_desc_en'];
+                            } ?>
+                        </p>
+                    </div>
                 </div>
             <?php
             }
@@ -70,14 +106,6 @@ if (isset($_GET['event_id'])) {
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
-    <div class="data container timeout ">
-        <img src="../../uploads/logo3.png" alt="">
-        <h2> <?php echo $lang["index_h1"]; ?></h2>
-        <div class="row time-countdown justify-content-center">
-            <div id="clock" class="time-count"></div>
-        </div>
-        <h2> <?php echo $event_data["event_name"]; ?> </h2>
     </div>
 </div>
 </div>

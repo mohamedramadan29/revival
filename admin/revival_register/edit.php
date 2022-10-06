@@ -33,27 +33,27 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                     <div class="col-lg-6">
                         <div class="box">
                             <label id="name"> الاسم الاول </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['first_name']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> الاسم الاخير </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['last_name']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> البريد الالكتروني </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['email']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> رقم الهاتف </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['mobile']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> الدولة </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['country']; ?>">
                         </div>
 
@@ -70,30 +70,30 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
 
                         <div class="box">
                             <label id="name"> التخصص </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['specialist']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> الموهل العلمي </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['certificate']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> المجال </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['field']; ?>">
                         </div>
 
                         <div class="box">
                             <label id="name"> المجال الفرعي </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['sub_field']; ?>">
                         </div>
                         <div class="box">
                             <label id="name"> نوع التسجيل </label>
-                            <input required class="form-control" type="text" name="car_name"
+                            <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['reg_type']; ?>">
                         </div>
                         <div class="box">

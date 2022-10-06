@@ -36,6 +36,17 @@ $emaildata = $stmt->fetchAll();
     <?php
     } ?>
 
+<div class="customer_message">
+        <div class="alert alert-info">
+           <?php
+           if(!empty($userinfo['customer_message'])){
+            echo $userinfo['customer_message'];
+           } 
+           
+           ?>
+        </div>
+    </div>
+
     <div class="container">
         <div class="data">
             <div class="row">

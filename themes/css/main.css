@@ -830,6 +830,7 @@ body {
     font-size: 17px;
     color: #555353;
     position: relative;
+    text-align: justify;
 
 }
 
@@ -2310,6 +2311,7 @@ body {
 
 .why_avir .data p {
     max-width: 800px;
+    text-align: justify;
 
 }
 
@@ -3340,4 +3342,8 @@ time {
 
 .talent_images img {
     max-width: 100%;
+}
+
+.customer_message{
+    text-align: center;
 }
