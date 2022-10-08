@@ -5,9 +5,7 @@ include 'init.php';
 
 ?>
 <!-- START HERO SECTION -->
-<!-- START HERO SECTION -->
 <div class="hero artif">
-<h2> Welcome my name is mohamed </h2>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <?php
@@ -46,9 +44,6 @@ include 'init.php';
             <?php
             }
             ?>
-
-
-
             <?php
             $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الرئيسية' ORDER BY banner_id  LIMIT 2");
             $stmt->execute();
@@ -141,8 +136,6 @@ include 'init.php';
                             <?php
                             }
                             ?>
-
-
                             <ul class="list-unstyled">
                                 <?php
                                 if ($_SESSION["lang"] == "ar") {
@@ -373,9 +366,9 @@ include 'init.php';
                     <div class="item">
                         <div class="car-wrap rounded ftco-animate">
                             <div class="img rounded d-flex align-items-end" style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar") {
-                                                                                                                            echo $course["image1"];
-                                                                                                                        } else {
                                                                                                                             echo $course["image2"];
+                                                                                                                        } else {
+                                                                                                                            echo $course["image3"];
                                                                                                                         }
                                                                                                                         ?>);">
                             </div>

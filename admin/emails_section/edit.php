@@ -52,6 +52,8 @@ if (isset($_GET['email_id']) && is_numeric($_GET['email_id'])) {
                                         <option value="استثمار في موهبة" <?php if($alltype["email_section"] == "استثمار في موهبة") echo "selected"; ?>>استثمار في موهبة</option>
                                         <option value="اضافة موهبة" <?php if($alltype["email_section"] == "اضافة موهبة") echo "selected"; ?>>اضافة موهبة</option>
                                         <option value="تفعيل الحساب" <?php if($alltype["email_section"] == "تفعيل الحساب") echo "selected"; ?>>تفعيل الحساب</option>
+                                        <option value="التسجيل في الكورس" <?php if($alltype["email_section"] == "التسجيل في الكورس") echo "selected"; ?>>التسجيل في الكورس</option>
+                                        <option value="الموافقة علي التسجيل في الكورس" <?php if($alltype["email_section"] == "الموافقة علي التسجيل في الكورس") echo "selected"; ?>>الموافقة علي التسجيل في الكورس</option>
                                         <option value="الاشتراك في القائمة البريدية" <?php if($alltype["email_section"] == "الاشتراك في القائمة البريدية") echo "selected"; ?>>الاشتراك في القائمة البريدية</option>
                                     </select>
                                 </div>

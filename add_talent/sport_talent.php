@@ -288,7 +288,7 @@ if ($count >  0) { ?>
                                                                     <div class="upload-file">
                                                                         <div class="upload-wrapper">
                                                                             <label>
-                                                                                <input type="file" name="talent_image[]" id="files9">
+                                                                                <input type="file" name="talent_image[]" id="files3">
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
                                                                         </div>
@@ -300,7 +300,7 @@ if ($count >  0) { ?>
                                                                             <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
                                                                         </div>
                                                                     </div>
-                                                                    <output id="image-gallery9"></output>
+                                                                    <output id="image-gallery3"></output>
 
                                                                 </div>
                                                             </div>

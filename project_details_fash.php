@@ -62,6 +62,9 @@ if (isset($_GET['cat'])) {
                         } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
+                    <div class="return_talent">
+                        <a href="fashion_project.php" class="btn btn-primary">  <?php echo $lang["return_to_talent"]; ?>  <i class="fa fa-arrow-left"></i></a>
+                    </div>
                 </div>
             
 

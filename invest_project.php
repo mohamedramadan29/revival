@@ -2,10 +2,10 @@
 ob_start();
 session_start();
 include 'init.php';
-if(isset($_GET['talent_id'])){
+if (isset($_GET['talent_id'])) {
     $talent_id = $_GET['talent_id'];
 }
-if(isset($_GET['cat'])){
+if (isset($_GET['cat'])) {
     $cat_name = $_GET['cat'];
 }
 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zfirst_name" => $first_name,
             "zlast_name" => $last_name,
             "zemail" => $email,
-            "zmobile" => $mobile, 
+            "zmobile" => $mobile,
             "zcountry" => $country,
             "zfacility_name" => $facility_name,
             "ztalent_id" => $talent_id,
@@ -135,17 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             </span></label>
                                         <input name="email" type="text" class="form-control" id="email" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
                                     </div>
-                                    <div class="box mb-3">
-                                        <label for="Facility_Name"><?php echo $lang["Facility_Name"];  ?></label>
-                                        <input name="facility_name" type="text" class="form-control" id="Facility_Name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['facility_name']; ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="box mb-3">
-                                        <label for="last_name"><?php echo $lang["last_name"];  ?><span class="star"> *
-                                            </span></label>
-                                        <input name="last_name" type="text" class="form-control" id="last_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
-                                    </div>
+
+
                                     <div class="box mb-3">
                                         <!--
                                         <input name="mobile" type="text" class="form-control" id="floatingInput"
@@ -155,6 +146,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?> ">
 
                                     </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="box mb-3">
+                                        <label for="last_name"><?php echo $lang["last_name"];  ?><span class="star"> *
+                                            </span></label>
+                                        <input name="last_name" type="text" class="form-control" id="last_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+                                    </div>
+
+
+
                                     <div class="box mb-3">
                                         <label for="selectcountry"><?php echo $lang["country"];  ?></label>
                                         <select name="country" class="form-select country3" id="selectcountry" aria-label="Floating label select example">
@@ -189,6 +190,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             ?>
                                         </select>
 
+                                    </div>
+                                    <div class="box mb-3">
+                                        <label for="Facility_Name"><?php echo $lang["Facility_Name"];  ?></label>
+                                        <input name="facility_name" type="text" class="form-control" id="Facility_Name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['facility_name']; ?>">
                                     </div>
                                 </div>
                             </div>

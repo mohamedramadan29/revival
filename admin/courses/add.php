@@ -28,7 +28,7 @@
                             <input required class="form-control" type="text" name="course_name_en">
                         </div>
                         <div class="box">
-                            <label id="name"> عدد ايام الكورس
+                            <label id="name"> عدد ساعات الكورس
                             </label>
                             <input required class="form-control" type="number" name="course_num_days">
                         </div>
@@ -84,6 +84,16 @@
                             <div id="logo_" class="col-md-3">
                             </div>
                         </div>
+                        <div class="box2">
+                            <label for=""> بروشر الكورس <span> * </span> </label>
+                            <div class="">
+                                <input id="logo4" class="form-control dropify_" data-default-file="" type="file"
+                                    name="image4" value="">
+                            </div>
+                            <div id="logo_" class="col-md-3">
+                            </div>
+                        </div>
+
                         <div class="box2">
                             <label for=""> صورة الكورس الانجليزية <span> * </span> </label>
                             <div class="">
@@ -176,6 +186,12 @@
             $image3_type = $_FILES['image3']['type'];
             $image3_size = $_FILES['image3']['size'];
 
+             // START video
+             $image4_name = $_FILES['image4']['name'];
+             $image4_tem = $_FILES['image4']['tmp_name'];
+             $image4_type = $_FILES['image4']['type'];
+             $image4_size = $_FILES['image4']['size'];
+
             $course_name = $_POST['course_name'];
             $course_name_en = $_POST['course_name_en'];
             $course_num_days = $_POST['course_num_days'];
@@ -224,13 +240,18 @@
                     $image3_tem,
                     'upload/' . $image3_uploaded
                 );
+                $image4_uploaded = rand(0, 100000000) . '.' . $image4_name;
+                move_uploaded_file(
+                    $image4_tem,
+                    'upload/' . $image4_uploaded
+                );
                 $stmt = $connect->prepare("INSERT INTO  courses (course_name,course_name_en,
                 course_num_days , course_constructor, course_price , course_place, course_learn,course_learn_en,
                 course_requirement,course_requirement_en,course_description,course_description_en,how_course,how_course_en,course_constructor_learn,course_constructor_info,course_constructor_info_en,
-                image1,image2,image3)
+                image1,image2,image3,image4)
                 VALUES (:zcourse_name,:zcourse_name_en,:zcourse_num_days,:zcourse_constructor,:zcourse_price,
                 :zcourse_place,:zcourse_learn,:zcourse_learn_en,:zcourse_reqirement,:zcourse_reqirement_en,:zcourse_description,:zcourse_description_en,:zcourse_how,:zcourse_how_en,
-                :zcourse_constructor_learn,:zcourse_constructor_info,:zcourse_constructor_info_en,:zimage1,:zimage2,:zimage3)");
+                :zcourse_constructor_learn,:zcourse_constructor_info,:zcourse_constructor_info_en,:zimage1,:zimage2,:zimage3,:zimage4)");
                 $stmt->execute([
                     'zcourse_name' => $course_name,
                     'zcourse_name_en' => $course_name_en,
@@ -251,7 +272,8 @@
                     'zcourse_constructor_info_en' => $course_constructor_info_en,
                     'zimage1' => $image1_uploaded,
                     'zimage2' => $image2_uploaded,
-                    'zimage3' => $image3_uploaded
+                    'zimage3' => $image3_uploaded,
+                    'zimage4' => $image4_uploaded,
                 ]);
                 if ($stmt) { ?>
     <div class="alert-success">

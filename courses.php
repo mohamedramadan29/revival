@@ -19,7 +19,7 @@ include 'init.php';
         <div class="row">
 
             <?php
-            $stmt = $connect->prepare("SELECT * FROM courses WHERE course_status = 'active' ORDER BY course_id DESC LIMIT 3");
+            $stmt = $connect->prepare("SELECT * FROM courses WHERE course_status = 'active' ORDER BY course_id DESC");
             $stmt->execute();
             $allcourses = $stmt->fetchAll();
             foreach ($allcourses as $course) { ?>
@@ -28,9 +28,9 @@ include 'init.php';
                     <div class="car-wrap rounded ftco-animate">
                         <div class="img rounded d-flex align-items-end"
                             style="background-image: url(admin/upload/<?php if ($_SESSION["lang"] == "ar") {
-                                                                                                                            echo $course["image1"];
-                                                                                                                        } else {
                                                                                                                             echo $course["image2"];
+                                                                                                                        } else {
+                                                                                                                            echo $course["image3"];
                                                                                                                         }
                                                                                                                         ?>);">
                         </div>

@@ -47,7 +47,7 @@ if (isset($_GET['course_id']) && is_numeric($_GET['course_id'])) {
                                 value="<?php echo $alltype["course_name_en"] ?>">
                         </div>
                         <div class="box">
-                            <label id="name"> عدد ايام الكورس
+                            <label id="name"> عدد ساعات الكورس
                             </label>
                             <input required class="form-control" type="number" name="course_num_days"
                                 value="<?php echo $alltype["course_num_days"] ?>">

@@ -8,8 +8,7 @@
     <link rel="icon" href="uploads/logo3.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
     <link rel="stylesheet" href=" <?php echo $css; ?>open-iconic-bootstrap.min.css">
     <script src="https://kit.fontawesome.com/305b6c5c80.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $css; ?>bootstrap.min.css">

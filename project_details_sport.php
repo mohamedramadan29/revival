@@ -52,6 +52,7 @@ if (isset($_GET['cat'])) {
                             <li> <span> العمر : </span> <?php echo $talent_info['player_position']; ?> </li>
                         </ul>
                     </div>
+
                     <div class="info2">
                         <h2> نبذة عن الموهبة </h2>
                         <p> <?php echo $talent_info['experience_info']; ?>
@@ -61,13 +62,16 @@ if (isset($_GET['cat'])) {
                         } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
+                    <div class="return_talent">
+                        <a href="talent_project.php" class="btn btn-primary">  <?php echo $lang["return_to_talent"]; ?>  <i class="fa fa-arrow-left"></i></a>
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
                     <div class="talent_images">
-                        <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
+                        <img src="admin/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
                     </div>
-                    <div class="talent_video"  style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
+                    <div class="talent_video"  style="background-image:url(admin/upload/<?php echo $talent_info['talent_image']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['video_talent']; ?>" data-bs-target="#videoModal">
                                 <span></span>

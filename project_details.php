@@ -64,6 +64,9 @@ if (isset($_GET['cat'])) {
                                                                                         } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
+                    <div class="return_talent">
+                        <a href="artificial_project.php" class="btn btn-primary">  <?php echo $lang["return_to_talent"]; ?>  <i class="fa fa-arrow-left"></i></a>
+                    </div>
                 </div> 
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
