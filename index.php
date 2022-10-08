@@ -7,7 +7,7 @@ include 'init.php';
 <!-- START HERO SECTION -->
 <!-- START HERO SECTION -->
 <div class="hero artif">
-
+<h2> Welcome my name is mohamed </h2>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <?php
