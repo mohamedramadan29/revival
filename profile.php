@@ -19,6 +19,9 @@ $count = $stmt->rowCount();
 $userinfo  = $stmt->fetch();
 if ($count > 0) {
     include "profile/revival_profile.php";
+} else {
+    header("Location:index.php");
+    exit();
 }
 // artificial_register
 
@@ -28,6 +31,9 @@ $userinfo  = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count  > 0) {
     include "profile/art_profile.php";
+} else {
+    header("Location:index.php");
+    exit();
 }
 
 // sport_talent_register
@@ -38,6 +44,9 @@ $userinfo  = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     include "profile/sport_profile.php";
+} else {
+    header("Location:index.php");
+    exit();
 }
 
 // fash_register
@@ -48,6 +57,9 @@ $userinfo  = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
     include "profile/fash_profile.php";
+} else {
+    header("Location:index.php");
+    exit();
 }
 
 

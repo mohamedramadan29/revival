@@ -60,7 +60,7 @@ body {
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
     padding-left: 8px !important;
     padding-right: 8px !important;
-    font-size: 12px
+    font-size:15px
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu {
@@ -336,7 +336,7 @@ body {
 
     background-color: #fff;
     box-shadow: 0px 0px 10px 2px #ccc;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     border-radius: 10px;
 }
 
@@ -357,8 +357,7 @@ body {
 
 .our_services .data .info p {
     padding: 10px;
-    text-align: center;
-    min-height: 150px;
+    text-align: center; 
 }
 
 /* END OUR SERVICS */
@@ -1640,6 +1639,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 14px 2px #ccc;
+    background-position: center;
 }
 
 .about .about_event2 {
@@ -2284,7 +2284,7 @@ body {
 /*NAVBAR EDIT*/
 #carouselExampleFade .carousel-control-next {
     left: 0 !important;
-    z-index: 99999999999;
+    z-index: 999;
 }
 
 #carouselExampleFade .carousel-control-prev {
@@ -3409,4 +3409,24 @@ time {
 
 .return_talent a {
     text-decoration: none;
+}
+
+/* START NEW STYLE IN MOBILE*/
+
+.ftco-navbar-light .navbar-toggler {
+    border: none;
+    color: rgb(255 255 255) !important;
+    cursor: pointer;
+    padding-right: 10px !important;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: .1em;
+}
+@media(max-width:991px){
+    .ftco-navbar-light{
+        top:0;
+    }
+    .top_navbar .date{
+        display: none;
+    }
 }

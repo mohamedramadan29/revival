@@ -11,13 +11,7 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION -->
-<!-- START GET EMAIL CONTENT  -->
-<?php
-$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='رسالة التواصل'");
-$stmt->execute();
-$emaildata = $stmt->fetchAll();
-?>
-<!-- END GET EMAIL CONTENT -->
+<!--  GET EMIAL FROM HERE   -->
 <!-- START CONTACT FORM -->
 <div class="contact_form">
     <div class="container">
@@ -25,95 +19,8 @@ $emaildata = $stmt->fetchAll();
             <div class="row">
 
                 <div class="col-lg-6 col-12">
-                    <?php
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        $file = '';
-                        $file_tmp = '';
-                        $location = "";
-                        $uploadplace = "admin/upload/";
-                        // START UPLOAD contact_files
-
-                        foreach ($_FILES['contact_files']['name'] as $key => $val) {
-                            $file = $_FILES['contact_files']['name'][$key];
-                            $file = str_replace(' ', '', $file);
-                            $file_tmp = $_FILES['contact_files']['tmp_name'][$key];
-                            move_uploaded_file($file_tmp, $uploadplace . $file);
-                            $location .= $file . " ";
-                        }
-                        $user_name = $_POST["user_name"];
-                        $user_email = $_POST["user_email"];
-                        $user_message = $_POST["user_message"];
-                        $email_subject = $_POST["email_subject"];
-
-                        $errormessage = [];
-
-                        if (empty($user_name)) {
-                            $errormessage[] =  $lang['enter_username'];
-                        }
-
-                        if (empty($user_email)) {
-                            $errormessage[] =  $lang['enter_email'];
-                        }
-
-                        if (empty($user_message)) {
-                            $errormessage[] = $lang['enter_message'];
-                        }
-
-                        if (empty($errormessage)) {
-                            $stmt = $connect->prepare("INSERT INTO contact_us (contact_name, contact_email,email_subject ,contact_message,fiels)
-                            VALUES (:zname, :zemail,:zemail_subject,:zmessage,:zfiles)");
-                            $stmt->execute(array(
-                                "zname" => $user_name,
-                                "zemail" => $user_email,
-                                "zemail_subject" => $email_subject,
-                                "zmessage" => $user_message,
-                                "zfiles" => $location,
-                            ));
-                            if ($stmt) {
-                                $to_email = $user_email;
-                                $subject = "اللتسجيل في ريفايفال";
-                                foreach ($emaildata as $data) {
-                                    if ($_SESSION['lang'] == 'ar') {
-                                        $body =  $data['email_text'];
-                                    } else {
-                                        $body =  $data['email_text_en'];
-                                    }
-                                }
-                                $headers = "From: info@revivals.site";
-                                mail($to_email, $subject, $body, $headers)
-
-                    ?>
-                                <style>
-                                    .message_form {
-                                        display: none !important;
-                                    }
-                                </style>
-                                <div class='container'>
-                                    <div class='alert alert-success text-center'>
-                                        <?php
-                                        foreach ($emaildata as $data) {
-                                            if ($_SESSION['lang'] == 'ar') {
-                                                echo   $data['email_text'];
-                                            } else {
-                                                echo  $data['email_text_en'];
-                                            }
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            <?php
-                            }
-                        } else {
-                            foreach ($errormessage as $message) { ?>
-                                <div class="error_message">
-                                    <div class="alert alert-danger"> <?php echo $message ?> </div>
-                                </div>
-                    <?php
-                            }
-                        }
-                    }
-                    ?>
-                    <form class="message_form" action="" method="post" enctype="multipart/form-data">
+            <!-- OLD CODE HERE  -->
+                    <form class="message_form ajax_form" action="upload_forms/upload_contact.php" method="post" enctype="multipart/form-data">
                         <div class="info">
                             <div class="box mb-3">
                                 <label for="floatingInput"><?php echo $lang["name"];  ?> <span class="star"> *
@@ -170,17 +77,28 @@ $emaildata = $stmt->fetchAll();
 
                                 </div>
 
-
-
                             </div>
-
-
 
                         </div>
                         <div>
-                            <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  ">
+                       <!-- <button>Upload</button> -->
+                            <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  "> 
                         </div>
                     </form>
+
+                    <!---------------------  START NEW CODE ---------------------------->
+
+                    <!-- Area to display the percent of progress -->
+                    <div class="mt-3">
+                        <div class="progress">
+                            <div class="progress-bar" id="percent" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
+                    </div>
+
+                    <!-- area to display a message after completion of upload -->
+                    <div id='status'></div>
+
+                    <!------------------------- END NEW CODE ------------------->
 
                 </div>
 

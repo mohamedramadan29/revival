@@ -13,6 +13,8 @@
   <script src="<?php echo $js; ?>jquery.stellar.min.js"></script>
   <script src="<?php echo $js; ?>owl.carousel.min.js"></script>
   <script src="<?php echo $js; ?>jquery.magnific-popup.min.js"></script>
+  <!-- SCRIPT TO UPLOAD FILES  -->
+  <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
   <script src="<?php echo $js; ?>aos.js"></script>
   <script src="<?php echo $js; ?>jquery.animateNumber.min.js"></script>
   <script src="<?php echo $js; ?>bootstrap-datepicker.js"></script>
@@ -62,28 +64,37 @@
   <script src="https://unpkg.com/filepond-plugin-file-poster/dist/filepond-plugin-file-poster.js"></script>
   <script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
 
-  <script type="text/javascript">
-    /*
-    var pond = FilePond.create(document.querySelector('input[type="file"]'));
-    // get a collection of elements with class filepond
-    const inputElements = document.querySelectorAll('input.filepond');
 
-    // loop over input elements
-    Array.from(inputElements).forEach(inputElement => {
 
-      // create a FilePond instance at the input element location
-      FilePond.create(inputElement);
+  <!-- START SCRIPT TO UPLOAD FILES  -->
+  <script>
+    $(function() {
+      $(document).ready(function() {
+        var percent = $('#percent');
+        var status = $('#status');
 
-    })
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.registerPlugin(FilePondPluginFilePoster);
-    FilePond.registerPlugin(FilePondPluginImageTransform);
+        $('.ajax_form').ajaxForm({
+          beforeSend: function() {
+            status.empty();
+            var percentVal = '0%';
+            percent.html(percentVal);
+          },
+          uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            percent.html(percentVal);
 
-    FilePond.setOptions({
-      server: './',
+            $("#percent").html(percentVal);
+            $("#percent").width(percentVal);
+          },
+          complete: function(xhr) {
+            status.html(xhr.responseText);
+          }
+        });
+      });
     });
-    */
   </script>
+
+  <!-- END SCRIPT TO UPLOAD FILES  -->
   <!-- END UPLOAD FILES WITH FILEPOND PLUGIN -->
   <script src="<?php echo $js; ?>google-map.js"></script>
   <script src="<?php echo $js; ?>main.js"></script>

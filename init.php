@@ -9,6 +9,8 @@ include $tem . 'header.php';
 
 if (isset($eventpage)) {
     include $tem . 'event_navbar.php';
-} else {
+} else if(isset($nonavbar)) {
+    
+}else{
     include $tem . 'navbar.php';
 }
