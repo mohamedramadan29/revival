@@ -407,6 +407,8 @@ if (isset($_SESSION["username"])) { ?>
                 <div id='status'></div>
                 <!-- Area to display the percent of progress -->
 
+                
+
                 <div class="my_progress">
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>

@@ -98,35 +98,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] = $lang["username_found_or_email"];
-    }
+
 
     $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] = $lang["username_found_or_email"];
-    }
+
 
     $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ? OR email=? ");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] = $lang["username_found_or_email"];
-    }
+
     $stmt = $connect->prepare("SELECT * FROM register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
+
+
 
     if ($exist > 0) {
         $errormessage[] = $lang["username_found_or_email"];
@@ -161,8 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zptall" => $player_taller,
         ));
         if ($stmt) {
-
-
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
             foreach ($emaildata as $data) {
@@ -176,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mail($to_email, $subject, $body, $headers)
 
 ?>
-           
+
             <div class='container'>
                 <div class='alert alert-success text-center'>
                     <?php
@@ -192,7 +186,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php
         }
-    } else {
+    } else {?>
+    <style>
+        .my_progress{
+            display: none;
+        }
+    </style>
+    <?php
+
         foreach ($errormessage as $message) { ?>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>

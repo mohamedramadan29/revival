@@ -95,34 +95,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
-    }
+
 
     $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
-    }
 
     $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
-    if ($exist > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
-    }
+
 
     $stmt = $connect->prepare("SELECT * FROM register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt->execute(array($username, $email));
 
     $exist = $stmt->fetch();
 
@@ -195,7 +188,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php
         }
-    } else {
+    } else { ?>
+
+        <style>
+            .my_progress {
+                display: none;
+            }
+        </style>
+
+        <?php
         foreach ($errormessage as $message) { ?>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>

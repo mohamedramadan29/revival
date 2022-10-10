@@ -171,7 +171,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php
         }
-    } else {
+    } else {?>
+
+        <style>
+        .my_progress{
+            display: none;
+        }
+    </style>
+    <?php
         foreach ($errormessage as $message) { ?>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>
