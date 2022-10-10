@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
     <link rel="stylesheet" href=" <?php echo $css; ?>open-iconic-bootstrap.min.css">
     <script src="https://kit.fontawesome.com/305b6c5c80.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo $css; ?>bootstrap.min.css">
@@ -35,10 +34,10 @@
     <?php if ($_SESSION['lang'] == 'ar') { ?>
 
     <?php } else { ?>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="<?php echo $css; ?>custome2.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link href="<?php echo $css; ?>custome2.css" rel="stylesheet">
     <?php } ?>
 
 

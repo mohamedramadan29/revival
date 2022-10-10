@@ -15,6 +15,8 @@
   <script src="<?php echo $js; ?>jquery.magnific-popup.min.js"></script>
   <!-- SCRIPT TO UPLOAD FILES  -->
   <script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
+  <!-- START CHAT PLUGIN -->
+  <script src="//code.tidio.co/yk7s2q6avmmuy5j2mb6av5ecrapjimy0.js" async></script> 
   <script src="<?php echo $js; ?>aos.js"></script>
   <script src="<?php echo $js; ?>jquery.animateNumber.min.js"></script>
   <script src="<?php echo $js; ?>bootstrap-datepicker.js"></script>

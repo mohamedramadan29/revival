@@ -407,9 +407,6 @@ $emaildata = $stmt->fetchAll();
 
                                                                 </div>
 
-                                                                <div class="box submit_box">
-                                                                    <input class="btn btn-primary text-center" name="add_car" type="submit" value=" تعديل الحساب ">
-                                                                </div>
                                                             </form>
                                                         </div>
 
