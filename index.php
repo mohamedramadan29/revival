@@ -1,8 +1,7 @@
 <?php
 ob_start();
 session_start();
-include 'init.php';
-
+include 'init.php'; 
 ?>
 <!-- START HERO SECTION -->
 <div class="hero artif">
@@ -258,7 +257,7 @@ include 'init.php';
 <div class="our_services">
     <div class="container-fluid">
         <div class="data">
-            <h2> <?php echo $lang["index_h3"] ?> </h2>
+            <h2> <?php echo $lang["index_h3"] ?></h2>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="info">
@@ -308,7 +307,7 @@ include 'init.php';
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="out_team_image">
-                        <img src="uploads/header2.jpg" alt="">
+                        <img src="uploads/services.png" alt="">
                     </div>
                 </div>
             </div>

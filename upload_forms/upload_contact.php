@@ -19,14 +19,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = "";
     $uploadplace = "../admin/upload/";
     // START UPLOAD contact_files
+    if (isset($_FILES['contact_files']['name'])) {
 
-    foreach ($_FILES['contact_files']['name'] as $key => $val) {
-        $file = $_FILES['contact_files']['name'][$key];
-        $file = str_replace(' ', '', $file);
-        $file_tmp = $_FILES['contact_files']['tmp_name'][$key];
-        move_uploaded_file($file_tmp, $uploadplace . $file);
-        $location .= $file . " ";
+        foreach ($_FILES['contact_files']['name'] as $key => $val) {
+            $file = $_FILES['contact_files']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp = $_FILES['contact_files']['tmp_name'][$key];
+            move_uploaded_file($file_tmp, $uploadplace . $file);
+            $location .= $file . " ";
+        }
     }
+
     $user_name = $_POST["user_name"];
     $user_email = $_POST["user_email"];
     $user_message = $_POST["user_message"];

@@ -507,9 +507,8 @@ $lang = array(
 
   "return_to_talent" => " الرجوع الي المواهب ",
   "course_register" => "التسجيل في الكورس",
+  "username_found_or_email" => "اسم المستخدم او البريد الالكروني موجود من قبل",
 
-
-  
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

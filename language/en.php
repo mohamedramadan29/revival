@@ -527,6 +527,8 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "subscribe_error" => "The email is already subscribed to the mailing list",
     "return_to_talent" => "Return To Talent",
     "course_register" => "Register In Course ",
+    "username_found_or_email" => "User Name Or Email Is Already Found",
+
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

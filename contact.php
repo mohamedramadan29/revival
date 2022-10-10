@@ -19,7 +19,7 @@ include 'init.php';
             <div class="row">
 
                 <div class="col-lg-6 col-12">
-            <!-- OLD CODE HERE  -->
+                    <!-- OLD CODE HERE  -->
                     <form class="message_form ajax_form" action="upload_forms/upload_contact.php" method="post" enctype="multipart/form-data">
                         <div class="info">
                             <div class="box mb-3">
@@ -81,18 +81,18 @@ include 'init.php';
 
                         </div>
                         <div>
-                       <!-- <button>Upload</button> -->
-                            <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  "> 
+                            <!-- <button>Upload</button> -->
+                            <input class="btn btn-primary" type="submit" value="<?php echo $lang["send"];  ?>  ">
                         </div>
                     </form>
 
                     <!---------------------  START NEW CODE ---------------------------->
 
                     <!-- Area to display the percent of progress -->
-                    <div class="mt-3">
-                        <div class="progress">
-                            <div class="progress-bar" id="percent" role="progressbar" aria-label="Example with label" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-                        </div>
+                    <div class="m-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
                     </div>
 
                     <!-- area to display a message after completion of upload -->

@@ -201,7 +201,7 @@ include 'init.php';
                 <div class="col-lg-6 col-12">
                     <div class="info">
                         <div class="image">
-                            <img src="uploads/art2.jpg" alt="">
+                            <img src="uploads/chip2.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -320,7 +320,7 @@ include 'init.php';
 </div>
 <!-- END MESSAGE SECTION -->
 
-<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT -->
+<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT 
 <section class="ftco-section ftco-no-pt bg-light cars_sections art_sub_projects">
     <div class="container">
         <div class="row justify-content-center">
@@ -404,7 +404,7 @@ include 'init.php';
         </div>
     </div>
 </section>
-<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT -->
+  START ARTIFICIAL iNTELLIEGENCE PROJECT -->
 <?php
 include  $tem . 'footer_section.php';
 include  $tem . 'footer.php';

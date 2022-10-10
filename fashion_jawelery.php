@@ -185,7 +185,7 @@ include 'init.php';
 <!-- END ABOUT -->
 
 <!-- START CONTACT SECTION -->
-<div class="contact_us  fashion_login">
+<div class="contact_us">
     <div class="overlay">
         <div class="container">
             <div class="data">
@@ -235,7 +235,7 @@ include 'init.php';
 -->
 <!-- END MESSAGE SECTION -->
 
-<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT -->
+<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT  
 <section class="ftco-section ftco-no-pt bg-light cars_sections art_sub_projects">
     <div class="container">
         <div class="row justify-content-center">
@@ -310,7 +310,7 @@ include 'init.php';
         </div>
     </div>
 </section>
-<!-- START ARTIFICIAL iNTELLIEGENCE PROJECT -->
+ START ARTIFICIAL iNTELLIEGENCE PROJECT -->
 <?php
 include $tem . 'footer_section.php';
 include $tem . 'footer.php';
