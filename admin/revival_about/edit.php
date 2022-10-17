@@ -157,30 +157,10 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     '</div>';
             }
 
-            $image_image1_uploaded =
-                rand(0, 100000000) . '.' . $image_image1_name;
-            move_uploaded_file(
-                $image_image1_tem,
-                'upload/' . $image_image1_uploaded
-            );
-            $image_image2_uploaded =
-                rand(0, 100000000) . '.' . $image_image2_name;
-            move_uploaded_file(
-                $image_image2_tem,
-                'upload/' . $image_image2_uploaded
-            );
-            $video_video1_uploaded =
-                rand(0, 100000000) . '.' . $video_video1_name;
-            move_uploaded_file(
-                $video_video1_tem,
-                'upload/' . $video_video1_uploaded
-            );
-            $video_video2_uploaded =
-                rand(0, 100000000) . '.' . $video_video2_name;
-            move_uploaded_file(
-                $video_video2_tem,
-                'upload/' . $video_video2_uploaded
-            );
+
+
+
+
 
             if (empty($formerror)) {
 
@@ -196,114 +176,56 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     $about_page,
                     $about_id,
                 ]);
-                if ($image_image1_tem != "" && $image_image2_tem != "" && $video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video1=?, video2=?
+                if ($image_image1_tem != "") {
+                    $image_image1_uploaded =
+                        rand(0, 100000000) . '.' . $image_image1_name;
+                    move_uploaded_file(
+                        $image_image1_tem,
+                        'upload/' . $image_image1_uploaded
+                    );
+                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=? 
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image1_uploaded,
-                        $image_image2_uploaded,
-                        $video_video1_uploaded,
-                        $video_video2_uploaded,
                         $about_id,
                     ]);
-                } elseif ($image_image1_tem != "" && $image_image2_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video1=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $image_image2_uploaded,
-                        $video_video1_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image1_tem != "" && $image_image2_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=?,video2=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $image_image2_uploaded,
-                        $video_video2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image2_tem != "" && $video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video1=?,video2=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image2_uploaded,
-                        $video_video1_uploaded,
-                        $video_video2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image1_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,video1=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $video_video1_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,video2=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $video_video2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($video_video1_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video1=?, video2=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $video_video1_uploaded,
-                        $video_video2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image1_tem != "" && $image_image2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?,image2=? 
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $image_image2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image2_tem != "" && $video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video1=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image2_uploaded,
-                        $video_video1_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image2_tem != "" && $video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?,video2=?
-                    WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image2_uploaded,
-                        $video_video2_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET image1=?
-                WHERE about_id=?");
-                    $stmt->execute([
-                        $image_image1_uploaded,
-                        $about_id,
-                    ]);
-                } elseif ($image_image2_tem != "") {
+                }
+                if ($image_image2_tem != "") {
+                    $image_image2_uploaded =
+                        rand(0, 100000000) . '.' . $image_image2_name;
+                    move_uploaded_file(
+                        $image_image2_tem,
+                        'upload/' . $image_image2_uploaded
+                    );
                     $stmt = $connect->prepare("UPDATE revival_about_us SET image2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $image_image2_uploaded,
                         $about_id,
                     ]);
-                } elseif ($video_video1_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video1=?
+                }
+                if ($video_video1_tem != "") {
+                    $video_video1_uploaded =
+                        rand(0, 100000000) . '.' . $video_video1_name;
+                    move_uploaded_file(
+                        $video_video1_tem,
+                        'upload/' . $video_video1_uploaded
+                    );
+                    $stmt = $connect->prepare("UPDATE revival_about_us SET  video1=? 
                     WHERE about_id=?");
                     $stmt->execute([
                         $video_video1_uploaded,
                         $about_id,
                     ]);
-                } elseif ($video_video2_tem != "") {
-                    $stmt = $connect->prepare("UPDATE revival_about_us SET video2=?
+                }
+                if ($video_video2_tem != "") {
+                    $video_video2_uploaded =
+                        rand(0, 100000000) . '.' . $video_video2_name;
+                    move_uploaded_file(
+                        $video_video2_tem,
+                        'upload/' . $video_video2_uploaded
+                    );
+                    $stmt = $connect->prepare("UPDATE revival_about_us SET  video2=?
                     WHERE about_id=?");
                     $stmt->execute([
                         $video_video2_uploaded,
@@ -314,7 +236,6 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     <div class="container">
                         <div class="alert-success">
                             تم تعديل المحتوي بنجاح
-
                             <?php header('refresh:3,url=main.php?dir=revival_about&page=report'); ?>
                         </div>
                     </div>

@@ -3,9 +3,7 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
-                            class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> الاخبار </li>
                 </ol>
             </nav>
@@ -40,8 +38,7 @@
                         <div class="box2">
                             <label for=""> الصورة العربية <span> * </span> </label>
                             <div class="">
-                                <input id="logo" class="form-control dropify_" data-default-file="" type="file"
-                                    name="image1" value="">
+                                <input id="logo" class="form-control dropify_" data-default-file="" type="file" name="image1" value="">
                             </div>
                             <div id="logo_" class="col-md-3">
                             </div>
@@ -50,8 +47,7 @@
                         <div class="box2">
                             <label for=""> الصورة الانجليزية <span> * </span> </label>
                             <div class="">
-                                <input id="logo2" class="form-control dropify_" data-default-file="" type="file"
-                                    name="image2" value="">
+                                <input id="logo2" class="form-control dropify_" data-default-file="" type="file" name="image2" value="">
                             </div>
                             <div id="logo_" class="col-md-3">
                             </div>
@@ -78,6 +74,13 @@
             </form>
         </div>
     </div>
+    <!-- START GET EMAIL CONTENT  -->
+    <?php
+    $stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='اضافة خبر جديد'");
+    $stmt->execute();
+    $emaildata = $stmt->fetchAll();
+    ?>
+    <!-- END GET EMAIL CONTENT -->
     <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['add_car'])) {
 
@@ -138,12 +141,33 @@
                     'zimage2' => $image2_uploaded,
                 ]);
                 if ($stmt) { ?>
-    <div class="alert-success">
-        تم اضافة خبر جديد بنجاح
-        <?php header('refresh:3000000;url=main.php?dir=articles&page=report'); ?>
-    </div>
-
+                    <div class="alert-success">
+                        تم اضافة خبر جديد بنجاح
+                        <?php header('refresh:3000;url=main.php?dir=news&page=report'); ?>
+                    </div>
 </div>
+<?php
+                    $stmt = $connect->prepare("SELECT * FROM news ORDER BY new_id DESC LIMIT 1");
+                    $stmt->execute();
+                    $articledata = $stmt->fetch();
+                    $stmt = $connect->prepare("SELECT * FROM subscribe");
+                    $stmt->execute();
+                    $allsub = $stmt->fetchAll();
+                    foreach ($allsub as $sub) {
+                        $to_email = $sub['sub_email'];
+                        $subject = "تم اضافة خبر جديد في موقع ريفايفال";
+                        //$body = $articledata['article_title'];
+                        foreach ($emaildata as $data) {
+                            if ($_SESSION['lang'] == 'ar') {
+                                $body =  $data['email_text'];
+                            } else {
+                                $body =  $data['email_text_en'];
+                            }
+                        }
+                        $headers = "From: info@revivals.site";
+                        mail($to_email, $subject, $body, $headers);
+                    }
+?>
 
 <?php }
             }

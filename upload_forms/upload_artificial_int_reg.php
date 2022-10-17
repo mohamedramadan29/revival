@@ -11,7 +11,6 @@ $emaildata = $stmt->fetchAll();
 ?>
 <!-- END GET EMAIL CONTENT -->
 
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -97,31 +96,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
-
+    $exist1 = $stmt->fetch();
+    if ($exist1 > 0) {
+        $errormessage[] =  $lang["username_found_or_email"];
+    }
 
 
     $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
+    $exist2 = $stmt->fetch();
 
-
+    if ($exist2 > 0) {
+        $errormessage[] =  $lang["username_found_or_email"];
+    }
     $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
-
+    $exist3 = $stmt->fetch();
+    if ($exist3 > 0) {
+        $errormessage[] =  $lang["username_found_or_email"];
+    }
 
 
     $stmt = $connect->prepare("SELECT * FROM register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
-
-    if ($exist > 0) {
+    $exist4 = $stmt->fetch();
+    if ($exist4 > 0) {
         $errormessage[] =  $lang["username_found_or_email"];
     }
+
+
     if (empty($errormessage)) {
         $stmt = $connect->prepare("INSERT INTO art_register (first_name, last_name, email, mobile , talent_image, country, specialist ,
     certificate , field , sub_field , register_type,
@@ -158,7 +164,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zusername" => $username,
             "zpassword" => $password,
         ));
-        if ($stmt) {
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("first_form").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
+            <?php
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
             foreach ($emaildata as $data) {
@@ -172,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
 
-?>
+            ?>
             <div class='container'>
                 <div class='alert alert-success text-center'>
                     <?php
@@ -187,6 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         <?php
+
         }
     } else { ?>
 

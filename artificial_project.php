@@ -66,7 +66,18 @@ include 'init.php';
                         foreach ($alltalent_register as $talent) { ?>
                             <div class="col-lg-4">
                                 <div class="info">
-                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <?php
+                                    if (!empty($talent['talent_image'])) { ?>
+                                        <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img src="admin/upload/avatar.png" alt="">
+                                    <?php
+                                    }
+
+                                    ?>
+
                                     <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['art_register_id']; ?> </h3>
                                     <p> <?php
                                         $exp_info = $talent['experience_info'];
@@ -87,7 +98,17 @@ include 'init.php';
                         foreach ($alltalent_register as $talent) { ?>
                             <div class="col-lg-4">
                                 <div class="info">
-                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <?php
+                                    if (!empty($talent['talent_image'])) { ?>
+                                        <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    <?php
+                                    } else { ?>
+                                        <img src="admin/upload/avatar.png" alt="">
+                                    <?php
+                                    }
+
+                                    ?>
+
                                     <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['reg_id']; ?> </h3>
                                     <p> <?php
                                         $exp_info = $talent['experience_info'];
@@ -108,7 +129,16 @@ include 'init.php';
                         foreach ($alltalent_register as $talent) { ?>
                             <div class="col-lg-4">
                                 <div class="info">
+                                    <?php
+                                    if(!empty($talent['project_images'])){?>
                                     <img src="admin/upload/<?php echo $talent['project_images']; ?>" alt="">
+                                    <?php
+                                    }else{?>
+                                    <img src="admin/upload/avatar.png" alt="">
+                                    <?php
+                                    }
+                                    ?>
+                                    
                                     <?php
                                     $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=?");
                                     $stmt->execute(array($talent['username']));

@@ -105,7 +105,8 @@ include 'init.php';
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
+                <video controls src="" id="video"></video>
+                
                 </div>
             </div>
         </div>
@@ -310,41 +311,7 @@ include 'init.php';
                         <img src="uploads/services.png" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img class="" src="uploads/team1.webp" alt="">
-                        <h3> <a href="#"> اريج </a> </h3>
-
-                        <p> مبرمج </p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/person2.webp" alt="">
-                        <h3> <a href="#"> فهد احمد </a> </h3>
-
-                        <p>
-                            مصمم </p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/person3.webp" alt="">
-                        <h3> <a href="#"> شيماء محمد </a> </h3>
-                        <p> مسوق الكتروني</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="info">
-                        <img src="uploads/person4.webp" alt="">
-                        <h3> <a href="#"> زين الدين </a> </h3>
-                        <p>
-                            فنان ابداعي </p>
-                    </div>
-                </div>
-            </div>
+            </div> 
         </div>
     </div>
 </div>
@@ -355,7 +322,6 @@ include 'init.php';
     <div class="container">
         <h2> <?php echo $lang["courses"] ?> </h2>
         <div class="row">
-
             <?php
             $stmt = $connect->prepare("SELECT * FROM courses WHERE course_status = 'active' ORDER BY course_id DESC LIMIT 3");
             $stmt->execute();
@@ -419,44 +385,35 @@ include 'init.php';
 <div class="stat">
     <div class="container">
         <div class="data">
-            <div class="row">
-                <div class="col-lg-1 col-6"></div>
-                <div class="col-lg-2 col-6">
+            <div class="row"> 
+                <div class="col-lg-3 col-6">
                     <div class="info">
                         <i class="fa fa-shirt"></i>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">1234</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">934</h2>
                         <p> <?php echo $lang["fash_talent"] ?></p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="info">
                         <i class="fa-solid fa-futbol"></i>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">60</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">621</h2>
                         <p> <?php echo $lang["sport_talent"] ?> </p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="info">
                         <i class="fa fa-brain"></i>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">100</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">123</h2>
                         <p><?php echo $lang["art_talent"] ?></p>
                     </div>
                 </div>
-                <div class="col-lg-2 col-6">
+                <div class="col-lg-3 col-6">
                     <div class="info">
                         <i class="fa-solid fa-users"></i>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">20</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">87</h2>
                         <p> <?php echo $lang["index_instructor"] ?> </p>
                     </div>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <div class="info">
-                        <i class="fa-solid fa-users"></i>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">20</h2>
-                        <p> <?php echo $lang["index_instructor"] ?> </p>
-                    </div>
-                </div>
-                <div class="col-lg-1 col-6"></div>
+                </div> 
             </div>
         </div>
     </div>

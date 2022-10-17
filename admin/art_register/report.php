@@ -6,7 +6,7 @@
                     <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
                             href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
                             class="fa fa-chevron-left"></i> </li>
-                    <li class="breadcrumb-item active" aria-current="page"> تسجيلات ريفايفال </li>
+                    <li class="breadcrumb-item active" aria-current="page">   تسجيلات الذكاء الإصطناعي    </li>
                 </ol>
             </nav>
         </div>

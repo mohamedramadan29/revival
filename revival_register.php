@@ -25,7 +25,7 @@ if (isset($_SESSION["username"])) { ?>
         <div class="container">
             <div class="data">
 
-                <form class="message_form ajax_form" action="upload_forms/upload_revival_register.php" method="post" enctype="multipart/form-data">
+                <form id="first_form" class="message_form ajax_form" action="upload_forms/upload_revival_register.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-8 col-12">
                             <div class="info">
@@ -197,12 +197,11 @@ if (isset($_SESSION["username"])) { ?>
 
                                         </div>
                                         <div class="box mb-3">
-                                            <!--
-                                        <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
-                                            <label for="mobile"> <?php echo $lang["mobile"];  ?> <span class="star">
+
+                                            <label for="floatingInput"> <?php echo $lang["mobile"];  ?>
+                                                <span class="star">
                                                     * </span></label>
-                                            <input type="tel" name="mobile" id="mobile" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['mobile']; ?>">
+                                            <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?> ">
 
                                         </div>
                                         <div class="box mb-3">

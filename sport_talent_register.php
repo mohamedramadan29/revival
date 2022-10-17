@@ -26,7 +26,7 @@ if (isset($_SESSION["username"])) { ?>
             <div class="data">
 
 
-                <form class="message_form ajax_form" action="upload_forms/upload_sport_register.php" method="POST" enctype="multipart/form-data">
+                <form id="first_form" class="message_form ajax_form" action="upload_forms/upload_sport_register.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12 col-12">
                             <div class="info">

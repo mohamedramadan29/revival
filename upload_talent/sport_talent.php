@@ -147,7 +147,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zusername" => $username,
             "zcat_name" => $cat_name,
         ));
-        if ($stmt) {
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("first_form3").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
+            <?php
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
             foreach ($emaildata as $data) {
@@ -159,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
-?> 
+            ?>
             <div class='container'>
                 <div class='alert alert-success text-center'>
                     <?php
@@ -174,15 +181,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         <?php
-           // header("Location:profile.php");
+            // header("Location:profile.php");
         }
     } else {
         foreach ($errormessage as $message) { ?>
-        <style>
-            .my_progress{
-                display: none;
-            }
-        </style>
+            <style>
+                .my_progress {
+                    display: none;
+                }
+            </style>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>
             </div>

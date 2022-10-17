@@ -102,404 +102,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errormessage[] = $lang["enter_cartificate"];
     }
     if (empty($errormessage)) {
-        if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
+        $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
         certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        national_id=?,certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
+        project_field=?,project_competation=?,project_prize=?, password=?,personal_information=? WHERE username=?");
+        $stmt->execute(array(
+            $first_name,
+            $last_name,
+            $email,
+            $mobile,
+            $specialist,
+            $certificate,
+            $project_name,
+            $project_field,
+            $project_competation,
+            $project_prize,
+            $password,
+            $personal_information,
+            $_SESSION["username"]
+        ));
+
+        if ($file_tmp1 != '') {
+            $stmt = $connect->prepare("UPDATE fash_register SET project_certificate_image=? WHERE username=?");
             $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
                 $location,
+                $_SESSION["username"]
+            ));
+        }
+        if ($file_tmp2 != '') {
+            $stmt = $connect->prepare("UPDATE fash_register SET national_id=? WHERE username=?");
+            $stmt->execute(array(
                 $location2,
+                $_SESSION["username"]
+            ));
+        }
+
+        if ($file_tmp3 != '') {
+            $stmt = $connect->prepare("UPDATE fash_register SET certificate_image=? WHERE username=?");
+            $stmt->execute(array(
                 $location3,
-                $password,
-                $personal_information,
+                $_SESSION["username"]
+            ));
+        }
+        if ($file_tmp4 != '') {
+            $stmt = $connect->prepare("UPDATE fash_register SET talent_video=? WHERE username=?");
+            $stmt->execute(array(
                 $location4,
                 $_SESSION["username"]
             ));
-            if ($stmt) {
-                //   header("Location:profile.php");
-?>
+        }
 
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("update_2").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
             <?php
-            }
-        } elseif ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != "") {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        national_id=?,certificate_image=?, password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $location2,
-                $location3,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
+            //   header("Location:profile.php");
             ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
+            <div class='container'>
+                <div class='alert alert-success text-center'>
+                    <?php echo $lang["suc_profile_message"];  ?>
                 </div>
-            <?php
-            }
-        } elseif ($file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,national_id=?,
-        certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location2,
-                $location3,
-                $password,
-                $personal_information,
-                $location4,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp1 != '' && $file_tmp2 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        national_id=?, password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $location2,
-
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp1 != '' && $file_tmp3 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        certificate_image=?, password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $location3,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //   header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp1 != '' && $file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $password,
-                $personal_information,
-                $location4,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp2 != '' && $file_tmp3 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,national_id=?,
-        certificate_image=?, password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location2,
-                $location3,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp2 != '' && $file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,national_id=?
-        , password=?,personal_information=?,talent_video=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location2,
-                $password,
-                $personal_information,
-                $location4,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //   header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp3 != '' && $file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,
-        certificate_image=?, password=?,personal_information=?,talent_video=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location3,
-                $password,
-                $personal_information,
-                $location4,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //   header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp1 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,project_certificate_image=?,
-        password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                // header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp2 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,national_id=?,
-        password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location2,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } elseif ($file_tmp3 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET first_name=?, last_name=?, email=?, mobile=?, specialist=? ,
-        certificate=? , project_name=?,
-        project_field=?,project_competation=?,project_prize=?,certificate_image=?,
-        password=?,personal_information=? WHERE username=?");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $project_name,
-                $project_field,
-                $project_competation,
-                $project_prize,
-                $location3,
-                $password,
-                $personal_information,
-                $_SESSION["username"]
-            ));
-            if ($stmt) {
-                //  header("Location:profile.php");
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
+            </div>
+        <?php
         }
     } else {
         foreach ($errormessage as $message) { ?>

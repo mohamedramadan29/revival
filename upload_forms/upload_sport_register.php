@@ -100,31 +100,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
-
+    $exist1 = $stmt->fetch();
+    if ($exist1 > 0) {
+        $errormessage[] = $lang["username_found_or_email"];
+    }
 
 
     $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
+    $exist2 = $stmt->fetch();
+    if ($exist2 > 0) {
+        $errormessage[] = $lang["username_found_or_email"];
+    }
 
 
 
     $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ? OR email=? ");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
+    $exist3 = $stmt->fetch();
+    if ($exist3 > 0) {
+        $errormessage[] = $lang["username_found_or_email"];
+    }
 
 
     $stmt = $connect->prepare("SELECT * FROM register WHERE username = ? OR email=?");
     $stmt->execute(array($username, $email));
 
-    $exist = $stmt->fetch();
+    $exist4 = $stmt->fetch();
 
 
 
-    if ($exist > 0) {
+    if ($exist4 > 0) {
         $errormessage[] = $lang["username_found_or_email"];
     }
     if (empty($errormessage)) {
@@ -156,7 +164,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zpposition" => $player_postion,
             "zptall" => $player_taller,
         ));
-        if ($stmt) {
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("first_form").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
+
+            <?php
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
             foreach ($emaildata as $data) {
@@ -169,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
 
-?>
+            ?>
 
             <div class='container'>
                 <div class='alert alert-success text-center'>
@@ -186,13 +202,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php
         }
-    } else {?>
-    <style>
-        .my_progress{
-            display: none;
-        }
-    </style>
-    <?php
+    } else { ?>
+        <style>
+            .my_progress {
+                display: none;
+            }
+        </style>
+        <?php
 
         foreach ($errormessage as $message) { ?>
             <div class="error_message">

@@ -59,9 +59,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zmessage" => $user_message,
             "zfiles" => $location,
         ));
-        if ($stmt) {
+        if ($stmt) { ?>
+            <script>
+                document.getElementById("first_form").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
+            <?php
             $to_email = $user_email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = "تواصل معنا في ريفايفال";
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];
@@ -71,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
-?>
+            ?>
             <div class='container'>
                 <div class='alert alert-success text-center'>
                     <?php

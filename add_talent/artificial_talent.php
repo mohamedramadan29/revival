@@ -9,7 +9,7 @@ if ($count >  0) { ?>
     <div class="profile_data update_profile">
         <div class="container">
             <div class="data">
-                <form class="message_form ajax_form" action="upload_talent/art_talent.php" method="post" enctype="multipart/form-data">
+                <form id="first_form" class="message_form ajax_form" action="upload_talent/art_talent.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="info2">

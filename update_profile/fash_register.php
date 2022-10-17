@@ -10,7 +10,7 @@ if ($count > 0) {
         <div class="container">
             <div class="data">
 
-                <form class="message_form ajax_form" action="upload_data/fash_register.php" method="post" enctype="multipart/form-data">
+                <form id="update_2" class="message_form ajax_form" action="upload_data/fash_register.php" method="post" enctype="multipart/form-data">
                     <div class="row">
 
                         <div class="col-lg-4">

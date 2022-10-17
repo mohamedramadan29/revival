@@ -29,7 +29,7 @@ include 'init.php';
                                         <label for="first_name"><?php echo $lang["project_name"];  ?><span class="star">
                                                 *
                                             </span></label>
-                                        <input name="project_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['project_name']; ?>">
+                                        <input required name="project_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['project_name']; ?>">
                                     </div>
                                     <h3> <?php echo  $lang["legal_information"]; ?> </h3>
                                     <div class="row">
@@ -142,9 +142,11 @@ include 'init.php';
 
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <h3><?php echo  $lang["about_project"]; ?></h3>
+                                    <h3><?php echo  $lang["about_project"]; ?><span class="star">
+                                            *
+                                        </span></h3>
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="about_project" id="floatingInput" cols="30" rows="6"></textarea>
+                                        <textarea required class="form-control" name="about_project" id="floatingInput" cols="30" rows="6"></textarea>
                                     </div>
 
                                     <div class="row">

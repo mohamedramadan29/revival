@@ -72,13 +72,7 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                             <label id="name"> اسم المشروع </label>
                             <input  class="form-control" type="text" name="car_name"
                                 value="<?php echo $alltype['project_name']; ?>">
-                        </div>
-
-                        <div class="box">
-                            <label id="name"> اسم المشروع </label>
-                            <input  class="form-control" type="text" name="car_name"
-                                value="<?php echo $alltype['project_name']; ?>">
-                        </div>
+                        </div> 
                         <div class="box">
                             <label id="name"> مجال المشروع </label>
                             <input  class="form-control" type="text" name="car_name"

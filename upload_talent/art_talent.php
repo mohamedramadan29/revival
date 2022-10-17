@@ -223,7 +223,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zusername" => $username,
             "zcat_name" => $cat_name,
         )); 
-        if ($stmt) {
+        if ($stmt) {?>
+
+            <script>
+                document.getElementById("first_form").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
+            <?php
             $to_email = $email;
             $subject = "اللتسجيل في ريفايفال";
             foreach ($emaildata as $data) {

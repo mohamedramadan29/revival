@@ -94,146 +94,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($errormessage)) {
-
-        if ($file_tmp1 != '' && $file_tmp2 != '') {
-            $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
+        $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
         certificate=? ,
         experience_info=? ,team_name=? ,team_register=? ,video_talent=? , fiels_talent=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
+        $stmt->execute(array(
+            $first_name,
+            $last_name,
+            $email,
+            $mobile,
+            $specialist,
+            $certificate,
+            $experience_info,
+            $team_name,
+            $team_register,
+            $location,
+            $location2,
+            $password,
+            $player_weight,
+            $player_postion,
+            $player_taller,
+            $_SESSION["username"],
+        ));
+        if ($file_tmp1 != '') {
+            $stmt = $connect->prepare("UPDATE sport_register SET video_talent=? WHERE username=? ");
             $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $experience_info,
-                $team_name,
-                $team_register,
                 $location,
+                $_SESSION["username"],
+            ));
+        }
+        if ($file_tmp2 != '') {
+            $stmt = $connect->prepare("UPDATE sport_register SET fiels_talent=? WHERE username=? ");
+            $stmt->execute(array(
                 $location2,
-                $password,
-                $player_weight,
-                $player_postion,
-                $player_taller,
                 $_SESSION["username"],
             ));
-            if ($stmt) {
-             //   header("Location:profile.php");
+        }
+        if ($stmt) { ?>
 
-?>
+            <script>
+                document.getElementById("update_3").reset();
+                setTimeout(() => {
+                    document.location.reload();
+                }, 2000);
+            </script>
 
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
             <?php
-            }
-        } elseif ($file_tmp1 != '') {
-            $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
-        certificate=? ,
-        experience_info=? ,team_name=? ,team_register=? ,video_talent=?  , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-                $experience_info,
-                $team_name,
-                $team_register,
-                $location,
-                $password,
-                $player_weight,
-                $player_postion,
-                $player_taller,
-                $_SESSION["username"],
-            ));
-            if ($stmt) {
-            //    header("Location:profile.php");
-
+            //   header("Location:profile.php");
             ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
+            <div class='container'>
+                <div class='alert alert-success text-center'>
+                    <?php echo $lang["suc_profile_message"];  ?>
                 </div>
-            <?php
-            }
-        } elseif ($file_tmp2 != '') {
-            $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
-        certificate=? ,
-        experience_info=? ,team_name=? ,team_register=?   , fiels_talent=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-
-                $experience_info,
-                $team_name,
-                $team_register,
-
-                $location2,
-                $password,
-                $player_weight,
-                $player_postion,
-                $player_taller,
-                $_SESSION["username"],
-            ));
-            if ($stmt) {
-              //  header("Location:profile.php");
-
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-            }
-        } else {
-            $stmt = $connect->prepare("UPDATE sport_register SET first_name2=? , last_name=? , email=? , mobile=? , specialist=?  ,
-        certificate=? ,
-        experience_info=? ,team_name=? ,team_register=? , password=? ,player_weight=? ,player_position=? ,player_taller=?  WHERE username=? ");
-            $stmt->execute(array(
-                $first_name,
-                $last_name,
-                $email,
-                $mobile,
-                $specialist,
-                $certificate,
-
-                $experience_info,
-                $team_name,
-                $team_register,
-
-
-                $password,
-                $player_weight,
-                $player_postion,
-                $player_taller,
-                $_SESSION["username"],
-            ));
-            if ($stmt) {
-             //   header("Location:profile.php");
-
-            ?>
-
-                <div class='container'>
-                    <div class='alert alert-success text-center'>
-                        <?php echo $lang["suc_profile_message"];  ?>
-                    </div>
-                </div>
-            <?php
-
-
-            }
+            </div>
+        <?php
         }
     } else {
         foreach ($errormessage as $message) { ?>

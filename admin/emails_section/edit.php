@@ -43,18 +43,20 @@ if (isset($_GET['email_id']) && is_numeric($_GET['email_id'])) {
                                     <label id="car_color"> اختر قسم الايميل </label>
                                     <select id="cat_active2" class="form-control" name="email_section" id="">
                                         <option value=""> اختر القسم </option>
-                                        <option value="التسجيل في الذكاء الاصطناعي" <?php if($alltype["email_section"] == "التسجيل في الذكاء الاصطناعي") echo "selected"; ?>> ايميل التسجبل في الذكاء الاصطناعي </option>
-                                        <option value="التسجيل في الرياضة" <?php if($alltype["email_section"] == "التسجيل في الرياضة") echo "selected"; ?>> ايميل التسجيل في الرياضة </option>
-                                        <option value="التسجيل في الازياء" <?php if($alltype["email_section"] == "التسجيل في الازياء") echo "selected"; ?>> ايميل التسجيل في الازياء </option>
-                                        <option value="التسجيل في ريفايفال" <?php if($alltype["email_section"] == "التسجيل في ريفايفال") echo "selected"; ?>> ايميل التسجيل في ريفايفال </option>
-                                        <option value="اضافة مشروع جديد" <?php if($alltype["email_section"] == "اضافة مشروع جديد") echo "selected"; ?>> ايميل اضافة مشروع جديد </option>
-                                        <option value="رسالة التواصل" <?php if($alltype["email_section"] == "رسالة التواصل") echo "selected"; ?>> ايميل التواصل </option>
-                                        <option value="استثمار في موهبة" <?php if($alltype["email_section"] == "استثمار في موهبة") echo "selected"; ?>>استثمار في موهبة</option>
-                                        <option value="اضافة موهبة" <?php if($alltype["email_section"] == "اضافة موهبة") echo "selected"; ?>>اضافة موهبة</option>
-                                        <option value="تفعيل الحساب" <?php if($alltype["email_section"] == "تفعيل الحساب") echo "selected"; ?>>تفعيل الحساب</option>
-                                        <option value="التسجيل في الكورس" <?php if($alltype["email_section"] == "التسجيل في الكورس") echo "selected"; ?>>التسجيل في الكورس</option>
-                                        <option value="الموافقة علي التسجيل في الكورس" <?php if($alltype["email_section"] == "الموافقة علي التسجيل في الكورس") echo "selected"; ?>>الموافقة علي التسجيل في الكورس</option>
-                                        <option value="الاشتراك في القائمة البريدية" <?php if($alltype["email_section"] == "الاشتراك في القائمة البريدية") echo "selected"; ?>>الاشتراك في القائمة البريدية</option>
+                                        <option value="التسجيل في الذكاء الاصطناعي" <?php if ($alltype["email_section"] == "التسجيل في الذكاء الاصطناعي") echo "selected"; ?>> ايميل التسجبل في الذكاء الاصطناعي </option>
+                                        <option value="التسجيل في الرياضة" <?php if ($alltype["email_section"] == "التسجيل في الرياضة") echo "selected"; ?>> ايميل التسجيل في الرياضة </option>
+                                        <option value="التسجيل في الازياء" <?php if ($alltype["email_section"] == "التسجيل في الازياء") echo "selected"; ?>> ايميل التسجيل في الازياء </option>
+                                        <option value="التسجيل في ريفايفال" <?php if ($alltype["email_section"] == "التسجيل في ريفايفال") echo "selected"; ?>> ايميل التسجيل في ريفايفال </option>
+                                        <option value="اضافة مشروع جديد" <?php if ($alltype["email_section"] == "اضافة مشروع جديد") echo "selected"; ?>> ايميل اضافة مشروع جديد </option>
+                                        <option value="رسالة التواصل" <?php if ($alltype["email_section"] == "رسالة التواصل") echo "selected"; ?>> ايميل التواصل </option>
+                                        <option value="استثمار في موهبة" <?php if ($alltype["email_section"] == "استثمار في موهبة") echo "selected"; ?>>استثمار في موهبة</option>
+                                        <option value="اضافة موهبة" <?php if ($alltype["email_section"] == "اضافة موهبة") echo "selected"; ?>>اضافة موهبة</option>
+                                        <option value="تفعيل الحساب" <?php if ($alltype["email_section"] == "تفعيل الحساب") echo "selected"; ?>>تفعيل الحساب</option>
+                                        <option value="التسجيل في الكورس" <?php if ($alltype["email_section"] == "التسجيل في الكورس") echo "selected"; ?>>التسجيل في الكورس</option>
+                                        <option value="الموافقة علي التسجيل في الكورس" <?php if ($alltype["email_section"] == "الموافقة علي التسجيل في الكورس") echo "selected"; ?>>الموافقة علي التسجيل في الكورس</option>
+                                        <option value="الاشتراك في القائمة البريدية" <?php if ($alltype["email_section"] == "الاشتراك في القائمة البريدية") echo "selected"; ?>>الاشتراك في القائمة البريدية</option>
+                                        <option value="اضافة خبر جديد" <?php if ($alltype["email_section"] == "اضافة خبر جديد") echo "selected"; ?>>اضافة خبر جديد</option>
+                                        <option value="اضافة مقال جديد" <?php if ($alltype["email_section"] == "اضافة مقال جديد") echo "selected"; ?>>اضافة مقال جديد</option>
                                     </select>
                                 </div>
                             </div>

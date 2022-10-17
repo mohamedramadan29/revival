@@ -111,7 +111,7 @@ include 'init.php';
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"></iframe>
+                    <video controls src="" id="video"></video>
                 </div>
             </div>
         </div>

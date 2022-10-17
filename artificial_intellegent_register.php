@@ -26,7 +26,7 @@ if (isset($_SESSION["username"])) { ?>
                 <!-- START CODE -->
 
                 <!--------------------END PHP  CODE VALIDATION --------------->
-                <form name="" class="message_form ajax_form" action="upload_forms/upload_artificial_int_reg.php" method="POST" enctype="multipart/form-data">
+                <form id="first_form" name="" class="message_form ajax_form" action="upload_forms/upload_artificial_int_reg.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12 col-12">
                             <div class="info">

@@ -110,3 +110,7 @@ body {
 .accordion-item ul{
     text-align: left;
 }
+
+.timeline .card{
+    text-align: left;
+}

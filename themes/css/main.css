@@ -60,7 +60,7 @@ body {
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
     padding-left: 8px !important;
     padding-right: 8px !important;
-    font-size:15px
+    font-size: 15px
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item .dropdown-menu {
@@ -157,7 +157,7 @@ body {
 }
 
 .hero .carousel-caption {
-    bottom: 160px !important;
+    bottom: 100px !important;
 }
 
 .hero .carousel-caption img {
@@ -357,7 +357,7 @@ body {
 
 .our_services .data .info p {
     padding: 10px;
-    text-align: center; 
+    text-align: center;
 }
 
 /* END OUR SERVICS */
@@ -450,7 +450,7 @@ body {
 
 .our_team .data .out_team_image img {
     max-width: 100%;
-    height: 400px; 
+    height: 400px;
     border-radius: 10px;
     transition: all 1s ease-in-out;
 
@@ -579,14 +579,14 @@ body {
     background-image: url(../../uploads/about_back.jpg);
     background-size: cover;
     background-attachment: fixed;
-    background-position: center; 
-    min-height: 440px; 
+    background-position: center;
+    min-height: 440px;
     max-width: 90%;
     margin: auto;
     padding: 10px;
 }
 
- 
+
 .art_register {
     background-image: url(../../uploads/art1.jpg);
     position: relative;
@@ -851,7 +851,7 @@ body {
 }
 
 .faq .data {
-    top: 260px;
+    top: 160px;
 }
 
 .faq .data h2 {
@@ -981,7 +981,7 @@ body {
 
 /*START CONTACT US PAGE*/
 .contact_form {
-    padding-top: 80px; 
+    padding-top: 80px;
     text-align: right;
     background: #faf9f9;
 }
@@ -1176,7 +1176,7 @@ body {
     display: block;
 
     min-height: 40px;
-    font-size: 17px; 
+    font-size: 17px;
 }
 
 /*END RESERVATION PAGE*/
@@ -1227,7 +1227,7 @@ body {
 }
 
 .profile_data .data .info ul li {
-    display: inline-block;
+    
     margin-right: 10px;
     margin-left: 10px;
 }
@@ -1258,8 +1258,8 @@ body {
     text-align: center;
 }
 
-.profile_data .data .info2 ul li {
-    display: inline-block;
+.profile_data .data .info2 .buttons_links ul li {
+ display: inline-block;
 
 }
 
@@ -2402,219 +2402,100 @@ body {
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.timeline ul {
-    background: #f1f1ff;
-    padding: 50px 0;
+.schedule {
+    padding-top: 40px;
+
+    background-color: #fcfcfc;
 }
 
-.timeline ul li {
-    list-style-type: none;
+
+.timeline {
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+}
+
+/* Timeline Container */
+.timeline {
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Outer Layer with the timeline border */
+.timeline .outer {
+    border-left: 2px solid #333;
+}
+
+/* Card container */
+.timeline .card {
     position: relative;
-    width: 6px;
-    margin: 0 auto;
-    padding-top: 50px;
-    background: var(--maincolor);
-}
-
-.timeline ul li::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: inherit;
-    z-index: 1;
-}
-
-.timeline ul li div {
-    position: relative;
-    bottom: 0;
-    width: 400px;
-    padding: 15px;
-    background: #fff;
-    color: #585858;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: #ffff;
+    color: #000000;
+    border-radius: 8px;
+    max-width: 700px;
+    box-shadow: 0px 0px 10px 2px #f1f1f1;
     text-align: right;
 }
 
-.timeline ul li div h6 {
-    line-height: 2;
+/* Information about the timeline */
+.timeline .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.timeline ul li div p {
-    color: #808080;
+/* Title of the card */
+.timeline .title {
+    color: var(--maincolor);
+    position: relative;
 }
 
-.timeline ul li div::before {
+.timeline .card h6 {
+    line-height: 1.7;
+    margin: 0;
+}
+.timeline .card span{
+    color: var(--maincolor);
+    font-weight: bold;
+
+}
+
+/* Timeline dot  */
+.timeline .title::before {
     content: "";
     position: absolute;
-    bottom: 7px;
-    width: 0;
-    height: 0;
-    border-style: solid;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 999px;
+    left: -42px;
+    border: 10px solid var(--maincolor);
 }
-
-.timeline ul li:nth-child(odd) div {
-    left: 422px;
+.timeline table{
+text-align: center;
+max-width: 100%;
 }
-
-.timeline ul li:nth-child(odd) div::before {
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent #fff transparent transparent;
+.timeline table tr{
+    
 }
-
-.timeline ul li:nth-child(even) div {
-    left: -31px;
+.timeline table tr th{
+    background-color: var(--maincolor);
+    color: #fff; 
 }
-
-.timeline ul li:nth-child(even) div::before {
-    right: -15px;
-    border-width: 8px 0 8px 16px;
-    border-color: transparent transparent transparent #fff;
-}
-
-time {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-
-/* EFFECTS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.timeline ul li::after {
-    transition: background 0.5s ease-in-out;
-}
-
-.timeline ul li.in-view::after {
+.timeline table tr td{
+    padding: 10px;
     background: #fff;
 }
-
-.timeline ul li div {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-}
-
-.timeline ul li:nth-child(odd) div {
-    transform: translate3d(200px, 0, 0);
-}
-
-.timeline ul li:nth-child(even) div {
-    transform: translate3d(-200px, 0, 0);
-}
-
-.timeline ul li.in-view div {
-    transform: none;
-    visibility: visible;
-    opacity: 1;
-}
-
-
-/* GENERAL MEDIA QUERIES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-@media screen and (max-width: 900px) {
-    .timeline ul li div {
-        width: 250px;
-    }
-
-    .timeline ul li:nth-child(even) div {
-        left: -289px;
-        /*250+45-6*/
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .timeline ul li {
-        margin-left: 20px;
-    }
-
-    .timeline ul li div {
-        width: calc(100vw - 91px);
-    }
-
-    .timeline ul li:nth-child(even) div {
-        left: 45px;
-    }
-
-    .timeline ul li:nth-child(even) div::before {
-        left: -15px;
-        border-width: 8px 16px 8px 0;
-        border-color: transparent #f45b69 transparent transparent;
-    }
-}
-
-
-/* EXTRA/CLIP PATH STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.timeline-clippy ul li::after {
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
-}
-
-.timeline-rhombus ul li::after {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-
-.timeline-rhombus ul li div::before {
-    bottom: 12px;
-}
-
-.timeline-star ul li::after {
-    clip-path: polygon(50% 0%,
-            61% 35%,
-            98% 35%,
-            68% 57%,
-            79% 91%,
-            50% 70%,
-            21% 91%,
-            32% 57%,
-            2% 35%,
-            39% 35%);
-}
-
-.timeline-heptagon ul li::after {
-    clip-path: polygon(50% 0%,
-            90% 20%,
-            100% 60%,
-            75% 100%,
-            25% 100%,
-            0% 60%,
-            10% 20%);
-}
-
-.timeline-infinite ul li::after {
-    animation: scaleAnimation 2s infinite;
-}
-
-@keyframes scaleAnimation {
-    0% {
-        transform: translateX(-50%) scale(1);
-    }
-
-    50% {
-        transform: translateX(-50%) scale(1.25);
-    }
-
-    100% {
-        transform: translateX(-50%) scale(1);
-    }
-}
-
 .event_scad_title {}
 
 .event_scad_title h2 {
     font-size: 22px;
     color: var(--maincolor);
     font-weight: bold;
-    padding: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /*********************END SCHADUAL**/
@@ -2774,14 +2655,14 @@ time {
 }
 
 .art_sport_active .data .info {}
-.art_sport_active .data .info .image{
-    
-}
+
+.art_sport_active .data .info .image {}
+
 .art_sport_active .data .info img {
     max-width: 100%;
     height: 300px;
     overflow: hidden;
-    color: #fff; 
+    color: #fff;
 }
 
 .art_sport_active .data .info ul {}
@@ -3311,7 +3192,7 @@ time {
 }
 
 .modal-open .modal {
-    margin-top: 4%;
+    margin-top: 0%;
     z-index: 9999999999;
 }
 
@@ -3413,33 +3294,36 @@ time {
     font-size: 16px;
     letter-spacing: .1em;
 }
-@media(max-width:991px){
-    .ftco-navbar-light{
-        top:0;
+
+@media(max-width:991px) {
+    .ftco-navbar-light {
+        top: 0;
     }
-    .top_navbar .date{
+
+    .top_navbar .date {
         display: none;
     }
 }
 
-.my_progress{
+.my_progress {
     margin-top: 10px;
-    margin-bottom:40px;
+    margin-bottom: 40px;
 }
 
-.progress{
+.progress {
     height: 25px;
 }
 
 /*************  START LOADER***************/
 
 
-.message_form .box textarea{
+.message_form .box textarea {
     font-size: 15px;
     color: #4f4c4c !important;
     line-height: 2;
 }
-.message_form .box input[type=text]{
+
+.message_form .box input[type=text] {
     font-size: 15px;
-    color: #4f4c4c !important; 
+    color: #4f4c4c !important;
 }
