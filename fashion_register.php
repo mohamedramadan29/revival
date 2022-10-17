@@ -22,7 +22,7 @@ if (isset($_SESSION["username"])) { ?>
         <div class="container">
             <div class="data">
 
-                <form id="first_form" class="message_form ajax_form" action="upload_forms/upload_fashion_register.php" method="POST" enctype="multipart/form-data">
+                <form class="message_form ajax_form" action="upload_forms/upload_fashion_register.php" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12 col-12">
                             <div class="info">

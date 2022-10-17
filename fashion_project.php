@@ -35,6 +35,7 @@ include 'init.php';
                             $stmt = $connect->prepare("SELECT * FROM form_selection WHERE select_form='الأزياء والمجوهرات'");
                             $stmt->execute();
                             $selection = $stmt->fetch();
+
                             if ($_SESSION["lang"] == "ar") {
                                 $main_filed = $selection['select_name'];
                             } else {
@@ -42,40 +43,16 @@ include 'init.php';
                             }
                             $main_filed = explode(",", $main_filed);
                             $countfile = count($main_filed) - 1;
-                            ?>
-                            <form action="" method="POST">
-                                <?php
-                                for ($i = 0; $i < $countfile; ++$i) { ?>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="<?= $main_filed[$i] ?>" value="<?= $main_filed[$i] ?>" id="<?= $main_filed[$i] ?>">
-                                        <label class="form-check-label" for="<?= $main_filed[$i] ?>">
-                                            <?= $main_filed[$i] ?>
-                                        </label>
-                                    </div>
-                                <?php
-                                }
-                                ?>
-                                <input type="submit" class="form-control" value="بحث">
-                            </form>
-                            <?php 
-                            if($_SERVER['REQUEST_METHOD']=='POST'){
-                             $stmt = $connect->prepare("SELECT * FROM fash_register WHERE user_show='نعم'");
-                            $stmt->execute(); 
-                            $allfash_data = $stmt->fetchAll();
-                            foreach ($allfash_data as $fash_data){
-                                $fash_need = $fash_data['field']; 
-                                $result = $_POST[$fash_need];
-                                if(isset($_POST[$fash_need])) {
-                                    
-                                }else{
-                                    echo 'bad';
-                                }
-                                
+                            for ($i = 0; $i < $countfile; ++$i) { ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="<?= $main_filed[$i] ?>">
+                                    <label class="form-check-label" for="<?= $main_filed[$i] ?>">
+                                        <?= $main_filed[$i] ?>
+                                    </label>
+                                </div>
+                            <?php
                             }
-                        }
-                            
                             ?>
-
                         </div>
                     </div>
                 </div>
@@ -90,14 +67,16 @@ include 'init.php';
                             <div class="col-lg-4">
                                 <div class="info">
                                     <?php
-                                    if (!empty($talent['talent_image'])) { ?>
-                                        <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    if(!empty($talent['talent_image'])){?>
+                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+
                                     <?php
-                                    } else { ?>
+                                    }else{?>
                                         <img src="admin/upload/avatar.png" alt="">
-                                    <?php
+                                        <?php
                                     }
                                     ?>
+                                    
                                     <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['fash_register_id']; ?> </h3>
                                     <p> <?php
                                         $exp_info = $talent['personal_information'];
@@ -120,15 +99,15 @@ include 'init.php';
                             <div class="col-lg-4">
                                 <div class="info">
                                     <?php
-                                    if (!empty($talent['talent_image'])) { ?>
-                                        <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                    if(!empty($talent['talent_image'])){?>
+                                    <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
                                     <?php
-                                    } else { ?>
-                                        <img src="admin/upload/avatar.png" alt="">
+                                    }else{?>
+                                    <img src="admin/upload/avatar.png" alt="">
                                     <?php
                                     }
                                     ?>
-
+                                
                                     <h3> <?php echo $talent['first_name'] ?> # <?php echo  $talent['reg_id']; ?> </h3>
                                     <p> <?php
                                         $exp_info = $talent['experience_info'];
@@ -147,18 +126,18 @@ include 'init.php';
                         $count = $stmt->rowCount();
                         $alltalent_register = $stmt->fetchAll();
                         foreach ($alltalent_register as $talent) { ?>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4"> 
                                 <div class="info">
                                     <?php
-                                    if (!empty($talent['project_images'])) { ?>
-                                        <img src="admin/upload/<?php echo $talent['project_images']; ?>" alt="">
+                                    if(!empty($talent['project_images'])){?>
+                                    <img src="admin/upload/<?php echo $talent['project_images']; ?>" alt="">
                                     <?php
-                                    } else { ?>
-                                        <img src="admin/upload/avatar.png" alt="">
+                                    }else{?>
+                                    <img src="admin/upload/avatar.png" alt="">
                                     <?php
                                     }
                                     ?>
-
+                                    
                                     <?php
                                     $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=?");
                                     $stmt->execute(array($talent['username']));
