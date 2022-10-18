@@ -36,57 +36,56 @@ $emaildata = $stmt->fetchAll();
     <?php
     } ?>
     <?php
- if(!empty($userinfo['customer_message'])){?>
-<div class="customer_message">
-        <div class="alert alert-info">
-           <?php
-          
-            echo $userinfo['customer_message'];
-          
-           
-           ?>
+    if (!empty($userinfo['customer_message'])) { ?>
+        <div class="customer_message">
+            <div class="alert alert-info">
+                <?php
+
+                echo $userinfo['customer_message'];
+
+
+                ?>
+            </div>
         </div>
-    </div>
     <?php
-}
-?>
+    }
+    ?>
     <div class="container">
         <div class="data">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="info">
 
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form id="change_image_form" class="change_image_form" action="" method="POST" enctype="multipart/form-data">
                             <?php
-
                             if (strlen($userinfo['personal_image']) > 0) { ?>
                                 <div class="personal_image">
                                     <img src="admin/upload/<?php echo $userinfo['personal_image']; ?>" alt="">
-                                    <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
                                 </div>
                             <?php
                             } else { ?>
                                 <div class="personal_image">
                                     <img src="uploads/avatar.png" alt="">
-                                    <input name="personal_image" type="file"> <i class="fa fa-upload"></i>
                                 </div>
-
                             <?php
                             }
-
                             ?>
-                            <br>
-                            <input class="btn btn-primary" type="submit" value="   <?php echo $lang["edit_profile_image"]; ?>   ">
-                        </form>
+                            <input class="change_image" id="change_image" name="personal_image" type="file">
+                            <i class="fa fa-camera"></i>
 
+                        </form>
+                        <script>
+                            document.getElementById('change_image').onchange = function() {
+                                document.getElementById('change_image_form').submit();
+                            }
+                        </script>
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        if (isset($_FILES['personal_image']['name'])) {
                             $file = '';
                             $file_tmp = '';
                             $location = '';
                             $uploadplace = "admin/upload/";
                             // START UPLOAD CV FIELS
-
                             $file = $_FILES['personal_image']['name'];
                             $file_tmp = $_FILES['personal_image']['tmp_name'];
                             move_uploaded_file($file_tmp, $uploadplace . $file);

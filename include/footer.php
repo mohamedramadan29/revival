@@ -48,7 +48,7 @@
       utilsScript: "<?php echo $js; ?>utils.js",
     });
   </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="<?php echo $js; ?>jquery.countdown.min.js"></script>
   <script src="<?php echo $js; ?>jquery.touchSwipe.min.js"></script>
   <script src="<?php echo $js; ?>upload_files.js"></script>
@@ -92,7 +92,7 @@
             status.html(xhr.responseText);
           },
           success: function() {
-           
+
           }
         });
       });
@@ -101,6 +101,25 @@
 
   <!-- END SCRIPT TO UPLOAD FILES  -->
   <!-- END UPLOAD FILES WITH FILEPOND PLUGIN -->
+
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
   <script src="<?php echo $js; ?>google-map.js"></script>
   <script src="<?php echo $js; ?>main.js"></script>
 

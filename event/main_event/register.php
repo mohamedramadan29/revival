@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="contact_form">
     <div class="container">
         <div class="data">
-            <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>
+           <!-- <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>-->
             <form action="" method="POST">
                 <div class="row">
                     <div class="col-lg-12 col-12">

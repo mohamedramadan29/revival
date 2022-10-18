@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include 'init.php'; 
+include 'init.php';
 ?>
 <!-- START HERO SECTION -->
 <div class="hero artif">
@@ -26,10 +26,10 @@ include 'init.php';
                 " class="d-block w-100" alt="image1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
-                                    echo $banner['banner_head'];
-                                } else {
-                                    echo $banner['banner_head_en'];
-                                } ?> </h5>
+                                                                                echo $banner['banner_head'];
+                                                                            } else {
+                                                                                echo $banner['banner_head_en'];
+                                                                            } ?> </h5>
                         <p class="animate__animated animate__fadeInUp animate__slow">
                             <?php if ($_SESSION['lang'] == 'ar') {
                                 echo $banner['banner_desc'];
@@ -62,10 +62,10 @@ include 'init.php';
                 " class="d-block w-100" alt="image1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="animate__animated animate__fadeInUp"> <?php if ($_SESSION['lang'] == 'ar') {
-                                    echo $banners['banner_head'];
-                                } else {
-                                    echo $banners['banner_head_en'];
-                                } ?> </h5>
+                                                                                echo $banners['banner_head'];
+                                                                            } else {
+                                                                                echo $banners['banner_head_en'];
+                                                                            } ?> </h5>
                         <p class="animate__animated animate__fadeInUp animate__slow">
                             <?php if ($_SESSION['lang'] == 'ar') {
                                 echo $banners['banner_desc'];
@@ -105,8 +105,8 @@ include 'init.php';
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                <video controls src="" id="video"></video>
-                
+                    <video controls src="" id="video"></video>
+
                 </div>
             </div>
         </div>
@@ -311,7 +311,7 @@ include 'init.php';
                         <img src="uploads/services.png" alt="">
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 </div>
@@ -385,7 +385,7 @@ include 'init.php';
 <div class="stat">
     <div class="container">
         <div class="data">
-            <div class="row"> 
+            <div class="row">
                 <div class="col-lg-3 col-6">
                     <div class="info">
                         <i class="fa fa-shirt"></i>
@@ -413,7 +413,7 @@ include 'init.php';
                         <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">87</h2>
                         <p> <?php echo $lang["index_instructor"] ?> </p>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -661,33 +661,32 @@ include 'init.php';
 </div>
 
 <!-- END NEW NEWS DESIGN -->
+<!--
+    START NEW IMAGE GALLARY
+ -->
 
-<!-- START IMAGE GALARY -->
-<div class="image_gallary">
-    <div class="container">
-        <div class="top">
-            <ul>
-                <?php
-                $stmt = $connect->prepare("SELECT * FROM revival_gallary");
-                $stmt->execute();
-                $allimages = $stmt->fetchAll();
-                foreach ($allimages as $image) { ?>
-                    <li><a href="#<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
+<!-- Swiper -->
+<div class="gallary_body">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
             <?php
+            $stmt = $connect->prepare("SELECT * FROM revival_gallary");
+            $stmt->execute();
+            $allimages = $stmt->fetchAll();
             foreach ($allimages as $image) { ?>
-                <a href="#_1" class="lightbox trans" id="<?php echo $image["image1"]; ?>"><img src="admin/upload/<?php echo $image["image1"]; ?>"></a>
+                <div class="swiper-slide">
+                    <img src="admin/upload/<?php echo $image["image1"]; ?>" />
+                </div>
             <?php
             }
             ?>
+ 
         </div>
+        <div class="swiper-pagination"></div>
     </div>
+
 </div>
-<!-- END IMAGE GALARY -->
+<!-- END NEW IMAGE GALLARY --> 
 <!-- START NEW ARTICLES DESIGN -->
 
 <div class="new_articles_design">

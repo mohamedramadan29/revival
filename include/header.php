@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="<?php echo $css; ?>animate.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="<?php echo $css; ?>owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo $css; ?>owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo $css; ?>magnific-popup.css">

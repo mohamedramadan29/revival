@@ -30,12 +30,14 @@ if (isset($_GET['select_id']) && is_numeric($_GET['select_id'])) {
                     <div class="box">
                             <label id="name"> المجالات
                             </label>
-                            <textarea name="select_name" class="form-control" placeholder="من فضلك افصل بين  كل مجال والاخر ب (,)"><?php echo $alltype["select_name"] ?></textarea>
+                        <input type="text" name="select_name" class="form-control" value="<?php echo $alltype["select_name"] ?>">
+
                         </div>
                         <div class="box">
                             <label id="name">   المجالات الانجليزية
                             </label>
-                            <textarea name="select_name_en" class="form-control"  placeholder="من فضلك افصل بين  كل مجال والاخر ب (,)"><?php echo $alltype["select_name_en"] ?></textarea>
+                            <input type="text" name="select_name_en" class="form-control" value="<?php echo $alltype["select_name_en"] ?>">
+
                         </div>
                         <div class="box">
                             <label id="name_en"> اختر الفورم <span> * </span></label>
@@ -57,6 +59,7 @@ if (isset($_GET['select_id']) && is_numeric($_GET['select_id'])) {
                     <div class="box">
                             <label id="name"> المجالات الفرعية
                             </label>
+
                             <textarea name="select_sub_name" class="form-control" placeholder="من فضلك افصل بين  كل مجال والاخر ب (,)"><?php echo $alltype["select_sub_name"] ?></textarea>
                         </div>
                         <div class="box">

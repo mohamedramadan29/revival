@@ -198,19 +198,11 @@ if (isset($_SESSION["username"])) { ?>
                                                         $fileds = $filed['select_name'];
                                                     } else {
                                                         $fileds = $filed['select_name_en'];
-                                                    }
-                                                    $fileds =  explode(",", $fileds);
-
-                                                    $countfile = count($fileds) - 1;
-                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
-                                                        <option value="<?= $fileds[$i] ?>"><?= $fileds[$i] ?></option>
-                                                    <?php
+                                                    }?>
+                                                     <option value="<?php echo $filed['select_id']; ?>">  <?php echo $fileds ?> </option>
+                                                     <?php
                                                     }
                                                     ?>
-                                                <?php
-                                                }
-                                                ?>
-
                                             </select>
 
                                         </div>

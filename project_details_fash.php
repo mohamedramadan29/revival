@@ -4,18 +4,16 @@ session_start();
 include 'init.php';
 if (isset($_GET['cat'])) {
     $cat = $_GET['cat'];
-    if(isset($_GET['talent_id'])){
+    if (isset($_GET['talent_id'])) {
         $talent_id = $_GET['talent_id'];
         $stmt = $connect->prepare("SELECT * FROM fash_register WHERE fash_register_id=?");
         $stmt->execute(array($talent_id));
         $talent_info = $stmt->fetch();
-
-    }elseif(isset($_GET['talent_id_sub'])){
+    } elseif (isset($_GET['talent_id_sub'])) {
         $talent_id_sub = $_GET['talent_id_sub'];
         $stmt = $connect->prepare("SELECT * FROM company_register WHERE reg_id=?");
         $stmt->execute(array($talent_id_sub));
         $talent_info = $stmt->fetch();
-
     }
 }
 ?>
@@ -23,15 +21,15 @@ if (isset($_GET['cat'])) {
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2><?php echo $talent_info['first_name']; ?> # 
-            <?php
-            if(isset($_GET["talent_id"])){
-                echo $talent_info['fash_register_id']; 
-            }elseif(isset($_GET["talent_id_sub"])){ 
-                echo $talent_info['reg_id']; 
-            }
-            ?>
-        </h2>
+            <h2><?php echo $talent_info['first_name']; ?> #
+                <?php
+                if (isset($_GET["talent_id"])) {
+                    echo $talent_info['fash_register_id'];
+                } elseif (isset($_GET["talent_id_sub"])) {
+                    echo $talent_info['reg_id'];
+                }
+                ?>
+            </h2>
         </div>
     </div>
 </div>
@@ -57,23 +55,25 @@ if (isset($_GET['cat'])) {
                         <h2> نبذة عن الموهبة </h2>
                         <p> <?php echo $talent_info['personal_information']; ?>
                         </p>
-                        <a href="invest_project.php?cat=<?php echo $cat;?>&talent_id=<?php if(isset($_GET['talent_id'])){ echo $_GET['talent_id'] ;} else{
-                            echo $_GET['talent_id_sub'];
-                        } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
+                        <a href="invest_project.php?cat=<?php echo $cat; ?>&talent_id=<?php if (isset($_GET['talent_id'])) {
+                                                                                            echo $_GET['talent_id'];
+                                                                                        } else {
+                                                                                            echo $_GET['talent_id_sub'];
+                                                                                        } ?> " class="btn button"> <?php echo $lang['invest_now']; ?> <i class="fa fa-chart-bar"></i>
                         </a>
                     </div>
                     <div class="return_talent">
-                        <a href="fashion_project.php" class="btn btn-primary">  <?php echo $lang["return_to_talent"]; ?>  <i class="fa fa-arrow-left"></i></a>
+                        <a href="fashion_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
                     </div>
                 </div>
-            
+
 
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
                     <div class="talent_images">
                         <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
                     </div>
-                     
+
                     <div class="talent_video" style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['talent_video']; ?>" data-bs-target="#videoModal">
@@ -81,9 +81,9 @@ if (isset($_GET['cat'])) {
                             </button>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
 
             </div>
             <div class="row">
@@ -112,7 +112,8 @@ if (isset($_GET['cat'])) {
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always" allow="autoplay"></iframe>
+                    <video controls src="" id="video"></video>
+
                 </div>
             </div>
         </div>

@@ -18,14 +18,16 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="box">
-                            <label id="name"> المجالات
+                            <label id="name"> اسم المجال
                             </label>
-                            <textarea name="select_name" class="form-control" placeholder="من فضلك افصل بين  كل مجال والاخر ب (,)"></textarea>
+                            <input type="text" class="form-control" name="select_name">
+
                         </div>
                         <div class="box">
-                            <label id="name">   المجالات الانجليزية
+                            <label id="name">      اسم المجال باللغه الانجليزية
                             </label>
-                            <textarea name="select_name_en" class="form-control"  placeholder="من فضلك افصل بين  كل مجال والاخر ب (,)"></textarea>
+                            <input type="text" name="select_name_en" class="form-control">
+
                         </div>
 
                         <div class="box">

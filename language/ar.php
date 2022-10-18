@@ -17,6 +17,7 @@ $lang = array(
   "account" => " حسابي ",
   "faqs" => " الاسئلة الشائعه ",
   "logout" => " تسجيل خروج ",
+  "search" => "بحث",
 
   // START HOME PAGE (INDEX)
 

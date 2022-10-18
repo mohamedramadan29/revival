@@ -17,6 +17,8 @@ $lang = array(
     "account" => " Account ",
     "faqs" => " Faqs ",
     "logout" => " Logout ",
+    "search" => "Search",
+
 
     // START HOME PAGE (INDEX)
 
