@@ -60,7 +60,7 @@ $emaildata = $stmt->fetchAll();
                             <?php
                             if (strlen($userinfo['personal_image']) > 0) { ?>
                                 <div class="personal_image">
-                                    <img src="admin/upload/<?php echo $userinfo['personal_image']; ?>" alt="">
+                                    <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
                                 </div>
                             <?php
                             } else { ?>
@@ -91,7 +91,7 @@ $emaildata = $stmt->fetchAll();
                             move_uploaded_file($file_tmp, $uploadplace . $file);
                             $location = $file . " ";
                             if ($file_tmp != "") {
-                                $stmt = $connect->prepare("UPDATE art_register SET  personal_image=? WHERE username=?");
+                                $stmt = $connect->prepare("UPDATE art_register SET  talent_image=? WHERE username=?");
                                 $stmt->execute(array($location, $_SESSION["username"]));
                             }
 

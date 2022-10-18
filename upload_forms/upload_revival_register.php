@@ -71,41 +71,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($password) < 8) {
         $errormessage[] =  $lang["weak_pass"];
     }
-
-    $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt = $connect->prepare("SELECT * FROM art_register WHERE username = ?");
+    $stmt->execute(array($username));
 
     $exist1 = $stmt->fetch();
     if ($exist1 > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
+        $errormessage[] =  $lang["username_found"];
     }
 
-    
-    $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    $stmt = $connect->prepare("SELECT * FROM art_register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist11 = $stmt->fetch();
+    if ($exist11 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+
+    $stmt = $connect->prepare("SELECT * FROM sport_register WHERE username = ?");
+    $stmt->execute(array($username));
 
     $exist2 = $stmt->fetch();
+
     if ($exist2 > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
+        $errormessage[] =  $lang["username_found"];
     }
+    $stmt = $connect->prepare("SELECT * FROM sport_register WHERE email=?");
+    $stmt->execute(array($email));
 
-    
+    $exist22 = $stmt->fetch();
 
-    $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+    if ($exist22 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+    $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username = ?");
+    $stmt->execute(array($username));
 
     $exist3 = $stmt->fetch();
     if ($exist3 > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
+        $errormessage[] =  $lang["username_found"];
     }
- 
-    $stmt = $connect->prepare("SELECT * FROM register WHERE username = ? OR email=?");
-    $stmt->execute(array($username,$email));
+
+    $stmt = $connect->prepare("SELECT * FROM fash_register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist33 = $stmt->fetch();
+    if ($exist33 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+
+    $stmt = $connect->prepare("SELECT * FROM register WHERE username = ?");
+    $stmt->execute(array($username));
 
     $exist4 = $stmt->fetch();
-
     if ($exist4 > 0) {
-        $errormessage[] =  $lang["username_found_or_email"];
+        $errormessage[] =  $lang["username_found"];
+    }
+    $stmt = $connect->prepare("SELECT * FROM register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist44 = $stmt->fetch();
+    if ($exist44 > 0) {
+        $errormessage[] =  $lang["email_found"];
     }
     if (empty($errormessage)) {
         $stmt = $connect->prepare("INSERT INTO register (first_name, last_name,

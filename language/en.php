@@ -18,7 +18,8 @@ $lang = array(
     "faqs" => " Faqs ",
     "logout" => " Logout ",
     "search" => "Search",
-
+    "username_found" => "  Username already exists. Please enter another username.   " ,
+    "email_found" => "The email is already in use, please enter another email",
 
     // START HOME PAGE (INDEX)
 
