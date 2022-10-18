@@ -526,6 +526,33 @@ if ($count > 0) {
 
                                                 </div>
 
+                                                <div class="col-lg-12">
+                                                    <label> <?php echo $lang["upload_images"]; ?></label>
+
+                                                    <div class="box mb-3">
+                                                        <div class="upload-file">
+                                                            <div class="upload-wrapper">
+                                                                <label>
+                                                                    <input type="file" name="talent_images[]" id="files9" multiple>
+                                                                    <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-12">
+
+                                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                            </div>
+                                                        </div>
+                                                        <output id="image-gallery9"></output>
+
+                                                    </div>
+
+                                                    <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                                </div>
+
                                             </div>
 
                                         </div>
@@ -535,8 +562,6 @@ if ($count > 0) {
                                     <div class="item">
                                         <div class="car-wrap rounded ftco-animate">
                                             <div class="text">
-
-
                                                 <div class="">
                                                     <div class="reservation_button">
                                                         <button type="submit" class="btn main_button btn-sm"><?php echo $lang["account_update"]; ?></button>

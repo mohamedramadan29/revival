@@ -58,7 +58,7 @@ $emaildata = $stmt->fetchAll();
 
                         <form id="change_image_form" class="change_image_form" action="" method="POST" enctype="multipart/form-data">
                             <?php
-                            if (strlen($userinfo['personal_image']) > 0) { ?>
+                            if (strlen($userinfo['talent_image']) > 0) { ?>
                                 <div class="personal_image">
                                     <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
                                 </div>

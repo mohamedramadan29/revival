@@ -71,9 +71,9 @@ if (isset($_GET['cat'])) {
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
                     <div class="talent_images">
-                        <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
+                        <img src="admin/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
                     </div>
-                    <div class="talent_video" style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
+                    <div class="talent_video" style="background-image:url(admin/upload/<?php echo $talent_info['talent_image']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['cv']; ?>" data-bs-target="#videoModal">
                                 <span></span>

@@ -92,6 +92,7 @@
         		"accident_report" => "كشف الحوادث",
         		"installemt" => "الاقساط",
         		"logout" => "تسجيل خروج",
+        	
         		"car_rental" => " نظام ادارة شركة تاجير ",
 
 

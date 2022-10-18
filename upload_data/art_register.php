@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $file_tmp6 = '';
     $file_tmp7 = '';
     $file_tmp8 = '';
+    $file_tmp9 = '';
     $location = "";
     $location2 = '';
     $location3 = '';
@@ -22,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location6 = '';
     $location7 = '';
     $location8 = '';
-
+    $location9 = '';
+    
     $uploadplace = "../admin/upload/";
 
     // START UPLOAD PROJECT DESIGN (project_design)
@@ -35,8 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $location .= $file . " ";
         }
     }
-
-
+    if (isset($_FILES['talent_images']['name'])) {
+        foreach ($_FILES['talent_images']['name'] as $key => $val) {
+            $file = $_FILES['talent_images']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp9 = $_FILES['talent_images']['tmp_name'][$key];
+            move_uploaded_file($file_tmp9, $uploadplace . $file);
+            $location9 .= $file . " ";
+        }
+    }
     /////////////////
     // START UPLOAD PROJECT PROTOTYPE TYPE (project_prototype)
 
@@ -241,6 +250,13 @@ project_field=?,project_tools=? , project_date=?,project_competation=?,project_p
             $stmt = $connect->prepare("UPDATE art_register SET cv=?  WHERE username=?");
             $stmt->execute(array(
                 $location8,
+                $_SESSION['username'],
+            ));
+        }
+        if ($file_tmp9 != '') {
+            $stmt = $connect->prepare("UPDATE art_register SET talent_images=?  WHERE username=?");
+            $stmt->execute(array(
+                $location9,
                 $_SESSION['username'],
             ));
         }

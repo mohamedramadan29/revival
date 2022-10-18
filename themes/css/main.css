@@ -1239,8 +1239,7 @@ body {
 .profile_data .data .info h2 {
     font-weight: bold;
     font-size: 22px;
-    text-transform: capitalize;
-    margin-top: -34px;
+    text-transform: capitalize; 
 }
 
 .profile_data .data .info p {
@@ -3383,11 +3382,13 @@ body {
     padding: 0;
 
 }
-.gallary_body .swiper-wrapper{
+
+.gallary_body .swiper-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .swiper {
     width: 100%;
     padding-top: 50px;
@@ -3408,3 +3409,8 @@ body {
 }
 
 /* END NEW GALLARY */
+@media(min-width:991px) {
+    .modal.show .modal-dialog {
+        min-width: 900px;
+    }
+}
