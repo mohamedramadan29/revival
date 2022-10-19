@@ -123,17 +123,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errormessage)) {
 
 
-        $stmt = $connect->prepare("INSERT INTO company_register (first_name, last_name , email,mobile,talent_image,specialist,
+        $stmt = $connect->prepare("INSERT INTO company_register (first_name, last_name , email,mobile,specialist,
                 certificate,
-                experience_info,team_name,team_register,player_weight,player_position,player_taller,video_talent,fiels_talent,username,cat_name)
-                VALUES(:zfname,:zlname,:zemail,:zmobile,:ztalent_image,:zspecialist,:zcertificate,:zexperience,:zteam_name,:zteam_register,:zplayer_weight,:zplayer_position,
-                :zplayer_taller,:zvideo_talent,:zfiles_talent,:zusername,:zcat_name) ");
+                experience_info,team_name,team_register,player_weight,player_position,player_taller,video_talent,fiels_talent,username,cat_name,talent_images)
+                VALUES(:zfname,:zlname,:zemail,:zmobile,:zspecialist,:zcertificate,:zexperience,:zteam_name,:zteam_register,:zplayer_weight,:zplayer_position,
+                :zplayer_taller,:zvideo_talent,:zfiles_talent,:zusername,:zcat_name,:ztalent_image) ");
         $stmt->execute(array(
             "zfname" => $first_name,
             "zlname" => $last_name,
             "zemail" => $email,
             "zmobile" => $mobile,
-            "ztalent_image" => $location9,
             "zspecialist" => $specialist,
             "zcertificate" => $certificate,
             "zexperience" => $experience_info,
@@ -146,6 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zfiles_talent" => $location2,
             "zusername" => $username,
             "zcat_name" => $cat_name,
+            "ztalent_image" => $location9,
         ));
         if ($stmt) { ?>
             <script>
@@ -156,7 +156,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <?php
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = "اضافة موهبة جديدة";
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

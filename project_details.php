@@ -65,15 +65,46 @@ if (isset($_GET['cat'])) {
                         </a>
                     </div>
                     <div class="return_talent">
-                        <a href="artificial_project.php" class="btn btn-primary">  <?php echo $lang["return_to_talent"]; ?>  <i class="fa fa-arrow-left"></i></a>
+                        <a href="artificial_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
                     </div>
-                </div> 
+                </div>
                 <div class="col-lg-6">
                     <h2> الصور والفيديو الخاص بالموهبة </h2>
-                    <div class="talent_images">
-                        <img src="admin/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php
+                            $talent_images = $talent_info['talent_images'];
+                            $talent_images = explode(" ", $talent_images);
+                            $countfile = count($talent_images) - 1;
+                            for ($i = 0; $i < 1; ++$i) { ?>
+                                <div class="carousel-item active">
+                                    <img src="admin/upload/<?= $talent_images[0] ?>" class="d-block w-100" alt="...">
+                                </div>
+                                
+                            <?php
+                            }
+                            for ($i = 1; $i < $countfile; ++$i) { ?>
+                                <div class="carousel-item">
+                                    <img src="admin/upload/<?= $talent_images[$i] ?>" class="d-block w-100" alt="...">
+                                </div>
+                                
+                            <?php
+                            }
+                            ?> 
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <div class="talent_video" style="background-image:url(admin/upload/<?php echo $talent_info['talent_image']; ?>)">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="talent_video" style="background-image:url(admin/upload/<?php echo $talent_info['talent_images']; ?>)">
                         <div class="d-flex align-items-center pt-5">
                             <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['cv']; ?>" data-bs-target="#videoModal">
                                 <span></span>
@@ -109,7 +140,7 @@ if (isset($_GET['cat'])) {
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                <video controls src="" id="video"></video>
+                    <video controls src="" id="video"></video>
                 </div>
             </div>
         </div>

@@ -186,21 +186,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /*  if ($file_tmp1 != '' && $file_tmp2 != '' && $file_tmp3 != '' && $file_tmp4 != '' && $file_tmp5 != '' && $file_tmp6 != '' && $file_tmp7 != '' && $file_tmp8 != '') {*/
 
         $stmt = $connect->prepare("INSERT INTO company_register  (
-                first_name, last_name, email,mobile,talent_image, specialist,certificate ,
+                first_name, last_name, email,mobile, specialist,certificate ,
   experience_info, language_speak , project_details, project_name,
   project_field,project_tools, project_date,project_competation,project_prize,project_design,project_prototype,
       project_video,project_certificate
-      ,national_id,certificate_image,last_certificate,cv,username,cat_name
-  ) VALUES(:zfname,:zlname,:zemail,:zmobile,:ztalent_image,:zspecialist,:zcertificate,:zexperience_info,
+      ,national_id,certificate_image,last_certificate,cv,username,cat_name,talent_images
+  ) VALUES(:zfname,:zlname,:zemail,:zmobile,:zspecialist,:zcertificate,:zexperience_info,
   :zlanguage_speak,:zproject_details,:zproject_name,:zproject_field,:zproject_tools,:zproject_data,:zproject_competation,
   :zproject_prize,:zproject_design,:zproject_prototype,:zproject_video,:zproject_certificate,:znational_id,:zcertificate_image,
-  :zlast_certificate,:zcv,:zusername,:zcat_name)");
+  :zlast_certificate,:zcv,:zusername,:zcat_name,:ztalent_images)");
         $stmt->execute(array(
             "zfname" => $first_name,
             "zlname" => $last_name,
             "zemail" => $email,
             "zmobile" => $mobile,
-            "ztalent_image" => $location9,
             "zspecialist" => $specialist,
             "zcertificate" => $certificate,
             "zexperience_info" => $experience_info,
@@ -222,6 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zcv" => $location8,
             "zusername" => $username,
             "zcat_name" => $cat_name,
+            "ztalent_images" => $location9,
         )); 
         if ($stmt) {?>
 
@@ -233,7 +233,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <?php
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = "اضافة موهبة جديدة";
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

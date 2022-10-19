@@ -58,21 +58,26 @@ $emaildata = $stmt->fetchAll();
                     <div class="info">
 
                         <form id="change_image_form4" class="change_image_form" action="" method="POST" enctype="multipart/form-data">
-                            <?php
-                            if (strlen($userinfo['personal_image']) > 0) { ?>
-                                <div class="personal_image">
-                                    <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
+                            <div>
+                                <?php
+
+                                if (!empty($userinfo['talent_image'])) { ?>
+                                    <div class="personal_image">
+                                        <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
+                                    </div>
+                                <?php
+                                } else { ?>
+                                    <div class="personal_image">
+                                        <img src="uploads/avatar.png" alt="">
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                                <div class="camera_section">
+                                    <input class="change_image" id="change_image4" name="personal_image" type="file">
+                                    <i class="fa fa-camera"></i>
                                 </div>
-                            <?php
-                            } else { ?>
-                                <div class="personal_image">
-                                    <img src="uploads/avatar.png" alt="">
-                                </div>
-                            <?php
-                            }
-                            ?>
-                            <input class="change_image" id="change_image4" name="personal_image" type="file">
-                            <i class="fa fa-camera"></i>
+                            </div>
 
                         </form>
                         <script>

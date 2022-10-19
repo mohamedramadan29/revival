@@ -101,7 +101,7 @@ if ($count >  0) { ?>
                                                                     <div class="upload-file">
                                                                         <div class="upload-wrapper">
                                                                             <label>
-                                                                                <input type="file" name="talent_image[]" id="files9">
+                                                                                <input type="file" name="talent_image[]" id="files9" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
                                                                         </div>

@@ -57,7 +57,7 @@ $emaildata = $stmt->fetchAll();
                     <div class="info">
                         <form id="change_image_form2" class="change_image_form" action="" method="POST" enctype="multipart/form-data">
                             <?php
-                            if (strlen($userinfo['personal_image']) > 0) { ?>
+                             if (!empty($userinfo['talent_image'])) { ?>
                                 <div class="personal_image">
                                     <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
                                 </div>
@@ -69,8 +69,10 @@ $emaildata = $stmt->fetchAll();
                             <?php
                             }
                             ?>
-                            <input class="change_image" id="change_image2" name="personal_image" type="file">
-                            <i class="fa fa-camera"></i>
+                                <div class="camera_section">
+                                    <input class="change_image" id="change_image4" name="personal_image" type="file">
+                                    <i class="fa fa-camera"></i>
+                                </div>
 
                         </form>
                         <script>

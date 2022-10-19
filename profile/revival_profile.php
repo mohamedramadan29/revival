@@ -71,8 +71,10 @@ $emaildata = $stmt->fetchAll();
                             <?php
                             }
                             ?>
-                            <input class="change_image" id="change_image3" name="personal_image" type="file">
-                            <i class="fa fa-camera"></i>
+                               <div class="camera_section">
+                                    <input class="change_image" id="change_image4" name="personal_image" type="file">
+                                    <i class="fa fa-camera"></i>
+                                </div>
 
                         </form>
                         <script>
