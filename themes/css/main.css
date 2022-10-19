@@ -1239,7 +1239,7 @@ body {
 .profile_data .data .info h2 {
     font-weight: bold;
     font-size: 22px;
-    text-transform: capitalize; 
+    text-transform: capitalize;
 }
 
 .profile_data .data .info p {
@@ -2796,10 +2796,21 @@ body {
 
 .project_details .talent_images {
     margin-bottom: 40px;
+    overflow: hidden;
 }
 
 .project_details .talent_images img {
-    min-height: 400px;
+    
+}
+
+.project_details .owl-carousel.owl-drag .owl-item {
+    width: 300px !important;
+    height: 300px !important;
+    overflow: hidden;
+}
+
+.project_details .talent_images img {
+    
 }
 
 .project_details h2 {

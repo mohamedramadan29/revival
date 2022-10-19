@@ -522,7 +522,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "message_revival" => "Revival",
     "message_other" => "Others..",
     "watch_new_talent" => "Watch Talent",
-    "talent_image" => "An image of talent or an image that expresses it ",
+    "talent_image" => "An images of talent or an images that expresses it ",
     "select_image" => "  Select Image ",
     "our_talent" => " Talents ",
     "Facility_Name" => "Facility_Name",

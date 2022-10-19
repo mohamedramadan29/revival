@@ -141,7 +141,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zusername" =>  $_SESSION["username"],
             "zcat_name" => $cat_name,
         ));
-        if ($stmt) {
+        if ($stmt) {?>
+            <script>
+            document.getElementById("first_form555").reset();
+            setTimeout(() => {
+                document.location.reload();
+            }, 2000);
+        </script>
+        <?php
             $to_email = $email;
             $subject = "اضافة مشروع جديد";
             foreach ($emaildata as $data) {
