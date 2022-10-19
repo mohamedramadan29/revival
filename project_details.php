@@ -80,17 +80,17 @@ if (isset($_GET['cat'])) {
                                 <div class="carousel-item active">
                                     <img src="admin/upload/<?= $talent_images[0] ?>" class="d-block w-100" alt="...">
                                 </div>
-                                
+
                             <?php
                             }
                             for ($i = 1; $i < $countfile; ++$i) { ?>
                                 <div class="carousel-item">
                                     <img src="admin/upload/<?= $talent_images[$i] ?>" class="d-block w-100" alt="...">
                                 </div>
-                                
+
                             <?php
                             }
-                            ?> 
+                            ?>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -106,7 +106,13 @@ if (isset($_GET['cat'])) {
                     <br>
                     <div class="talent_video" style="background-image:url(admin/upload/<?php echo $talent_info['talent_images']; ?>)">
                         <div class="d-flex align-items-center pt-5">
-                            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['cv']; ?>" data-bs-target="#videoModal">
+                            <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal<?php
+                                                                                                                        if (isset($_GET["talent_id"])) {
+                                                                                                                            echo $talent_info['art_register_id'];
+                                                                                                                        } elseif (isset($_GET["talent_id_sub"])) {
+                                                                                                                            echo $talent_info['reg_id'];
+                                                                                                                        }
+                                                                                                                        ?>">
                                 <span></span>
                             </button>
                         </div>
@@ -131,17 +137,23 @@ if (isset($_GET['cat'])) {
 </div>
 <!-- END PROJECT DETAILS -->
 <!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal modal-video fade" id="videoModal<?php
+                                                    if (isset($_GET["talent_id"])) {
+                                                        echo $talent_info['art_register_id'];
+                                                    } elseif (isset($_GET["talent_id_sub"])) {
+                                                        echo $talent_info['reg_id'];
+                                                    }
+                                                    ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog video_model">
         <div class="modal-content rounded-0">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <!-- 16:9 aspect ratio -->
-                <div class="ratio ratio-16x9">
-                    <video controls src="" id="video"></video>
-                </div>
+            <div class="modal-body"> 
+                    <video width="100%" height="100%" controls src="admin/upload/<?php echo $talent_info['cv']; ?>">
+
+                    </video>
+                
             </div>
         </div>
     </div>

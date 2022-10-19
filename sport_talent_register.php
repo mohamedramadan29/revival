@@ -152,19 +152,11 @@ if (isset($_SESSION["username"])) { ?>
                                                                 $fileds = $filed['select_name'];
                                                             } else {
                                                                 $fileds = $filed['select_name_en'];
-                                                            }
-                                                            $fileds =  explode(",", $fileds);
-
-                                                            $countfile = count($fileds) - 1;
-                                                            for ($i = 0; $i < $countfile; ++$i) { ?>
-                                                                <option value="<?= $fileds[$i] ?>"><?= $fileds[$i] ?></option>
-                                                            <?php
-                                                            }
-                                                            ?>
+                                                            } ?>
+                                                            <option value="<?php echo $filed['select_id']; ?>"> <?php echo $fileds ?> </option>
                                                         <?php
                                                         }
                                                         ?>
-
                                                     </select>
                                                 </div>
 
@@ -407,7 +399,7 @@ if (isset($_SESSION["username"])) { ?>
                 <div id='status'></div>
                 <!-- Area to display the percent of progress -->
 
-                
+
 
                 <div class="my_progress">
                     <div class="progress">

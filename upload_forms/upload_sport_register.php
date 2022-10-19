@@ -203,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <?php
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = "التسجيل في الرياضة";
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

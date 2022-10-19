@@ -5,7 +5,7 @@ $stmt->execute(array($_SESSION["username"]));
 $userdata = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
-    ?>
+?>
     <div class="profile_data update_profile">
         <div class="container">
             <div class="data">
@@ -18,7 +18,7 @@ if ($count > 0) {
                                 <?php
                                 if (!empty($userdata['talent_image'])) { ?>
                                     <div class="personal_image">
-                                    <img src="admin/upload/<?php echo $userdata['talent_image']; ?>" alt="">
+                                        <img src="admin/upload/<?php echo $userdata['talent_image']; ?>" alt="">
 
                                     </div>
                                 <?php
@@ -512,6 +512,35 @@ if ($count > 0) {
 
                                             </div>
 
+                                            <div class="col-lg-12">
+                                                <label> <?php echo $lang["upload_images"]; ?></label>
+                                                <input type="file" multiple class="form-control" name="talent_images[]">
+<!--
+                                                <div class="box mb-3">
+                                                    <div class="upload-file">
+                                                        <div class="upload-wrapper">
+                                                            <label>
+                                                                <input type="file" name="talent_images[]" id="files10" multiple>
+                                                                <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-12">
+
+                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                        </div>
+                                                    </div>
+                                                    <output id="image-gallery10"></output>
+
+                                                </div>
+                                                                -->
+                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                            </div>
+
+
                                         </div>
 
 
@@ -539,7 +568,7 @@ if ($count > 0) {
 
     </form>
 
-   <!-- Area to display the percent of progress -->
+    <!-- Area to display the percent of progress -->
     <!-- area to display a message after completion of upload -->
     <div id='status'></div>
     <div class="my_progress">

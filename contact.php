@@ -20,7 +20,7 @@ include 'init.php';
 
                 <div class="col-lg-6 col-12">
                     <!-- OLD CODE HERE  -->
-                    <form class="message_form ajax_form" action="upload_forms/upload_contact.php" method="post" enctype="multipart/form-data">
+                    <form id="first_form" class="message_form ajax_form" action="upload_forms/upload_contact.php" method="post" enctype="multipart/form-data">
                         <div class="info">
                             <div class="box mb-3">
                                 <label for="floatingInput"><?php echo $lang["name"];  ?> <span class="star"> *

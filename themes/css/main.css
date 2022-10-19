@@ -1226,7 +1226,7 @@ body {
     left: 100px;
     cursor: pointer;
     width: 100px;
-    cursor:pointer;
+    cursor:pointer; 
 }
 
 .change_image_form .fa-camera {
@@ -3429,4 +3429,8 @@ body {
     .modal.show .modal-dialog {
         min-width: 900px;
     }
+}
+
+.video_model .modal-body{
+    height: 500px;
 }
