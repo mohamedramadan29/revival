@@ -33,9 +33,9 @@ if ($count > 0) {
                         <div class="col-lg-4">
                             <div class="info">
                                 <?php
-                                if (!empty($userdata['talent_image'])) { ?>
+                                if (strlen($userdata['personal_image']) > 0) { ?>
                                     <div class="personal_image">
-                                        <img src="admin/upload/<?php echo $userdata['talent_image']; ?>" alt="">
+                                        <img src="admin/upload/<?php echo $userdata['personal_image']; ?>" alt="">
 
                                     </div>
                                 <?php
