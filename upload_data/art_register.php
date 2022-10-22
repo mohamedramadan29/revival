@@ -265,8 +265,9 @@ project_field=?,project_tools=? , project_date=?,project_competation=?,project_p
             <script>
                 document.getElementById("update_1").reset();
                 setTimeout(() => {
-                    document.location.reload();
-                }, 2000);
+                    let url = "profile.php";
+                    window.location.href = url;
+                }, 6000);
             </script>
             <?php
 

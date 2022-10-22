@@ -500,7 +500,7 @@
                   </li>
 
 
-                  <li class="nav-item">
+                  <li class="nav-item signup_class">
                       <a href="signout.php" class="nav-link">
                           <i class="fa-solid fa-arrow-right-from-bracket color11"></i>
                           <p>

@@ -14,6 +14,7 @@ var AttachmentArray6 = [];
 var AttachmentArray7 = [];
 var AttachmentArray8 = [];
 var AttachmentArray9 = [];
+var AttachmentArray10 = [];
 
 //counter for attachment array
 var arrCounter = 0;
@@ -25,6 +26,7 @@ var arrCounter6 = 0;
 var arrCounter7 = 0;
 var arrCounter8 = 0;
 var arrCounter9 = 0;
+var arrCounter10 = 0;
 
 //to make sure the error message for number of files will be shown only one time.
 var filesCounterAlertStatus = false;
@@ -59,6 +61,9 @@ var ul9 = document.createElement("ul");
 ul9.className = "thumb-Images";
 ul9.id = "imgList9";
 
+var ul10 = document.createElement("ul");
+ul10.className = "thumb-Images";
+ul10.id = "imgList10";
 function init() {
   //add javascript handlers for the file upload event
   document
@@ -88,6 +93,9 @@ function init() {
   document
     .querySelector("#files9")
     .addEventListener("change", handleFileSelect9, false);
+    document
+    .querySelector("#files10")
+    .addEventListener("change", handleFileSelect10, false);
 }
 function init2() {
   //add javascript handlers for the file upload event
@@ -432,7 +440,43 @@ function handleFileSelect9(e) {
     .getElementById("files9")
     .addEventListener("change", handleFileSelect9, false);
 }
+function handleFileSelect10(e) {
+  //to make sure the user select file/files
+  if (!e.target.files) return;
 
+  //To obtaine a File reference
+  var files10 = e.target.files;
+
+  // Loop through the FileList and then to render image files as thumbnails.
+  for (var i = 0, f; (f = files10[i]); i++) {
+    //instantiate a FileReader object to read its contents into memory
+    var fileReader = new FileReader();
+
+    // Closure to capture the file information and apply validation.
+    fileReader.onload = (function (readerEvt10) {
+      return function (e) {
+        //Apply the validation rules for attachments upload
+        ApplyFileValidationRules(readerEvt10);
+
+        //Render attachments thumbnails.
+
+        RenderThumbnail10(e, readerEvt10);
+
+        //Fill the array of attachment
+        FillAttachmentArray(e, readerEvt10);
+      };
+    })(f);
+
+    // Read in the image file as a data URL.
+    // readAsDataURL: The result property will contain the file/blob's data encoded as a data URL.
+    // More info about Data URI scheme https://en.wikipedia.org/wiki/Data_URI_scheme
+    fileReader.readAsDataURL(f);
+  }
+
+  document
+    .getElementById("files10")
+    .addEventListener("change", handleFileSelect10, false);
+}
 //To remove attachment once user click on x button
 jQuery(function ($) {
   $("div").on("click", ".img-wrap .close", function () {
@@ -505,6 +549,12 @@ jQuery(function ($) {
       }
     }
     var lis = document.querySelectorAll("#imgList9 li");
+    for (var i = 0; (li = lis[i]); i++) {
+      if (li.innerHTML == "") {
+        li.parentNode.removeChild(li);
+      }
+    }
+    var lis = document.querySelectorAll("#imgList10 li");
     for (var i = 0; (li = lis[i]); i++) {
       if (li.innerHTML == "") {
         li.parentNode.removeChild(li);
@@ -661,7 +711,22 @@ function ApplyFileValidationRules(readerEvt9) {
 
   //To check files count according to upload conditions
 }
+function ApplyFileValidationRules(readerEvt10) {
+  //To check file type according to upload conditions
 
+  //To check file Size according to upload conditions
+  if (CheckFileSize(readerEvt10.size) == false) {
+    alert(
+      "The file (" +
+      readerEvt10.name +
+      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+    );
+    e.preventDefault();
+    return;
+  }
+
+  //To check files count according to upload conditions
+}
 //To check file type according to upload conditions
 function CheckFileType(fileType) {
   if (fileType == "image/jpeg") {
@@ -915,7 +980,29 @@ function RenderThumbnail9(e, readerEvt9) {
   div.innerHTML = [readerEvt9.name].join("");
   document.getElementById("image-gallery9").insertBefore(ul9, null);
 }
+//Render attachments thumbnails.
+function RenderThumbnail10(e, readerEvt10) {
+  var li = document.createElement("li");
+  ul10.appendChild(li);
+  li.innerHTML = [
+    '<div class="img-wrap img-wrapper">' + '<a href="',
+    e.target.result,
+    '"><img class="thumb" src="',
+    e.target.result,
+    '" title="',
+    escape(readerEvt10.name),
+    '" data-id="',
+    readerEvt10.name,
+    '"/></a>' +
+    '<span class="close"><i class="fa fa-trash-o"></i></span></div>',
+  ].join("");
 
+  var div = document.createElement("div");
+  div.className = "file-info";
+  li.appendChild(div);
+  div.innerHTML = [readerEvt10.name].join("");
+  document.getElementById("image-gallery10").insertBefore(ul10, null);
+}
 //Fill the array of attachment
 function FillAttachmentArray(e, readerEvt) {
   AttachmentArray[arrCounter] = {
@@ -1043,4 +1130,18 @@ function FillAttachmentArray(e, readerEvt9) {
     FileSizeInBytes: readerEvt9.size,
   };
   arrCounter9 = arrCounter9 + 1;
+}
+
+function FillAttachmentArray(e, readerEvt10) {
+  AttachmentArray10[arrCounter10] = {
+    AttachmentType: 1,
+    ObjectType: 1,
+    FileName: readerEvt10.name,
+    FileDescription: "Attachment",
+    NoteText: "",
+    MimeType: readerEvt10.type,
+    Content: e.target.result.split("base64,")[1],
+    FileSizeInBytes: readerEvt10.size,
+  };
+  arrCounter10 = arrCounter10 + 1;
 }

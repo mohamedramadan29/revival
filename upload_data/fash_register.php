@@ -17,6 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location6 = '';
     $location7 = '';
     $location8 = '';
+    $location9 = '';
+    $file_tmp9 = '';
 
     $uploadplace = "../admin/upload/";
 
@@ -30,6 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $file_tmp1 = $_FILES['project_certificate_image']['tmp_name'][$key];
             move_uploaded_file($file_tmp1, $uploadplace . $file);
             $location .= $file . " ";
+        }
+    }
+    if (isset($_FILES['talent_images']['name'])) {
+        foreach ($_FILES['talent_images']['name'] as $key => $val) {
+            $file = $_FILES['talent_images']['name'][$key];
+            $file = str_replace(' ', '', $file);
+            $file_tmp9 = $_FILES['talent_images']['tmp_name'][$key];
+            move_uploaded_file($file_tmp9, $uploadplace . $file);
+            $location9 .= $file . " ";
         }
     }
     /////////////////
@@ -144,10 +155,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ));
         }
         if ($file_tmp4 != '') {
-            $stmt = $connect->prepare("UPDATE fash_register SET talent_video=? WHERE username=?");
+            $stmt = $connect->prepare("UPDATE fash_register SET video_talent=? WHERE username=?");
             $stmt->execute(array(
                 $location4,
                 $_SESSION["username"]
+            ));
+        }
+        if ($file_tmp9 != '') {
+            $stmt = $connect->prepare("UPDATE fash_register SET talent_images=?  WHERE username=?");
+            $stmt->execute(array(
+                $location9,
+                $_SESSION['username'],
             ));
         }
 
@@ -155,8 +173,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <script>
                 document.getElementById("update_2").reset();
                 setTimeout(() => {
-                    document.location.reload();
-                }, 2000);
+                    let url = "profile.php";
+                    window.location.href = url;
+                }, 6000);
             </script>
             <?php
             //   header("Location:profile.php");

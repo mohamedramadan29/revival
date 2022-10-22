@@ -1210,17 +1210,24 @@ body {
     background: #fff;
 }
 
+.camera_section {
+    position: relative;
+}
+
 .change_image_form input[type='file'] {
     opacity: 0;
     transform: scale(1);
     position: absolute;
     z-index: 999999;
-    -webkit-transform: scale(1);
+    -webkit-transform: scale(2);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
-    position: relative;
-    top: -35px;
+    position: absolute;
+    top: -23px;
+    left: 100px;
+    cursor: pointer;
+    width: 100px;
     cursor: pointer;
 }
 
@@ -1231,9 +1238,9 @@ body {
     border-radius: 50%;
     font-size: 22px;
     cursor: pointer;
-    position: relative;
-    top: -77px;
-    right: 50px;
+    position: absolute;
+    top: -44px;
+    left: 100px;
 }
 
 .profile_data .data .info h2 {
@@ -2799,9 +2806,7 @@ body {
     overflow: hidden;
 }
 
-.project_details .talent_images img {
-    
-}
+.project_details .talent_images img {}
 
 .project_details .owl-carousel.owl-drag .owl-item {
     width: 300px !important;
@@ -2809,9 +2814,7 @@ body {
     overflow: hidden;
 }
 
-.project_details .talent_images img {
-    
-}
+.project_details .talent_images img {}
 
 .project_details h2 {
     color: var(--maincolor);
@@ -3424,4 +3427,22 @@ body {
     .modal.show .modal-dialog {
         min-width: 900px;
     }
+}
+
+.video_model .modal-body {
+    height: 500px;
+}
+
+.project_details .talent_images img {
+    max-width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+}
+.project_details .talent_images video{
+    max-width: 100%;
+    height: 250px;
+}
+.bg-success {
+    background-color: #28a745 !important;
+    color: #fff !important;
 }

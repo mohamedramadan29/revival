@@ -2077,3 +2077,7 @@ input[type="radio"], input[type="checkbox"] {
 .btn {
   margin: 4px;
 }
+
+aside .signup_class{
+  margin-bottom: 80px !important;
+}

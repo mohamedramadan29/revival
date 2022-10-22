@@ -160,8 +160,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <script>
                 document.getElementById("first_form").reset();
                 setTimeout(() => {
-                    document.location.reload();
-                }, 2000);
+                    let url = "login.php";
+                    window.location.href = url;
+                }, 6000);
             </script>
             <?php
 

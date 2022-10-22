@@ -11,19 +11,7 @@ $emaildata = $stmt->fetchAll();
 <div class="profile_data">
     <?php
     $emailll =  $userinfo['email'];
-    if ($userinfo['user_status'] == 'active') {
-        $to_email = $emailll;
-        $subject = "تفعيل حسابك في ريفايفال";
-        foreach ($emaildata as $data) {
-            if ($_SESSION['lang'] == 'ar') {
-                $body =  $data['email_text'];
-            } else {
-                $body =  $data['email_text_en'];
-            }
-        }
-        $headers = "From: info@revivals.site";
-        mail($to_email, $subject, $body, $headers);
-    } else { ?>
+    if ($userinfo['user_status'] != 'active') { ?>
         <div class="alert_message alert alert-warning d-flex align-items-center" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
@@ -32,6 +20,10 @@ $emaildata = $stmt->fetchAll();
                 حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك
             </div>
         </div>
+    <?php
+
+    } else { ?>
+
     <?php
     } ?>
 
@@ -58,21 +50,26 @@ $emaildata = $stmt->fetchAll();
                     <div class="info">
 
                         <form id="change_image_form4" class="change_image_form" action="" method="POST" enctype="multipart/form-data">
-                            <?php
-                            if (strlen($userinfo['personal_image']) > 0) { ?>
-                                <div class="personal_image">
-                                    <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
+                            <div>
+                                <?php
+
+                                if (!empty($userinfo['talent_image'])) { ?>
+                                    <div class="personal_image">
+                                        <img src="admin/upload/<?php echo $userinfo['talent_image']; ?>" alt="">
+                                    </div>
+                                <?php
+                                } else { ?>
+                                    <div class="personal_image">
+                                        <img src="uploads/avatar.png" alt="">
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                                <div class="camera_section">
+                                    <input class="change_image4" id="change_image4" name="personal_image" type="file">
+                                    <i class="fa fa-camera"></i>
                                 </div>
-                            <?php
-                            } else { ?>
-                                <div class="personal_image">
-                                    <img src="uploads/avatar.png" alt="">
-                                </div>
-                            <?php
-                            }
-                            ?>
-                            <input class="change_image" id="change_image4" name="personal_image" type="file">
-                            <i class="fa fa-camera"></i>
+                            </div>
 
                         </form>
                         <script>
@@ -224,6 +221,26 @@ $emaildata = $stmt->fetchAll();
                                 </div>
                             </div>
                         </div>
+                        <div class="data2">
+                            <h4> الصور الخاصة بك </h4>
+                            <div class="person_files">
+                                <div class="row">
+                                    <?php
+                                    $files1 = $userinfo['talent_images'];
+                                    $files1 = explode(" ", $files1);
+                                    $countfile = count($files1) - 1;
+                                    for ($i = 0; $i < $countfile; ++$i) {
+                                    ?>
+                                        <div class="col-lg-6 col-12">
+                                            <p class="btn bg-success"> <?= $files1[$i] ?> </p>
+                                        </div>
+                                    <?php
+                                    }
+                                    // echo "<p style='color:green;font-size:26px'>عدد " . $count . " images found.";
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                     <!-- END GET DATA -->
@@ -330,7 +347,6 @@ $emaildata = $stmt->fetchAll();
                                                                     </div>
                                                                     <div class="col-lg-6">
 
-
                                                                         <div class="box">
                                                                             <label id="name"> التخصص </label>
                                                                             <input class="form-control" type="text" name="car_name" value="<?php echo $type['specialist']; ?>">
@@ -407,6 +423,8 @@ $emaildata = $stmt->fetchAll();
                                                                     </div>
 
                                                                 </div>
+
+
 
                                                             </form>
                                                         </div>

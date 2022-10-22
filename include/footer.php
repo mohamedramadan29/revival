@@ -84,7 +84,6 @@
           uploadProgress: function(event, position, total, percentComplete) {
             var percentVal = percentComplete + '%';
             percent.html(percentVal);
-
             $("#percent").html(percentVal);
             $("#percent").width(percentVal);
           },

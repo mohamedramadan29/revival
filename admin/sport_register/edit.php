@@ -221,7 +221,31 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
         <?php header('refresh:3;url=main.php?dir=sport_register&page=report'); ?>
     </div>
 </div>
-<?php }
+<?php
+
+                // START GET EMAIL CONTENT  -->
+
+                $stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='تفعيل الحساب'");
+                $stmt->execute();
+                $emaildata = $stmt->fetchAll();
+
+                $stmt = $connect->prepare("SELECT * FROM sport_register WHERE user_status = 'active' AND sport_register_id =?  ");
+                $stmt->execute(array($register_id));
+                $userdata = $stmt->fetch();
+                $useremail = $userdata["email"];
+                $to_email = $useremail;
+                $subject = "تفعيل حسابك في ريفايفال";
+                foreach ($emaildata as $data) {
+                    if ($_SESSION['lang'] == 'ar') {
+                        $body =  $data['email_text'];
+                    } else {
+                        $body =  $data['email_text_en'];
+                    }
+                }
+                $headers = "From: info@revivals.site";
+                mail($to_email, $subject, $body, $headers);
+
+}
         }
     }
 } else {

@@ -199,12 +199,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <script>
                 document.getElementById("first_form").reset();
                 setTimeout(() => {
-                    document.location.reload();
-                }, 2000);
+                    let url = "login.php";
+                    window.location.href = url;
+                }, 6000);
             </script>
             <?php
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = "التسجيل في الذكاء الاصناعي";
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];
