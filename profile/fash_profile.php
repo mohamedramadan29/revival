@@ -253,7 +253,7 @@ $emaildata = $stmt->fetchAll();
                                             <thead>
                                                 <tr>
                                                     <th> حالة الموهبة </th>
-                                                    <th> مشاهدة الموهبة </th>
+                                                    <th>تعديل و مشاهدة الموهبة </th>
                                                     <th> الاسم الاول </th>
                                                     <th> الاسم الثاني </th>
                                                     <th> البريد الالكتروني </th>
@@ -275,7 +275,7 @@ $emaildata = $stmt->fetchAll();
 
                                                         } ?>
                                                         <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#talent<?php echo $type['reg_id']; ?> ">
-                                                                مشاهدة الموهبة
+                                                                تعديل و مشاهدة الموهبة
                                                             </button> </td>
                                                         <td><?php echo $type['first_name']; ?> </td>
                                                         <td><?php echo $type['last_name']; ?> </td>

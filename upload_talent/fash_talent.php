@@ -65,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     // START Talent Image
-    if (isset($_FILES['talent_image']['name'])) {
-        foreach ($_FILES['talent_image']['name'] as $key => $val) {
-            $file = $_FILES['talent_image']['name'][$key];
+    if (isset($_FILES['talent_images']['name'])) {
+        foreach ($_FILES['talent_images']['name'] as $key => $val) {
+            $file = $_FILES['talent_images']['name'][$key];
             $file = str_replace(' ', '', $file);
-            $file_tmp9 = $_FILES['talent_image']['tmp_name'][$key];
+            $file_tmp9 = $_FILES['talent_images']['tmp_name'][$key];
             move_uploaded_file($file_tmp9, $uploadplace . $file);
             $location9 .= $file . " ";
         }
@@ -158,20 +158,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errormessage)) {
 
-        $stmt = $connect->prepare("INSERT INTO company_register (first_name, last_name, email, mobile,talent_image,specialist ,
+        $stmt = $connect->prepare("INSERT INTO company_register (first_name, last_name, email, mobile,specialist ,
                 certificate, project_name,
                 project_field,project_competation,project_prize,project_certificate_image,
-                national_id,certificate_image,personal_information,video_talent,username,cat_name)
-                VALUES (:zfname,:zlname,:zemail,:zmobile,:ztalent_image,:zspecialist,:zcertificate,
+                national_id,certificate_image,personal_information,video_talent,username,cat_name,talent_images)
+                VALUES (:zfname,:zlname,:zemail,:zmobile,:zspecialist,:zcertificate,
                 :zproject_name,
                 :zproject_field,:zproject_competition,:zproject_prize,:zproject_certificate_image,
-                :znational_id,:zcertificate_image,:zpersonal_information,:zvideo_talent,:zusername,:zcat_name)");
+                :znational_id,:zcertificate_image,:zpersonal_information,:zvideo_talent,:zusername,:zcat_name,:ztalent_images)");
         $stmt->execute(array(
             "zfname" => $first_name,
             "zlname" => $last_name,
             "zemail" => $email,
-            "zmobile" => $mobile,
-            "ztalent_image" => $location9,
+            "zmobile" => $mobile, 
             "zspecialist" => $specialist,
             "zcertificate" => $certificate,
             "zproject_name" => $project_name,
@@ -185,6 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zvideo_talent" => $location8,
             "zusername" => $username,
             "zcat_name" => $cat_name,
+            "ztalent_images" => $location9,
         ));
         if ($stmt) { ?>
             <script>

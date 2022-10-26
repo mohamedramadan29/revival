@@ -40,9 +40,6 @@ if ($count >  0) { ?>
                                                                 </div>
 
                                                                 <div class="box mb-3">
-                                                                    <!--
-                                           <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
                                                                     <label for="floatingInput">
                                                                         <?php echo $lang["mobile"];  ?> <span class="star">
                                                                             * </span></label>
@@ -85,7 +82,7 @@ if ($count >  0) { ?>
                                                                     <div class="upload-file">
                                                                         <div class="upload-wrapper">
                                                                             <label>
-                                                                                <input type="file" name="talent_image[]" id="files4">
+                                                                                <input type="file" name="talent_images[]" id="files4" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
                                                                         </div>
@@ -122,25 +119,25 @@ if ($count >  0) { ?>
                                                                     </div>
                                                                 </div>
                                                                 <div class="box mb-3">
-                                                                <label> فيديوهات الموهبة </label>
-                                                                <div class="upload-file">
-                                                                    <div class="upload-wrapper">
-                                                                        <label>
-                                                                            <input type="file" name="video_talent[]" id="files5">
-                                                                            <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
-                                                                        </label>
+                                                                    <label> فيديوهات الموهبة </label>
+                                                                    <div class="upload-file">
+                                                                        <div class="upload-wrapper">
+                                                                            <label>
+                                                                                <input type="file" name="video_talent[]" id="files5" multiple>
+                                                                                <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="row">
-                                                                    <div class="col-12">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
 
-                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <output id="image-gallery5"></output>
+                                                                    <output id="image-gallery5"></output>
 
-                                                            </div>
+                                                                </div>
                                                             </div>
 
                                                         </div>

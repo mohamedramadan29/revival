@@ -107,8 +107,20 @@ include 'init.php';
                                 <div class="col-lg-4">
                                     <div class="info">
                                         <?php
-                                        if (!empty($talent['talent_image'])) { ?>
-                                            <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
+                                        if (!empty($talent['talent_images'])) {
+
+                                            $talent_images = $talent['talent_images'];
+                                            $talent_images = explode(" ", $talent_images);
+                                            for ($i = 1; $i < 2; ++$i) { ?>
+                                                <div class="col-lg-3">
+                                                    <div class="talent_images">
+                                                        <img src="admin/upload/<?= $talent_images[$i] ?>" alt="">
+                                                    </div>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            <img src="admin/upload/<?php echo $talent['talent_images']; ?>" alt="">
                                         <?php
                                         } else { ?>
                                             <img src="admin/upload/avatar.png" alt="">
@@ -210,10 +222,21 @@ include 'init.php';
                                 <div class="col-lg-4">
                                     <div class="info">
                                         <?php
-                                        if (!empty($talent['talent_image'])) { ?>
-                                            <img src="admin/upload/<?php echo $talent['talent_image']; ?>" alt="">
-                                        <?php
-                                        } else { ?>
+                                        if (!empty($talent['talent_image'])) {
+                                            $talent_images = $talent['talent_images'];
+                                            $talent_images = explode(" ", $talent_images);
+                                            for ($i = 1; $i < 3; ++$i) { ?>
+                                                <div class="col-lg-3">
+                                                    <div class="talent_images">
+                                                        <img src="admin/upload/<?= $talent_images[$i] ?>" alt="">
+                                                    </div>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                            <img src="admin/upload/<?php echo $talent['talent_images']; ?>" alt="">
+                                            <?php
+                                            } else { ?>
                                             <img src="admin/upload/avatar.png" alt="">
                                         <?php
                                         }

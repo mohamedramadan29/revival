@@ -119,6 +119,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errormessage[] = $lang["enter_cartificate"];
     }
 
+    $stmt = $connect->prepare("SELECT * FROM art_register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist11 = $stmt->fetch();
+    if ($exist11 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+    $stmt = $connect->prepare("SELECT * FROM sport_register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist22 = $stmt->fetch();
+
+    if ($exist22 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+    $stmt = $connect->prepare("SELECT * FROM fash_register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist33 = $stmt->fetch();
+    if ($exist33 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+    $stmt = $connect->prepare("SELECT * FROM register WHERE email=?");
+    $stmt->execute(array($email));
+
+    $exist44 = $stmt->fetch();
+    if ($exist44 > 0) {
+        $errormessage[] =  $lang["email_found"];
+    }
+
+
 
     if (empty($errormessage)) {
 
@@ -148,11 +182,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "ztalent_image" => $location9,
         ));
         if ($stmt) { ?>
-            <script>
+        
+        <script>
                 document.getElementById("first_form3").reset();
                 setTimeout(() => {
-                    document.location.reload();
-                }, 2000);
+                    let url = "profile.php";
+                    window.location.href = url;
+                }, 6000);
             </script>
             <?php
             $to_email = $email;

@@ -40,9 +40,6 @@ if ($count >  0) { ?>
                                                                 </div>
 
                                                                 <div class="box mb-3">
-                                                                    <!--
-                                           <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
                                                                     <label for="floatingInput">
                                                                         <?php echo $lang["mobile"];  ?> <span class="star">
                                                                             * </span></label>
@@ -80,18 +77,13 @@ if ($count >  0) { ?>
                                                                         <option value="<?php echo $lang["masters"];  ?> ">
                                                                             <?php echo $lang["masters"];  ?> </option>
                                                                     </select>
-
-
                                                                 </div>
-
-
                                                             </div>
                                                             <div class="col-lg-6 col-12">
                                                                 <div class="box mb-3">
                                                                     <label for="floatingInput">
                                                                         <?php echo $lang["last_name"];  ?><span class="star"> * </span></label>
                                                                     <input name="last_name" type="text" class="form-control" id="floatingInput" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
-
                                                                 </div>
 
                                                                 <div class="box mb-3">
@@ -293,7 +285,7 @@ if ($count >  0) { ?>
 </div>
 
 </form>
- 
+
 <!-- Area to display the percent of progress -->
 <!-- area to display a message after completion of upload -->
 <div id='status'></div>

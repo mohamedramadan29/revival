@@ -6,9 +6,6 @@ $userdata = $stmt->fetch();
 $count = $stmt->rowCount();
 if ($count > 0) {
 ?>
-
-
-
     <div class="profile_data update_profile">
         <div class="container">
             <div class="data">
@@ -19,20 +16,15 @@ if ($count > 0) {
                         <div class="col-lg-4">
                             <div class="info">
                                 <?php
-                                if (strlen($userdata['personal_image']) > 0) { ?>
+                                if (!empty($userdata['talent_image'])) { ?>
                                     <div class="personal_image">
-                                        <img src="admin/upload/<?php echo $userdata['personal_image']; ?>" alt="">
-
+                                        <img src="admin/upload/<?php echo $userdata['talent_image']; ?>" alt="">
                                     </div>
                                 <?php
                                 } else { ?>
-
-
                                     <div class="personal_image">
                                         <img src="uploads/avatar.png" alt="">
-
                                     </div>
-
                                 <?php
                                 }
                                 ?>
@@ -74,9 +66,6 @@ if ($count > 0) {
                                                                     <input disabled name="username" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata['username']; ?>">
                                                                 </div>
                                                                 <div class="box mb-3">
-                                                                    <!--
-                                           <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
                                                                     <label for="floatingInput">
                                                                         <?php echo $lang["mobile"];  ?> <span class="star">
                                                                             * </span></label>
@@ -269,6 +258,27 @@ if ($count > 0) {
                                                 </div>
 
                                                 <output id="image-gallery2"></output>
+
+                                            </div>
+                                            <div class="box mb-3">
+                                                <div class="upload-file">
+                                                    <div class="upload-wrapper">
+                                                        <label>
+                                                            <input type="file" name="talent_images[]" id="files3" multiple accept="*/images">
+                                                            <p> الصور الخاصة بالموهبة
+                                                            </p>
+                                                        </label>
+                                                        <span class="files_type"> .jpg, .jpeg,.png </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+
+                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                    </div>
+                                                </div>
+
+                                                <output id="image-gallery3"></output>
 
                                             </div>
                                         </div>

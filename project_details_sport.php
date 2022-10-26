@@ -91,6 +91,7 @@ if (isset($_GET['cat'])) {
             <div class="row">
                 <h2> الصور الخاصة بالموهبة </h2>
                 <div class="row">
+
                     <?php
                     $talent_images = $talent_info['talent_images'];
                     $talent_images = explode(" ", $talent_images);
@@ -104,6 +105,11 @@ if (isset($_GET['cat'])) {
                     <?php
                     }
                     ?>
+                    <div class="col-lg-3">
+                        <div class="talent_images">
+                            <img src="admin/upload/<?php echo $talent_info['talent_images']; ?>" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
 
