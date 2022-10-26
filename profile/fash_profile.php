@@ -305,81 +305,132 @@ $emaildata = $stmt->fetchAll();
                                                     <div class="modal-body">
 
                                                         <div class="myform">
-                                                            <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
-                                                                <input type="hidden" name="register_id" value="<?php echo $register_id; ?>">
+                                                            <form action="update_talent/fash_talent.php" class="form-group insert ajax_form" id="first_form2" method="POST" autocomplete="on" enctype="multipart/form-data">
+                                                                <input type="hidden" name="register_id" value="<?php echo $type['reg_id']; ?>">
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="box">
                                                                             <label id="name"> الاسم الاول </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['first_name']; ?>">
+                                                                            <input required class="form-control" type="text" name="first_name" value="<?php echo $type['first_name']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <label id="name"> الاسم الاخير </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['last_name']; ?>">
+                                                                            <input required class="form-control" type="text" name="last_name" value="<?php echo $type['last_name']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <label id="name"> البريد الالكتروني </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['email']; ?>">
+                                                                            <input required class="form-control" type="text" name="email" value="<?php echo $type['email']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <label id="name"> رقم الهاتف </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['mobile']; ?>">
+                                                                            <input required class="form-control" type="text" name="mobile" value="<?php echo $type['mobile']; ?>">
                                                                         </div>
 
                                                                         <div class="box">
                                                                             <label id="name"> نبذة مختصرة </label>
-                                                                            <textarea name="" class="form-control"><?php echo $type['personal_information']; ?></textarea>
+                                                                            <textarea name="personal_information" class="form-control"><?php echo $type['personal_information']; ?></textarea>
 
                                                                         </div>
 
                                                                         <div class="box">
                                                                             <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> هل لديك مشروع قائم </h6>
                                                                             <label id="name"> اسم المشروع </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['project_name']; ?>">
-                                                                        </div>
-
-                                                                        <div class="box">
-                                                                            <label id="name"> اسم المشروع </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['project_name']; ?>">
+                                                                            <input required class="form-control" type="text" name="project_name" value="<?php echo $type['project_name']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <label id="name"> مجال المشروع </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['project_field']; ?>">
+                                                                            <input required class="form-control" type="text" name="project_field" value="<?php echo $type['project_field']; ?>">
                                                                         </div>
                                                                         <div class="box">
                                                                             <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2">هل شاركت اعمالك في مسابقات أو معارض!
                                                                             </h6>
                                                                             <label id="name"> ماهي المسابقات والمعارض التي شارك فيه؟</label>
-                                                                            <textarea name="" class="form-control"><?php echo $type['project_competation']; ?></textarea>
+                                                                            <textarea name="project_competation" class="form-control"><?php echo $type['project_competation']; ?></textarea>
                                                                         </div>
 
+                                                                        <div class="box mb-3">
+                                                                            <label> <?php echo $lang["talent_image"];  ?> </label>
+                                                                            <div class="upload-file">
+                                                                                <div class="upload-wrapper">
+                                                                                    <label>
+                                                                                        <input type="file" name="talent_image[]" id="files4" multiple>
+                                                                                        <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
 
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+
+                                                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                                </div>
+                                                                            </div>
+                                                                            <output id="image-gallery4"></output>
+
+                                                                        </div>
+                                                                        <div class="box mb-3">
+                                                                            <label> فيديوهات الموهبة </label>
+                                                                            <div class="upload-file">
+                                                                                <div class="upload-wrapper">
+                                                                                    <label>
+                                                                                        <input type="file" name="video_talent[]" id="files5" multiple>
+                                                                                        <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+
+                                                                                    <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                                </div>
+                                                                            </div>
+                                                                            <output id="image-gallery5"></output>
+
+                                                                        </div>
                                                                     </div>
                                                                     <div class="col-lg-6">
                                                                         <div class="box">
                                                                             <label id="name"> التخصص </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['specialist']; ?>">
+                                                                            <input required class="form-control" type="text" name="specialist" value="<?php echo $type['specialist']; ?>">
                                                                         </div>
 
-                                                                        <div class="box">
-                                                                            <label id="name"> الموهل العلمي </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['certificate']; ?>">
-                                                                        </div>
-
-                                                                        <div class="box">
-                                                                            <label id="name"> المجال </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['field']; ?>">
-                                                                        </div>
-
-                                                                        <div class="box">
-                                                                            <label id="name"> المجال الفرعي </label>
-                                                                            <input required class="form-control" type="text" name="car_name" value="<?php echo $type['sub_field']; ?>">
-                                                                        </div>
                                                                         <div class="box">
                                                                             <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"> هل حصل أعمالك على جوائز؟ </h6>
                                                                             <label id="name"> الجوائز</label>
-                                                                            <textarea name="" class="form-control"><?php echo $type['project_prize']; ?></textarea>
+                                                                            <textarea name="project_prize" class="form-control"><?php echo $type['project_prize']; ?></textarea>
                                                                         </div>
+                                                                        <div class="row">
+                                                                            <div class="box">
+                                                                                <label id="name"> صورة البطاقة الوطنية </label>
+                                                                                <div class="row">
+                                                                                    <?php
+                                                                                    $files1 = $type['national_id'];
+                                                                                    $files1 = explode(" ", $files1);
+                                                                                    $countfile = count($files1) - 1;
+                                                                                    if ($countfile > 0) {
+                                                                                        for ($i = 0; $i < $countfile; ++$i) {
+                                                                                    ?>
+                                                                                            <div class="col-12">
+
+                                                                                                <div class="files_style">
+                                                                                                    <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        <?php
+                                                                                        }
+                                                                                    } else { ?>
+
+                                                                                        <div class="alert alert-danger"> لا يوجد صورة البطاقة الوطنية </div>
+
+                                                                                    <?php
+                                                                                    }
+                                                                                    ?>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
                                                                         <div class="box">
                                                                             <label id="name"> صور الشهادات </label>
                                                                             <div class="row">
@@ -402,9 +453,6 @@ $emaildata = $stmt->fetchAll();
                                                                                     <div class="alert alert-danger"> لا يوجد ملفات </div>
                                                                                 <?php
                                                                                 }
-
-
-
                                                                                 ?>
                                                                             </div>
                                                                         </div>
@@ -430,49 +478,175 @@ $emaildata = $stmt->fetchAll();
                                                                                     <div class="alert alert-danger"> لا يوجد ملفات </div>
                                                                                 <?php
                                                                                 }
-
-
-
                                                                                 ?>
                                                                             </div>
                                                                         </div>
 
-                                                                    </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> صور الموهبة </label>
+                                                                            <div class="row">
+                                                                                <?php
+                                                                                $files1 = $type['talent_images'];
+                                                                                $files1 = explode(" ", $files1);
+                                                                                $countfile = count($files1) - 1;
+                                                                                if ($countfile > 0) {
+                                                                                    for ($i = 0; $i < $countfile; ++$i) {
+                                                                                ?>
+                                                                                        <div class="col-12">
 
-
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="box">
-                                                                        <label id="name"> صورة البطاقة الوطنية </label>
-                                                                        <div class="row">
-                                                                            <?php
-                                                                            $files1 = $type['national_id'];
-                                                                            $files1 = explode(" ", $files1);
-                                                                            $countfile = count($files1) - 1;
-                                                                            if ($countfile > 0) {
-                                                                                for ($i = 0; $i < $countfile; ++$i) {
-                                                                            ?>
-                                                                                    <div class="col-12">
-
-                                                                                        <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                            <div class="files_style">
+                                                                                                <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
+                                                                                    <?php
+                                                                                    }
+                                                                                } else { ?>
+                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
                                                                                 <?php
                                                                                 }
-                                                                            } else { ?>
-
-                                                                                <div class="alert alert-danger"> لا يوجد صورة البطاقة الوطنية </div>
-
-                                                                            <?php
-                                                                            }
-                                                                            ?>
+                                                                                ?>
+                                                                            </div>
                                                                         </div>
+                                                                        <div class="box">
+                                                                            <label id="name"> فيديوهات الموهبة </label>
+                                                                            <div class="row">
+                                                                                <?php
+                                                                                $files1 = $type['video_talent'];
+                                                                                $files1 = explode(" ", $files1);
+                                                                                $countfile = count($files1) - 1;
+                                                                                if ($countfile > 0) {
+                                                                                    for ($i = 0; $i < $countfile; ++$i) {
+                                                                                ?>
+                                                                                        <div class="col-12">
+
+                                                                                            <div class="files_style">
+                                                                                                <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    <?php
+                                                                                    }
+                                                                                } else { ?>
+                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                <?php
+                                                                                }
+                                                                                ?>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-12">
+                                                                            <label> <?php echo $lang["national_id_image"]; ?> </label>
+
+                                                                            <div class="box mb-3">
+                                                                                <div class="upload-file">
+                                                                                    <div class="upload-wrapper">
+                                                                                        <label>
+                                                                                            <input type="file" name="national_id[]" id="files2" multiple accept="image/*">
+                                                                                            <p> <?php echo $lang["select_files"]; ?>
+                                                                                            </p>
+                                                                                        </label>
+                                                                                        <span class="files_type"> .jpg, .jpeg,
+                                                                                            .png, .gif </span>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-12">
+
+                                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <output id="image-gallery2"></output>
+
+                                                                            </div>
+
+                                                                            <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                                                        </div>
+                                                                        <div class="check_prototype_resualt">
+
+
+                                                                            <div class="col-lg-12">
+                                                                                <label> <?php echo $lang["Certificate_images"]; ?> </label>
+
+                                                                                <div class="box mb-3">
+                                                                                    <div class="upload-file">
+                                                                                        <div class="upload-wrapper">
+                                                                                            <label>
+                                                                                                <input type="file" name="project_certificate_image[]" id="files" multiple accept="image/*">
+                                                                                                <p> <a> <?php echo $lang["select_files"]; ?>
+                                                                                                    </a></p>
+                                                                                            </label>
+                                                                                            <span class="files_type"> .jpg, .jpeg,
+                                                                                                .png, .gif </span>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-12">
+
+                                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <output id="image-gallery"></output>
+
+                                                                                </div>
+
+                                                                                <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-lg-12">
+                                                                            <label>
+                                                                                <p> <?php echo $lang["upload_cv_document"]; ?>
+                                                                                </p>
+                                                                            </label>
+
+                                                                            <div class="box mb-3">
+                                                                                <div class="upload-file">
+                                                                                    <div class="upload-wrapper">
+                                                                                        <label>
+                                                                                            <input type="file" name="certificate_image[]" id="files3" multiple accept=".doc, .docx, .pdf">
+                                                                                            <p> <?php echo $lang["select_files"]; ?>
+                                                                                            </p>
+                                                                                        </label>
+                                                                                        <span class="files_type"> .doc, .docs,
+                                                                                            .pdf </span>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-12">
+
+                                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <output id="image-gallery3"></output>
+
+                                                                            </div>
+
+                                                                            <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
+
+                                                                        </div>
+
+
                                                                     </div>
+
 
                                                                 </div>
 
+                                                                <button type="submit" class="btn btn-primary m-auto text-center edit_talent_button"> تعديل الموهبة </button>
+
                                                             </form>
+                                                            <br>
+                                                            <!-- Area to display the percent of progress -->
+                                                            <!-- area to display a message after completion of upload -->
+                                                            <div id='status'></div>
+                                                            <div class="my_progress">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
                                                     </div>

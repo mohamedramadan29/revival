@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $file_tmp1 = '';
     $file_tmp2 = '';
     $file_tmp3 = '';
+    $file_tmp8 = '';
     $file_tmp9 = '';
     $location = "";
     $location2 = '';
@@ -74,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $location9 .= $file . " ";
         }
     }
-    // START Talent Images
+
     if (isset($_FILES['video_talent']['name'])) {
         foreach ($_FILES['video_talent']['name'] as $key => $val) {
             $file = $_FILES['video_talent']['name'][$key];
@@ -91,7 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile = $_POST["mobile"];
 
     $specialist = $_POST["specialist"];
-    $certificate = $_POST["certificate"];
 
     $project_name = $_POST["project_name"];
     $project_field = $_POST["project_field"];
@@ -99,6 +99,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $project_prize = $_POST["project_prize"];
 
     $personal_information = $_POST["personal_information"];
+
+    $register_id = $_POST['register_id'];
 
     $errormessage = [];
 
@@ -116,13 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($mobile)) {
         $errormessage[] =  $lang["enter_mobile"];
     }
-    if (empty($specialist)) {
-        $errormessage[] = $lang["enter_specialist"];
-    }
-    if (empty($certificate)) {
-        $errormessage[] = $lang["enter_cartificate"];
-    }
-
     $stmt = $connect->prepare("SELECT * FROM art_register WHERE email=?");
     $stmt->execute(array($email));
 
@@ -158,66 +153,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errormessage)) {
 
-        $stmt = $connect->prepare("INSERT INTO company_register (first_name, last_name, email, mobile,talent_image,specialist ,
-                certificate, project_name,
-                project_field,project_competation,project_prize,project_certificate_image,
-                national_id,certificate_image,personal_information,video_talent,username,cat_name)
-                VALUES (:zfname,:zlname,:zemail,:zmobile,:ztalent_image,:zspecialist,:zcertificate,
-                :zproject_name,
-                :zproject_field,:zproject_competition,:zproject_prize,:zproject_certificate_image,
-                :znational_id,:zcertificate_image,:zpersonal_information,:zvideo_talent,:zusername,:zcat_name)");
+        $stmt = $connect->prepare("UPDATE company_register SET first_name=?, last_name=?, email=?, mobile=?,specialist=? ,
+        project_name=?,
+        project_field=?,project_competation=?,project_prize=?,
+        personal_information=?,username=?,cat_name=? WHERE reg_id=? ");
         $stmt->execute(array(
-            "zfname" => $first_name,
-            "zlname" => $last_name,
-            "zemail" => $email,
-            "zmobile" => $mobile,
-            "ztalent_image" => $location9,
-            "zspecialist" => $specialist,
-            "zcertificate" => $certificate,
-            "zproject_name" => $project_name,
-            "zproject_field" => $project_field,
-            "zproject_competition" => $project_competation,
-            "zproject_prize" => $project_prize,
-            "zproject_certificate_image" => $location,
-            "znational_id" => $location2,
-            "zcertificate_image" => $location3,
-            "zpersonal_information" => $personal_information,
-            "zvideo_talent" => $location8,
-            "zusername" => $username,
-            "zcat_name" => $cat_name,
+            $first_name, $last_name, $email, $mobile, $specialist,
+            $project_name, $project_field, $project_competation, $project_prize,
+            $personal_information, $username, $cat_name, $register_id
         ));
+        if ($file_tmp1 != '') {
+            $stmt = $connect->prepare("UPDATE company_register SET project_certificate_image=? WHERE reg_id=?");
+            $stmt->execute(array(
+                $location, $register_id
+            ));
+        }
+        if ($file_tmp2 != '') {
+            $stmt = $connect->prepare("UPDATE company_register SET national_id=? WHERE reg_id=?");
+            $stmt->execute(array(
+                $location2, $register_id
+            ));
+        }
+        if ($file_tmp3 != '') {
+            $stmt = $connect->prepare("UPDATE company_register SET certificate_image=? WHERE reg_id=?");
+            $stmt->execute(array(
+                $location3, $register_id
+            ));
+        }
+        if ($file_tmp9 != '') {
+            $stmt = $connect->prepare("UPDATE company_register SET talent_images=? WHERE reg_id=?");
+            $stmt->execute(array(
+                $location9, $register_id
+            ));
+        }
+        if ($file_tmp8 != '') {
+            $stmt = $connect->prepare("UPDATE company_register SET video_talent=? WHERE reg_id=?");
+            $stmt->execute(array(
+                $location8, $register_id
+            ));
+        }
         if ($stmt) { ?>
-            <script>
-                document.getElementById("first_form2").reset();
+            <script> 
                 setTimeout(() => {
                     let url = "profile.php";
                     window.location.href = url;
                 }, 6000);
             </script>
-            <?php
-            $to_email = $email;
-            $subject = "اضافة موهبة جديدة";
-            foreach ($emaildata as $data) {
-                if ($_SESSION['lang'] == 'ar') {
-                    $body =  $data['email_text'];
-                } else {
-                    $body =  $data['email_text_en'];
-                }
-            }
-            $headers = "From: info@revivals.site";
-            mail($to_email, $subject, $body, $headers)
-            ?>
             <div class='container'>
                 <div class='alert alert-success text-center'>
-                    <?php
-                    foreach ($emaildata as $data) {
-                        if ($_SESSION['lang'] == 'ar') {
-                            echo   $data['email_text'];
-                        } else {
-                            echo  $data['email_text_en'];
-                        }
-                    }
-                    ?>
+                    تم تعديل الموهبة بنجاح
                 </div>
             </div>
         <?php

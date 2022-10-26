@@ -31,7 +31,7 @@ if (isset($_SESSION["username"])) { ?>
                             <div class="info">
 
                                 <div class="row">
-                                    <div class="col-lg-6 col-12">
+                                    <https://socialimark.com/wabell/div class="col-lg-6 col-12">
                                         <div class="box mb-3">
                                             <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> * </span></label>
                                             <input name="first_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
@@ -143,20 +143,15 @@ if (isset($_SESSION["username"])) { ?>
                                                 $stmt->execute();
                                                 $mainfiled = $stmt->fetchAll();
                                                 foreach ($mainfiled as $filed) {
-                                                    if ($_SESSION["lang"] == "ar") {
-                                                        $fileds = $filed['select_name'];
-                                                    } else {
-                                                        $fileds = $filed['select_name_en'];
-                                                    }
-                                                    $fileds =  explode(",", $fileds);
-
-                                                    $countfile = count($fileds) - 1;
-                                                    for ($i = 0; $i < $countfile; ++$i) { ?>
-                                                        <option value="<?= $fileds[$i] ?>"><?= $fileds[$i] ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                <?php
+                                                    foreach ($mainfiled as $filed) {
+                                                        if ($_SESSION["lang"] == "ar") {
+                                                            $fileds = $filed['select_name'];
+                                                        } else {
+                                                            $fileds = $filed['select_name_en'];
+                                                        }?>
+                                                         <option value="<?php echo $filed['select_id']; ?>">  <?php echo $fileds ?> </option>
+                                                         <?php
+                                                        }
                                                 }
                                                 ?>
 
@@ -189,7 +184,7 @@ if (isset($_SESSION["username"])) { ?>
                                                     <?php echo $lang["broker_company"];  ?> </option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </https:>
                                     <div class="col-lg-6 col-12">
                                         <div class="box mb-3">
                                             <label for="last_name"><?php echo $lang["last_name"];  ?> <span class="star"> * </span></label>

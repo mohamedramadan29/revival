@@ -570,9 +570,7 @@ function ApplyFileValidationRules(readerEvt) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt.size) == false) {
     alert(
-      "The file (" +
-      readerEvt.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -588,9 +586,7 @@ function ApplyFileValidationRules(readerEvt2) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt2.size) == false) {
     alert(
-      "The file (" +
-      readerEvt2.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -604,9 +600,7 @@ function ApplyFileValidationRules(readerEvt3) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt3.size) == false) {
     alert(
-      "The file (" +
-      readerEvt3.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -620,9 +614,7 @@ function ApplyFileValidationRules(readerEvt4) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt4.size) == false) {
     alert(
-      "The file (" +
-      readerEvt4.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -636,9 +628,7 @@ function ApplyFileValidationRules(readerEvt5) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt5.size) == false) {
     alert(
-      "The file (" +
-      readerEvt5.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -652,9 +642,7 @@ function ApplyFileValidationRules(readerEvt6) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt6.size) == false) {
     alert(
-      "The file (" +
-      readerEvt6.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -668,9 +656,7 @@ function ApplyFileValidationRules(readerEvt7) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt7.size) == false) {
     alert(
-      "The file (" +
-      readerEvt7.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -684,9 +670,7 @@ function ApplyFileValidationRules(readerEvt8) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt8.size) == false) {
     alert(
-      "The file (" +
-      readerEvt8.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -701,9 +685,7 @@ function ApplyFileValidationRules(readerEvt9) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt9.size) == false) {
     alert(
-      "The file (" +
-      readerEvt9.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -717,9 +699,7 @@ function ApplyFileValidationRules(readerEvt10) {
   //To check file Size according to upload conditions
   if (CheckFileSize(readerEvt10.size) == false) {
     alert(
-      "The file (" +
-      readerEvt10.name +
-      ") does not match the upload conditions, The maximum file size for uploads should not exceed 300 KB"
+      " حجم الملف كبير جدا يجب الا يتجاوز 100 m  "
     );
     e.preventDefault();
     return;
@@ -745,7 +725,7 @@ function CheckFileType(fileType) {
 
 //To check file Size according to upload conditions
 function CheckFileSize(fileSize) {
-  if (fileSize < 3000000000000000000000000000000000000000000) {
+  if (fileSize < 102400000) {
     return true;
   } else {
     return false;
@@ -764,7 +744,7 @@ function CheckFilesCount(AttachmentArray) {
     }
   }
   //To check the length does not exceed 10 files maximum
-  if (len > 9) {
+  if (len > 5) {
     return false;
   } else {
     return true;

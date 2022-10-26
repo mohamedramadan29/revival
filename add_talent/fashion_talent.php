@@ -53,7 +53,7 @@ if ($count >  0) { ?>
                                                                     <label for="floatingInput"> <?php echo $lang["certificate"];  ?><span class="star"> *
                                                                         </span></label>
 
-                                                                    <select name="certificate" class="form-select country9" id="floatingSelectGrid" aria-label="Floating label country2 example">
+                                                                    <select name="certificate" class="form-control country9" id="floatingSelectGrid" aria-label="Floating label country2 example">
 
                                                                         <?php
                                                                         if ($_SERVER["REQUEST_METHOD"] == "POST") { ?>
@@ -80,6 +80,27 @@ if ($count >  0) { ?>
                                                                             <?php echo $lang["masters"];  ?> </option>
                                                                     </select>
                                                                 </div>
+                                                                <div class="box mb-3">
+                                                                    <label> <?php echo $lang["talent_image"];  ?> </label>
+                                                                    <div class="upload-file">
+                                                                        <div class="upload-wrapper">
+                                                                            <label>
+                                                                                <input type="file" name="talent_image[]" id="files4">
+                                                                                <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+
+                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <output id="image-gallery4"></output>
+
+                                                                </div>
+
                                                             </div>
                                                             <div class="col-lg-6 col-12">
                                                                 <div class="box mb-3">
@@ -92,27 +113,6 @@ if ($count >  0) { ?>
                                                                         <span class="star"> * </span></label>
                                                                     <input name="specialist" type="text" class="form-control" id="floatingInput" value=" <?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['specialist']; ?>">
                                                                 </div>
-                                                                <div class="box mb-3">
-                                                                    <label> <?php echo $lang["talent_image"];  ?> </label>
-                                                                    <div class="upload-file">
-                                                                        <div class="upload-wrapper">
-                                                                            <label>
-                                                                                <input type="file" name="talent_image[]" id="files9">
-                                                                                <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="row">
-                                                                        <div class="col-12">
-
-                                                                            <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
-                                                                        </div>
-                                                                    </div>
-                                                                    <output id="image-gallery9"></output>
-
-                                                                </div>
-
                                                                 <div class=" mb-3">
                                                                     <div class="box mb-3">
                                                                         <label for="floatingInput">
@@ -121,7 +121,28 @@ if ($count >  0) { ?>
                                                                         <textarea name="personal_information" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['personal_information']; ?></textarea>
                                                                     </div>
                                                                 </div>
+                                                                <div class="box mb-3">
+                                                                <label> فيديوهات الموهبة </label>
+                                                                <div class="upload-file">
+                                                                    <div class="upload-wrapper">
+                                                                        <label>
+                                                                            <input type="file" name="video_talent[]" id="files5">
+                                                                            <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row">
+                                                                    <div class="col-12">
+
+                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+                                                                    </div>
+                                                                </div>
+                                                                <output id="image-gallery5"></output>
+
                                                             </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>

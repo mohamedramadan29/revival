@@ -17,7 +17,6 @@ if (isset($_GET['cat'])) {
     }
 }
 ?>
-
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
@@ -69,18 +68,18 @@ if (isset($_GET['cat'])) {
                 </div>
             </div>
 
-
-                <div class="col-lg-6">
-                    <h2> الصور والفيديو الخاص بالموهبة </h2>
-                    <div class="talent_images">
-                        <img src="admin_event/upload/<?php echo $talent_info['talent_image']; ?>" alt="">
-                    </div>
-
-                    <div class="talent_video" style="background-image:url(admin_event/upload/<?php echo $talent_info['talent_image']; ?>)">
-                        <div class="d-flex align-items-center pt-5">
-                            <button type="button" class="btn-play" data-bs-toggle="modal" data-src="admin/upload/<?php echo $talent_info['talent_video']; ?>" data-bs-target="#videoModal">
-                                <span></span>
-                            </button>
+            <div class="row">
+                <h2> الصور الخاصة بالموهبة </h2>
+                <div class="row">
+                    <?php
+                    $talent_images = $talent_info['talent_images'];
+                    $talent_images = explode(" ", $talent_images);
+                    $countfile = count($talent_images) - 1;
+                    for ($i = 1; $i < $countfile; ++$i) { ?>
+                        <div class="col-lg-3">
+                            <div class="talent_images">
+                                <img src="admin/upload/<?= $talent_images[$i] ?>" alt="">
+                            </div>
                         </div>
                     <?php
                     }
@@ -106,31 +105,13 @@ if (isset($_GET['cat'])) {
                     ?>
                 </div>
                 <div class="return_talent">
-                    <a href="talent_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
+                    <a href="fashion_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- END PROJECT DETAILS -->
-<!-- Video Modal Start -->
-<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content rounded-0">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- 16:9 aspect ratio -->
-                <div class="ratio ratio-16x9">
-                    <video controls src="" id="video"></video>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Video Modal End -->
 <?php
 include $tem . 'footer_section.php';
 include $tem . 'footer.php';
