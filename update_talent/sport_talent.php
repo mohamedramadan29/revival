@@ -185,7 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <div class='container'>
                 <div class='alert alert-success text-center'>
-                    تم تعديل الموهبة بنجاح
+                <?php echo $lang['suc_talent_update']; ?>
                 </div>
             </div>
         <?php

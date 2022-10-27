@@ -150,31 +150,31 @@ if ($count > 0) {
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="box mb-3">
-                                            <label for="floatingInput"> اكتب نبذةعن خبراتك</label>
+                                            <label for="floatingInput">   <?php echo $lang['Brief_about_you']; ?>   </label>
                                             <textarea class="form-control" name="experience_info" id="floatingInput"><?php echo $userdata["experience_info"] ?></textarea>
 
                                         </div>
 
                                         <div class="check_exp">
-                                            <h4> هل تلعب فى نادي رسمى </h4>
+                                            <h4>  <?php echo $lang['play_official_club']; ?>   </h4>
                                             <div class="main_check">
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp1">
-                                                <label class="" for="check_exp1"> لا </label>
+                                                <label class="" for="check_exp1">   <?php echo $lang['no']; ?>  </label>
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp2">
-                                                <label class="" for="check_exp2"> نعم </label>
+                                                <label class="" for="check_exp2"> <?php echo $lang['yes']; ?>  </label>
                                                 <div class="check_exp1_project">
                                                     <div class="form-group mb-3">
-                                                        <label for="floatingInput"> اسم النادي </label>
+                                                        <label for="floatingInput"><?php echo $lang['team_name']; ?> </label>
                                                         <input name="team_name" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["team_name"] ?>">
 
                                                     </div>
                                                     <!-- Do Design -->
                                                     <div class="prototype_deisgn">
-                                                        <h4> هل انت مسجل رسميا بعقد في قائمة النادي؟!</h4>
+                                                        <h4><?php echo $lang['offial_register']; ?></h4>
                                                         <input class="" name="team_register" type="radio" value="no" id="check_design1">
-                                                        <label class="" for="check_design1"> لا </label>
+                                                        <label class="" for="check_design1"><?php echo $lang['no']; ?></label>
                                                         <input class="" name="team_register" type="radio" value="yes" id="check_design2">
-                                                        <label class="" for="check_design2"> نعم </label>
+                                                        <label class="" for="check_design2"> <?php echo $lang['yes']; ?> </label>
 
                                                     </div>
 
@@ -184,23 +184,23 @@ if ($count > 0) {
                                         </div>
 
                                         <div class="check_exp">
-                                            <h4> هل انت لاعب كرة قدم</h4>
+                                            <h4> <?php echo $lang['football_player']; ?></h4>
                                             <div class="main_check">
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp1">
-                                                <label class="" for="check_exp1"> لا </label>
+                                                <label class="" for="check_exp1"> <?php echo $lang['no']; ?> </label>
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp2">
-                                                <label class="" for="check_exp2"> نعم </label>
+                                                <label class="" for="check_exp2"> <?php echo $lang['yes']; ?> </label>
                                                 <div class="check_exp1_project">
                                                     <div class="box mb-3">
-                                                        <label for="floatingInput"> العمر </label>
+                                                        <label for="floatingInput"> <?php echo $lang['age']; ?> </label>
                                                         <input name="player_position" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["player_position"] ?>">
                                                     </div>
                                                     <div class="box mb-3">
-                                                        <label for="floatingInput"> الوزن</label>
+                                                        <label for="floatingInput"> <?php echo $lang['weight']; ?></label>
                                                         <input name="player_weight" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["player_weight"] ?>">
                                                     </div>
                                                     <div class="box mb-3">
-                                                        <label for="floatingInput"> الطول</label>
+                                                        <label for="floatingInput"> <?php echo $lang['tall']; ?></label>
                                                         <input name="player_taller" type="text" class="form-control" id="floatingInput" value="<?php echo $userdata["player_taller"] ?>">
 
                                                     </div>
@@ -223,7 +223,7 @@ if ($count > 0) {
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="videos[]" id="files" multiple accept="video/*">
-                                                            <p> فيديو توضيح الموهبة
+                                                            <p><?php echo $lang['video_talent_show']; ?>
                                                             </p>
                                                         </label>
                                                     </div>
@@ -265,7 +265,7 @@ if ($count > 0) {
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="talent_images[]" id="files3" multiple accept="*/images">
-                                                            <p> الصور الخاصة بالموهبة
+                                                            <p><?php echo $lang['talent_images']; ?>
                                                             </p>
                                                         </label>
                                                         <span class="files_type"> .jpg, .jpeg,.png </span>
@@ -292,8 +292,7 @@ if ($count > 0) {
 
                                                     <div class="">
                                                         <div class="reservation_button">
-                                                            <button type="submit" class="btn main_button"> تعديل
-                                                                الحساب </button>
+                                                            <button type="submit" class="btn main_button">  <?php echo $lang['account_update']; ?> </button>
                                                         </div>
                                                     </div>
                                                 </div>

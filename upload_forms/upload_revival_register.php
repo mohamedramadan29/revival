@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $field = $_POST["field"];
     $sub_field = $_POST["sub_field"];
-    $reg_type = $_POST["register_type"];
+   // $reg_type = $_POST["register_type"];
     $certificate = $_POST["certificate"];
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -138,9 +138,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errormessage)) {
         $stmt = $connect->prepare("INSERT INTO register (first_name, last_name,
                     email, mobile , country,
-                    specialist, certificate , field, sub_field , reg_type, username, password)
+                    specialist, certificate , field, sub_field , username, password)
                            VALUES (:zfirst_name,:zlast_name,:zemail,
-                            :zmobile, :zcountry, :zspecial,:zcertificate, :zfield,:zsubfield, :zreg_type,:zusername, :zpassword)");
+                            :zmobile, :zcountry, :zspecial,:zcertificate, :zfield,:zsubfield,:zusername, :zpassword)");
         $stmt->execute(array(
             "zfirst_name" => $first_name,
             "zlast_name" => $last_name,
@@ -150,14 +150,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zspecial" => $specialist,
             "zcertificate" => $certificate,
             "zfield" => $field,
-            "zsubfield" => $sub_field,
-            "zreg_type" => $reg_type,
+            "zsubfield" => $sub_field, 
             "zusername" => $username,
             "zpassword" => $password,
         ));
         if ($stmt) {
             ?>
-              <script>
+            <script>
                 document.getElementById("first_form").reset();
                 setTimeout(() => {
                     let url = "login.php";

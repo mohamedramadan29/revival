@@ -390,7 +390,7 @@ if ($count > 0) {
 
                                             <div class="col-lg-12">
                                                 <label>
-                                                    <p> صور الموهبة الخاصة بك
+                                                    <p><?php echo $lang['talent_images']; ?>
                                                     </p>
                                                 </label>
 

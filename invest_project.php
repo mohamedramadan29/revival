@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ));
         if ($stmt) {
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = $lang['invest_mail'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

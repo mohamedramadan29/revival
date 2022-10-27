@@ -199,8 +199,8 @@ if (isset($_SESSION["username"])) { ?>
                                                     } else {
                                                         $fileds = $filed['select_name_en'];
                                                     }?>
-                                                     <option value="<?php echo $filed['select_id']; ?>">  <?php echo $fileds ?> </option>
-                                                     <?php
+                                                    <option value="<?php echo $filed['select_id']; ?>">  <?php echo $fileds ?> </option>
+                                                    <?php
                                                     }
                                                     ?>
                                             </select>

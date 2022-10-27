@@ -90,9 +90,9 @@ include 'init.php';
 
                     <!-- Area to display the percent of progress -->
                     <div class="m-3">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-                    </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                        </div>
                     </div>
 
                     <!-- area to display a message after completion of upload -->
@@ -112,8 +112,8 @@ include 'init.php';
                             <li> <i class="fa fa-location"> </i> <?php echo $lang["contact_us_address"];  ?>
                             </li>
 
-                            <li> <i class="fa fa-envelope"> </i> <a href="mailto://info@car-rental.com">
-                                    info@Revaval.com </a> </li>
+                            <li> <i class="fa fa-envelope"> </i> <a href="mailto://info@revivals.site">
+                                    info@revivals.site </a> </li>
                         </ul>
                     </div>
                 </div>

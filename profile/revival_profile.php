@@ -17,7 +17,7 @@ $emaildata = $stmt->fetchAll();
                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
             </svg>
             <div>
-                حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك
+                <?php echo $lang['not_active_account']; ?>
             </div>
         </div>
     <?php
@@ -111,18 +111,7 @@ $emaildata = $stmt->fetchAll();
                                 <li> <a href="update_profile.php" class="btn button">
                                         <?php echo $lang["account_update"]; ?> <i class="fa fa-edit"></i> </a>
                                 </li>
-                                <li class="d-none"> <a href="ticket.php" class="btn button">
-                                        <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
-                                </li>
-                                <?php
-                                if ($userinfo['reg_type'] == 'وسيط / منشأة' || $userinfo['reg_type'] == 'company') { ?>
-                                    <li> <a href="add_talent.php?username=<?php echo $userinfo['username']; ?>" class="btn button">
-                                            <?php echo $lang["add_talent"]; ?> <i class="fa fa-user"></i> </a>
-                                    </li>
-                                <?php
-                                }
-                                ?>
-
+                                <!--
                                 <li class="dropdown-share d-none">
                                     <a href="#" class="btn button"> <?php echo $lang["business_sharing"]; ?> <i class="fa fa-chevron-down"></i>
                                     </a>
@@ -135,10 +124,12 @@ $emaildata = $stmt->fetchAll();
                                         </li>
                                     </ul>
                                 </li>
+                    
                                 <li> <a href="add_individual_project.php" class="btn button">
                                         <?php echo $lang["add_new_project"]; ?> <i class="fa fa-plus"></i>
                                     </a>
                                 </li>
+                                -->
                             </ul>
                         </div>
                     </div>
@@ -176,7 +167,7 @@ $emaildata = $stmt->fetchAll();
                         </div>
 
                         <div class="data2">
-                            <h4> السيرة الذاتية والمستندات</h4>
+                            <h4> <?php echo $lang['upload_cv_document']; ?> </h4>
                             <div class="person_files">
                                 <div class="row">
                                     <?php
@@ -197,14 +188,14 @@ $emaildata = $stmt->fetchAll();
                                         <?php
                                         }
                                     } else { ?>
-                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                        <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
                         </div>
-
+                        <!--
 
                         <div class="data2">
                             <h4> الفيديوهات </h4>
@@ -231,10 +222,11 @@ $emaildata = $stmt->fetchAll();
                                 </div>
                             </div>
                         </div>
-
+                                -->
                     </div>
                     <!-- END GET DATA -->
                     <!--  START TALENT REGISTER  -->
+                    <!--
                     <div class="personal_information">
                         <div class="data2">
                             <h4> المواهب المسجلة </h4>
@@ -278,6 +270,7 @@ $emaildata = $stmt->fetchAll();
                             </div>
                         </div>
                     </div>
+                                            -->
                     <!--  END TALENT REGISTER  -->
                 </div>
             </div>

@@ -232,7 +232,8 @@ $lang = array(
   "enter_last_name" => " من فضلك ادخل الاسم الاخير ",
   "enter_mobile" => "  من فضلك ادخل رقم الهاتف ",
   "enter_specialist" => "من فضلك ادخل التخصص",
-  "enter_cartificate" => "من فضلك ادخل الموهل العلمي",
+  "enter_cartificate" => "  فضلك ادخل الموهل العلمي",
+  "cartificate" => "      الموهل العلمي",
   "enter_field" => "من فضلك ادخل المجال",
   "enter_sub_field" => "من فضلك ادخل المجال الفرعي",
   "enter_password" => "من فضلك ادخل كلمة المرور",
@@ -395,12 +396,12 @@ $lang = array(
 
   // START ACCOUNT PAGE
 
-  "account_update" =>   " تحديث الحساب  ",
+  "account_update" =>   " تعديل الحساب  ",
   "open_ticket" =>   "  فتح تذكرة جديدة  ",
   "add_new_project" =>   "  اضافة مشروع جديد  ",
   "edit_profile_image" =>   "  تعديل الصورة الشخصية ",
   "personal_information" =>   "  المعلومات الشخصية ",
-  "Brief_about_you" =>   " نبذة مختصرة عنك ",
+  "Brief_about_you" =>   " نبذة مختصرة   ",
   "business_sharing" =>   " مشاركة الاعمال  ",
   "Individually_share" =>   " بشكل فردي ",
   "collectively_share" =>   "  بشكل جماعي ",
@@ -410,8 +411,8 @@ $lang = array(
   // Update Profile
 
   "update_profile_page" =>   " تحديث الملف الشخصى ",
-  "upload_cv_document" =>   " السيرة الذاتية والمستندات الخاصة بك     ",
-  "upload_video" =>   "  ارفع الفيديوهات الخاصة بك من هنا ",
+  "upload_cv_document" =>   " السيرة الذاتية والمستندات         ",
+  "upload_video" =>   "  ارفع الفيديوهات ",
   // "update_profile_page" =>   " تحديث الملف الشخصى ",
 
 
@@ -508,9 +509,50 @@ $lang = array(
 
   "return_to_talent" => " الرجوع الي المواهب ",
   "course_register" => "التسجيل في الكورس",
-  "username_found" => "اسم المستحدم موجود من قبل من فضلك ادخل اسم مستخدم اخر" ,
+  "username_found" => "اسم المستحدم موجود من قبل من فضلك ادخل اسم مستخدم اخر",
   "email_found" => " البربد الالكتروني  مستخدم بالفعل من فضللك ادخل بريد الكتروني اخر ",
-	"upload_images" => "ارفع الصور الخاصة  بك ",
+  "upload_images" => "ارفع الصور الخاصة  بك ",
+
+
+  /** START NEW LANG */
+  'not_active_account' => ' حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك',
+  'about_information' => '  اكتب نبذةعن خبراتك ',
+  'play_official_club' => '  هل تلعب فى نادي رسمى  ',
+  'team_name' => ' اسم النادي ',
+  'offial_register' => 'هل انت مسجل رسميا بعقد في قائمة النادي؟! ',
+  'football_player' => '   هل انت لاعب كرة قدم   ',
+  'age' => '  العمر ',
+  'weight' => '  الوزن  ',
+  'tall' => '  الطول  ',
+  'video_talent_show' => '   فيديو توضيح الموهبة  ',
+  'no_file_found' => '    لا يوجد ملفات  ',
+  'videos' => ' الفيديوهات ',
+  'your_images' => '  الصور الخاصة بك  ',
+  'register_talent' => '  المواهب المسجلة  ',
+  'talent_stat' => ' حالة الموهبة  ',
+  'watch_talent_edit' => '   مشاهدة الموهبة والتعديل عليها  ',
+  'is_active' => '    تم التفعيل  ',
+  'pending' => ' تحت المراجعه  ',
+  'talent_images' => ' صور الموهبة  ',
+  'edit_talent' => ' تعديل الموهبة ',
+  'no_talent_found' =>  'لا يوجد مواهب مسجلة من خلالك الان ',
+  'your_project' => '  المشاريع الخاصة بك ',
+  'project_stat' => ' حالة المشروع ',
+  'view_project' => '   مشاهدة المشروع  ',
+  'project_brief' => '     وصف مختصر عن المشروع     ', 
+  'no_project_found' => '  لا يوجد مشاريع لديك في الوقت الحالي ', 
+  'project_desc' => '  وصف المشروع', 
+  'suc_talent_update' => '   تم تعديل الموهبة بنجاح   ',
+  'course_register_email' => ' التسجيل في كورسات ريفايفال ',
+  'course_price' => ' سعر الكورس',
+  'course_hours' => '  عدد الساعات  ',
+  'hours' => 'ساعات ',
+  'days' => 'ايام ',
+  'invest_mail' => 'الاستثمار في موهبة ريفايفال ',
+  'sub_about_talent' => ' نبذه عن الموهبة ',
+  'info_about_talent' => 'معلومات عن الموهبة',
+  'lang' => 'اللغات',
+
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

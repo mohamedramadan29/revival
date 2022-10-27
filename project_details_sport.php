@@ -48,26 +48,26 @@ if (isset($_GET['cat'])) {
             <div class="row">
                 <div class="col-lg-6">
                     <div class="info2">
-                        <h2> معلومات عن الموهبة </h2>
+                        <h2><?php echo $lang['info_about_talent']; ?></h2>
                         <ul class="list-unstyled">
-                            <li> <span> الاسم الاول : </span><?php
+                            <li> <span><?php echo $lang['first_name']; ?>: </span><?php
                                                                 if (isset($_GET["talent_id"])) {
                                                                     echo $talent_info['first_name2'];
                                                                 } else {
                                                                     echo $talent_info['first_name'];
                                                                 }
                                                                 ?> </li>
-                            <li> <span> الاسم الاخير : </span> <?php echo $talent_info['last_name']; ?> </li>
-                            <li> <span> التخصص : </span> <?php echo $talent_info['specialist']; ?> </li>
-                            <li> <span> الطول : </span> <?php echo $talent_info['player_taller']; ?> <span> cm </span> </li>
-                            <li> <span> الوزن : </span> <?php echo $talent_info['player_weight']; ?> <span> Kg </span> </li>
-                            <li> <span> العمر : </span> <?php echo $talent_info['player_position']; ?> </li>
+                            <li> <span><?php echo $lang['last_name']; ?>: </span> <?php echo $talent_info['last_name']; ?> </li>
+                            <li> <span> <?php echo $lang['specialist']; ?> : </span> <?php echo $talent_info['specialist']; ?> </li>
+                            <li> <span> <?php echo $lang['tall']; ?> : </span> <?php echo $talent_info['player_taller']; ?> <span> cm </span> </li>
+                            <li> <span> <?php echo $lang['weight']; ?> : </span> <?php echo $talent_info['player_weight']; ?> <span> Kg </span> </li>
+                            <li> <span> <?php echo $lang['age']; ?> : </span> <?php echo $talent_info['player_position']; ?> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="info2">
-                        <h2> نبذة عن الموهبة </h2>
+                        <h2><?php echo $lang['sub_about_talent']; ?> </h2>
                         <p> <?php echo $talent_info['experience_info']; ?>
                         </p>
                         <a href="invest_project.php?cat=<?php echo $cat; ?>&talent_id=<?php if (isset($_GET['talent_id'])) {
@@ -89,7 +89,7 @@ if (isset($_GET['cat'])) {
 
 
             <div class="row">
-                <h2> الصور الخاصة بالموهبة </h2>
+                <h2><?php echo $lang['talent_images']; ?></h2>
                 <div class="row">
 
                     <?php
@@ -114,7 +114,7 @@ if (isset($_GET['cat'])) {
             </div>
 
             <div class="row">
-                <h2> الفيديوهات الخاصة بالموهبة </h2>
+                <h2><?php echo $lang['video_talent_show']; ?></h2>
                 <div class="row">
                     <?php
                     $talent_videos = $talent_info['video_talent'];

@@ -520,6 +520,7 @@ if ($count > 0) {
                                                                 <output id="image-gallery"></output>
 
                                                             </div>
+                                                            <!--
                                                             <div class="box mb-3">
                                                                 <div class="upload-file">
                                                                     <div class="upload-wrapper">
@@ -534,14 +535,14 @@ if ($count > 0) {
 
                                                                 <div class="row">
                                                                     <div class="col-12">
-
-                                                                        <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
+ 
                                                                     </div>
                                                                 </div>
 
                                                                 <output id="image-gallery2"></output>
 
                                                             </div>
+                                                                -->
                                                             <div class="">
                                                                 <div class="reservation_button">
                                                                     <button type="submit" class="btn main_button">

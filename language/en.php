@@ -18,7 +18,7 @@ $lang = array(
     "faqs" => " Faqs ",
     "logout" => " Logout ",
     "search" => "Search",
-    "username_found" => "  Username already exists. Please enter another username.   " ,
+    "username_found" => "  Username already exists. Please enter another username.   ",
     "email_found" => "The email is already in use, please enter another email",
 
     // START HOME PAGE (INDEX)
@@ -515,7 +515,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "add_project_name_error" =>   " Please enter the project name ",
     "add_project_decs_error" =>   " Please enter an overview of the project   ",
     "message_head" => " Message Subject ",
- 
+
     "message_art" => " Artificial intelligence ",
     "message_sport" => " Sport Talent ",
     "message_fash" => " Fashion and jewelry",
@@ -532,6 +532,52 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "course_register" => "Register In Course ",
     "username_found_or_email" => "User Name Or Email Is Already Found",
     "upload_images" => "Upload Your Images ",
+
+
+    /** START NEW LANG */
+    'not_active_account' => ' Your account is under review now, it will be approved soon by the admin when all your files are completed. ',
+    'about_information' => ' Write a summary of your experiences ',
+    'play_official_club' => ' Do you play in an official club? ',
+    'team_name' => 'Team Name',
+    'offial_register' => ' Are you officially registered with a contract in the club list?! ',
+    'football_player' => '  Are you football player  ',
+    'age' => ' Age ',
+    'weight' => '  Weight  ',
+    'tall' => '  Height  ',
+    'video_talent_show' => 'talent demonstration video',
+    'no_file_found' => '  No File Found ',
+    'videos' => ' Videos ',
+    'your_images' => '  Your Pictures ',
+    'register_talent' => 'Registered talent',
+    'talent_stat' => ' Talent Status  ',
+    'watch_talent_edit' => '   Watch Talent And Edit ',
+
+    'is_active' => ' Active ',
+    'pending' => ' Pending ',
+
+    'talent_images' => ' Talent Images ',
+    'edit_talent' => ' Edit Talent ',
+
+    'no_talent_found' => 'There are no talents registered through you now',
+    'your_project' => ' Your Projects',
+    'project_stat' => '  Project Status ',
+    'your_project' => ' Your Project ',
+    'view_project' => '  Watch Project ',
+    'project_brief' => '    Brief description of the project    ',
+    'no_project_found' => 'You have no projects at the moment',
+    'project_desc' => '  Project Description   ',
+
+    'suc_talent_update' => 'Talent has been successfully modified ',
+    'course_register_email' => ' Register In Revival Coursrs ',
+    'course_price' => '  Course Price   ',
+    'course_hours' => '  Course Hours ',
+    'hours' => ' Hours ',
+    'days' => 'Days ',
+    'invest_mail' => ' Investing in the talent of Revival ',
+    'sub_about_talent' => ' About Talent ',
+    'info_about_talent' => '  Information About Talent   ',
+    "cartificate" => "  cartificate  ",
+    'lang' => 'Language',
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

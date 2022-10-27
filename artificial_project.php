@@ -15,7 +15,7 @@ include 'init.php';
         </div>
     </div>
     <div class="data container ">
-        <h2> مواهب الذكاء الإصطناعي </h2>
+        <h2> <?php echo $lang['art_talent']; ?> </h2>
     </div>
 </div>
 </div>

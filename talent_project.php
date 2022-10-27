@@ -92,7 +92,7 @@ include 'init.php';
                                                 $exp_info = $talent['experience_info'];
                                                 $exp = substr($exp_info, 0, 150);
                                                 echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                            <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $talent['sport_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                            <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $talent['sport_register_id']; ?>" class="btn button">  <?php echo $lang['watch_talent']; ?></a>
                                         </div>
                                     </div>
                                 <?php
@@ -133,7 +133,7 @@ include 'init.php';
                                             $exp_info = $talent['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_sport.php?cat=sport&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_sport.php?cat=sport&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button">  <?php echo $lang['watch_talent']; ?></a>
                                     </div>
                                 </div>
                             <?php
@@ -168,7 +168,7 @@ include 'init.php';
                                             $exp_info = $user_project_data['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $user_project_data['sport_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $user_project_data['sport_register_id']; ?>" class="btn button">  <?php echo $lang['watch_talent']; ?></a>
                                     </div>
                                 </div>
                             <?php
@@ -205,7 +205,7 @@ include 'init.php';
                                             $exp_info = $talent['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $talent['sport_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $talent['sport_register_id']; ?>" class="btn button"> <?php echo $lang['watch_talent']; ?></a>
                                     </div>
                                 </div>
                             <?php
@@ -235,8 +235,8 @@ include 'init.php';
                                             }
                                             ?>
                                             <img src="admin/upload/<?php echo $talent['talent_images']; ?>" alt="">
-                                            <?php
-                                            } else { ?>
+                                        <?php
+                                        } else { ?>
                                             <img src="admin/upload/avatar.png" alt="">
                                         <?php
                                         }
@@ -247,7 +247,7 @@ include 'init.php';
                                             $exp_info = $talent['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_sport.php?cat=sport&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_sport.php?cat=sport&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button">  <?php echo $lang['watch_talent']; ?></a>
                                     </div>
                                 </div>
                             <?php
@@ -284,7 +284,7 @@ include 'init.php';
                                             $exp_info = $user_project_data['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $user_project_data['sport_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_sport.php?cat=sport&talent_id=<?php echo $user_project_data['sport_register_id']; ?>" class="btn button"> <?php echo $lang['watch_talent']; ?> </a>
                                     </div>
                                 </div>
                             <?php

@@ -104,7 +104,7 @@ $emaildata = $stmt->fetchAll();
                                         ));
                                         if ($stmt) {
                                             $to_email = $email;
-                                            $subject = "التسجيل في الكورس";
+                                            $subject = $lang['course_register_email'];
                                             foreach ($emaildata as $data) {
                                                 if ($_SESSION['lang'] == 'ar') {
                                                     $body =  $data['email_text'];
@@ -313,8 +313,8 @@ $emaildata = $stmt->fetchAll();
 
                     </div>
                     <div class="course_price">
-                        <p> <span> سعر الكورس :</span> 100 $</p>
-                        <p> <span> عدد الساعات :</span> 10 ساعات</p>
+                        <p> <span><?php echo $lang['course_price']; ?>:</span> 100 $</p>
+                        <p> <span><?php echo $lang['course_hours']; ?>:</span> 10 <?php echo $lang['hours']; ?></p>
                     </div>
                     <div class="course_instructor">
                         <h2> <?php echo $lang["course_constuctor"]; ?> </h2>

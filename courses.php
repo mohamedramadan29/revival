@@ -55,7 +55,7 @@ include 'init.php';
                                 </ul>
                                 <ul class="list-unstyled">
 
-                                    <li> <?php echo $course["course_num_days"] ?> ايام </li>
+                                    <li> <?php echo $course["course_num_days"] ?> <?php echo $lang["days"] ?> </li>
                                     <li> <?php echo $course["course_constructor"] ?> </li>
                                 </ul>
                             </div>

@@ -42,13 +42,13 @@ if (isset($_GET['cat'])) {
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="info2">
-                            <h2> معلومات عن الموهبة </h2>
+                            <h2><?php echo $lang['info_about_talent']; ?></h2>
                             <ul class="list-unstyled">
-                                <li> <span> الاسم الاول : </span> <?php echo $talent_info['first_name']; ?> </li>
-                                <li> <span> الاسم الاخير : </span> <?php echo $talent_info['last_name']; ?> </li>
-                                <li> <span> التخصص : </span> <?php echo $talent_info['specialist']; ?> </li>
-                                <li> <span> الموهل العلمي : </span> <?php echo $talent_info['certificate']; ?> </li>
-                                <li> <span> اللغات : </span> <?php echo $talent_info['language_speak']; ?></li>
+                                <li> <span><?php echo $lang['first_name']; ?>: </span> <?php echo $talent_info['first_name']; ?> </li>
+                                <li> <span><?php echo $lang['last_name']; ?>: </span> <?php echo $talent_info['last_name']; ?> </li>
+                                <li> <span> <?php echo $lang['specialist']; ?> : </span> <?php echo $talent_info['specialist']; ?> </li>
+                                <li> <span><?php echo $lang['cartificate']; ?>: </span> <?php echo $talent_info['certificate']; ?> </li>
+
 
                             </ul>
 
@@ -57,7 +57,7 @@ if (isset($_GET['cat'])) {
                     </div>
                     <div class="col-lg-6">
                         <div class="info2">
-                            <h2> نبذة عن الموهبة </h2>
+                            <h2> <?php echo $lang['sub_about_talent']; ?> </h2>
                             <p> <?php echo $talent_info['experience_info']; ?>
                             </p>
                             <a href="invest_project.php?cat=<?php echo $cat; ?>&talent_id=<?php if (isset($_GET['talent_id'])) {
@@ -70,7 +70,7 @@ if (isset($_GET['cat'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <h2> الصور الخاصة بالموهبة </h2>
+                    <h2><?php echo $lang['talent_images']; ?></h2>
                     <div class="row">
 
                         <?php
@@ -94,7 +94,7 @@ if (isset($_GET['cat'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <h2> الفيديوهات الخاصة بالموهبة </h2>
+                    <h2><?php echo $lang['video_talent_show']; ?></h2>
                     <div class="row">
                         <?php
                         $talent_videos = $talent_info['cv'];

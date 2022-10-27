@@ -18,7 +18,7 @@ $emaildata = $stmt->fetchAll();
                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
             </svg>
             <div>
-                حسابك تحت المراجعه الان سيتم الموافقة قريبا من خلال الادمن عند اكمال جميع الملفات الخاصة بك
+                <?php echo $lang['not_active_account']; ?>
             </div>
         </div>
     <?php
@@ -188,7 +188,7 @@ $emaildata = $stmt->fetchAll();
                                         <?php
                                         }
                                     } else { ?>
-                                        <div class="alert alert-warning"> لا يوجد ملفات </div>
+                                        <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
                                     ?>
@@ -213,7 +213,7 @@ $emaildata = $stmt->fetchAll();
                                         <?php
                                         }
                                     } else { ?>
-                                        <div class="alert alert-warning"> لا يوجد ملفات </div>
+                                        <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
 
@@ -223,7 +223,7 @@ $emaildata = $stmt->fetchAll();
                                 </div>
                             </div>
                             <div class="box">
-                                <label id="name"> الفيديوهات </label>
+                                <label id="name"> <?php echo $lang['videos']; ?> </label>
                                 <div class="row">
                                     <?php
                                     $files1 = $userinfo['cv'];
@@ -241,14 +241,14 @@ $emaildata = $stmt->fetchAll();
                                         <?php
                                         }
                                     } else { ?>
-                                        <div class="alert alert-warning"> لا يوجد ملفات </div>
+                                        <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
                             <div class="box">
-                                <label id="name"> الصور الخاصة بك </label>
+                                <label id="name"><?php echo $lang['your_images']; ?></label>
                                 <div class="row">
                                     <?php
                                     $files1 = $userinfo['talent_images'];
@@ -265,7 +265,7 @@ $emaildata = $stmt->fetchAll();
                                         <?php
                                         }
                                     } else { ?>
-                                        <div class="alert alert-warning"> لا يوجد ملفات </div>
+                                        <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
                                     ?>
@@ -278,7 +278,7 @@ $emaildata = $stmt->fetchAll();
                     if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company') { ?>
                         <div class="personal_information">
                             <div class="data2">
-                                <h4> المواهب المسجلة </h4>
+                                <h4> <?php echo $lang['register_talent']; ?> </h4>
                                 <?php
                                 $stmt = $connect->prepare('SELECT * FROM company_register WHERE username=?');
                                 $stmt->execute(array($userinfo['username']));
@@ -289,13 +289,13 @@ $emaildata = $stmt->fetchAll();
                                         <table id="table" class="table table-light table-striped table-hover table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th> حالة الموهبة </th>
-                                                    <th> مشاهدة الموهبة والتعديل عليها </th>
-                                                    <th> الاسم الاول </th>
-                                                    <th> الاسم الثاني </th>
-                                                    <th> البريد الالكتروني </th>
-                                                    <th> الهاتف </th>
-                                                    <th> التخصص </th>
+                                                    <th><?php echo $lang['talent_stat']; ?></th>
+                                                    <th><?php echo $lang['watch_talent_edit']; ?></th>
+                                                    <th><?php echo $lang['first_name']; ?></th>
+                                                    <th><?php echo $lang['last_name']; ?></th>
+                                                    <th><?php echo $lang['email']; ?></th>
+                                                    <th> <?php echo $lang['mobile']; ?> </th>
+                                                    <th> <?php echo $lang['specialist']; ?> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -303,16 +303,16 @@ $emaildata = $stmt->fetchAll();
                                                 $alltype = $stmt->fetchAll();
                                                 foreach ($alltype as $type) { ?> <tr>
                                                         <?php if ($type['user_status'] == 'active') { ?>
-                                                            <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                                                            <td> <button class="btn btn-success btn-sm"> <?php echo $lang['is_active']; ?> </button> </td>
                                                         <?php
                                                         } else {
                                                         ?>
-                                                            <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                                                            <td> <button class="btn btn-warning btn-sm"><?php echo $lang['pending']; ?></button> </td>
                                                         <?php
 
                                                         } ?>
                                                         <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#talent<?php echo $type['reg_id']; ?> ">
-                                                                مشاهدة الموهبة والتعديل عليها
+                                                                <?php echo $lang['watch_talent_edit']; ?>
                                                             </button> </td>
                                                         <td><?php echo $type['first_name']; ?> </td>
                                                         <td><?php echo $type['last_name']; ?> </td>
@@ -355,7 +355,7 @@ $emaildata = $stmt->fetchAll();
                                                                             <input class="form-control" type="text" name="last_name" value="<?php echo $type['last_name']; ?>">
                                                                         </div>
                                                                         <div class="box">
-                                                                            <label id="name"> اخر شهادة علمية</label>
+                                                                            <label id="name"> <?php echo $lang['scientific_certificate']; ?> </label>
                                                                             <div class="row">
                                                                                 <?php
                                                                                 $files1 = $type['last_certificate'];
@@ -375,7 +375,7 @@ $emaildata = $stmt->fetchAll();
                                                                                     <?php
                                                                                     }
                                                                                 } else { ?>
-                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                                 <?php
                                                                                 }
 
@@ -383,7 +383,7 @@ $emaildata = $stmt->fetchAll();
                                                                             </div>
                                                                         </div>
                                                                         <div class="box">
-                                                                            <label id="name"> السيرة الذاتية والمستندات </label>
+                                                                            <label id="name"><?php echo $lang['upload_cv_document']; ?></label>
                                                                             <div class="row">
                                                                                 <?php
                                                                                 $files1 = $type['certificate_image'];
@@ -403,14 +403,14 @@ $emaildata = $stmt->fetchAll();
                                                                                     <?php
                                                                                     }
                                                                                 } else { ?>
-                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                                 <?php
                                                                                 }
                                                                                 ?>
                                                                             </div>
                                                                         </div>
                                                                         <div class="box">
-                                                                            <label id="name"> الفيديوهات </label>
+                                                                            <label id="name"> <?php echo $lang['videos']; ?> </label>
                                                                             <div class="row">
                                                                                 <?php
                                                                                 $files1 = $type['cv'];
@@ -430,14 +430,14 @@ $emaildata = $stmt->fetchAll();
                                                                                     <?php
                                                                                     }
                                                                                 } else { ?>
-                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                                 <?php
                                                                                 }
                                                                                 ?>
                                                                             </div>
                                                                         </div>
                                                                         <div class="box">
-                                                                            <label id="name"> صور الموهبة </label>
+                                                                            <label id="name"><?php echo $lang['talent_images']; ?></label>
                                                                             <div class="row">
                                                                                 <?php
                                                                                 $files1 = $type['talent_images'];
@@ -457,14 +457,14 @@ $emaildata = $stmt->fetchAll();
                                                                                     <?php
                                                                                     }
                                                                                 } else { ?>
-                                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                                 <?php
                                                                                 }
                                                                                 ?>
                                                                             </div>
                                                                         </div>
                                                                         <div class="box">
-                                                                            <label id="name"> صورة البطاقة الوطنية </label>
+                                                                            <label id="name"><?php echo $lang['national_id_image']; ?></label>
                                                                             <div class="row">
                                                                                 <?php
                                                                                 $files1 = $type['national_id'];
@@ -483,7 +483,7 @@ $emaildata = $stmt->fetchAll();
                                                                                     }
                                                                                 } else { ?>
 
-                                                                                    <div class="alert alert-danger"> لا يوجد صورة البطاقة الوطنية </div>
+                                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
 
                                                                                 <?php
                                                                                 }
@@ -640,7 +640,7 @@ $emaildata = $stmt->fetchAll();
 
 
                                                         </div>
-                                                        <button type="submit" class="btn btn-primary m-auto text-center edit_talent_button"> تعديل الموهبة </button>
+                                                        <button type="submit" class="btn btn-primary m-auto text-center edit_talent_button"><?php echo $lang['edit_talent']; ?></button>
 
                                                         </form>
                                                         <br>
@@ -662,18 +662,15 @@ $emaildata = $stmt->fetchAll();
                                     }
                         ?>
                         <!-- END MODEL  -->
-
                     <?php
-
                                 } else { ?>
 
                         <div class="alert alert-warning">
-                            لا يوجد مواهب مسجلة من خلالك الان
+                            <?php echo $lang['no_talent_found']; ?>
                         </div>
                     <?php
                                 }
                     ?>
-
                         </div>
                 </div>
             <?php
@@ -685,7 +682,7 @@ $emaildata = $stmt->fetchAll();
             <!--  START TALENT REGISTER  -->
             <div class="personal_information">
                 <div class="data2">
-                    <h4> المشاريع الخاصة بك </h4>
+                    <h4> <?php echo $lang['your_project']; ?> </h4>
                     <?php
 
                     $stmt = $connect->prepare('SELECT * FROM revival_add_project WHERE username=?');
@@ -697,10 +694,10 @@ $emaildata = $stmt->fetchAll();
                             <table id="table" class="table table-light table-striped table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th> حالة المشروع </th>
-                                        <th> مشاهدة المشروع </th>
-                                        <th> اسم المشروع </th>
-                                        <th> وصف مختصر عن المشروع </th>
+                                        <th><?php echo $lang['project_stat']; ?></th>
+                                        <th><?php echo $lang['view_project']; ?></th>
+                                        <th><?php echo $lang['project_name']; ?></th>
+                                        <th><?php echo $lang['project_brief']; ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -708,16 +705,16 @@ $emaildata = $stmt->fetchAll();
                                     $alltype = $stmt->fetchAll();
                                     foreach ($alltype as $type) { ?> <tr>
                                             <?php if ($type['project_status'] == 'active') { ?>
-                                                <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
+                                                <td> <button class="btn btn-success btn-sm"><?php echo $lang['is_active']; ?></button> </td>
                                             <?php
                                             } else {
                                             ?>
-                                                <td> <button class="btn btn-warning btn-sm"> تحت المراجعه </button> </td>
+                                                <td> <button class="btn btn-warning btn-sm"><?php echo $lang['pending']; ?></button> </td>
                                             <?php
 
                                             } ?>
                                             <td> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#project<?php echo $type['project_id']; ?>">
-                                                    مشاهدة المشروع
+                                                    <?php echo $lang['view_project']; ?>
                                                 </button> </td>
                                             <td><?php echo $type['project_name']; ?> </td>
 
@@ -750,17 +747,17 @@ $emaildata = $stmt->fetchAll();
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="box">
-                                                                <label id="name"> اسم المشروع </label>
+                                                                <label id="name"><?php echo $lang["project_name"];  ?></label>
                                                                 <input class="form-control" type="text" name="car_name" value="<?php echo $type['project_name']; ?>">
                                                             </div>
 
 
                                                             <div class="box">
-                                                                <label id="name"> وصف المشروع </label>
+                                                                <label id="name"><?php echo  $lang["about_project"]; ?></label>
                                                                 <textarea name="" class="form-control"><?php echo $type['project_desc']; ?></textarea>
 
                                                             </div>
-                                                            <label for=""> صور المشروع </label>
+                                                            <label for=""> <?php echo  $lang["project_image"]; ?> </label>
                                                             <div class="row">
                                                                 <?php
                                                                 $files1 = $type['project_images'];
@@ -778,12 +775,12 @@ $emaildata = $stmt->fetchAll();
                                                                     <?php
                                                                     }
                                                                 } else { ?>
-                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                    <div class="alert alert-danger"> <?php echo $lang['no_file_found']; ?> </div>
                                                                 <?php
                                                                 }
                                                                 ?>
                                                             </div>
-                                                            <label for=""> فيديو المشروع </label>
+                                                            <label for=""><?php echo  $lang["project_video"]; ?></label>
                                                             <div class="row">
                                                                 <?php
                                                                 $files1 = $type['project_video'];
@@ -801,7 +798,7 @@ $emaildata = $stmt->fetchAll();
                                                                     <?php
                                                                     }
                                                                 } else { ?>
-                                                                    <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                    <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                 <?php
                                                                 }
 
@@ -831,7 +828,7 @@ $emaildata = $stmt->fetchAll();
                                                                         <?php
                                                                         }
                                                                     } else { ?>
-                                                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                     <?php
                                                                     }
 
@@ -840,7 +837,7 @@ $emaildata = $stmt->fetchAll();
                                                                     ?>
                                                                 </div>
 
-                                                                <label for="">الرسومات الهندسية</label>
+                                                                <label for=""> <?php echo  $lang["engineering_drawings"]; ?> </label>
                                                                 <div class="row">
                                                                     <?php
                                                                     $files1 = $type['eng_draw'];
@@ -858,7 +855,7 @@ $emaildata = $stmt->fetchAll();
                                                                         <?php
                                                                         }
                                                                     } else { ?>
-                                                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                     <?php
                                                                     }
 
@@ -867,7 +864,7 @@ $emaildata = $stmt->fetchAll();
                                                                     ?>
                                                                 </div>
 
-                                                                <label for=""> النموذج المبدئي </label>
+                                                                <label for=""><?php echo  $lang["Prototype"]; ?></label>
                                                                 <div class="row">
                                                                     <?php
                                                                     $files1 = $type['prototype'];
@@ -885,7 +882,7 @@ $emaildata = $stmt->fetchAll();
                                                                         <?php
                                                                         }
                                                                     } else { ?>
-                                                                        <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                                                        <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
                                                                     <?php
                                                                     }
 
@@ -916,7 +913,7 @@ $emaildata = $stmt->fetchAll();
                     } else { ?>
 
                         <div class="alert alert-warning">
-                            لا يوجد مشاريع لديك في الوقت الحالي
+                            <?php echo $lang['no_project_found']; ?>
                         </div>
                     <?php
                     }
