@@ -24,7 +24,7 @@ if ($count >  0) { ?>
                                                             <div class="col-lg-6 col-12">
 
                                                                 <div class="box mb-3">
-                                                                    <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> *
+                                                                    <label for="first_name"><?php echo $lang["first_name"];?><span class="star"> *
                                                                         </span></label>
                                                                     <input name="first_name" type="text" class="form-control" id="first_name" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
                                                                 </div>
