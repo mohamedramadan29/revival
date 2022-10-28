@@ -578,7 +578,14 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     'info_about_talent' => '  Information About Talent   ',
     "cartificate" => "  cartificate  ",
     'lang' => 'Language',
-    'file_info'=>'You can choose more than one file, and the file size should not exceed 100 MB',
+    'file_info' => 'You can choose more than one file, and the file size should not exceed 100 MB',
+    'emailerror' => 'InCorrect Mail',
+    'send_code' => '  A code has been sent to your email  ',
+    'contin' => ' continue ',
+    'please_enter_code'=>'Please Enter Code',
+    'incorrect_code'=>'Incorrect Code',
+    'reset_pass_revival'=>'Reset your password on Revival',
+    'code_is'=>'Your code Is',
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

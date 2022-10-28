@@ -113,7 +113,7 @@ include 'init.php';
                                         <div class="reservation_button">
                                             <button type="submit" class="btn btn-primary"><?php echo $lang["login"];  ?></button>
                                         </div>
-                                        <p> <a href="forget_password.php"><?php echo $lang["reset_password"];  ?></a>
+                                        <p> <a href="forget_email.php"><?php echo $lang["reset_password"];  ?></a>
                                         </p> |
                                         <p> <a href="revival_register.php"> <?php echo $lang["register"];  ?></a> </p>
                                     </div>
