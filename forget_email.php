@@ -16,7 +16,7 @@ include 'init.php';
             <form class="message_form" action="#" method="post">
                 <div class="box">
                     <?php
-                    $code = substr(sha1(mt_rand()), 17, 6); 
+                    $code = rand(1,55555); 
                     
                     ?>
                     <label for=""> <?php echo $lang["email"]; ?> <span> * </span> </label>
