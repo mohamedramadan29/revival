@@ -85,6 +85,7 @@ if ($count >  0) { ?>
                                                                                 <input type="file" name="talent_images[]" id="files4" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
+                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -126,6 +127,7 @@ if ($count >  0) { ?>
                                                                                 <input type="file" name="video_talent[]" id="files5" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
+                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -220,6 +222,7 @@ if ($count >  0) { ?>
                                                                                 <p> <a> <?php echo $lang["select_files"]; ?>
                                                                                     </a></p>
                                                                             </label>
+                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                             <span class="files_type"> .jpg, .jpeg,
                                                                                 .png, .gif </span>
                                                                         </div>
@@ -260,6 +263,7 @@ if ($count >  0) { ?>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png, .gif </span>
                                                         </div>
@@ -293,6 +297,7 @@ if ($count >  0) { ?>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .doc, .docs,
                                                                 .pdf </span>
                                                         </div>

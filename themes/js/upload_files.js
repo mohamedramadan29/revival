@@ -161,7 +161,7 @@ function handleFileSelect2(e) {
         RenderThumbnail2(e, readerEvt2);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt2);
+        FillAttachmentArray2(e, readerEvt2);
       };
     })(f);
 
@@ -199,7 +199,7 @@ function handleFileSelect3(e) {
         RenderThumbnail3(e, readerEvt3);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt3);
+        FillAttachmentArray3(e, readerEvt3);
       };
     })(f);
 
@@ -237,7 +237,7 @@ function handleFileSelect4(e) {
         RenderThumbnail4(e, readerEvt4);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt4);
+        FillAttachmentArray4(e, readerEvt4);
       };
     })(f);
 
@@ -275,7 +275,7 @@ function handleFileSelect5(e) {
         RenderThumbnail5(e, readerEvt5);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt5);
+        FillAttachmentArray5(e, readerEvt5);
       };
     })(f);
 
@@ -313,7 +313,7 @@ function handleFileSelect6(e) {
         RenderThumbnail6(e, readerEvt6);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt6);
+        FillAttachmentArray6(e, readerEvt6);
       };
     })(f);
 
@@ -351,7 +351,7 @@ function handleFileSelect7(e) {
         RenderThumbnail7(e, readerEvt7);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt7);
+        FillAttachmentArray7(e, readerEvt7);
       };
     })(f);
 
@@ -389,7 +389,7 @@ function handleFileSelect8(e) {
         RenderThumbnail8(e, readerEvt8);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt8);
+        FillAttachmentArray8(e, readerEvt8);
       };
     })(f);
 
@@ -426,7 +426,7 @@ function handleFileSelect9(e) {
         RenderThumbnail9(e, readerEvt9);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt9);
+        FillAttachmentArray9(e, readerEvt9);
       };
     })(f);
 
@@ -463,7 +463,7 @@ function handleFileSelect10(e) {
         RenderThumbnail10(e, readerEvt10);
 
         //Fill the array of attachment
-        FillAttachmentArray(e, readerEvt10);
+        FillAttachmentArray10(e, readerEvt10);
       };
     })(f);
 
@@ -489,6 +489,61 @@ jQuery(function ($) {
     if (elementPos !== -1) {
       AttachmentArray.splice(elementPos, 1);
     }
+    var elementPos2 = AttachmentArray2.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos2 !== -1) {
+      AttachmentArray2.splice(elementPos2, 1);
+    }
+    var elementPos3 = AttachmentArray3.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos3 !== -1) {
+      AttachmentArray3.splice(elementPos3, 1);
+    }
+    var elementPos4 = AttachmentArray4.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos4 !== -1) {
+      AttachmentArray4.splice(elementPos4, 1);
+    }
+    var elementPos5 = AttachmentArray5.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos5 !== -1) {
+      AttachmentArray5.splice(elementPos5, 1);
+    }
+    var elementPos6 = AttachmentArray6.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos6 !== -1) {
+      AttachmentArray6.splice(elementPos6, 1);
+    }
+    var elementPos7 = AttachmentArray7.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos7 !== -1) {
+      AttachmentArray7.splice(elementPos7, 1);
+    }
+    var elementPos8 = AttachmentArray8.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos8 !== -1) {
+      AttachmentArray8.splice(elementPos8, 1);
+    }
+    var elementPos9 = AttachmentArray9.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos9 !== -1) {
+      AttachmentArray9.splice(elementPos9, 1);
+    }
+    var elementPos10 = AttachmentArray10.map(function (x) {
+      return x.FileName;
+    }).indexOf(id);
+    if (elementPos10 !== -1) {
+      AttachmentArray10.splice(elementPos10, 1);
+    } 
+    
 
     //to remove image tag
     $(this).parent().find("img").not().remove();
@@ -750,7 +805,150 @@ function CheckFilesCount(AttachmentArray) {
     return true;
   }
 }
-
+function CheckFilesCount2(AttachmentArray2) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray2.length; i++) {
+    if (AttachmentArray2[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount3(AttachmentArray3) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray3.length; i++) {
+    if (AttachmentArray3[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount4(AttachmentArray4) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray4.length; i++) {
+    if (AttachmentArray4[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount5(AttachmentArray5) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray5.length; i++) {
+    if (AttachmentArray5[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount6(AttachmentArray6) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray6.length; i++) {
+    if (AttachmentArray6[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount7(AttachmentArray7) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray7.length; i++) {
+    if (AttachmentArray7[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount8(AttachmentArray8) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray8.length; i++) {
+    if (AttachmentArray8[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount9(AttachmentArray9) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray9.length; i++) {
+    if (AttachmentArray9[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function CheckFilesCount10(AttachmentArray10) {
+  //Since AttachmentArray.length return the next available index in the array,
+  //I have used the loop to get the real length
+  var len = 0;
+  for (var i = 0; i < AttachmentArray10.length; i++) {
+    if (AttachmentArray10[i] !== undefined) {
+      len++;
+    }
+  }
+  //To check the length does not exceed 10 files maximum
+  if (len > 5) {
+    return false;
+  } else {
+    return true;
+  }
+}
 //Render attachments thumbnails.
 function RenderThumbnail(e, readerEvt) {
   var li = document.createElement("li");
@@ -999,7 +1197,7 @@ function FillAttachmentArray(e, readerEvt) {
 }
 
 //Fill the array of attachment
-function FillAttachmentArray(e, readerEvt2) {
+function FillAttachmentArray2(e, readerEvt2) {
   AttachmentArray2[arrCounter2] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1013,7 +1211,7 @@ function FillAttachmentArray(e, readerEvt2) {
   arrCounter2 = arrCounter2 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt3) {
+function FillAttachmentArray3(e, readerEvt3) {
   AttachmentArray3[arrCounter3] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1027,7 +1225,7 @@ function FillAttachmentArray(e, readerEvt3) {
   arrCounter3 = arrCounter3 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt4) {
+function FillAttachmentArray4(e, readerEvt4) {
   AttachmentArray4[arrCounter4] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1041,7 +1239,7 @@ function FillAttachmentArray(e, readerEvt4) {
   arrCounter4 = arrCounter4 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt5) {
+function FillAttachmentArray5(e, readerEvt5) {
   AttachmentArray5[arrCounter5] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1055,7 +1253,7 @@ function FillAttachmentArray(e, readerEvt5) {
   arrCounter5 = arrCounter5 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt6) {
+function FillAttachmentArray6(e, readerEvt6) {
   AttachmentArray6[arrCounter6] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1069,7 +1267,7 @@ function FillAttachmentArray(e, readerEvt6) {
   arrCounter6 = arrCounter6 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt7) {
+function FillAttachmentArray7(e, readerEvt7) {
   AttachmentArray7[arrCounter7] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1083,7 +1281,7 @@ function FillAttachmentArray(e, readerEvt7) {
   arrCounter7 = arrCounter7 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt8) {
+function FillAttachmentArray8(e, readerEvt8) {
   AttachmentArray8[arrCounter8] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1098,7 +1296,7 @@ function FillAttachmentArray(e, readerEvt8) {
 }
 
 
-function FillAttachmentArray(e, readerEvt9) {
+function FillAttachmentArray9(e, readerEvt9) {
   AttachmentArray9[arrCounter9] = {
     AttachmentType: 1,
     ObjectType: 1,
@@ -1112,7 +1310,7 @@ function FillAttachmentArray(e, readerEvt9) {
   arrCounter9 = arrCounter9 + 1;
 }
 
-function FillAttachmentArray(e, readerEvt10) {
+function FillAttachmentArray10(e, readerEvt10) {
   AttachmentArray10[arrCounter10] = {
     AttachmentType: 1,
     ObjectType: 1,

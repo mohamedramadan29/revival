@@ -134,7 +134,6 @@ if ($count > 0) {
                                                                         } else { ?>
                                                                             <option value=""><?php echo $lang["select"];  ?>
                                                                             </option>
-
                                                                         <?php
                                                                         }
                                                                         ?>
@@ -264,8 +263,11 @@ if ($count > 0) {
                                                                                 <p> <a> <?php echo $lang["select_files"]; ?>
                                                                                     </a></p>
                                                                             </label>
+                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            
                                                                             <span class="files_type"> .jpg, .jpeg,
                                                                                 .png, .gif </span>
+                                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -304,8 +306,10 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png, .gif </span>
+                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -338,6 +342,8 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -369,6 +375,8 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            
                                                             <span class="files_type"> .doc, .docs,
                                                                 .pdf </span>
                                                         </div>
@@ -402,6 +410,8 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
+                                                            
+                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png </span> 
                                                         </div>
@@ -421,16 +431,10 @@ if ($count > 0) {
 
                                             </div>
                                         </div>
-
-
-
                                     </div>
 
                                 </div>
-
                             </div>
-
-
                         </div>
                     </div>
                     <div class="">
@@ -469,14 +473,6 @@ if ($count > 0) {
     </div>
     </div>
     </div>
-
-
-
-
-
-
-
-
 <?php
 }
 ?>

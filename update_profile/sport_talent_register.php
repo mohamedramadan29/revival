@@ -226,6 +226,7 @@ if ($count > 0) {
                                                             <p><?php echo $lang['video_talent_show']; ?>
                                                             </p>
                                                         </label>
+                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -246,6 +247,7 @@ if ($count > 0) {
                                                             <p> <?php echo $lang["upload_cv_document"]; ?>
                                                             </p>
                                                         </label>
+                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         <span class="files_type"> .doc, .docs,
                                                             .pdf </span>
                                                     </div>
@@ -268,6 +270,7 @@ if ($count > 0) {
                                                             <p><?php echo $lang['talent_images']; ?>
                                                             </p>
                                                         </label>
+                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         <span class="files_type"> .jpg, .jpeg,.png </span>
                                                     </div>
                                                 </div>

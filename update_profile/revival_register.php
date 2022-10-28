@@ -28,6 +28,7 @@ if ($count > 0) {
         $location2 = '';
         $uploadplace = "admin/upload/";
         // START UPLOAD CV FIELS
+
         foreach ($_FILES['cv']['name'] as $key => $val) {
             $file = $_FILES['cv']['name'][$key];
             $file = str_replace(' ', '', $file);
@@ -43,6 +44,7 @@ if ($count > 0) {
             move_uploaded_file($file_tmp2, $uploadplace . $file);
             $location2 .= $file . " ";
         }
+
         $errormessage = [];
 
         if (empty($first_name)) {
@@ -246,8 +248,6 @@ if ($count > 0) {
                                 <div class="contact_form">
                                     <div class="container">
                                         <div class="data">
-
-
                                             <div class="row">
                                                 <div class="col-lg-12 col-12">
                                                     <div class="info">
@@ -502,10 +502,11 @@ if ($count > 0) {
                                                                 <div class="upload-file">
                                                                     <div class="upload-wrapper">
                                                                         <label>
-                                                                            <input type="file" name="cv[]" id="files" multiple accept=".doc, .docx, .pdf">
+                                                                            <input class="check_num" type="file" name="cv[]" id="files" multiple>
                                                                             <p> <?php echo $lang["upload_cv_document"]; ?>
                                                                             </p>
                                                                         </label>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                         <span class="files_type"> .doc, .docs,
                                                                             .pdf </span>
                                                                     </div>
@@ -520,29 +521,7 @@ if ($count > 0) {
                                                                 <output id="image-gallery"></output>
 
                                                             </div>
-                                                            <!--
-                                                            <div class="box mb-3">
-                                                                <div class="upload-file">
-                                                                    <div class="upload-wrapper">
-                                                                        <label>
-                                                                            <input type="file" name="videos[]" id="files2" multiple accept="video/*">
-                                                                            <p> <?php echo $lang["upload_video"]; ?>
-                                                                            </p>
-                                                                        </label>
 
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="row">
-                                                                    <div class="col-12">
- 
-                                                                    </div>
-                                                                </div>
-
-                                                                <output id="image-gallery2"></output>
-
-                                                            </div>
-                                                                -->
                                                             <div class="">
                                                                 <div class="reservation_button">
                                                                     <button type="submit" class="btn main_button">

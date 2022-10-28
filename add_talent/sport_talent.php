@@ -99,6 +99,7 @@ if ($count >  0) { ?>
                                                                                 <input type="file" name="talent_image[]" id="files3" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
+                                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -200,9 +201,10 @@ if ($count >  0) { ?>
                                                     <div class="upload-wrapper">
                                                         <label>
                                                             <input type="file" name="videos[]" id="files" multiple accept="video/*">
-                                                            <p><?php echo $lang['video_talent_show']; ?> 
+                                                            <p><?php echo $lang['video_talent_show']; ?>
                                                             </p>
                                                         </label>
+                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -220,6 +222,7 @@ if ($count >  0) { ?>
                                                             <p> <?php echo $lang["upload_cv_document"]; ?>
                                                             </p>
                                                         </label>
+                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         <span class="files_type"> .doc, .docs,
                                                             .pdf </span>
                                                     </div>

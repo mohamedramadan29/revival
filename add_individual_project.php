@@ -47,6 +47,7 @@ include 'init.php';
                                                                                 <?php echo  $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
+                                                                    <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                 </div>
                                                             </div>
 
@@ -84,6 +85,7 @@ include 'init.php';
                                                                             </a>
                                                                         </p>
                                                                     </label>
+                                                                    <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                 </div>
                                                             </div>
 
@@ -118,6 +120,7 @@ include 'init.php';
                                                                         <p> <a><?php echo  $lang["select_files"]; ?></a>
                                                                         </p>
                                                                     </label>
+                                                                    <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                                 </div>
                                                             </div>
 
@@ -163,6 +166,7 @@ include 'init.php';
                                                                     <p> <a> <?php echo  $lang["select_files"]; ?></a>
                                                                     </p>
                                                                 </label>
+                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 
@@ -195,6 +199,7 @@ include 'init.php';
                                                                     <p> <a> <?php echo  $lang["select_files"]; ?></a>
                                                                     </p>
                                                                 </label>
+                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 

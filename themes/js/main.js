@@ -401,10 +401,10 @@ AOS.init({
     var $this = jQuery(this).html(
       event.strftime(
         "" +
-          '<div class="time-entry days" id="day_count"><span>%-D</span>  يوم </div> ' +
-          '<div class="time-entry hours"><span>%H</span> ساعه </div> ' +
-          '<div class="time-entry minutes"><span>%M</span> دقيقة </div> ' +
-          '<div class="time-entry seconds"><span>%S</span> ثانية</div> '
+        '<div class="time-entry days" id="day_count"><span>%-D</span>  يوم </div> ' +
+        '<div class="time-entry hours"><span>%H</span> ساعه </div> ' +
+        '<div class="time-entry minutes"><span>%M</span> دقيقة </div> ' +
+        '<div class="time-entry seconds"><span>%S</span> ثانية</div> '
       )
     );
   });
@@ -438,9 +438,9 @@ AOS.init({
         rect.top >= 0 &&
         rect.left >= 0 &&
         rect.bottom <=
-          (window.innerHeight || document.documentElement.clientHeight) &&
+        (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <=
-          (window.innerWidth || document.documentElement.clientWidth)
+        (window.innerWidth || document.documentElement.clientWidth)
       );
     }
 
@@ -485,6 +485,6 @@ AOS.init({
   myModal.addEventListener("shown.bs.modal", function () {
     myInput.focus();
   });
+ 
 
-  
 })(jQuery);

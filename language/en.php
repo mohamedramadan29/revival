@@ -578,6 +578,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     'info_about_talent' => '  Information About Talent   ',
     "cartificate" => "  cartificate  ",
     'lang' => 'Language',
+    'file_info'=>'You can choose more than one file, and the file size should not exceed 100 MB',
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

@@ -12,7 +12,7 @@ $sub_data = $stmt->fetchAll();
 ?>
 
 
-
+<br>
 <div class="footer">
     <div class="container">
         <div class="row data">
