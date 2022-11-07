@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <?php
             $to_email = $user_email;
-            $subject = "تواصل معنا في ريفايفال";
+            $subject =  $lang['contact_us_revival'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

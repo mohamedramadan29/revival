@@ -85,7 +85,14 @@ if (isset($_SESSION["username"])) { ?>
                                                         $allcountry = $stmt->fetchall();
                                                         foreach ($allcountry as $country) { ?>
                                                             <option value="<?php echo $country["country_code"]; ?>">
-                                                                <?php echo $country["country_arName"]; ?> </option>
+                                                                <?php
+                                                                if ($_SESSION["lang"] == "ar") {
+                                                                    echo $country["country_arName"];
+                                                                } else {
+                                                                    echo $country["country_enName"];
+                                                                }
+                                                                ?>
+                                                            </option>
                                                         <?php
                                                         }
                                                         ?>

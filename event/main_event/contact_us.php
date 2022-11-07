@@ -81,7 +81,7 @@ $emaildata = $stmt->fetchAll();
                             ));
                             if ($stmt) {
                                 $to_email = $user_email;
-                                $subject = "تواصل معنا ";
+                                $subject = $lang["contact_us_head1"];
                                 foreach ($emaildata as $data) {
                                     if ($_SESSION['lang'] == 'ar') {
                                         $body =  $data['email_text'];
@@ -191,8 +191,8 @@ $emaildata = $stmt->fetchAll();
                             <li> <i class="fa fa-location"> </i> <?php echo $lang["contact_us_address"];  ?>
                             </li>
 
-                            <li> <i class="fa fa-envelope"> </i> <a href="mailto://info@car-rental.com">
-                                    info@Revaval.com </a> </li>
+                            <li> <i class="fa fa-envelope"> </i> <a href="mailto://info@revivals.site">
+                                    info@revivals.site </a> </li>
                         </ul>
                     </div>
                 </div>

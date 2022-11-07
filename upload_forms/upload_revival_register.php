@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $field = $_POST["field"];
     $sub_field = $_POST["sub_field"];
-   // $reg_type = $_POST["register_type"];
+    // $reg_type = $_POST["register_type"];
     $certificate = $_POST["certificate"];
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -150,12 +150,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zspecial" => $specialist,
             "zcertificate" => $certificate,
             "zfield" => $field,
-            "zsubfield" => $sub_field, 
+            "zsubfield" => $sub_field,
             "zusername" => $username,
             "zpassword" => $password,
         ));
         if ($stmt) {
-            ?>
+?>
             <script>
                 document.getElementById("first_form").reset();
                 setTimeout(() => {
@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php
 
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = $lang["register_in_revival"];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $headers = "From: info@revivals.site";
             mail($to_email, $subject, $body, $headers)
-?>
+            ?>
             <style>
                 .message_form {
                     display: none !important;
@@ -196,13 +196,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         <?php
         }
-    } else {?>
+    } else { ?>
         <style>
-        .my_progress{
-            display: none;
-        }
-    </style>
-    <?php
+            .my_progress {
+                display: none;
+            }
+        </style>
+        <?php
         foreach ($errormessage as $message) { ?>
             <div class="error_message">
                 <div class="alert alert-danger"> <?php echo $message ?> </div>

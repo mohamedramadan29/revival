@@ -15,7 +15,7 @@ include 'init.php';
         </div>
     </div>
     <div class="data container ">
-        <h2> مواهب الازياء والموضة </h2>
+        <h2> <?php echo $lang['fash_talent']; ?> </h2>
     </div>
 </div>
 </div>
@@ -25,10 +25,10 @@ include 'init.php';
 <div class="our_services">
     <div class="container-fluid">
         <div class="data">
-            <h2>المواهب</h2>
+            <h2><?php echo $lang["our_talent"]; ?></h2>
             <div class="row">
                 <div class="col-lg-3">
-                    <h2> الاقسام </h2>
+                    <h2> <?php echo $lang['category']; ?> </h2>
                     <div class="form-group">
                         <form method="get" name="select_form">
                             <div class="exhibition_cat">
@@ -93,7 +93,7 @@ include 'init.php';
                                                 $exp_info = $talent['personal_information'];
                                                 $exp = substr($exp_info, 0, 150);
                                                 echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                            <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $talent['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                            <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $talent['fash_register_id']; ?>" class="btn button">  <?php echo $lang['watch_talent'] ?>   </a>
                                         </div>
                                     </div>
                                 <?php
@@ -122,7 +122,7 @@ include 'init.php';
                                             $exp_info = $talent['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_fash.php?cat=fash&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_fash.php?cat=fash&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> <?php echo $lang['watch_talent'] ?>     </a>
                                     </div>
                                 </div>
                             <?php
@@ -157,7 +157,7 @@ include 'init.php';
                                             $exp_info = $user_project_data['personal_information'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $user_project_data['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $user_project_data['fash_register_id']; ?>" class="btn button">  <?php echo $lang['watch_talent'] ?>    </a>
                                     </div>
                                 </div>
                             <?php
@@ -193,8 +193,8 @@ include 'init.php';
                                             $exp_info = $talent['personal_information'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $talent['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
-                                    </div>
+                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $talent['fash_register_id']; ?>" class="btn button">    <?php echo $lang['watch_talent'] ?>  </a>
+                                    </div> 
                                 </div>
                             <?php
                             }
@@ -224,7 +224,7 @@ include 'init.php';
                                             $exp_info = $talent['experience_info'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_fash.php?cat=fash&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_fash.php?cat=fash&talent_id_sub=<?php echo $talent['reg_id']; ?>" class="btn button">  <?php echo $lang['watch_talent'] ?>    </a>
                                     </div>
                                 </div>
                             <?php
@@ -259,7 +259,7 @@ include 'init.php';
                                             $exp_info = $user_project_data['personal_information'];
                                             $exp = substr($exp_info, 0, 150);
                                             echo $exp; ?> <?php echo " ... ";  ?> </p>
-                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $user_project_data['fash_register_id']; ?>" class="btn button"> مشاهدة الموهبة </a>
+                                        <a href="project_details_fash.php?cat=fash&talent_id=<?php echo $user_project_data['fash_register_id']; ?>" class="btn button">   <?php echo $lang['watch_talent'] ?>   </a>
                                     </div>
                                 </div>
                             <?php

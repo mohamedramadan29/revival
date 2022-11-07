@@ -1,4 +1,7 @@
 <?php
+
+use JetBrains\PhpStorm\Language;
+
 include "../connect.php";
 include "../config.php";
 ?>
@@ -205,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <?php
             $to_email = $email;
-            $subject = "التسجيل في الذكاء الاصناعي";
+            $subject = $lang['ٌregister_art_head'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

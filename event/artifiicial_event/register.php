@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 </div>
                             </div>
-                            <div class="event_table_price table-responsive d-none">
+                            <div class="event_table_price table-responsive">
                                 <table
                                     class="table table-resposive table-hover table-bordered align-middle table-striped">
                                     <thead>

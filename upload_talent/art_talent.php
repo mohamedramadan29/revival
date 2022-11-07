@@ -258,7 +258,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ));
         if ($stmt) { ?>
 
-<script>
+            <script>
                 document.getElementById("first_form").reset();
                 setTimeout(() => {
                     let url = "profile.php";
@@ -267,7 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </script>
             <?php
             $to_email = $email;
-            $subject = "اضافة موهبة جديدة";
+            $subject = $lang['add_talent'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];

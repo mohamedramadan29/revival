@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ));
         if ($stmt) {
             $to_email = $email;
-            $subject = "انشاء حساب جديد";
+            $subject = $lang['register_in_eventss'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="contact_form">
     <div class="container">
         <div class="data">
-           <!-- <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>-->
+            <!-- <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>-->
             <form action="" method="POST">
                 <div class="row">
                     <div class="col-lg-12 col-12">

@@ -11,7 +11,7 @@ $lang = array(
   "speakers" => "  Speakers ",
   "sponser" => " Sponser ",
   "programe" => " Programe ",
-  "Take_event" => "Participate In The Event ",
+  "Take_event" => "Share In The Event ",
   "register_team" => " Join Team ",
   "articles" => "  Articles ",
   "news" => " News ",
@@ -306,6 +306,7 @@ $lang = array(
 
   "register_in_event" => "  Thank you for registering with us, we will contact you when we set the date and location of the event  ",
 
+  "register_in_eventss" => " Register In Event ",
 
 
   "lang_en" => "الانجليزية",

@@ -560,6 +560,13 @@ $lang = array(
   'incorrect_code'=>'هذا الكود غير صحيح',
   'reset_pass_revival'=>'  اعادة تعين كلمة المرور الخاصة بك علي ريفايفال ',
   'code_is'=>'  الكود الخاص بك  هو',
+  "email_order_serve"=>"طلب الخدمة من ريفايفال",
+  "ٌregister_art_head"=>"التسجيل في الذكاء الاصناعي",
+  "contact_us_revival"=>"  تواصل معنا في ريفايفال ",
+  "register_in_fashion_email"=>" التسجيل في قسم الازياء والموضة",
+  "add_new_projectt"=>"    اضافة مشروع جديد    ",
+  "register_in_revival"=>"  التسجيل في ريفايفال   ",
+  "register_in_sportt"=>" التسجيل فى الرياضة ",
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

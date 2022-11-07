@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt) {
 
             $to_email = $email;
-            $subject = "اللتسجيل في ريفايفال";
+            $subject = $lang['email_order_serve'];
             foreach ($emaildata as $data) {
                 if ($_SESSION['lang'] == 'ar') {
                     $body =  $data['email_text'];
@@ -279,16 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="text">
 
                                     <div class="terms_conditions">
-                                        <input type="checkbox" id="checkterms" name="check_privacy">
-                                        <label for="checkterms"> <?php echo $lang["iagree"];  ?>
-                                            <?php if (isset($_SESSION["lang"]) == "ar") { ?>
 
-                                                <a href="fash_terms.php"> <?php echo $lang["terms"];  ?> </a>
-                                            <?php
-                                            } else { ?>
-                                                <a href="fash_terms_en.php"> <?php echo $lang["terms"];  ?> </a>
-                                            <?php
-                                            } ?>
                                         </label>
                                     </div>
                                     <div class="">
