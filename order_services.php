@@ -13,130 +13,12 @@ include 'init.php';
 
 <!-- END HERO SECTION -->
 
-<!-- START GET EMAIL CONTENT  -->
-<?php
-$stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='طلب خدمة جديد'");
-$stmt->execute();
-$emaildata = $stmt->fetchAll();
-?>
-<!-- END GET EMAIL CONTENT -->
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $file = '';
-    $file_tmp = '';
-    $location = "";
-
-
-    $uploadplace = "admin/upload/";
-
-
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $email = $_POST["email"];
-    $mobile = $_POST["mobile"];
-    $country = $_POST["country"];
-    $service_name = $_POST["service_name"];
-    $message = $_POST["message"];
-
-
-    // START UPLOAD national_id (national_id)
-    foreach ($_FILES['order_files']['name'] as $key => $val) {
-        $file = $_FILES['order_files']['name'][$key];
-        $file = str_replace(' ', '', $file);
-        $file_tmp1 = $_FILES['order_files']['tmp_name'][$key];
-        move_uploaded_file($file_tmp1, $uploadplace . $file);
-        $location .= $file . " ";
-    }
-
-
-
-    $errormessage = [];
-
-    if (isset($_POST["check_privacy"])) {
-    } else {
-        $errormessage[] = $lang["check_privacy"];
-    }
-
-    if (empty($first_name)) {
-        $errormessage[] = $lang["enter_first_name"];
-    }
-
-    if (empty($last_name)) {
-        $errormessage[] =  $lang["enter_last_name"];
-    }
-    if (empty($email)) {
-        $errormessage[] =  $lang["enter_email"];
-    }
-    if (empty($mobile)) {
-        $errormessage[] =  $lang["enter_mobile"];
-    }
-
-    if (empty($errormessage)) {
-        $stmt = $connect->prepare("INSERT INTO revival_order_services (first_name, last_name,
-                    email, mobile , service_name, country,message,files )
-                           VALUES (:zfirst_name,:zlast_name,:zemail,
-                            :zmobile,:zserv_name ,:zcountry, :zmessage,:zfiles)");
-        $stmt->execute(array(
-            "zfirst_name" => $first_name,
-            "zlast_name" => $last_name,
-            "zemail" => $email,
-            "zmobile" => $mobile,
-            "zserv_name" => $service_name,
-            "zcountry" => $country,
-            "zmessage" => $message,
-            "zfiles" => $location,
-
-        ));
-        if ($stmt) {
-
-            $to_email = $email;
-            $subject = $lang['email_order_serve'];
-            foreach ($emaildata as $data) {
-                if ($_SESSION['lang'] == 'ar') {
-                    $body =  $data['email_text'];
-                } else {
-                    $body =  $data['email_text_en'];
-                }
-            }
-            $headers = "From: info@revivals.site";
-            mail($to_email, $subject, $body, $headers)
-?>
-            <style>
-                .contact_form {
-                    display: none !important;
-                }
-            </style>
-            <div class='container'>
-                <div class='alert alert-success text-center'> <?php
-                                                                foreach ($emaildata as $data) {
-                                                                    if ($_SESSION['lang'] == 'ar') {
-                                                                        echo   $data['email_text'];
-                                                                    } else {
-                                                                        echo  $data['email_text_en'];
-                                                                    }
-                                                                }
-                                                                ?>
-                </div>
-            </div>
-        <?php
-        }
-    } else {
-        foreach ($errormessage as $message) { ?>
-            <div class="error_message">
-                <div class="alert alert-danger"> <?php echo $message ?> </div>
-            </div>
-<?php
-        }
-    }
-}
-?>
 <!-- START CONTACT FORM -->
 <div class="contact_form">
     <div class="container">
         <div class="data">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form id="first_form"  class="ajax_form" action="upload_data/order_services.php" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-8 col-12">
                         <div class="info">
@@ -277,9 +159,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="img rounded d-flex align-items-end" style="background-image: url(uploads/header2.jpg);">
                                 </div>
                                 <div class="text">
-
                                     <div class="terms_conditions">
-
+                                        <input type="checkbox" id="checkterms" name="check_privacy">
+                                        <label for="checkterms"> <?php echo $lang["iagree"];  ?>
+                                            <a target="_blank" href="rev_terms.php?page=طلب خدمة"> <?php echo $lang["terms"];  ?></a>
                                         </label>
                                     </div>
                                     <div class="">
@@ -294,6 +177,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </form>
+            <!-- Area to display the percent of progress -->
+            <!-- area to display a message after completion of upload -->
+            <div id='status'></div>
+            <div class="my_progress">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

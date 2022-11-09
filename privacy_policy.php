@@ -17,6 +17,7 @@ include 'init.php';
     <div class="container">
         <div class="data">
             <h2> Terms And Conditions </h2>
+            
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis dolorum accusantium, eum doloribus quam,
                 voluptates
                 dolor unde magnam impedit iste iusto neque quo minima explicabo dolorem laboriosam possimus voluptatum.
