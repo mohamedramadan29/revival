@@ -25,6 +25,7 @@
   <script src="<?php echo $js; ?>counterup.min.js"></script>
   <script src="<?php echo $js; ?>intlTelInput.js"></script>
   <!-- START UPLOAD IMAGE SCRIPT -->
+
   <script type="257be86a981729866f2fa61c-text/javascript">
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;

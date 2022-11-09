@@ -13,100 +13,13 @@ include 'init.php';
     </div>
 </div>
 <!-- END HERO SECTION -->
-<!-- START GET EMAIL CONTENT  -->
-<?php
-$stmt = $connect->prepare("SELECT * FROM email_message_event WHERE email_section='حساب جديد'");
-$stmt->execute();
-$emaildata = $stmt->fetchAll();
-?>
-<!-- START CODE -->
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $email = $_POST["email"];
-    $mobile = $_POST["mobile"];
-    $country = $_POST["country"];
-    $errormessage = [];
 
-
-    if (empty($first_name)) {
-        $errormessage[] = $lang["enter_first_name"];
-    }
-
-    if (empty($last_name)) {
-        $errormessage[] =  $lang["enter_last_name"];
-    }
-    if (empty($email)) {
-        $errormessage[] =  $lang["enter_email"];
-    }
-    if (empty($mobile)) {
-        $errormessage[] =  $lang["enter_mobile"];
-    }
-
-
-    if (empty($errormessage)) {
-
-        $stmt = $connect->prepare("INSERT INTO artificial_event_register (first_name, last_name, email, mobile , country , event_id) 
-        VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
-         :zcountry,:zevent_id)");
-        $stmt->execute(array(
-            "zfirst_name" => $first_name,
-            "zlast_name" => $last_name,
-            "zemail" => $email,
-            "zmobile" => $mobile,
-            "zcountry" => $country,
-            "zevent_id" => $event_id,
-        ));
-        if ($stmt) {
-            $to_email = $email;
-            $subject = $lang['register_in_eventss'];
-            foreach ($emaildata as $data) {
-                if ($_SESSION['lang'] == 'ar') {
-                    $body =  $data['email_text'];
-                } else {
-                    $body =  $data['email_text_en'];
-                }
-            }
-            $headers = "From: info@revivals.site";
-            mail($to_email, $subject, $body, $headers);
-            //header("Location:profile.php");
-?>
-            <style>
-                .message_form {
-                    display: none !important;
-                }
-            </style>
-            <div class='container'>
-                <div class='alert alert-success text-center'>
-                    <?php
-                    foreach ($emaildata as $data) {
-                        if ($_SESSION['lang'] == 'ar') {
-                            echo   $data['email_text'];
-                        } else {
-                            echo  $data['email_text_en'];
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-        <?php }
-    } else {
-
-        foreach ($errormessage as $message) { ?>
-            <div class="error_message">
-                <div class="alert alert-danger"> <?php echo $message ?> </div>
-            </div>
-<?php
-        }
-    }
-} ?>
 <!-- START CONTACT FORM -->
 <div class="contact_form">
     <div class="container">
         <div class="data">
             <!-- <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>-->
-            <form action="" method="POST">
+            <form action="insert_reservation.php" method="POST">
                 <div class="row">
                     <div class="col-lg-12 col-12">
                         <div class="info">
@@ -114,14 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="box mb-3">
+                                        <input type="hidden" name="event_id" id="event_id" value="<?php echo $event_id; ?>">
+                                        <input type="hidden" name="payment_mode" value="COD">
                                         <label for="floatingInput"> <?php echo $lang["first_name"]; ?> <span class="star"> *
                                             </span> </label>
-                                        <input type="text" class="form-control" id="floatingInput" name="first_name" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
+                                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['first_name']; ?>">
+                                        <small class="text-danger first_name"></small>
                                     </div>
                                     <div class="box mb-3">
                                         <label for="floatingInput"> <?php echo $lang["email"]; ?> <span class="star"> *
                                             </span> </label>
-                                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
+                                        <small class="text-danger email"></small>
                                     </div>
                                     <div class="box mb-3">
                                         <label for="selectcountry"><?php echo $lang["country"];  ?></label>
@@ -164,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="box mb-3">
                                         <label for="floatingInput"> <?php echo $lang["last_name"]; ?> <span class="star"> *
                                             </span> </label>
-                                        <input type="text" name="last_name" class="form-control" id="floatingInput" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+                                        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
+                                        <small class="text-danger last_name"></small>
 
                                     </div>
                                     <div class="box mb-3">
@@ -174,11 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
                                                 * </span></label>
                                         <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?>">
+                                        <small class="text-danger phone"></small>
 
                                     </div>
 
                                 </div>
                             </div>
+
                             <div class="event_table_price table-responsive d-none">
                                 <table class="table table-resposive table-hover table-bordered align-middle table-striped">
                                     <thead>
@@ -219,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
 
-                    <!-- Modal -->
+                    <!-- Modal 
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -252,15 +172,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                         </div>
                     </div>
+                    -->
                     <div class="col-lg-12 cars_sections">
                         <div class="item">
                             <div class="car-wrap rounded ftco-animate">
                                 <div class="text">
                                     <div class="">
                                         <div class="reservation_button">
+                                            <!--
                                             <button type="submit" class="btn btn-primary">
                                                 <?php echo $lang["register"];  ?>
                                             </button>
+                                        -->
+                                            <p> سجل معنا الان </p>
+                                            <div id="paypal-button-container">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -277,6 +203,98 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 include $tem . 'footer_section.php';
 include $tem . 'footer.php';
-
-
 ?>
+<script src="https://www.paypal.com/sdk/js?client-id=Aa6xGlT7CdEYFS463meNhvyq6Tovq_rlYBK0U2pEMalXKRMy-1GxSFwAd6_UrMFQkaYxQRn-Dop6Gk61&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+        onClick() {
+            var first_name = $("#first_name").val();
+            var last_name = $("#last_name").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+            if (first_name.length == 0) {
+                $(".first_name").text('<?= $lang['enter_first_name'] ?>');
+
+            } else {
+                $(".first_name").text("");
+
+            }
+            if (email.length == 0) {
+                $(".email").text('<?= $lang['enter_email'] ?>');
+
+            } else {
+                $(".email").text("");
+            }
+            if (last_name.length == 0) {
+                $(".last_name").text('<?= $lang['enter_last_name'] ?>');
+
+            } else {
+                $(".last_name").text("");
+            }
+            if (phone.length == 0) {
+                $(".phone").text('<?= $lang['enter_mobile'] ?>');
+
+            } else {
+                $(".phone").text("");
+            }
+            if (first_name.length == 0 || last_name.length == 0 || phone.length == 0 || email.length == 0) {
+                return false;
+            }
+        },
+        // Sets up the transaction when a payment button is clicked
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '100' // Can also reference a variable or function
+                    }
+                }]
+            });
+        },
+        // Finalize the transaction after payer approval
+        onApprove: (data, actions) => {
+            return actions.order.capture().then(function(orderData) {
+                // Successful capture! For dev/demo purposes:
+                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                const transaction = orderData.purchase_units[0].payments.captures[0];
+                //alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+
+                var first_name = $("#first_name").val();
+                var last_name = $("#last_name").val();
+                var email = $("#email").val();
+                var phone = $("#phone").val();
+                var country = $("#selectcountry").val();
+                var event_id = $("#event_id").val();
+                // var course_price = $("#course_price").val();
+                var data = {
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'email': email,
+                    'mobile': phone,
+                    'country': country,
+                    'event_id': event_id,
+                    'payment_mode': 'pay with paypal',
+                    'transaction_id': transaction.id,
+                    // 'course_price': course_price,
+                }
+                $.ajax({
+                    method: "POST",
+                    url: "insert_reservation.php",
+                    data: data,
+                    datatype: "datatype",
+                    success: function(response) {
+
+                        alert("<?= $lang['register_alert']; ?>");
+                      //  window.location.href = "register.php";
+
+
+                    },
+                    error: function() {
+                        alert(" لم يتم الحجز يوجد خطا ما ");
+                    }
+                });
+            });
+        }
+    }).render('#paypal-button-container');
+</script>

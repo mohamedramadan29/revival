@@ -567,6 +567,7 @@ $lang = array(
   "add_new_projectt"=>"    اضافة مشروع جديد    ",
   "register_in_revival"=>"  التسجيل في ريفايفال   ",
   "register_in_sportt"=>" التسجيل فى الرياضة ",
+  "course_alert"=>" تم حجز الكورس بنجاح سوف نتواصل معك في اقرب وقت ممكن ",
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

@@ -593,6 +593,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "add_new_projectt" => "   Add New Project   ",
     "register_in_revival"=>"  Register In Revival  ",
     "register_in_sportt"=>" Register In Sports  ",
+    "course_alert"=>" The course has been booked successfully, we will contact you as soon as possible",
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

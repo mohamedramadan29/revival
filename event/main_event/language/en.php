@@ -307,7 +307,7 @@ $lang = array(
   "register_in_event" => "  Thank you for registering with us, we will contact you when we set the date and location of the event  ",
 
   "register_in_eventss" => " Register In Event ",
-
+  "register_alert"=>"The event has been successfully registered",
 
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
