@@ -262,8 +262,7 @@ if ($count > 0) {
                                                                                 <input type="file" name="project_certificate_image[]" id="files" multiple accept="image/*">
                                                                                 <p> <a> <?php echo $lang["select_files"]; ?>
                                                                                     </a></p>
-                                                                            </label>
-                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            </label> 
                                                                             
                                                                             <span class="files_type"> .jpg, .jpeg,
                                                                                 .png, .gif </span>
@@ -305,8 +304,7 @@ if ($count > 0) {
                                                                 <input type="file" name="national_id[]" id="files2" multiple accept="image/*">
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
-                                                            </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            </label> 
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png, .gif </span>
                                                                 <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
@@ -341,8 +339,7 @@ if ($count > 0) {
                                                                 <input type="file" name="talent_video[]" id="files4" multiple>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
-                                                            </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            </label> 
                                                             <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
@@ -375,10 +372,11 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            
                                                             
                                                             <span class="files_type"> .doc, .docs,
                                                                 .pdf </span>
+                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -411,9 +409,10 @@ if ($count > 0) {
                                                                 </p>
                                                             </label>
                                                             
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png </span> 
+                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 

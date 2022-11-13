@@ -81,15 +81,18 @@
             status.empty();
             var percentVal = '0%';
             percent.html(percentVal);
+            $(".submit_button").attr('disabled', false);
           },
           uploadProgress: function(event, position, total, percentComplete) {
             var percentVal = percentComplete + '%';
             percent.html(percentVal);
             $("#percent").html(percentVal);
             $("#percent").width(percentVal);
+            $(".submit_button").attr('disabled', 'disabled');
           },
           complete: function(xhr) {
             status.html(xhr.responseText);
+            $(".submit_button").attr('disabled', false);
           },
           success: function() {
 

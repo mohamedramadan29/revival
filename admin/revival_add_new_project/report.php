@@ -40,6 +40,7 @@
                             if ($count > 0) {
                                 foreach ($alldata as $data) { ?>
                                     <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=art_register&page=edit&register_id=<?php echo $data["art_register_id"]; ?>"> <?php echo $type['username']; ?> </a></td>
+                                    <td>  الذكاء الإصطناعي </td>
                                 <?php
                                 }
                                 ?>
@@ -58,6 +59,7 @@
                             if ($count > 0) {
                                 foreach ($alldata as $data) { ?>
                                     <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=sport_register&page=edit&register_id=<?php echo $data["sport_register_id"]; ?>"> <?php echo $type['username']; ?> </a></td>
+                                    <td> الرياضة </td>
                                 <?php
                                 }
                                 ?>
@@ -76,6 +78,7 @@
                             if ($count > 0) {
                                 foreach ($alldata as $data) { ?>
                                     <td class="bg bg-primary"> <a target="_blank" href="main.php?dir=fash_register&page=edit&register_id=<?php echo $data["fash_register_id"]; ?>"> <?php echo $type['username']; ?> </a></td>
+                                    <td> الازياء والموضة </td>
                                 <?php
                                 }
                                 ?>
@@ -85,8 +88,7 @@
 
                             ?>
 
-
-                            <td><?php echo $type['project_name']; ?> </td>
+ 
                             <?php if ($type['project_status'] == 'active') { ?>
                                 <td> <button class="btn btn-success btn-sm"> تم التفعيل </button> </td>
                             <?php

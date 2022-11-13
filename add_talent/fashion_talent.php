@@ -332,7 +332,7 @@ if ($count >  0) { ?>
                     </div>
                     <div class="">
                         <div class="reservation_button">
-                            <button type="submit" class="btn main_button">
+                            <button class="submit_button" type="submit" class="btn main_button">
                                 <?php echo $lang["add_talent"]; ?></button>
                         </div>
                     </div>
@@ -361,8 +361,6 @@ if ($count >  0) { ?>
 </div>
 </div>
 
-</form>
-
 <!-- Area to display the percent of progress -->
 <!-- area to display a message after completion of upload -->
 <div id='status'></div>
@@ -371,6 +369,8 @@ if ($count >  0) { ?>
         <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
 </div>
+</form>
+
 
 
 </div>

@@ -156,8 +156,8 @@ if ($count > 0) {
                                         </div>
 
                                         <div class="check_exp">
-                                            <h4>  <?php echo $lang['play_official_club']; ?>   </h4>
-                                            <div class="main_check">
+                                            <h4 class="d-none">  <?php echo $lang['play_official_club']; ?>   </h4>
+                                            <div class="main_check d-none">
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp1">
                                                 <label class="" for="check_exp1">   <?php echo $lang['no']; ?>  </label>
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp2">

@@ -134,8 +134,8 @@ if ($count >  0) { ?>
                                         </div>
 
                                         <div class="check_exp">
-                                            <h4><?php echo $lang['play_official_club']; ?></h4>
-                                            <div class="main_check">
+                                            <h4 class="d-none"><?php echo $lang['play_official_club']; ?></h4>
+                                            <div class="main_check d-none">
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp1">
                                                 <label class="" for="check_exp1"> <?php echo $lang['no']; ?> </label>
                                                 <input class="" name="check_exp" type="radio" value="" id="check_exp2">
@@ -204,7 +204,7 @@ if ($count >  0) { ?>
                                                             <p><?php echo $lang['video_talent_show']; ?>
                                                             </p>
                                                         </label>
-                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -222,7 +222,7 @@ if ($count >  0) { ?>
                                                             <p> <?php echo $lang["upload_cv_document"]; ?>
                                                             </p>
                                                         </label>
-                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         <span class="files_type"> .doc, .docs,
                                                             .pdf </span>
                                                     </div>
@@ -246,7 +246,7 @@ if ($count >  0) { ?>
                                                 <div class="text">
                                                     <div class="">
                                                         <div class="reservation_button">
-                                                            <button type="submit" class="btn main_button"> <?php echo $lang["add_talent"]; ?></button>
+                                                            <button type="submit" class="btn main_button submit_button"> <?php echo $lang["add_talent"]; ?></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -281,9 +281,6 @@ if ($count >  0) { ?>
 
 </div>
 </div>
-
-</form>
-
 <!-- Area to display the percent of progress -->
 <!-- area to display a message after completion of upload -->
 <div id='status'></div>
@@ -292,6 +289,9 @@ if ($count >  0) { ?>
         <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
 </div>
+
+</form>
+
 
 
 </div>

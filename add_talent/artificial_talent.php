@@ -240,7 +240,7 @@ if ($count >  0) { ?>
                                                                             <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -282,7 +282,7 @@ if ($count >  0) { ?>
                                                                             <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -321,7 +321,7 @@ if ($count >  0) { ?>
                                                                                 </a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -397,7 +397,7 @@ if ($count >  0) { ?>
                                                                 <input type="file" name="national_id[]" id="files5" multiple>
                                                                 <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -422,7 +422,7 @@ if ($count >  0) { ?>
                                                                 <input type="file" name="certificate_image[]" id="files6" multiple>
                                                                 <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -451,7 +451,7 @@ if ($count >  0) { ?>
                                                                     <input type="file" name="last_certificate[]" id="files7" multiple>
                                                                     <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                                 </label>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 
@@ -479,7 +479,7 @@ if ($count >  0) { ?>
                                                                     <input type="file" name="cv[]" id="files8" multiple>
                                                                     <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                                 </label>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 
@@ -544,10 +544,6 @@ if ($count >  0) { ?>
 
 </div>
 </div>
-
-</form>
-
-
 <!-- Area to display the percent of progress -->
 <!-- area to display a message after completion of upload -->
 <div id='status'></div>
@@ -556,6 +552,10 @@ if ($count >  0) { ?>
         <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
     </div>
 </div>
+</form>
+
+
+
 
 
 </div>
