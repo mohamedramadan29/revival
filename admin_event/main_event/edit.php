@@ -37,6 +37,16 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                                     </label>
                                     <input required class="form-control" type="text" name="event_name_en" value="<?php echo $alltype["event_name_en"]; ?>">
                                 </div>
+                                <div class="box2">
+                                    <label id="name"> تاريخ انطلاق الفاعلية
+                                    </label>
+                                    <input required class="form-control" type="date" name="date" value="<?php echo $alltype["event_date"]; ?>">
+                                </div>
+                                <div class="box2">
+                                    <label id="name"> وقت انطلاق الفاعلية
+                                    </label>
+                                    <input required class="form-control" type="time" name="time" value="<?php echo $alltype["event_time"]; ?>">
+                                </div>
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> البانر </label>
@@ -73,12 +83,13 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
             $image1_type = $_FILES['image1']['type'];
             $image1_size = $_FILES['image1']['size'];
             $image_allowed_extention = ['jpg', 'jpeg', 'png'];
-
+            $date = $_POST['date'];
+            $time = $_POST['time'];
             $event_name = $_POST['event_name'];
             $event_name_en = $_POST['event_name_en'];
-            $event_active = $_POST['event_active']; 
+            $event_active = $_POST['event_active'];
             $formerror = [];
-             
+
             foreach ($formerror as $errors) {
                 echo "<div class='alert alert-danger danger_message'>" .
                     $errors .
@@ -92,15 +103,17 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                     move_uploaded_file(
                         $image1_tem,
                         'upload/' . $image1_uploaded
-                    ); 
+                    );
                     $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,
-                    event_logo=?,event_active=?
+                    event_logo=?,event_active=?,event_date=?,event_time=?
                         WHERE event_id=?");
                     $stmt->execute([
                         $event_name,
                         $event_name_en,
                         $image1_uploaded,
                         $event_active,
+                        $date,
+                        $time,
                         $event_id
                     ]);
                     if ($stmt) { ?>
@@ -115,20 +128,22 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                         </div>
 
                     <?php }
-                }  else {
+                } else {
 
-                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,event_active=?
+                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,event_active=?,event_date=?,event_time=?
                         WHERE event_id=?");
                     $stmt->execute([
                         $event_name,
-                        $event_name_en, 
+                        $event_name_en,
                         $event_active,
+                        $date,
+                        $time,
                         $event_id
                     ]);
                     if ($stmt) { ?>
                         <div class="container">
                             <div class="alert-success">
-                                تم تعديل المقال بنجاح
+                                تم تعديل الحدث بنجاح
 
                                 <?php header('refresh:3,url=main.php?dir=main_event&page=report'); ?>
 

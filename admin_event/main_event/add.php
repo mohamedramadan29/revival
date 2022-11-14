@@ -15,15 +15,25 @@
             <form class="form-group insert" method="POST" autocomplete="on" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="box">
+                        <div class="box2">
                             <label id="name"> اسم الحدث
                             </label>
                             <input required class="form-control" type="text" name="event_name">
                         </div>
-                        <div class="box">
+                        <div class="box2">
                             <label id="name"> اسم الحدث باللغه الانجليزية
                             </label>
                             <input required class="form-control" type="text" name="event_name_en">
+                        </div>
+                        <div class="box2">
+                            <label id="name"> تاريخ انطلاق الفاعلية
+                            </label>
+                            <input required class="form-control" type="date" name="date">
+                        </div>
+                        <div class="box2">
+                            <label id="name"> وقت انطلاق الفاعلية 
+                            </label>
+                            <input required class="form-control" type="time" name="time">
                         </div>
                         <div class="col-lg-6">
                             <div class="">
@@ -33,6 +43,7 @@
                             <div id="logo_" class="col-md-3">
                             </div>
                         </div>
+
                         <div class="box">
                             <label id="car_color"> الحالة </label>
                             <select id="cat_active2" class="form-control" name="event_active" id="">
@@ -61,6 +72,8 @@
             $event_name = $_POST['event_name'];
             $event_name_en = $_POST['event_name_en'];
             $event_active = $_POST['event_active'];
+            $date = $_POST['date'];
+            $time = $_POST['time'];
             $image_image1_uploaded =
                 rand(0, 100000000) . '.' . $image_image1_name;
             move_uploaded_file(
@@ -69,13 +82,15 @@
             );
 
             /// More Validation To Show Error 
-            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_logo,event_active)
-                VALUES (:zevent_name,:zevent_name_en,:zimage1,:zevent_active)");
+            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_logo,event_active,event_date,event_time)
+                VALUES (:zevent_name,:zevent_name_en,:zimage1,:zevent_active,:zdate,:ztime)");
             $stmt->execute([
                 'zevent_name' => $event_name,
                 'zevent_name_en' => $event_name_en,
                 'zimage1' => $image_image1_uploaded,
                 'zevent_active' => $event_active,
+                'zdate' => $date,
+                'ztime' => $time,
             ]);
             if ($stmt) { ?>
                 <div class="alert-success">

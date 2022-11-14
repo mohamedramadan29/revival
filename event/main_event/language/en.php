@@ -199,8 +199,8 @@ $lang = array(
     We will contact you as soon as possible
     All files must be uploaded in order for the account to be activated by the administration",
 
-    "goin_team_message" => "Thank you for registering with us in the team. We will contact you",
-    "share_event_message" => " Thank you for participating in the event, we will contact you",
+  "goin_team_message" => "Thank you for registering with us in the team. We will contact you",
+  "share_event_message" => " Thank you for participating in the event, we will contact you",
   // END SUCCESS MESSAGE
 
 
@@ -307,8 +307,12 @@ $lang = array(
   "register_in_event" => "  Thank you for registering with us, we will contact you when we set the date and location of the event  ",
 
   "register_in_eventss" => " Register In Event ",
-  "register_alert"=>"The event has been successfully registered",
-
+  "register_alert" => "The event has been successfully registered",
+  "day" => "Day",
+  "hour" => "Hour",
+  "minute" => "Minute",
+  "second" => "Second",
+  "estimat_time" => "Remaining time to launch",
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );

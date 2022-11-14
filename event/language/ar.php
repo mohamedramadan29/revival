@@ -18,6 +18,7 @@ $lang = array(
   "faqs" => " الاسئلة الشائعه ",
 
 
+
   // START EVENTS NAVBAR
 
   "revival" => " ريفايفال ",

@@ -110,6 +110,77 @@ if (isset($_GET['event_id'])) {
 </div>
 </div>
 <!-- END HERO SECTION -->
+<!-- START COUNT DOWN -->
+<?php
+$stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
+$stmt->execute(array($event_id));
+$res = $stmt->fetch();
+$date = $res['event_date'];
+$time = $res['event_time'];
+?>
+<div class="counter_down">
+    <div class="container">
+        <div class="data">
+            <h2><?php echo $lang['estimat_time'] ?></h2>
+            <div class="info">
+                <div id="days_time"></div> </span>
+                <div id="hours_time"></div>
+                <div id="minut_time"></div>
+                <div id="second_time"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 d-none">
+    <div class="row">
+        <div class="col-md-12 mt-40">
+            <div class="" style="height: 400px;">
+                <div class="">
+                    <h2> الوقت المتبقي لانطلاق الفاعلية </h2>
+                </div>
+                <div class="pt-5">
+                    <h1 id="counter" class="text-center mt-5 m-auto p-3"></h1>
+                </div>
+                <div>
+                    <h2 id="days"> Days </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Script -->
+<script>
+    <?php
+    $data = strtotime($date);
+    $getDate = date("F d, Y", $data);
+    ?>
+    var countDownDate = new Date("<?php echo "$getDate $time"; ?>").getTime();
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        // Find the distance between now an the count down date
+        var distance = countDownDate - now;
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Output the result in an element with id="counter"11
+       
+        document.getElementById("days").innerHTML = days + "Day : ";
+        document.getElementById("days_time").innerHTML = days + "<?= $lang['day'] ?>";
+        document.getElementById("hours_time").innerHTML = hours + "<?= $lang['hour'] ?>";
+        document.getElementById("minut_time").innerHTML = minutes + "<?= $lang['minute'] ?>";
+        document.getElementById("second_time").innerHTML = seconds + "<?= $lang['second'] ?>";
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("counter").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
+
+<!--  END COUNT DOWN  -->
 <!-- START ARTIFICAIL IDEA -->
 <div class="idea" id="about_event_id">
     <div class="container">
