@@ -106,7 +106,6 @@ include 'init.php';
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
                     <video controls src="" id="video"></video>
-
                 </div>
             </div>
         </div>

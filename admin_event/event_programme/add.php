@@ -75,7 +75,111 @@
                     </div>
 
                 </div>
+                <hr>
+                <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة ورشة العمل </h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="box">
+                                <label id="name"> اسم الورشة
+                                </label>
+                                <input type="text" class="form-control" name="work_name">
+                            </div>
+                            <div class="box">
+                                <label id="name"> تاريخ الورشة
+                                </label>
+                                <input type="date" class="form-control" name="work_date">
+                            </div>
+                            <div class="box">
+                                <label id="name"> اختر التوقيت
+                                </label>
+                                <input type="time" class="form-control" name="work_time">
+                            </div>
+                            <div class="box">
+                                <label id="name"> مكان الورشة
+                                </label>
+                                <input type="text" class="form-control" name="work_place">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="box">
+                                <label id="name"> مقدم الورشة
+                                </label>
+                                <input type="text" class="form-control" name="work_speakers">
+                            </div>
+                            <div class="box">
+                                <label id="name"> سعر الورشة
+                                </label>
+                                <input type="text" class="form-control" name="work_price">
+                            </div>
+                            <div class="box">
+                                <label id="name"> سعر التسجيل المبكر
+                                </label>
+                                <input type="text" class="form-control" name="work_dis_price">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة دورة تدريبية</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="box">
+                                <label id="name"> اسم الدورة
+                                </label>
+                                <input type="text" class="form-control" name="train_name">
+                            </div>
+                            <div class="box">
+                                <label id="name"> تاريخ الدورة
+                                </label>
+                                <input type="date" class="form-control" name="train_date">
+                            </div>
+                            <div class="box">
+                                <label id="name"> اختر التوقيت
+                                </label>
+                                <input type="time" class="form-control" name="train_time">
+                            </div>
+                            <div class="box">
+                                <label id="name"> مكان الدورة
+                                </label>
+                                <input type="text" class="form-control" name="train_place">
+                            </div>
+                            <div class="box">
+                                <label id="name"> عدد الايام
+                                </label>
+                                <input type="text" class="form-control" name="train_days">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="info">
+                            <div class="box">
+                                <label id="name"> مقدم الدورة
+                                </label>
+                                <input type="text" class="form-control" name="train_speaker">
+                            </div>
+                            <div class="box">
+                                <label id="name"> سعر الدورة
+                                </label>
+                                <input type="text" class="form-control" name="train_price">
+                            </div>
+                            <div class="box">
+                                <label id="name"> سعر التسجيل المبكر
+                                </label>
+                                <input type="text" class="form-control" name="train_dis_price">
+                            </div>
+                            <div class="box">
+                                <label id="name"> عدد الساعات
+                                </label>
+                                <input type="text" class="form-control" name="train_hours">
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
                 <hr>
                 <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة مباراة للحدث</h4>
                 <div class="row">
@@ -162,12 +266,40 @@
             $match_stad     = $_POST['match_stad'];
             $match_stad_en     = $_POST['match_stad_en'];
             $match_resault     = $_POST['match_resault'];
+            $work_date     = $_POST['work_date'];
+            $work_time     = $_POST['work_time'];
+            $work_place     = $_POST['work_place'];
+            $work_speakers     = $_POST['work_speakers'];
+            $work_price     = $_POST['work_price'];
+            $work_dis_price     = $_POST['work_dis_price'];
+            $work_name     = $_POST['work_name'];
+            $train_name     = $_POST['train_name'];
+            $train_date     = $_POST['train_date'];
+            $train_time     = $_POST['train_time'];
+            $train_place     = $_POST['train_place'];
+            $train_speaker     = $_POST['train_speaker'];
+            $train_price     = $_POST['train_price'];
+            $train_hours     = $_POST['train_hours'];
+            $train_days     = $_POST['train_days'];
+            $train_dis_price     = $_POST['train_dis_price'];
+
+
+
+
             $stmt = $connect->prepare("INSERT INTO event_programme
                 (prog_name,prog_date,main_head,main_head_en,sub_head,sub_head_en,prog_desc,prog_desc_en,event_page,first_team,first_team_en,second_team,second_team_en,
-                match_time,match_stad,match_stad_en,match_resault)
+                match_time,match_stad,match_stad_en,match_resault,
+                work_date,work_time,work_place,work_speakers,work_price,work_dis_price,work_name,
+                train_name,train_date,train_time,train_place,train_speaker,train_price,
+                train_hours,train_days,train_dis_price)
                 VALUES (:zprog_name,:zdate,:zmain_head,:zmain_head_en,:zsub_head,:zsub_head_en,:zprog_desc,:zprog_desc_en,:zevent_page,
                 :zfirst_team,:zfirst_team_en,:zsecond_team,:zsecond_team_en,
-                :zmatch_time,:zmatch_stad,:zmatch_stad_en,:zmatch_resault)");
+                :zmatch_time,:zmatch_stad,:zmatch_stad_en,:zmatch_resault,
+                :zwork_date,:zwork_time,:zwork_place,:zwork_speakers,
+                :zwork_price,:zwork_dis_price,:zwork_name,
+                :ztrain_name,:ztrain_date,:ztrain_time,
+                :ztrain_place,:ztrain_speaker,:ztrain_price,
+                :ztrain_hours,:ztrain_days,:ztrain_dis_price)");
             $stmt->execute([
                 'zprog_name' => $prog_name,
                 'zdate' => $prog_date,
@@ -186,6 +318,22 @@
                 'zmatch_stad' => $match_stad,
                 'zmatch_stad_en' => $match_stad_en,
                 'zmatch_resault' => $match_resault,
+                'zwork_date' => $work_date,
+                'zwork_time' => $work_time,
+                'zwork_place' => $work_place,
+                'zwork_speakers' => $work_speakers,
+                'zwork_price' => $work_price,
+                'zwork_dis_price' => $work_dis_price,
+                'zwork_name' => $work_name,
+                'ztrain_name' => $train_name,
+                'ztrain_date' => $train_date,
+                'ztrain_time' => $train_time,
+                'ztrain_place' => $train_place,
+                'ztrain_speaker' => $train_speaker,
+                'ztrain_price' => $train_price,
+                'ztrain_hours' => $train_hours,
+                'ztrain_days' => $train_days,
+                'ztrain_dis_price' => $train_dis_price, 
             ]);
             if ($stmt) { ?>
                 <div class="alert-success">

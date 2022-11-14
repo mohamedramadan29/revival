@@ -87,6 +87,111 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                             </div>
                         </div>
                         <hr>
+                        <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة ورشة العمل </h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> اسم الورشة
+                                        </label>
+                                        <input type="text" class="form-control" name="work_name" value="<?php echo $alltype["work_name"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> تاريخ الورشة
+                                        </label>
+                                        <input type="date" class="form-control" name="work_date" value="<?php echo $alltype["work_date"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> اختر التوقيت
+                                        </label>
+                                        <input type="time" class="form-control" name="work_time" value="<?php echo $alltype["work_time"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> مكان الورشة
+                                        </label>
+                                        <input type="text" class="form-control" name="work_place" value="<?php echo $alltype["work_place"]; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> مقدم الورشة
+                                        </label>
+                                        <input type="text" class="form-control" name="work_speakers" value="<?php echo $alltype["work_speakers"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر الورشة
+                                        </label>
+                                        <input type="text" class="form-control" name="work_price" value="<?php echo $alltype["work_price"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر التسجيل المبكر
+                                        </label>
+                                        <input type="text" class="form-control" name="work_dis_price" value="<?php echo $alltype["work_dis_price"]; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة دورة تدريبية</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> اسم الدورة
+                                        </label>
+                                        <input type="text" class="form-control" name="train_name" value="<?php echo $alltype["train_name"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> تاريخ الدورة
+                                        </label>
+                                        <input type="date" class="form-control" name="train_date" value="<?php echo $alltype["train_date"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> اختر التوقيت
+                                        </label>
+                                        <input type="time" class="form-control" name="train_time" value="<?php echo $alltype["train_time"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> مكان الدورة
+                                        </label>
+                                        <input type="text" class="form-control" name="train_place" value="<?php echo $alltype["train_place"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> عدد الايام
+                                        </label>
+                                        <input type="text" class="form-control" name="train_days" value="<?php echo $alltype["train_days"]; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> مقدم الدورة
+                                        </label>
+                                        <input type="text" class="form-control" name="train_speaker" value="<?php echo $alltype["train_speaker"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر الدورة
+                                        </label>
+                                        <input type="text" class="form-control" name="train_price" value="<?php echo $alltype["train_price"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر التسجيل المبكر
+                                        </label>
+                                        <input type="text" class="form-control" name="train_dis_price" value="<?php echo $alltype["train_dis_price"]; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> عدد الساعات
+                                        </label>
+                                        <input type="text" class="form-control" name="train_hours" value="<?php echo $alltype["train_hours"]; ?>">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة مباراة للحدث</h4>
                         <div class="row">
 
@@ -148,7 +253,7 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                         </div>
 
                         <div class="box submit_box">
-                            <input class="btn btn-primary" name="add_car" type="submit" value="اضافة محتوي جديد">
+                            <input class="btn btn-primary" name="add_car" type="submit" value="  تعديل المحتوي   ">
                         </div>
                     </form>
                 </div>
@@ -177,7 +282,22 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $match_stad     = $_POST['match_stad'];
             $match_stad_en     = $_POST['match_stad_en'];
             $match_resault     = $_POST['match_resault'];
-
+            $work_date     = $_POST['work_date'];
+            $work_time     = $_POST['work_time'];
+            $work_place     = $_POST['work_place'];
+            $work_speakers     = $_POST['work_speakers'];
+            $work_price     = $_POST['work_price'];
+            $work_dis_price     = $_POST['work_dis_price'];
+            $work_name     = $_POST['work_name'];
+            $train_name     = $_POST['train_name'];
+            $train_date     = $_POST['train_date'];
+            $train_time     = $_POST['train_time'];
+            $train_place     = $_POST['train_place'];
+            $train_speaker     = $_POST['train_speaker'];
+            $train_price     = $_POST['train_price'];
+            $train_hours     = $_POST['train_hours'];
+            $train_days     = $_POST['train_days'];
+            $train_dis_price     = $_POST['train_dis_price'];
             $formerror = [];
 
 
@@ -186,7 +306,11 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
 
                 $stmt = $connect->prepare("UPDATE event_programme SET 
                     prog_name=?,prog_date=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
-                    prog_desc=?,prog_desc_en=?,event_page=?,first_team=?,first_team_en=?,second_team=?,second_team_en=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?
+                    prog_desc=?,prog_desc_en=?,event_page=?,first_team=?,first_team_en=?,second_team=?,
+                    second_team_en=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?,
+                    work_date=?,work_time=?,work_place=?,work_speakers=?,work_price=?,work_dis_price=?,work_name=?,
+                train_name=?,train_date=?,train_time=?,train_place=?,train_speaker=?,train_price=?,
+                train_hours=?,train_days=?,train_dis_price=?
                 WHERE prog_id =?");
                 $stmt->execute([
                     $prog_name,
@@ -206,6 +330,22 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                     $match_stad,
                     $match_stad_en,
                     $match_resault,
+                    $work_date,
+                    $work_time,
+                    $work_place,
+                    $work_speakers,
+                    $work_price,
+                    $work_dis_price,
+                    $work_name,
+                    $train_name,
+                    $train_date,
+                    $train_time,
+                    $train_place,
+                    $train_speaker,
+                    $train_price,
+                    $train_hours,
+                    $train_days,
+                    $train_dis_price,
                     $prog_id
                 ]);
                 if ($stmt) { ?>
