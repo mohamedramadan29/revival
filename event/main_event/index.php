@@ -6,7 +6,6 @@ include 'init.php';
 if (isset($_GET['event_id'])) {
     $event_id = $_GET['event_id'];
     //  echo $event_id;
-
     $stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
     $stmt->execute(array($event_id));
     $event_data = $stmt->fetch();

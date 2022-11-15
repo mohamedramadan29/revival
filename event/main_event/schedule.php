@@ -80,27 +80,65 @@ if (isset($_GET['event_id'])) {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td> <?php if($_SESSION['lang'] == 'ar'){
-                                            echo $about['first_team'];
-                                            echo " - ";
-                                            echo $about['second_team'];
-                                        }else{
-                                            echo $about['first_team_en'];
-                                            echo " - ";
-                                            echo $about['second_team_en'];
-                                        } ?> </td>
-                                        <td><?php 
-                                        if($_SESSION['lang']=='ar'){
-                                            echo $about['match_stad'];
-                                        }else{
-                                            echo $about['match_stad_en'];
-                                        }
-                                        ?> </td>
+                                        <td> <?php if ($_SESSION['lang'] == 'ar') {
+                                                    echo $about['first_team'];
+                                                    echo " - ";
+                                                    echo $about['second_team'];
+                                                } else {
+                                                    echo $about['first_team_en'];
+                                                    echo " - ";
+                                                    echo $about['second_team_en'];
+                                                } ?> </td>
+                                        <td><?php
+                                            if ($_SESSION['lang'] == 'ar') {
+                                                echo $about['match_stad'];
+                                            } else {
+                                                echo $about['match_stad_en'];
+                                            }
+                                            ?> </td>
                                         <td><?php echo $about['match_time'];  ?></td>
                                         <td> <?php echo $about['match_resault'];  ?></td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <br>
+                    <?php
+                    if (!empty($about['work_name'])) { ?>
+                        <div class="work_table">
+                            <h2> <?php echo $about['work_name'];  ?> </h2>
+                            <ul class="list-unstyled">
+                                <li> <span> اسم الورشة : </span> <?php echo $about['work_name'];  ?> </li>
+                                <li> <span>تاريخ الورشة :</span> <?php echo $about['work_date'];  ?> </li>
+                                <li> <span> توقيت الورشة :</span> <?php echo $about['work_time'];  ?> </li>
+                                <li> <span> مكان الورشة :</span> <?php echo $about['work_place'];  ?> </li>
+                                <li> <span> مقدم الورشة :</span> <?php echo $about['work_speakers'];  ?> </li>
+                                <li> <span> سعر الورشة :</span> <?php echo $about['work_price'];  ?> <span> $ </span></li>
+                                <li> <span> سعر التسجيل المبكر :</span> <?php echo $about['work_dis_price'];  ?> <span> $ </span> </li>
+                            </ul>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <br>
+                    <?php
+                    if (!empty($about['train_name'])) { ?>
+                        <div class="work_table">
+                            <h2> <?php echo $about['train_name'];  ?> </h2>
+                            <ul class="list-unstyled">
+                                <li> <span> اسم الدورة : </span> <?php echo $about['train_name'];  ?> </li>
+                                <li> <span>تاريخ الدورة :</span> <?php echo $about['train_date'];  ?> </li>
+                                <li> <span> توقيت الدورة :</span> <?php echo $about['train_time'];  ?> </li>
+                                <li> <span> مكان الدورة :</span> <?php echo $about['train_place'];  ?> </li>
+                                <li> <span> مقدم الدورة :</span> <?php echo $about['train_speaker'];  ?> </li>
+                                <li> <span> عدد ايام الدورة :</span> <?php echo $about['train_days'];  ?> </li>
+                                <li> <span> عدد ساعات الدورة :</span> <?php echo $about['train_hours'];  ?> </li>
+                                <li> <span> سعر الدورة :</span> <?php echo $about['train_price'];  ?> <span> $ </span></li>
+                                <li> <span> سعر التسجيل المبكر :</span> <?php echo $about['train_dis_price'];  ?> <span> $ </span> </li>
+                            </ul>
                         </div>
                     <?php
                     }

@@ -205,8 +205,10 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     ]);
                 }
                 if ($video_video1_tem != "") {
+                    $video_video1_name = str_replace(array('-', '(', ')', ',', '$', '*', '#'), '', $video_video1_name);
                     $video_video1_uploaded =
                         rand(0, 100000000) . '.' . $video_video1_name;
+
                     move_uploaded_file(
                         $video_video1_tem,
                         'upload/' . $video_video1_uploaded
@@ -219,6 +221,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                     ]);
                 }
                 if ($video_video2_tem != "") {
+                    $video_video2_name = str_replace(array('-', '(', ')', ',', '$', '*', '#'), '', $video_video2_name);
                     $video_video2_uploaded =
                         rand(0, 100000000) . '.' . $video_video2_name;
                     move_uploaded_file(

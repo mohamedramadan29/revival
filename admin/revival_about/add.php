@@ -119,11 +119,13 @@
             $image_image2_size = $_FILES['image2']['size'];
             // START VIDEO car_imageside
             $video_video1_name = $_FILES['video1']['name'];
+            $video_video1_name = str_replace(array('-', '(', ')', ',', '$', '*', '#'), '', $video_video1_name);
             $video_video1_tem = $_FILES['video1']['tmp_name'];
             $video_video1_type = $_FILES['video1']['type'];
             $video_video1_size = $_FILES['video1']['size'];
             //    $video_allowed_extention = ['jpg', 'jpeg', 'png'];
             $video_video2_name = $_FILES['video2']['name'];
+            $video_video2_name = str_replace(array('-', '(', ')', ',', '$', '*', '#'), '', $video_video2_name);
             $video_video2_tem = $_FILES['video2']['tmp_name'];
             $video_video2_type = $_FILES['video2']['type'];
             $video_video2_size = $_FILES['video2']['size'];

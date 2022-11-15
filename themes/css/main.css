@@ -3510,3 +3510,53 @@ body {
 .counter_down .data .info #second_time {}
 
 /* END COUNT DOWN */
+
+/* START WORK TABLE */
+.work_table {}
+
+.work_table h2 {
+    font-size: 22px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: var(--hovercolor);
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.work_table ul {}
+
+.work_table ul li {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.timeline .work_table ul li span {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+/* END WORK TABLE */
+/* START RESERVATION */
+.work_data_reserve ul li{
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+.work_data_reserve ul li span{
+    margin-right: 15px;
+    margin-left: 15px;
+    color: var(--hovercolor);
+}
+.cart_section{
+
+}
+.cart_section h2{
+    font-size: 22px;
+    color: var(--hovercolor);
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.cart_section .total_price{
+    font-weight: bold;
+    color: var(--hovercolor);
+    font-size: 18px;
+}
