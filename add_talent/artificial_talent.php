@@ -508,7 +508,7 @@ if ($count >  0) { ?>
                                             <div class="text">
                                                 <div class="">
                                                     <div class="reservation_button">
-                                                        <button type="submit" class="btn main_button"><?php echo $lang["add_talent"]; ?></button>
+                                                        <button type="submit" class="btn main_button "><?php echo $lang["add_talent"]; ?></button>
                                                     </div>
                                                 </div>
                                             </div>

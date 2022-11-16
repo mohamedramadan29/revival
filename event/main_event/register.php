@@ -269,11 +269,15 @@ if (isset($_GET['event_id'])) {
                                 <small class="text-danger first_name"></small>
                             </div>
                             <div class="box mb-3">
-                                <label for="floatingInput"> <?php echo $lang["email"]; ?> <span class="star"> *
-                                    </span> </label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
-                                <small class="text-danger email"></small>
+                                <!--
+                                        <input name="mobile" type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com">-->
+                                <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
+                                        * </span></label>
+                                <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?>">
+                                <small class="text-danger phone"></small>
                             </div>
+
                             <div class="box mb-3">
                                 <label for="selectcountry"><?php echo $lang["country"];  ?></label>
                                 <select name="country" class="form-select country3" id="selectcountry" aria-label="Floating label select example">
@@ -315,15 +319,15 @@ if (isset($_GET['event_id'])) {
                                 <input type="text" name="last_name" class="form-control" id="last_name" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['last_name']; ?>">
                                 <small class="text-danger last_name"></small>
                             </div>
+
                             <div class="box mb-3">
-                                <!--
-                                        <input name="mobile" type="text" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">-->
-                                <label for="floatingInput"> <?php echo $lang["mobile"];  ?> <span class="star">
-                                        * </span></label>
-                                <input type="tel" name="mobile" id="phone" class="form-control" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['mobile']; ?>">
-                                <small class="text-danger phone"></small>
+                                <label for="floatingInput"> <?php echo $lang["email"]; ?> <span class="star"> *
+                                    </span> </label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="" value="<?php if ($_SERVER["REQUEST_METHOD"] == "POST") echo $_REQUEST['email']; ?>">
+                                <small class="text-danger email"></small>
                             </div>
+
+
                         </div>
                     </div>
                     <div class="col-lg-12 cars_sections">
