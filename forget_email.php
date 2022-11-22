@@ -16,8 +16,8 @@ include 'init.php';
             <form class="message_form" action="#" method="post">
                 <div class="box">
                     <?php
-                    $code = rand(1,55555); 
-                    
+                    $code = rand(1,55555);
+
                     ?>
                     <label for=""> <?php echo $lang["email"]; ?> <span> * </span> </label>
                     <input class="form-control" type="text" name="email">
@@ -52,10 +52,8 @@ include 'init.php';
                                 $subject = $lang['reset_pass_revival'];
                                 $body =  $lang['code_is'].$code.'';
                                 $headers = "From: info@revivals.site";
-                                mail($to_email, $subject, $body, $headers); 
-                                header('Location:forget_code.php');  
-                               
-
+                                mail($to_email, $subject, $body, $headers);
+                                header('Location:forget_code.php');
                             }
                         } else {
                                 ?> <div class="container">

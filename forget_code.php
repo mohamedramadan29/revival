@@ -23,7 +23,7 @@ include 'init.php';
                     <input class="form-control" type="text" name="code">
                 </div>
                 <div class="box">
-                    
+
                     <input type="submit" value="<?php echo $lang['contin'];?> " class="btn btn-primary">
                 </div>
             </form> <?php
@@ -35,10 +35,10 @@ include 'init.php';
                         $stmt->execute(array($code, $code, $code, $code));
                         $data = $stmt->fetch();
                         $count = $stmt->rowCount();
-                        if ($count > 0) { 
-                            header('Location:forget_password.php');  
-                            if ($stmt) { ?> <div class="container"> 
-                        </div> <?php 
+                        if ($count > 0) {
+                            header('Location:forget_password.php');
+                            if ($stmt) { ?> <div class="container">
+                        </div> <?php
                             }
                         } else {
                                 ?> <div class="container">
