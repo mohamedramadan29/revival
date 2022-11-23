@@ -23,7 +23,6 @@ include 'init.php';
                     <input class="form-control" type="text" name="code">
                 </div>
                 <div class="box">
-
                     <input type="submit" value="<?php echo $lang['contin'];?> " class="btn btn-primary">
                 </div>
             </form> <?php
