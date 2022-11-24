@@ -31,10 +31,7 @@ $emaildata = $stmt->fetchAll();
         <div class="customer_message">
             <div class="alert alert-info">
                 <?php
-
                 echo $userinfo['customer_message'];
-
-
                 ?>
             </div>
         </div>
@@ -108,6 +105,7 @@ $emaildata = $stmt->fetchAll();
                                 <li> <a href="update_profile.php" class="btn button">
                                         <?php echo $lang["account_update"]; ?> <i class="fa fa-edit"></i> </a>
                                 </li>
+
                                 <li class="d-none"> <a href="ticket.php" class="btn button">
                                         <?php echo $lang["open_ticket"]; ?> <i class="fa fa-message"></i> </a>
                                 </li>
@@ -216,35 +214,36 @@ $emaildata = $stmt->fetchAll();
                                         <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
                                     <?php
                                     }
-
-
-
                                     ?>
                                 </div>
                             </div>
                             <div class="box">
                                 <label id="name"> <?php echo $lang['videos']; ?> </label>
                                 <div class="row">
-                                    <?php
-                                    $files1 = $userinfo['cv'];
-                                    $files1 = explode(" ", $files1);
-                                    $countfile = count($files1) - 1;
-                                    if ($countfile > 0) {
-                                        for ($i = 0; $i < $countfile; ++$i) {
-                                    ?>
-                                            <div class="col-6">
-
-                                                <div class="files_style">
-                                                    <p class="btn bg-success"><?= $files1[$i] ?> </p>
-                                                </div>
-                                            </div>
+                                    <div class="col-lg-4">
+                                        <?php
+                                        if (!empty($userinfo['video1'])) { ?>
+                                            <p class="btn bg-success"><?php echo $userinfo['video1'] ?> </p>
                                         <?php
                                         }
-                                    } else { ?>
-                                        <div class="alert alert-warning"><?php echo $lang['no_file_found']; ?></div>
-                                    <?php
-                                    }
-                                    ?>
+                                        ?>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <?php
+                                        if (!empty($userinfo['video2'])) { ?>
+                                            <p class="btn bg-success"><?php echo $userinfo['video2'] ?> </p>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <?php
+                                        if (!empty($userinfo['video3'])) { ?>
+                                            <p class="btn bg-success"><?php echo $userinfo['video3'] ?> </p>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                             <div class="box">

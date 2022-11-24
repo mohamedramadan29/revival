@@ -578,7 +578,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     'info_about_talent' => '  Information About Talent   ',
     "cartificate" => "  cartificate  ",
     'lang' => 'Language',
-    'file_info' => 'You can choose more than one file, and the file size should not exceed 100 MB',
+    'file_info' => 'You can choose more than one file',
     'emailerror' => 'InCorrect Mail',
     'send_code' => '  A code has been sent to your email  ',
     'contin' => ' continue ',
@@ -591,9 +591,16 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "contact_us_revival" => " Contact Us In Revival  ",
     "register_in_fashion_email" => "Register In Fashion",
     "add_new_projectt" => "   Add New Project   ",
-    "register_in_revival"=>"  Register In Revival  ",
-    "register_in_sportt"=>" Register In Sports  ",
-    "course_alert"=>" The course has been booked successfully, we will contact you as soon as possible",
+    "register_in_revival" => "  Register In Revival  ",
+    "register_in_sportt" => " Register In Sports  ",
+    "course_alert" => " The course has been booked successfully, we will contact you as soon as possible",
+    "click_video_one" => "Click Here To Upload Video One",
+    "click_video_two" => "Click Here To Upload Video Two",
+    "click_video_three" => "Click Here To Upload Video Three",
+    "upload_video_note" => " You can upload three videos showing your talent",
+    "upload_your_video_here" => "Upload your videos",
+    "you_upload_video" => "You can upload your videos from here",
+
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

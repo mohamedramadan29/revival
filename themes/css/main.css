@@ -3536,27 +3536,64 @@ body {
 
 /* END WORK TABLE */
 /* START RESERVATION */
-.work_data_reserve ul li{
+.work_data_reserve ul li {
     margin-top: 13px;
     margin-bottom: 13px;
 }
-.work_data_reserve ul li span{
+
+.work_data_reserve ul li span {
     margin-right: 15px;
     margin-left: 15px;
     color: var(--hovercolor);
 }
-.cart_section{
 
-}
-.cart_section h2{
+.cart_section {}
+
+.cart_section h2 {
     font-size: 22px;
     color: var(--hovercolor);
-    margin-top:20px;
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.cart_section .total_price{
+.cart_section .total_price {
     font-weight: bold;
     color: var(--hovercolor);
     font-size: 18px;
 }
+
+/* START UPLOAD VIDEOS  */
+.upload_videos {}
+
+.upload_videos .document {}
+.upload_videos .document button{
+    min-width: 400px; 
+    height: 50px;
+    border-radius: 5px;
+}
+.upload_videos .document #list {}
+
+.upload_videos .document #list div ,
+.upload_videos .document #list2 div ,
+.upload_videos .document #list3 div {
+    background-color: #40739e;
+    margin-bottom: 15px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px; 
+}
+
+.upload_videos .document #list div strong ,
+.upload_videos .document #list2 div strong ,
+.upload_videos .document #list3 div strong {
+    font-size: 20px;
+    background: #c23616;
+    padding: 10px;
+    border-radius: 60px;
+    width: 60px;
+    display: inline-block;
+}
+
+.upload_videos .document #list input {}
+
+/* END UPLOAD VIDEOS */

@@ -97,14 +97,34 @@ if (isset($_GET['cat'])) {
                     <h2><?php echo $lang['video_talent_show']; ?></h2>
                     <div class="row">
                         <?php
-                        $talent_videos = $talent_info['cv'];
-                        $talent_videos = explode(" ", $talent_videos);
-                        $countfile = count($talent_videos) - 1;
-                        for ($i = 0; $i < $countfile; ++$i) { ?>
+                        if (!empty($talent_info['video1'])) { ?>
                             <div class="col-lg-4">
                                 <div class="talent_images">
-                                    <video controls src="admin/upload/<?= $talent_videos[$i] ?>"></video>
+                                    <video controls src="update_profile_video/uploads/<?php echo $talent_info['video1'] ?> "></video>
                                 </div>
+
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if (!empty($talent_info['video2'])) { ?>
+                            <div class="col-lg-4">
+                                <div class="talent_images">
+                                    <video controls src="update_profile_video/uploads/<?php echo $talent_info['video2'] ?> "></video>
+                                </div>
+
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if (!empty($talent_info['video3'])) { ?>
+                            <div class="col-lg-4">
+                                <div class="talent_images">
+                                    <video controls src="update_profile_video/uploads/<?php echo $talent_info['video3'] ?> "></video>
+                                </div>
+
                             </div>
                         <?php
                         }

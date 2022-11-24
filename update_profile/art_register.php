@@ -60,13 +60,16 @@ if ($count > 0) {
                                 <div class="contact_form">
                                     <div class="container">
                                         <div class="data">
+                                            <a href="update_profile_video.php" class="btn button">
+                                                <?php echo $lang['you_upload_video']; ?><i class="fa fa-edit"></i> </a>
+
                                             <!--------------------END PHP  CODE VALIDATION --------------->
 
                                             <div class="row">
                                                 <div class="col-lg-12 col-12">
                                                     <div class="info">
                                                         <div class="row">
-                                                            <div class="col-lg-6 col-12"> 
+                                                            <div class="col-lg-6 col-12">
 
                                                                 <div class="box mb-3">
                                                                     <label for="first_name"><?php echo $lang["first_name"];  ?><span class="star"> *
@@ -231,12 +234,12 @@ if ($count > 0) {
                                                                 <div class="upload-file">
                                                                     <div class="upload-wrapper">
                                                                         <label>
-                                                                            
+
                                                                             <input type="file" name="project_design[]" id="files" multiple>
                                                                             <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -273,12 +276,12 @@ if ($count > 0) {
                                                             <div class="box mb-3">
                                                                 <div class="upload-file">
                                                                     <div class="upload-wrapper">
-                                                                        <label> 
+                                                                        <label>
                                                                             <input type="file" name="project_prototype[]" id="files2" multiple>
                                                                             <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -297,7 +300,7 @@ if ($count > 0) {
                                                         </div>
                                                     </div>
                                                     <!-- Do Project Video -->
-                                                    <div class="prototype_deisgn">
+                                                    <div class="prototype_deisgn d-none">
                                                         <h4> <?php echo $lang["do_video"]; ?> </h4>
 
                                                         <!--  <input class="" name="project_video" type="radio" value=""
@@ -320,7 +323,7 @@ if ($count > 0) {
                                                                             <p> <a> <?php echo $lang["select_files"]; ?></a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -359,7 +362,7 @@ if ($count > 0) {
                                                                                 </a>
                                                                             </p>
                                                                         </label>
-                                                                        <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                        <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                     </div>
                                                                 </div>
 
@@ -435,7 +438,7 @@ if ($count > 0) {
                                                                 <input type="file" name="national_id[]" id="files5" multiple>
                                                                 <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -460,7 +463,7 @@ if ($count > 0) {
                                                                 <input type="file" name="certificate_image[]" id="files6" multiple>
                                                                 <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -489,7 +492,7 @@ if ($count > 0) {
                                                                     <input type="file" name="last_certificate[]" id="files7" multiple>
                                                                     <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                                 </label>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 
@@ -507,17 +510,20 @@ if ($count > 0) {
                                                 multiple> -->
 
                                                 </div>
+                                                 
+                                                                    
+
                                                 <div class="col-lg-12">
-                                                    <label> <?php echo $lang["upload_video"]; ?></label>
+                                                    <label> <?php echo $lang["upload_images"]; ?></label>
 
                                                     <div class="box mb-3">
                                                         <div class="upload-file">
                                                             <div class="upload-wrapper">
                                                                 <label>
-                                                                    <input type="file" name="cv[]" id="files8" multiple>
+                                                                    <input type="file" name="talent_images[]" id="files8" multiple>
                                                                     <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
                                                                 </label>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             </div>
                                                         </div>
 
@@ -528,34 +534,6 @@ if ($count > 0) {
                                                             </div>
                                                         </div>
                                                         <output id="image-gallery8"></output>
-
-                                                    </div>
-
-                                                    <!--     <input class="form-control" type="file" name="cv[]" id="" multiple> -->
-
-                                                </div>
-
-                                                <div class="col-lg-12">
-                                                    <label> <?php echo $lang["upload_images"]; ?></label>
-
-                                                    <div class="box mb-3">
-                                                        <div class="upload-file">
-                                                            <div class="upload-wrapper">
-                                                                <label>
-                                                                    <input type="file" name="talent_images[]" id="files9" multiple>
-                                                                    <p> <a> <?php echo $lang["select_files"]; ?> </a></p>
-                                                                </label>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-12">
-
-                                                                <!-- <h2 class="mb-0"> المفات المرفوعه </h2> -->
-                                                            </div>
-                                                        </div>
-                                                        <output id="image-gallery9"></output>
 
                                                     </div>
 
@@ -579,6 +557,16 @@ if ($count > 0) {
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <!-- Area to display the percent of progress -->
+                                        <!-- area to display a message after completion of upload -->
+                                        <div id='status'></div>
+                                        <div class="my_progress">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -591,15 +579,6 @@ if ($count > 0) {
     </div>
 
     </form>
-
-    <!-- Area to display the percent of progress -->
-    <!-- area to display a message after completion of upload -->
-    <div id='status'></div>
-    <div class="my_progress">
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-        </div>
-    </div>
 
 
 
