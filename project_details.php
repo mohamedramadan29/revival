@@ -113,7 +113,6 @@ if (isset($_GET['cat'])) {
                                 <div class="talent_images">
                                     <video controls src="update_profile_video/uploads/<?php echo $talent_info['video2'] ?> "></video>
                                 </div>
-
                             </div>
                         <?php
                         }

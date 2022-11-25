@@ -51,12 +51,12 @@ if (isset($_GET['cat'])) {
                         <h2><?php echo $lang['info_about_talent']; ?></h2>
                         <ul class="list-unstyled">
                             <li> <span><?php echo $lang['first_name']; ?>: </span><?php
-                                                                if (isset($_GET["talent_id"])) {
-                                                                    echo $talent_info['first_name2'];
-                                                                } else {
-                                                                    echo $talent_info['first_name'];
-                                                                }
-                                                                ?> </li>
+                                                                                    if (isset($_GET["talent_id"])) {
+                                                                                        echo $talent_info['first_name2'];
+                                                                                    } else {
+                                                                                        echo $talent_info['first_name'];
+                                                                                    }
+                                                                                    ?> </li>
                             <li> <span><?php echo $lang['last_name']; ?>: </span> <?php echo $talent_info['last_name']; ?> </li>
                             <li> <span> <?php echo $lang['specialist']; ?> : </span> <?php echo $talent_info['specialist']; ?> </li>
                             <li> <span> <?php echo $lang['tall']; ?> : </span> <?php echo $talent_info['player_taller']; ?> <span> cm </span> </li>
@@ -117,23 +117,40 @@ if (isset($_GET['cat'])) {
                 <h2><?php echo $lang['video_talent_show']; ?></h2>
                 <div class="row">
                     <?php
-                    $talent_videos = $talent_info['video_talent'];
-                    $talent_videos = explode(" ", $talent_videos);
-                    $countfile = count($talent_videos) - 1;
-                    for ($i = 0; $i < $countfile; ++$i) { ?>
+                    if (!empty($talent_info['video1'])) { ?>
                         <div class="col-lg-4">
                             <div class="talent_images">
-                                <video controls src="admin/upload/<?= $talent_videos[$i] ?>"></video>
+                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video1'] ?> "></video>
+                            </div>
+
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if (!empty($talent_info['video2'])) { ?>
+                        <div class="col-lg-4">
+                            <div class="talent_images">
+                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video2'] ?> "></video>
                             </div>
                         </div>
                     <?php
                     }
                     ?>
+                    <?php
+                    if (!empty($talent_info['video3'])) { ?>
+                        <div class="col-lg-4">
+                            <div class="talent_images">
+                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video3'] ?> "></video>
+                            </div>
 
-
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="return_talent">
-                    <a href="talent_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
+                    <a href="fashion_project.php" class="btn btn-primary"> <?php echo $lang["return_to_talent"]; ?> <i class="fa fa-arrow-left"></i></a>
                 </div>
             </div>
         </div>

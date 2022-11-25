@@ -220,30 +220,34 @@ $emaildata = $stmt->fetchAll();
                             <div class="box">
                                 <label id="name"> <?php echo $lang['videos']; ?> </label>
                                 <div class="row">
-                                    <div class="col-lg-4">
-                                        <?php
-                                        if (!empty($userinfo['video1'])) { ?>
+                                    <?php
+                                    if (!empty($userinfo['video1'])) { ?>
+                                        <div class="col-lg-8">
+
                                             <p class="btn bg-success"><?php echo $userinfo['video1'] ?> </p>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <?php
-                                        if (!empty($userinfo['video2'])) { ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if (!empty($userinfo['video2'])) { ?>
+                                        <div class="col-lg-8">
+
                                             <p class="btn bg-success"><?php echo $userinfo['video2'] ?> </p>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <?php
-                                        if (!empty($userinfo['video3'])) { ?>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if (!empty($userinfo['video3'])) { ?>
+                                        <div class="col-lg-8">
+
                                             <p class="btn bg-success"><?php echo $userinfo['video3'] ?> </p>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </div>
                             </div>
                             <div class="box">

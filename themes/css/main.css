@@ -3565,7 +3565,10 @@ body {
 /* START UPLOAD VIDEOS  */
 .upload_videos {}
 
-.upload_videos .document {}
+.upload_videos .document {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
 .upload_videos .document button{
     min-width: 400px; 
     height: 50px;

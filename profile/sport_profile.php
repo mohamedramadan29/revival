@@ -199,26 +199,38 @@ $emaildata = $stmt->fetchAll();
                                 </div>
                             </div>
                         </div>
-
-
                         <div class="data2">
                             <h4> <?php echo $lang['videos']; ?> </h4>
-                            <div class="person_files">
-                                <div class="row">
-                                    <?php
-                                    $files1 = $userinfo['video_talent'];
-                                    $files1 = explode(" ", $files1);
-                                    $countfile = count($files1) - 1;
-                                    for ($i = 0; $i < $countfile; ++$i) {
-                                    ?>
-                                        <div class="col-lg-6 col-12">
-                                            <p class="btn bg-success"> <?= $files1[$i] ?> </p>
-                                        </div>
-                                    <?php
-                                    }
-                                    // echo "<p style='color:green;font-size:26px'>عدد " . $count . " images found.";
-                                    ?>
-                                </div>
+
+                            <div class="row">
+                                <?php
+                                if (!empty($userinfo['video1'])) { ?>
+                                    <div class="col-lg-8">
+
+                                        <p class="btn bg-success"><?php echo $userinfo['video1'] ?> </p>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if (!empty($userinfo['video2'])) { ?>
+                                    <div class="col-lg-8">
+
+                                        <p class="btn bg-success"><?php echo $userinfo['video2'] ?> </p>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+                                <?php
+                                if (!empty($userinfo['video3'])) { ?>
+                                    <div class="col-lg-8">
+
+                                        <p class="btn bg-success"><?php echo $userinfo['video3'] ?> </p>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
                             </div>
                         </div>
                         <div class="data2">
@@ -687,7 +699,7 @@ $emaildata = $stmt->fetchAll();
                                                                 <div class="col-lg-6">
                                                                     <div class="box">
                                                                         <h6 class="fw-bold mb-3 mt-3 bg-gradient-blue p-2"><?php echo $lang['legal_information']; ?></h6>
-                                                                        <label for="">  <?php echo $lang['registration_certificate']; ?>   </label>
+                                                                        <label for=""> <?php echo $lang['registration_certificate']; ?> </label>
                                                                         <div class="row">
                                                                             <?php
                                                                             $files1 = $type['certificate_register'];
@@ -741,7 +753,7 @@ $emaildata = $stmt->fetchAll();
                                                                             ?>
                                                                         </div>
 
-                                                                        <label for="">    <?php echo $lang['Prototype']; ?>  </label>
+                                                                        <label for=""> <?php echo $lang['Prototype']; ?> </label>
                                                                         <div class="row">
                                                                             <?php
                                                                             $files1 = $type['prototype'];
@@ -790,7 +802,7 @@ $emaildata = $stmt->fetchAll();
                             } else { ?>
 
                                 <div class="alert alert-warning">
-                                <?php echo $lang['no_project_found']; ?>
+                                    <?php echo $lang['no_project_found']; ?>
                                 </div>
                             <?php
                             }

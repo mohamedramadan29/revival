@@ -43,6 +43,9 @@ if ($count > 0) {
                                 <div class="contact_form">
                                     <div class="container">
                                         <div class="data">
+                                            <a href="update_profile_video.php" class="btn button">
+                                                <?php echo $lang['you_upload_video']; ?><i class="fa fa-edit"></i> </a>
+
                                             <!--------------------END PHP  CODE VALIDATION --------------->
 
                                             <div class="row">
@@ -262,11 +265,11 @@ if ($count > 0) {
                                                                                 <input type="file" name="project_certificate_image[]" id="files" multiple accept="image/*">
                                                                                 <p> <a> <?php echo $lang["select_files"]; ?>
                                                                                     </a></p>
-                                                                            </label> 
-                                                                            
+                                                                            </label>
+
                                                                             <span class="files_type"> .jpg, .jpeg,
                                                                                 .png, .gif </span>
-                                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -304,10 +307,10 @@ if ($count > 0) {
                                                                 <input type="file" name="national_id[]" id="files2" multiple accept="image/*">
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
-                                                            </label> 
+                                                            </label>
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png, .gif </span>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -327,20 +330,20 @@ if ($count > 0) {
 
                                             <div class="col-lg-12">
                                                 <!-- ارفع الفيديوهات الخص  -->
-                                                <label>
+                                                <label class="d-none">
                                                     <p> <?php echo $lang["upload_video"]; ?>
                                                     </p>
                                                 </label>
 
-                                                <div class="box mb-3">
+                                                <div class="box mb-3 d-none">
                                                     <div class="upload-file">
                                                         <div class="upload-wrapper">
                                                             <label>
                                                                 <input type="file" name="talent_video[]" id="files4" multiple>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
-                                                            </label> 
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            </label>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -372,11 +375,11 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
-                                                            
-                                                            
+
+
                                                             <span class="files_type"> .doc, .docs,
                                                                 .pdf </span>
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -408,11 +411,11 @@ if ($count > 0) {
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
-                                                            
-                                                            
+
+
                                                             <span class="files_type"> .jpg, .jpeg,
-                                                                .png </span> 
-                                                                <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                .png </span>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                         </div>
                                                     </div>
 
@@ -432,16 +435,27 @@ if ($count > 0) {
                                         </div>
                                     </div>
 
+                                    <div class="">
+                                        <div class="reservation_button">
+                                            <button type="submit" class="btn main_button">
+                                                <?php echo $lang["account_update"]; ?></button>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <!-- Area to display the percent of progress -->
+                                    <!-- area to display a message after completion of upload -->
+                                    <div class="container">
+                                        <div id='status'></div>
+                                        <div class="my_progress">
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="">
-                        <div class="reservation_button">
-                            <button type="submit" class="btn main_button">
-                                <?php echo $lang["account_update"]; ?></button>
-                        </div>
-                        <br>
                     </div>
             </div>
         </div>
@@ -451,16 +465,6 @@ if ($count > 0) {
 
     </form>
 
-    <!-- Area to display the percent of progress -->
-    <!-- area to display a message after completion of upload -->
-    <div class="container">
-        <div id='status'></div>
-        <div class="my_progress">
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-            </div>
-        </div>
-    </div>
 
     </div>
     </div>
