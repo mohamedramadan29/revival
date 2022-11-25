@@ -600,6 +600,8 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "upload_video_note" => " You can upload three videos showing your talent",
     "upload_your_video_here" => "Upload your videos",
     "you_upload_video" => "You can upload your videos from here",
+    "upload_talent_videos_note" => "  You can upload talent videos after creating your talent from the talent table  ",
+    "add_new_talent_video" => " Add Talnet video ",
 
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

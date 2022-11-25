@@ -3445,8 +3445,10 @@ body {
 }
 
 .bg-success {
-    background-color: #28a745 !important;
-    color: #fff !important;
+    background-color: #f1f1f1!important;
+    color: #3e3c3c !important;
+    border-color: #cfcfcf;
+    padding: 10px;
 }
 
 .alert-danger {
@@ -3600,3 +3602,6 @@ body {
 .upload_videos .document #list input {}
 
 /* END UPLOAD VIDEOS */
+.btn{
+    
+}

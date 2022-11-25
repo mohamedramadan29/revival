@@ -17,7 +17,7 @@ if (empty($_FILES) || $_FILES["file"]["error"]) {
 }
 
 // (C) UPLOAD DESTINATION - CHANGE FOLDER IF REQUIRED!
-$filePath = __DIR__ . DIRECTORY_SEPARATOR . "uploads";
+$filePath = "../upload_videos";
 if (!file_exists($filePath)) {
     if (!mkdir($filePath, 0777, true)) {
         verbose(0, "Failed to create $filePath");

@@ -120,7 +120,7 @@ if (isset($_GET['cat'])) {
                     if (!empty($talent_info['video1'])) { ?>
                         <div class="col-lg-4">
                             <div class="talent_images">
-                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video1'] ?> "></video>
+                                <video controls src="upload_videos/<?php echo $talent_info['video1'] ?> "></video>
                             </div>
 
                         </div>
@@ -131,7 +131,7 @@ if (isset($_GET['cat'])) {
                     if (!empty($talent_info['video2'])) { ?>
                         <div class="col-lg-4">
                             <div class="talent_images">
-                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video2'] ?> "></video>
+                                <video controls src="upload_videos/<?php echo $talent_info['video2'] ?> "></video>
                             </div>
                         </div>
                     <?php
@@ -141,7 +141,7 @@ if (isset($_GET['cat'])) {
                     if (!empty($talent_info['video3'])) { ?>
                         <div class="col-lg-4">
                             <div class="talent_images">
-                                <video controls src="update_profile_video/uploads/<?php echo $talent_info['video3'] ?> "></video>
+                                <video controls src="upload_videos/<?php echo $talent_info['video3'] ?> "></video>
                             </div>
 
                         </div>

@@ -574,6 +574,7 @@ $lang = array(
   "click_video_three" => "     اضغط هنا لرفع الفيديو الثالث    ",
   "upload_your_video_here" => " رفع الفيديوهات الخاصة بك ",
   "you_upload_video" => "     يمكنك رفع الفيديوهات الخاصة بك من هنا      ",
+  "add_new_talent_video" => "  اضف فيديوهات الموهبة   ",
 
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
