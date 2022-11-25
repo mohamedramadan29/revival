@@ -575,6 +575,7 @@ $lang = array(
   "upload_your_video_here" => " رفع الفيديوهات الخاصة بك ",
   "you_upload_video" => "     يمكنك رفع الفيديوهات الخاصة بك من هنا      ",
   "add_new_talent_video" => "  اضف فيديوهات الموهبة   ",
+  "upload_talent_videos_note" => "   يمكنك تحميل مقاطع فيديو للمواهب بعد إنشاء موهبتك من جدول المواهب   ",
 
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"

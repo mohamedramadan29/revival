@@ -9,7 +9,6 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
     if ($count > 0) {
 ?>
         <div class="container">
-
             <!-- start new data -->
             <div class="data">
                 <div class="bread">
@@ -344,28 +343,34 @@ if (isset($_GET['register_id']) && is_numeric($_GET['register_id'])) {
                                     <label id="name"> الفيديوهات </label>
                                     <div class="row">
                                         <?php
-                                        $files1 = $alltype['cv'];
-                                        $files1 = explode(" ", $files1);
-                                        $countfile = count($files1) - 1;
-                                        if ($countfile > 0) {
-                                            for ($i = 0; $i < $countfile; ++$i) {
-                                        ?>
-                                                <div class="col-12">
-
-                                                    <div class="files_style">
-                                                        <p> <a class="btn bg-gradient-light" target="_blank" href="upload/<?= $files1[$i] ?>">
-                                                                <i class="fa fa-file"></i>
-                                                                <?= $files1[$i] ?></a></p>
-                                                    </div>
-                                                </div>
-                                            <?php
-                                            }
-                                        } else { ?>
-                                            <div class="alert alert-danger"> لا يوجد ملفات </div>
+                                        if (!empty($alltype['video1'])) { ?>
+                                            <p> <a class="btn bg-gradient-light" target="_blank" href="../upload_videos/<?php echo $alltype['video1'] ?>">
+                                                    <i class="fa fa-file"></i>
+                                                    <?php echo $alltype['video1'] ?></a></p>
                                         <?php
                                         }
 
+                                        ?>
+                                    </div>
+                                    <div class="row">
+                                        <?php
+                                        if (!empty($alltype['video2'])) { ?>
+                                            <p> <a class="btn bg-gradient-light" target="_blank" href="../upload_videos/<?php echo $alltype['video2'] ?>">
+                                                    <i class="fa fa-file"></i>
+                                                    <?php echo $alltype['video2'] ?></a></p>
+                                        <?php
+                                        }
 
+                                        ?>
+                                    </div>
+                                    <div class="row">
+                                        <?php
+                                        if (!empty($alltype['video1'])) { ?>
+                                            <p> <a class="btn bg-gradient-light" target="_blank" href="../upload_videos/<?php echo $alltype['video3'] ?>">
+                                                    <i class="fa fa-file"></i>
+                                                    <?php echo $alltype['video3'] ?></a></p>
+                                        <?php
+                                        }
 
                                         ?>
                                     </div>

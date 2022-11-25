@@ -6,7 +6,7 @@ include 'init.php';
 <div class="cars hero faq">
     <div class="overlay">
         <div class="container data">
-            <h2>  رفع فيديوهات الموهبة  </h2>
+            <h2> <?php echo $lang["add_new_talent_video"]; ?> </h2>
         </div>
     </div>
 </div>

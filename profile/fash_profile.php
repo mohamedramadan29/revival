@@ -267,19 +267,19 @@ $emaildata = $stmt->fetchAll();
                                     <table id="table" class="table table-light table-striped table-hover table-bordered">
                                         <thead>
                                             <tr>
+                                                <th> <?php echo $lang['videos']; ?> </th>
                                                 <th><?php echo $lang['talent_stat']; ?></th>
                                                 <th> <?php echo $lang['watch_talent_edit']; ?> </th>
                                                 <th><?php echo $lang['first_name']; ?></th>
                                                 <th><?php echo $lang['last_name']; ?></th>
                                                 <th><?php echo $lang['email']; ?></th>
-                                                <th> <?php echo $lang['mobile']; ?> </th>
-                                                <th> <?php echo $lang['specialist']; ?> </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             $alltype = $stmt->fetchAll();
                                             foreach ($alltype as $type) { ?> <tr>
+                                                    <td> <button class="btn btn-success btn-sm"> <a href="add_talent_video.php?reg_id=<?php echo $type['reg_id']; ?>"> <?php echo $lang['add_new_talent_video']; ?> </a> </button> </td>
                                                     <?php if ($type['user_status'] == 'active') { ?>
                                                         <td> <button class="btn btn-success btn-sm"><?php echo $lang['is_active']; ?></button> </td>
                                                     <?php
@@ -295,8 +295,6 @@ $emaildata = $stmt->fetchAll();
                                                     <td><?php echo $type['first_name']; ?> </td>
                                                     <td><?php echo $type['last_name']; ?> </td>
                                                     <td><?php echo $type['email']; ?> </td>
-                                                    <td><?php echo $type['mobile']; ?> </td>
-                                                    <td><?php echo $type['specialist']; ?> </td>
 
                                                 </tr> <?php
                                                     }
@@ -364,7 +362,7 @@ $emaildata = $stmt->fetchAll();
                                                                     </div>
 
                                                                     <div class="box mb-3">
-                                                                        <label> <?php echo $lang["talent_image"];  ?> </label>
+                                                                        <label> <?php echo $lang["talent_image"];?> </label>
                                                                         <div class="upload-file">
                                                                             <div class="upload-wrapper">
                                                                                 <label>
@@ -383,7 +381,7 @@ $emaildata = $stmt->fetchAll();
                                                                         <output id="image-gallery4"></output>
 
                                                                     </div>
-                                                                    <div class="box mb-3">
+                                                                    <div class="box mb-3 d-none">
                                                                         <label><?php echo $lang["video_talent_show"];  ?> </label>
                                                                         <div class="upload-file">
                                                                             <div class="upload-wrapper">
@@ -524,26 +522,33 @@ $emaildata = $stmt->fetchAll();
                                                                     <div class="box">
                                                                         <label id="name"><?php echo $lang['video_talent_show']; ?></label>
                                                                         <div class="row">
-                                                                            <?php
-                                                                            $files1 = $type['video_talent'];
-                                                                            $files1 = explode(" ", $files1);
-                                                                            $countfile = count($files1) - 1;
-                                                                            if ($countfile > 0) {
-                                                                                for ($i = 0; $i < $countfile; ++$i) {
-                                                                            ?>
-                                                                                    <div class="col-12">
+                                                                            <?php if (!empty($type['video1'])) { ?>
 
-                                                                                        <div class="files_style">
-                                                                                            <p class="btn bg-gradient-light"> <?= $files1[$i] ?> </p>
-                                                                                        </div>
+                                                                                <div class="col-12">
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?php echo $type['video1']; ?> </p>
                                                                                     </div>
-                                                                                <?php
-                                                                                }
-                                                                            } else { ?>
-                                                                                <div class="alert alert-danger"><?php echo $lang['no_file_found']; ?></div>
+                                                                                </div>
                                                                             <?php
-                                                                            }
-                                                                            ?>
+                                                                            } ?>
+                                                                            <?php if (!empty($type['video2'])) { ?>
+
+                                                                                <div class="col-12">
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?php echo $type['video2']; ?> </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php
+                                                                            } ?>
+                                                                            <?php if (!empty($type['video3'])) { ?>
+
+                                                                                <div class="col-12">
+                                                                                    <div class="files_style">
+                                                                                        <p class="btn bg-gradient-light"> <?php echo $type['video3']; ?> </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            <?php
+                                                                            } ?>
                                                                         </div>
                                                                     </div>
 

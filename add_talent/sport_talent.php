@@ -17,6 +17,7 @@ if ($count >  0) { ?>
                                 <div class="contact_form">
                                     <div class="container">
                                         <div class="data">
+                                            <div class="alert alert-info"> <?php echo $lang['upload_talent_videos_note']; ?></div>
                                             <!--------------------END PHP  CODE VALIDATION --------------->
 
                                             <div class="row">
@@ -196,7 +197,7 @@ if ($count >  0) { ?>
                                     <div class="col-lg-6">
 
                                         <div class="row">
-                                            <div class="box mb-3">
+                                            <div class="box mb-3 d-none">
                                                 <div class="upload-file">
                                                     <div class="upload-wrapper">
                                                         <label>
@@ -251,6 +252,15 @@ if ($count >  0) { ?>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Area to display the percent of progress -->
+                                            <!-- area to display a message after completion of upload -->
+                                            <div id='status'></div>
+                                            <div class="my_progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -281,26 +291,9 @@ if ($count >  0) { ?>
 
 </div>
 </div>
-<!-- Area to display the percent of progress -->
-<!-- area to display a message after completion of upload -->
-<div id='status'></div>
-<div class="my_progress">
-    <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
-</div>
 
 </form>
 
 
 
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
 </div>

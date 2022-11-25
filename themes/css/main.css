@@ -3445,7 +3445,7 @@ body {
 }
 
 .bg-success {
-    background-color: #f1f1f1!important;
+    background-color: #f1f1f1 !important;
     color: #3e3c3c !important;
     border-color: #cfcfcf;
     padding: 10px;
@@ -3571,25 +3571,27 @@ body {
     margin-top: 12px;
     margin-bottom: 12px;
 }
-.upload_videos .document button{
-    min-width: 400px; 
+
+.upload_videos .document button {
+    min-width: 400px;
     height: 50px;
     border-radius: 5px;
 }
+
 .upload_videos .document #list {}
 
-.upload_videos .document #list div ,
-.upload_videos .document #list2 div ,
+.upload_videos .document #list div,
+.upload_videos .document #list2 div,
 .upload_videos .document #list3 div {
     background-color: #40739e;
     margin-bottom: 15px;
     color: #fff;
     padding: 5px;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
-.upload_videos .document #list div strong ,
-.upload_videos .document #list2 div strong ,
+.upload_videos .document #list div strong,
+.upload_videos .document #list2 div strong,
 .upload_videos .document #list3 div strong {
     font-size: 20px;
     background: #c23616;
@@ -3602,6 +3604,12 @@ body {
 .upload_videos .document #list input {}
 
 /* END UPLOAD VIDEOS */
-.btn{
-    
+button a {
+    color: #fff !important;
+}
+
+.my_progress .progress .bg-success {
+    background-color: #10823b !important;
+    color: #fff !important; 
+    padding: 5px;
 }

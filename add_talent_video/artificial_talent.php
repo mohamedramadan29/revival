@@ -24,18 +24,18 @@ if ($count >  0) {  ?>
                                                         <form method="POST" enctype="multipart/form-data">
                                                             <div class="document">
                                                                 <div id="list"> </div>
-                                                                <button type="button" id="pick"> اضغط هنا لرفع الفيديو الاول <i class="fa fa-upload"></i> </button>
+                                                                <button type="button" id="pick">  <?php echo $lang['click_video_one']; ?> <i class="fa fa-upload"></i> </button>
                                                                 <!--<input type="button" id="pick" value=" اضغط هنا لرفع الفيديو الاول "> -->
                                                             </div>
                                                             <br>
                                                             <div class="document">
                                                                 <div id="list2"> </div>
-                                                                <button type="button" id="pick2"> اضغط هنا لرفع الفيديو الثاني <i class="fa fa-upload"></i> </button>
+                                                                <button type="button" id="pick2">  <?php echo $lang['click_video_two']; ?> <i class="fa fa-upload"></i> </button>
                                                             </div>
                                                             <br>
                                                             <div class="document">
                                                                 <div id="list3"> </div>
-                                                                <button type="button" id="pick3"> اضغط هنا لرفع الفيديو الثالث <i class="fa fa-upload"></i> </button>
+                                                                <button type="button" id="pick3"> <?php echo $lang['click_video_three']; ?> <i class="fa fa-upload"></i> </button>
 
                                                             </div>
                                                         </form>

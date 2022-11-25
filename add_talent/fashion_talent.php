@@ -1,5 +1,4 @@
 <?php
-
 $username = $_GET["username"];
 $cat_name = "fash";
 $stmt = $connect->prepare("SELECT * FROM fash_register WHERE username=? AND user_status='active'");
@@ -9,7 +8,6 @@ if ($count >  0) { ?>
     <div class="profile_data update_profile">
         <div class="container">
             <div class="data">
-
                 <form id="first_form2" class="message_form ajax_form" action="upload_talent/fash_talent.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-12">
@@ -18,7 +16,7 @@ if ($count >  0) { ?>
                                     <div class="container">
                                         <div class="data">
                                             <!--------------------END PHP  CODE VALIDATION --------------->
-
+                                            <div class="alert alert-info"> <?php echo $lang['upload_talent_videos_note']; ?></div>
                                             <div class="row">
                                                 <div class="col-lg-12 col-12">
                                                     <div class="info">
@@ -85,7 +83,7 @@ if ($count >  0) { ?>
                                                                                 <input type="file" name="talent_images[]" id="files4" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
-                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -119,7 +117,7 @@ if ($count >  0) { ?>
                                                                         <textarea name="personal_information" class="form-control"><?php if ($_SERVER["REQUEST_METHOD"] == "POST")  echo $_REQUEST['personal_information']; ?></textarea>
                                                                     </div>
                                                                 </div>
-                                                                <div class="box mb-3">
+                                                                <div class="box mb-3 d-none">
                                                                     <label> <?php echo $lang["videos"]; ?> </label>
                                                                     <div class="upload-file">
                                                                         <div class="upload-wrapper">
@@ -127,7 +125,7 @@ if ($count >  0) { ?>
                                                                                 <input type="file" name="video_talent[]" id="files5" multiple>
                                                                                 <p> <a> <?php echo $lang["select_image"];  ?> </a></p>
                                                                             </label>
-                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                         </div>
                                                                     </div>
 
@@ -222,7 +220,7 @@ if ($count >  0) { ?>
                                                                                 <p> <a> <?php echo $lang["select_files"]; ?>
                                                                                     </a></p>
                                                                             </label>
-                                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                                             <span class="files_type"> .jpg, .jpeg,
                                                                                 .png, .gif </span>
                                                                         </div>
@@ -263,7 +261,7 @@ if ($count >  0) { ?>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .jpg, .jpeg,
                                                                 .png, .gif </span>
                                                         </div>
@@ -297,7 +295,7 @@ if ($count >  0) { ?>
                                                                 <p> <?php echo $lang["select_files"]; ?>
                                                                 </p>
                                                             </label>
-                                                            <p class='alert alert-info'>   <?php echo $lang['file_info']; ?> </p>
+                                                            <p class='alert alert-info'> <?php echo $lang['file_info']; ?> </p>
                                                             <span class="files_type"> .doc, .docs,
                                                                 .pdf </span>
                                                         </div>
@@ -330,10 +328,25 @@ if ($count >  0) { ?>
 
                         </div>
                     </div>
-                    <div class="">
-                        <div class="reservation_button">
-                            <button class="submit_button" type="submit" class="btn main_button">
-                                <?php echo $lang["add_talent"]; ?></button>
+                    <div class="col-lg-12 cars_sections">
+                        <div class="item">
+                            <div class="car-wrap rounded ftco-animate">
+                                <div class="text">
+                                    <div class="">
+                                        <div class="reservation_button">
+                                            <button type="submit" class="btn main_button "><?php echo $lang["add_talent"]; ?></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Area to display the percent of progress -->
+                            <!-- area to display a message after completion of upload -->
+                            <div id='status'></div>
+                            <div class="my_progress">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -349,7 +362,7 @@ if ($count >  0) { ?>
             <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
         </svg>
         <div>
-        <?php echo $lang['not_active_account']; ?>
+            <?php echo $lang['not_active_account']; ?>
         </div>
     </div>
     <br>
@@ -360,25 +373,11 @@ if ($count >  0) { ?>
 
 </div>
 </div>
-
-<!-- Area to display the percent of progress -->
-<!-- area to display a message after completion of upload -->
-<div id='status'></div>
-<div class="my_progress">
-    <div class="progress">
-        <div class="progress-bar progress-bar-striped bg-success" id="percent" role="progressbar" aria-label="Success striped example" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-    </div>
-</div>
+ 
 </form>
 
 
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
+ 
 </div>
 </div>
 </div>
