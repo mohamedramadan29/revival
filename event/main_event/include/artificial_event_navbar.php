@@ -55,15 +55,15 @@
 <!-- START NEW NAVABR  -->
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	<div class="container-fluid">
-	<?php
-				$stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
-				$stmt->execute(array($event_id));
-				$event_data = $stmt->fetchAll();
-				foreach ($event_data as $data) {?>
-					<a class="navbar-brand" href="index.php"><img class="logo_class" src="../../admin_event/upload/<?php echo $data["event_logo"];?>" alt=""></a>
-					<?php
-				} ?>
-		
+		<?php
+		$stmt = $connect->prepare("SELECT * FROM main_events WHERE event_id=?");
+		$stmt->execute(array($event_id));
+		$event_data = $stmt->fetchAll();
+		foreach ($event_data as $data) { ?>
+			<a class="navbar-brand" href="index.php"><img class="logo_class" src="../../admin_event/upload/<?php echo $data["event_logo"]; ?>" alt=""></a>
+		<?php
+		} ?>
+
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -94,7 +94,6 @@
 				<?php
 				}
 				?>
-
 				<li class="nav-item">
 					<a class="nav-link" href="#about_event_id"> <?php echo $lang["about_event"] ?></a>
 				</li>
@@ -113,10 +112,11 @@
 				<li class="nav-item">
 					<a class="nav-link" href="schedule.php?event_id=<?php echo $event_id; ?>"> <?php echo $lang["programe"] ?> </a>
 				</li>
-
+				<!--
 				<li class="nav-item">
 					<a class="nav-link" href="share_event.php?event_id=<?php echo $event_id; ?>"><?php echo $lang["Take_event"] ?></a>
 				</li>
+			-->
 				<li class="nav-item d-none">
 					<a class="nav-link" href="articles.php"> <?php echo $lang["articles"] ?> </a>
 				</li>

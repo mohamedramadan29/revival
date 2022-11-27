@@ -45,13 +45,23 @@ if (isset($_GET['event_id'])) {
                                                 echo $about["main_head_en"];
                                             }
                                             ?> </h3>
+                        <span> <?php echo $about["prog_date_name"]  ?> </span>
                         <span> <?php echo $about["prog_date"]  ?> </span>
-                        <h6> <?php
-                                if ($_SESSION["lang"] == "ar") {
-                                    echo $about["sub_head"];
-                                } else {
-                                    echo $about["sub_head_en"];
-                                }; ?></h6>
+                        <h6>
+                            <?php
+                            if ($_SESSION["lang"] == "ar") {
+                                $learn = $about['sub_head'];
+                            } else {
+                                $learn = $about['sub_head_en'];
+                            }
+                            $learn = explode(",", $learn);
+                            $countfile = count($learn) - 1;
+                            for ($i = 0; $i < $countfile; ++$i) { ?>
+                                <p> <?= $learn[$i] ?> </p>
+                            <?php
+                            }
+                            ?>
+                        </h6>
                         <p>
                             <?php
                             if ($_SESSION["lang"] == "ar") {
@@ -74,6 +84,7 @@ if (isset($_GET['event_id'])) {
                                     <tr>
                                         <th> المبارة </th>
                                         <th> ملعب المبارة </th>
+                                        <th> تاريخ المبارة </th>
                                         <th> توقيت المبارة </th>
                                         <th> نتيجة المبارة </th>
                                     </tr>
@@ -96,6 +107,7 @@ if (isset($_GET['event_id'])) {
                                                 echo $about['match_stad_en'];
                                             }
                                             ?> </td>
+                                        <td><?php echo $about['match_date'];  ?></td>
                                         <td><?php echo $about['match_time'];  ?></td>
                                         <td> <?php echo $about['match_resault'];  ?></td>
                                     </tr>
@@ -138,6 +150,30 @@ if (isset($_GET['event_id'])) {
                                 <li> <span> عدد ساعات الدورة :</span> <?php echo $about['train_hours'];  ?> </li>
                                 <li> <span> سعر الدورة :</span> <?php echo $about['train_price'];  ?> <span> $ </span></li>
                                 <li> <span> سعر التسجيل المبكر :</span> <?php echo $about['train_dis_price'];  ?> <span> $ </span> </li>
+                            </ul>
+                            <h2> وصف الدورة </h2>
+                            <p>
+                                <?php echo $about['train_desc'];  ?>
+                            </p>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+                    <br>
+                    <?php
+                    if (!empty($about['session_name'])) { ?>
+                        <div class="work_table">
+                            <h2> <?php echo $about['session_name'];  ?> </h2>
+                            <ul class="list-unstyled">
+                                <li> <span> اسم الجلسة : </span> <?php echo $about['session_name'];  ?> </li>
+                                <li> <span>تاريخ الجلسة :</span> <?php echo $about['session_date'];  ?> </li>
+                                <li> <span> توقيت الجلسة :</span> <?php echo $about['session_time'];  ?> </li>
+                                <li> <span> مكان الجلسة :</span> <?php echo $about['session_place'];  ?> </li>
+                                <li> <span> مقدم الجلسة :</span> <?php echo $about['session_instruct'];  ?> </li>
+                                <li> <span> محاورين الجلسة:</span> <?php echo $about['session_team'];  ?> </li>
+                                <li> <span> سعر الجلسة :</span> <?php echo $about['session_price'];  ?> <span> $ </span></li>
+                                <li> <span> سعر التسجيل المبكر :</span> <?php echo $about['session_dis_price'];  ?> <span> $ </span> </li>
                             </ul>
                         </div>
                     <?php

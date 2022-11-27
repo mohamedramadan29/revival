@@ -35,6 +35,103 @@ if (isset($_GET['event_id'])) {
                     <div class="col-lg-12 col-12">
                         <div class="info">
 
+                            <!-- START NEW REGISTERATION -->
+
+                            <div class="event_table_price table-responsive">
+                                <h2> جدول المباريات المتاحة </h2>
+                                <table class="table table-resposive table-hover table-bordered align-middle table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th> اسم الحدث </th>
+                                            <th> المباريات </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $stmt = $connect->prepare("SELECT * FROM event_programme WHERE event_page=? AND first_team != ' ' ");
+                                        $stmt->execute(array($event_name));
+                                        $event_work_data = $stmt->fetchAll();
+                                        foreach ($event_work_data as $event_data) { ?>
+                                            <tr>
+                                                <td> <?php echo $event_data["prog_name"]; ?></td>
+                                                <td>
+                                                    <!-- Button trigger modal -->
+                                                    <?php
+                                                    if (!empty($event_data["first_team"])) { ?>
+                                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdropworks<?php echo $event_data["prog_id"]; ?>">
+                                                            مشاهدة التفاصيل <i class="fa fa-eye"></i>
+                                                        </button>
+                                                        <a class="btn btn-primary btn-sm" href="addCart.php?id=<?php echo $event_data['prog_id']; ?>&event_id=<?php echo $event_id ?>"> اضافة الي سلة الحجوزات <i class="fa fa-cart-plus"></i> </a>
+                                                    <?php
+                                                    } else { ?>
+                                                        <button type="button" class="btn btn-danger btn-sm">
+                                                            لا يوجد مباريات
+                                                        </button>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <div class="modal fade" id="staticBackdropworks<?php echo $event_data["prog_id"]; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel"> حجز مباريات </h5>
+                                                        </div>
+                                                        <div class="modal-body work_data_reserve">
+                                                            <ul class="list-unstyled">
+                                                                <li> <span> الفريق الاول : </span> <?php echo $event_data['first_team'];  ?> </li>
+                                                                <li> <span> الفريق الثاني :</span> <?php echo $event_data['second_team'];  ?> </li>
+                                                                <li> <span> تاريخ المبارة :</span> <?php echo $event_data['match_date'];  ?> </li>
+                                                                <li> <span> موعد المبارة :</span> <?php echo $event_data['match_time'];  ?> </li>
+                                                                <li> <span> مكان المبارة :</span> <?php echo $event_data['match_stad'];  ?> </li>
+                                                                <li> <span> سعر المبارة :</span> <?php echo $event_data['work_price'];  ?> <span> $ </span></li>
+                                                                <!--  <li> <span> سعر التسجيل المبكر :</span> <?php echo $event_data['work_dis_price'];  ?> <span> $ </span> </li> -->
+                                                            </ul>
+                                                        </div>
+                                                        <div class="modal-footer flex-row justify-content-between">
+                                                            <button type="button" class="btn btn-danger flex-start" data-bs-dismiss="modal">
+                                                                <i class="fa fa-close"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="staticBackdroplearn<?php echo $event_data["prog_id"]; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel"> احجز ورشة العمل </h5>
+                                                        </div>
+                                                        <div class="modal-body work_data_reserve">
+                                                            <ul class="list-unstyled">
+                                                                <li> <span> اسم الدورة : </span> <?php echo $event_data['train_name'];  ?> </li>
+                                                                <li> <span>تاريخ الدورة :</span> <?php echo $event_data['train_date'];  ?> </li>
+                                                                <li> <span> توقيت الدورة :</span> <?php echo $event_data['train_time'];  ?> </li>
+                                                                <li> <span> مكان الدورة :</span> <?php echo $event_data['train_place'];  ?> </li>
+                                                                <li> <span> مقدم الدورة :</span> <?php echo $event_data['train_speaker'];  ?> </li>
+                                                                <li> <span> عدد ايام الدورة :</span> <?php echo $event_data['train_days'];  ?> </li>
+                                                                <li> <span> عدد ساعات الدورة :</span> <?php echo $event_data['train_hours'];  ?> </li>
+                                                                <li> <span> سعر الدورة :</span> <?php echo $event_data['train_price'];  ?> <span> $ </span></li>
+
+                                                            </ul>
+                                                        </div>
+                                                        <div class="modal-footer flex-row justify-content-between">
+                                                            <button type="button" class="btn btn-danger flex-start" data-bs-dismiss="modal">
+                                                                <i class="fa fa-close"></i></button>
+                                                            <button class="btn button flex-end"> حجز </button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- END NEW REGISTERATION -->
 
                             <div class="row">
 
@@ -54,7 +151,7 @@ if (isset($_GET['event_id'])) {
                                     <thead>
                                         <tr>
                                             <th> اسم الحدث </th>
-                                            <th> ورش العمل </th>
+                                            <th> المباريات </th>
                                             <th> الدورات التدريبية </th>
                                         </tr>
                                     </thead>

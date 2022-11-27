@@ -37,6 +37,16 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                     <input type="date" class="form-control" name="prog_date" value="<?php echo $alltype["prog_date"]; ?>">
                                 </div>
                                 <div class="box">
+                                    <label id="name"> حدد اليوم
+                                    </label>
+                                    <input type="text" placeholder="اليوم الاول,اليوم الثاني , .... " class="form-control" name="prog_date_name" value="<?php echo $alltype['prog_date_name'] ?>">
+                                </div>
+                                <div class="box">
+                                    <label id="name"> سعر حضور اليوم
+                                    </label>
+                                    <input type="text" class="form-control" name="prog_date_price" value="<?php echo $alltype['prog_date_price']; ?>">
+                                </div>
+                                <div class="box">
                                     <label id="name"> عنوان الحدث
                                     </label>
                                     <input type="text" class="form-control" name="main_head" value="<?php echo $alltype["main_head"]; ?>">
@@ -49,12 +59,12 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                 <div class="box">
                                     <label id="name"> العنوان الفرعي للحدث
                                     </label>
-                                    <input type="text" class="form-control" name="sub_head" value="<?php echo $alltype["sub_head"]; ?>">
+                                    <input type="text" placeholder="يمكنك اضافة اكثر من عنوان باضافة , " class="form-control" name="sub_head" value="<?php echo $alltype["sub_head"]; ?>">
                                 </div>
                                 <div class="box">
                                     <label id="name"> العنوان الفرعي الانجليزية
                                     </label>
-                                    <input type="text" class="form-control" name="sub_head_en" value="<?php echo $alltype["sub_head_en"]; ?>">
+                                    <input type="text" placeholder="يمكنك اضافة اكثر من عنوان باضافة , " class="form-control" name="sub_head_en" value="<?php echo $alltype["sub_head_en"]; ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -187,6 +197,11 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                         </label>
                                         <input type="text" class="form-control" name="train_hours" value="<?php echo $alltype["train_hours"]; ?>">
                                     </div>
+                                    <div class="box">
+                                        <label id="name"> وصف الدورة
+                                        </label>
+                                        <textarea name="train_desc" id="" class="form-control"><?php echo $alltype['train_desc']; ?></textarea>
+                                    </div>
 
                                 </div>
                             </div>
@@ -226,6 +241,11 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                             <div class="col-lg-6">
                                 <div class="info">
                                     <div class="box">
+                                        <label id="name"> تاريخ المباراة
+                                        </label>
+                                        <input type="date" class="form-control" name="match_date" value="<?php echo $alltype['match_date']; ?>">
+                                    </div>
+                                    <div class="box">
                                         <label id="name"> توقيت المباراة
                                         </label>
                                         <input type="time" class="form-control" name="match_time" value="<?php echo $alltype['match_time']; ?>">
@@ -246,11 +266,83 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                         </label>
                                         <input type="text" class="form-control" name="match_resault" value="<?php echo $alltype['match_resault']; ?>">
                                     </div>
-
+                                    <div class="box">
+                                        <label id="name"> سعر الحجز
+                                        </label>
+                                        <input type="text" class="form-control" name="match_price" value="<?php echo $alltype['match_price']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر الحجز المبكر
+                                        </label>
+                                        <input type="text" class="form-control" name="match_price_disc" value="<?php echo $alltype['match_price_disc']; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <h4 class="bg bg-primary text-center" style="font-size: 17px; padding:5px;"> اضافة جلسة حوارية</h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> عنوان الجلسة
+                                        </label>
+                                        <input type="text" class="form-control" name="session_name" value="<?php echo $alltype['session_name']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> عنوان الجلسة باللغه الانجليزية
+                                        </label>
+                                        <input type="text" class="form-control" name="session_name_en" value="<?php echo $alltype['session_name_en']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> مقدم الجلسة
+                                        </label>
+                                        <input type="text" class="form-control" name="session_instruct" value="<?php echo $alltype['session_instruct']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> المحاورين
+                                        </label>
+                                        <input type="text" placeholder="افصل بين كل محاور والاخر ب , " class="form-control" name="session_team" value="<?php echo $alltype['session_team']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> تاريخ الجلسة
+                                        </label>
+                                        <input type="date" class="form-control" name="session_date" value="<?php echo $alltype['session_date']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> وقت الجلسة
+                                        </label>
+                                        <input type="time" class="form-control" name="session_time" value="<?php echo $alltype['session_time']; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="info">
+                                    <div class="box">
+                                        <label id="name"> مكان الجلسة
+                                        </label>
+                                        <input type="text" class="form-control" name="session_place" value="<?php echo $alltype['session_place']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> محاور الجلسة
+                                        </label>
+                                        <input type="text" class="form-control" name="session_session_name" value="<?php echo $alltype['session_session_name']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر الجلسة
+                                        </label>
+                                        <input type="text" class="form-control" name="session_price" value="<?php echo $alltype['session_price']; ?>">
+                                    </div>
+                                    <div class="box">
+                                        <label id="name"> سعر التسجيل المبكر
+                                        </label>
+                                        <input type="text" class="form-control" name="session_dis_price" value="<?php echo $alltype['session_dis_price']; ?>">
+                                    </div>
                                 </div>
                             </div>
 
                         </div>
+
 
                         <div class="box submit_box">
                             <input class="btn btn-primary" name="add_car" type="submit" value="  تعديل المحتوي   ">
@@ -267,6 +359,8 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
 
             $prog_name = $_POST["prog_name"];
             $prog_date = $_POST["prog_date"];
+            $prog_date_name = $_POST["prog_date_name"];
+            $prog_date_price = $_POST["prog_date_price"];
             $main_head = $_POST["main_head"];
             $main_head_en = $_POST["main_head_en"];
             $sub_head = $_POST["sub_head"];
@@ -278,10 +372,13 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $first_team_en = $_POST['first_team_en'];
             $second_team = $_POST['second_team'];
             $second_team_en = $_POST['second_team_en'];
+            $match_date     = $_POST['match_date'];
             $match_time     = $_POST['match_time'];
             $match_stad     = $_POST['match_stad'];
             $match_stad_en     = $_POST['match_stad_en'];
             $match_resault     = $_POST['match_resault'];
+            $match_price     = $_POST['match_price'];
+            $match_price_disc     = $_POST['match_price_disc'];
             $work_date     = $_POST['work_date'];
             $work_time     = $_POST['work_time'];
             $work_place     = $_POST['work_place'];
@@ -295,57 +392,46 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $train_place     = $_POST['train_place'];
             $train_speaker     = $_POST['train_speaker'];
             $train_price     = $_POST['train_price'];
+            $train_desc     = $_POST['train_desc'];
             $train_hours     = $_POST['train_hours'];
             $train_days     = $_POST['train_days'];
             $train_dis_price     = $_POST['train_dis_price'];
+            $session_name     = $_POST['session_name'];
+            $session_name_en     = $_POST['session_name_en'];
+            $session_instruct     = $_POST['session_instruct'];
+            $session_team     = $_POST['session_team'];
+            $session_date     = $_POST['session_date'];
+            $session_time     = $_POST['session_time'];
+            $session_place     = $_POST['session_place'];
+            $session_session_name     = $_POST['session_session_name'];
+            $session_price     = $_POST['session_price'];
+            $session_dis_price     = $_POST['session_dis_price'];
             $formerror = [];
-
-
-
             if (empty($formerror)) {
-
                 $stmt = $connect->prepare("UPDATE event_programme SET 
-                    prog_name=?,prog_date=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
+                    prog_name=?,prog_date=?,prog_date_price=?,prog_date_name=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
                     prog_desc=?,prog_desc_en=?,event_page=?,first_team=?,first_team_en=?,second_team=?,
-                    second_team_en=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?,
+                    second_team_en=?,match_date=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?,match_price=?,match_price_disc=?,
                     work_date=?,work_time=?,work_place=?,work_speakers=?,work_price=?,work_dis_price=?,work_name=?,
-                train_name=?,train_date=?,train_time=?,train_place=?,train_speaker=?,train_price=?,
-                train_hours=?,train_days=?,train_dis_price=?
+                train_name=?,train_date=?,train_time=?,train_place=?,train_speaker=?,train_price=?,train_desc=?,
+                train_hours=?,train_days=?,train_dis_price=?,session_name=?,session_name_en=?,
+                session_instruct=?,session_team=?,session_date=?,session_time=?,
+                session_place=?,session_session_name=?,session_price=?,session_dis_price=?
                 WHERE prog_id =?");
                 $stmt->execute([
-                    $prog_name,
-                    $prog_date,
-                    $main_head,
-                    $main_head_en,
-                    $sub_head,
-                    $sub_head_en,
-                    $prog_desc,
-                    $prog_desc_en,
-                    $event_page,
-                    $first_team,
-                    $first_team_en,
-                    $second_team,
-                    $second_team_en,
-                    $match_time,
-                    $match_stad,
-                    $match_stad_en,
-                    $match_resault,
-                    $work_date,
-                    $work_time,
-                    $work_place,
-                    $work_speakers,
-                    $work_price,
-                    $work_dis_price,
-                    $work_name,
-                    $train_name,
-                    $train_date,
-                    $train_time,
-                    $train_place,
-                    $train_speaker,
-                    $train_price,
-                    $train_hours,
-                    $train_days,
-                    $train_dis_price,
+                    $prog_name,  $prog_date, $prog_date_name, $prog_date_price, $main_head, $main_head_en,
+                    $sub_head, $sub_head_en, $prog_desc, $prog_desc_en,
+                    $event_page,  $first_team, $first_team_en,
+                    $second_team, $second_team_en, $match_date, $match_time,
+                    $match_stad, $match_stad_en,  $match_resault,$match_price,$match_price_disc,
+                    $work_date, $work_time, $work_place,   $work_speakers,
+                    $work_price,  $work_dis_price, $work_name,
+                    $train_name, $train_date, $train_time,
+                    $train_place, $train_speaker, $train_price, $train_desc,
+                    $train_hours, $train_days, $train_dis_price,
+                    $session_name, $session_name_en,
+                    $session_instruct, $session_team, $session_date, $session_time,
+                    $session_place, $session_session_name, $session_price, $session_dis_price,
                     $prog_id
                 ]);
                 if ($stmt) { ?>
