@@ -3613,3 +3613,17 @@ button a {
     color: #fff !important; 
     padding: 5px;
 }
+
+/* START CART SECTION */
+
+.reservation{
+    background-color:#f1f1f1;
+}
+.reservation .cart_section{
+    background-color:#fff;
+    padding:20px;
+}
+.reservation .cart_section h2{
+    text-align:right;
+}
+/* END CART SECTION */

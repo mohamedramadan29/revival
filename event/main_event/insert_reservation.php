@@ -15,8 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile = $_POST["mobile"];
     $country = $_POST["country"];
     $event_id = $_POST["event_id"];
+    $total_price = $_POST["total_price"];
     $payment_mode = $_POST["payment_mode"];
     $trasnaction_id = $_POST['transaction_id'];
+    $sport_reservation = $_POST['sport_reservation'];
+    $train_reservation = $_POST['train_reservation'];
+    $all_day_reservation = $_POST['all_day_reservation'];
+  
     $errormessage = [];
 
 
@@ -37,9 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($errormessage)) {
 
-        $stmt = $connect->prepare("INSERT INTO artificial_event_register (first_name, last_name, email, mobile , country , event_id,payment_mode,trasnaction_id) 
+        $stmt = $connect->prepare("INSERT INTO artificial_event_register (first_name, last_name, email, mobile ,
+        country , event_id,payment_mode,trasnaction_id,price,
+        sport_reservation,train_reservation,all_day_reservation) 
         VALUES (:zfirst_name , :zlast_name , :zemail , :zmobile ,
-         :zcountry,:zevent_id,:zpayment_mode,:ztrasnaction_id)");
+        :zcountry,:zevent_id,:zpayment_mode,:ztrasnaction_id,:ztprice,
+        :zsport_reservation,:ztrain_reservation,:zall_day_reservation)");
         $stmt->execute(array(
             "zfirst_name" => $first_name,
             "zlast_name" => $last_name,
@@ -49,6 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             "zevent_id" => $event_id,
             "zpayment_mode" => $payment_mode,
             "ztrasnaction_id" => $trasnaction_id,
+            "ztprice" => $total_price, 
+            "zsport_reservation" => $sport_reservation, 
+            "ztrain_reservation" => $train_reservation, 
+            "zall_day_reservation" => $all_day_reservation, 
         ));
         if ($stmt) {
             echo "201";
@@ -66,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //header("Location:profile.php");
 ?>
 
-            <div class='container'>
-                <div class='alert alert-success text-center'>
-                    <?php
+<div class='container'>
+    <div class='alert alert-success text-center'>
+        <?php
                     foreach ($emaildata as $data) {
                         if ($_SESSION['lang'] == 'ar') {
                             echo   $data['email_text'];
@@ -77,15 +89,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                     }
                     ?>
-                </div>
-            </div>
-        <?php }
+    </div>
+</div>
+<?php }
     } else {
 
         foreach ($errormessage as $message) { ?>
-            <div class="error_message">
-                <div class="alert alert-danger"> <?php echo $message ?> </div>
-            </div>
+<div class="error_message">
+    <div class="alert alert-danger"> <?php echo $message ?> </div>
+</div>
 <?php
         }
     }

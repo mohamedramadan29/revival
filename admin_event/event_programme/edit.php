@@ -409,7 +409,7 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $formerror = [];
             if (empty($formerror)) {
                 $stmt = $connect->prepare("UPDATE event_programme SET 
-                    prog_name=?,prog_date=?,prog_date_price=?,prog_date_name=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
+                    prog_name=?,prog_date=?,prog_date_name=?,prog_date_price=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
                     prog_desc=?,prog_desc_en=?,event_page=?,first_team=?,first_team_en=?,second_team=?,
                     second_team_en=?,match_date=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?,match_price=?,match_price_disc=?,
                     work_date=?,work_time=?,work_place=?,work_speakers=?,work_price=?,work_dis_price=?,work_name=?,
