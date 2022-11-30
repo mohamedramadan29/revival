@@ -20,9 +20,9 @@ $lang = array(
     "search" => "Search",
     "username_found" => "  Username already exists. Please enter another username.   ",
     "email_found" => "The email is already in use, please enter another email",
-
+    "upload_video_note2" => "  It is better to upload the first video after reaching 100% you can upload the next video and then the third video for the speed of downloading  ",
     // START HOME PAGE (INDEX)
-
+    "view_account"=>"  View Account ",
 
 
     "index_h1" => " Revival company for knowledge and creativity",

@@ -135,6 +135,7 @@ include 'init.php';
                             $count = $stmt->rowCount();
                             $alltalent_register = $stmt->fetchAll();
                             foreach ($alltalent_register as $talent) { ?>
+                                    <!--
                                 <div class="col-lg-4">
                                     <div class="info">
                                         <?php
@@ -160,6 +161,7 @@ include 'init.php';
                                         <a href="project_details.php?cat=art&talent_id=<?php echo $user_project_data['art_register_id']; ?>" class="btn button"><?php echo $lang['watch_talent'] ?></a>
                                     </div>
                                 </div>
+                                -->
                             <?php
                             }
                             ?>
