@@ -36,6 +36,11 @@
                             <input type="text" class="form-control" name="prog_date_price">
                         </div>
                         <div class="box">
+                            <label id="name"> سعر     التسجيل المبكر
+                            </label>
+                            <input type="text" class="form-control" name="prog_date_price_disc">
+                        </div>
+                        <div class="box">
                             <label id="name"> عنوان الحدث
                             </label>
                             <input type="text" class="form-control" name="main_head">
@@ -55,6 +60,7 @@
                             </label>
                             <input type="text" placeholder="يمكنك اضافة اكثر من عنوان باضافة , " class="form-control" name="sub_head_en">
                         </div>
+
                     </div>
                     <div class="col-lg-6">
                         <div class="box">
@@ -82,6 +88,7 @@
                                 ?>
                             </select>
                         </div>
+
                     </div>
 
                 </div>
@@ -307,7 +314,9 @@
                                 </label>
                                 <input type="time" class="form-control" name="session_time">
                             </div>
+
                         </div>
+
                     </div>
                     <div class="col-lg-6">
                         <div class="info">
@@ -349,6 +358,7 @@
             $prog_date = $_POST["prog_date"];
             $prog_date_name = $_POST["prog_date_name"];
             $prog_date_price = $_POST["prog_date_price"];
+            $prog_date_price_disc = $_POST["prog_date_price_disc"];
             $main_head = $_POST["main_head"];
             $main_head_en = $_POST["main_head_en"];
             $sub_head = $_POST["sub_head"];
@@ -356,6 +366,7 @@
             $prog_desc = $_POST["prog_desc"];
             $prog_desc_en = $_POST["prog_desc_en"];
             $event_page = $_POST["event_page"];
+
             $first_team = $_POST['first_team'];
             $first_team_en = $_POST['first_team_en'];
             $second_team = $_POST['second_team'];
@@ -396,7 +407,7 @@
             $session_dis_price     = $_POST['session_dis_price'];
 
             $stmt = $connect->prepare("INSERT INTO event_programme
-                (prog_name,prog_date,prog_date_name,prog_date_price,main_head,main_head_en,sub_head,sub_head_en,prog_desc,prog_desc_en,
+                (prog_name,prog_date,prog_date_name,prog_date_price,prog_date_price_disc,main_head,main_head_en,sub_head,sub_head_en,prog_desc,prog_desc_en,
                 event_page,first_team,first_team_en,second_team,second_team_en,match_date,
                 match_time,match_stad,match_stad_en,match_resault,match_price,match_price_disc,
                 work_date,work_time,work_place,work_speakers,work_price,work_dis_price,work_name,
@@ -404,7 +415,8 @@
                 train_hours,train_days,train_dis_price,session_name,session_name_en,
                 session_instruct,session_team,session_date,session_time,
                 session_place,session_session_name,session_price,session_dis_price)
-                VALUES (:zprog_name,:zdate,:zdate_name,:zdate_price,:zmain_head,:zmain_head_en,:zsub_head,:zsub_head_en,:zprog_desc,:zprog_desc_en,:zevent_page,
+                VALUES (:zprog_name,:zdate,:zdate_name,:zdate_price,:zdate_price_disc,:zmain_head,:zmain_head_en,:zsub_head,
+                        :zsub_head_en,:zprog_desc,:zprog_desc_en,:zevent_page,
                 :zfirst_team,:zfirst_team_en,:zsecond_team,:zsecond_team_en,:zmatch_date,
                 :zmatch_time,:zmatch_stad,:zmatch_stad_en,:zmatch_resault,:zmatch_price,:zmatch_price_disc,
                 :zwork_date,:zwork_time,:zwork_place,:zwork_speakers,
@@ -419,10 +431,12 @@
                 'zprog_name' => $prog_name, 'zdate' => $prog_date,
                 "zdate_name" => $prog_date_name,
                 "zdate_price" => $prog_date_price,
+                "zdate_price_disc" => $prog_date_price_disc,
                 'zmain_head' => $main_head,
                 'zmain_head_en' => $main_head_en, 'zsub_head' => $sub_head,
                 'zsub_head_en' => $sub_head_en, 'zprog_desc' => $prog_desc,
-                'zprog_desc_en' => $prog_desc_en, 'zevent_page' => $event_page,
+                'zprog_desc_en' => $prog_desc_en,
+                'zevent_page' => $event_page,
                 'zfirst_team' => $first_team, 'zfirst_team_en' => $first_team_en,
                 'zsecond_team' => $second_team, 'zsecond_team_en' => $second_team_en,
                 "zmatch_date" => $match_date,

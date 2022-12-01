@@ -47,6 +47,16 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                                     </label>
                                     <input required class="form-control" type="time" name="time" value="<?php echo $alltype["event_time"]; ?>">
                                 </div>
+                                <div class="box">
+                                    <label id="name">  تاريخ بداية التسجيل المبكر
+                                    </label>
+                                    <input type="date" class="form-control" name="regsiter_early_start" value="<?php echo $alltype['regsiter_early_start']; ?>">
+                                </div>
+                                <div class="box">
+                                    <label id="name">  تاريخ نهاية التسجيل المبكر
+                                    </label>
+                                    <input type="date" class="form-control" name="regsiter_early_end" value="<?php echo $alltype['regsiter_early_end']; ?>">
+                                </div>
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> البانر </label>
@@ -86,6 +96,9 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
             $date = $_POST['date'];
             $time = $_POST['time'];
             $event_name = $_POST['event_name'];
+
+            $regsiter_early_start = $_POST["regsiter_early_start"];
+            $regsiter_early_end = $_POST["regsiter_early_end"];
             $event_name_en = $_POST['event_name_en'];
             $event_active = $_POST['event_active'];
             $formerror = [];
@@ -98,6 +111,7 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
 
             if (empty($formerror)) {
 
+
                 if ($image1_tem != '') {
                     $image1_uploaded = rand(0, 100000000) . '.' . $image1_name;
                     move_uploaded_file(
@@ -105,7 +119,7 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                         'upload/' . $image1_uploaded
                     );
                     $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,
-                    event_logo=?,event_active=?,event_date=?,event_time=?
+                    event_logo=?,event_active=?,event_date=?,event_time=?,regsiter_early_start=?,regsiter_early_end=?
                         WHERE event_id=?");
                     $stmt->execute([
                         $event_name,
@@ -114,6 +128,8 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                         $event_active,
                         $date,
                         $time,
+                        $regsiter_early_start,
+                        $regsiter_early_end,
                         $event_id
                     ]);
                     if ($stmt) { ?>
@@ -130,7 +146,7 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                     <?php }
                 } else {
 
-                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,event_active=?,event_date=?,event_time=?
+                    $stmt = $connect->prepare("UPDATE main_events SET event_name=?,event_name_en=?,event_active=?,event_date=?,event_time=?,regsiter_early_start=?,regsiter_early_end=?
                         WHERE event_id=?");
                     $stmt->execute([
                         $event_name,
@@ -138,6 +154,8 @@ if (isset($_GET['event_id']) && is_numeric($_GET['event_id'])) {
                         $event_active,
                         $date,
                         $time,
+                        $regsiter_early_start,
+                        $regsiter_early_end,
                         $event_id
                     ]);
                     if ($stmt) { ?>

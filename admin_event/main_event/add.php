@@ -35,6 +35,16 @@
                             </label>
                             <input required class="form-control" type="time" name="time">
                         </div>
+                        <div class="box">
+                            <label id="name">  تاريخ بداية التسجيل المبكر
+                            </label>
+                            <input type="date" class="form-control" name="regsiter_early_start">
+                        </div>
+                        <div class="box">
+                            <label id="name">  تاريخ نهاية التسجيل المبكر
+                            </label>
+                            <input type="date" class="form-control" name="regsiter_early_end">
+                        </div>
                         <div class="col-lg-6">
                             <div class="">
                                 <label> البانر </label>
@@ -72,8 +82,11 @@
             $event_name = $_POST['event_name'];
             $event_name_en = $_POST['event_name_en'];
             $event_active = $_POST['event_active'];
+
             $date = $_POST['date'];
             $time = $_POST['time'];
+    $regsiter_early_start = $_POST["regsiter_early_start"];
+    $regsiter_early_end = $_POST["regsiter_early_end"];
             $image_image1_uploaded =
                 rand(0, 100000000) . '.' . $image_image1_name;
             move_uploaded_file(
@@ -82,8 +95,8 @@
             );
 
             /// More Validation To Show Error 
-            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_logo,event_active,event_date,event_time)
-                VALUES (:zevent_name,:zevent_name_en,:zimage1,:zevent_active,:zdate,:ztime)");
+            $stmt = $connect->prepare("INSERT INTO main_events (event_name,event_name_en,event_logo,event_active,event_date,event_time,regsiter_early_start,regsiter_early_end)
+                VALUES (:zevent_name,:zevent_name_en,:zimage1,:zevent_active,:zdate,:ztime,:zregsiter_early_start,:zregsiter_early_end)");
             $stmt->execute([
                 'zevent_name' => $event_name,
                 'zevent_name_en' => $event_name_en,
@@ -91,6 +104,8 @@
                 'zevent_active' => $event_active,
                 'zdate' => $date,
                 'ztime' => $time,
+                'zregsiter_early_start' => $regsiter_early_start,
+                'zregsiter_early_end' => $regsiter_early_end,
             ]);
             if ($stmt) { ?>
                 <div class="alert-success">

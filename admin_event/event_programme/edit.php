@@ -47,6 +47,11 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                     <input type="text" class="form-control" name="prog_date_price" value="<?php echo $alltype['prog_date_price']; ?>">
                                 </div>
                                 <div class="box">
+                                    <label id="name">  سعر التسجيل المبكر
+                                    </label>
+                                    <input type="text" class="form-control" name="prog_date_price_disc" value="<?php echo $alltype['prog_date_price_disc']; ?>">
+                                </div>
+                                <div class="box">
                                     <label id="name"> عنوان الحدث
                                     </label>
                                     <input type="text" class="form-control" name="main_head" value="<?php echo $alltype["main_head"]; ?>">
@@ -94,6 +99,7 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                                         ?>
                                     </select>
                                 </div>
+
                             </div>
                         </div>
                         <hr>
@@ -361,6 +367,7 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $prog_date = $_POST["prog_date"];
             $prog_date_name = $_POST["prog_date_name"];
             $prog_date_price = $_POST["prog_date_price"];
+            $prog_date_price_disc = $_POST["prog_date_price_disc"];
             $main_head = $_POST["main_head"];
             $main_head_en = $_POST["main_head_en"];
             $sub_head = $_POST["sub_head"];
@@ -409,7 +416,7 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
             $formerror = [];
             if (empty($formerror)) {
                 $stmt = $connect->prepare("UPDATE event_programme SET 
-                    prog_name=?,prog_date=?,prog_date_name=?,prog_date_price=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
+                    prog_name=?,prog_date=?,prog_date_name=?,prog_date_price=?,prog_date_price_disc=?,main_head=?,main_head_en=?,sub_head=?,sub_head_en=?,
                     prog_desc=?,prog_desc_en=?,event_page=?,first_team=?,first_team_en=?,second_team=?,
                     second_team_en=?,match_date=?,match_time=?,match_stad=?,match_stad_en=?,match_resault=?,match_price=?,match_price_disc=?,
                     work_date=?,work_time=?,work_place=?,work_speakers=?,work_price=?,work_dis_price=?,work_name=?,
@@ -419,9 +426,9 @@ if (isset($_GET['prog_id']) && is_numeric($_GET['prog_id'])) {
                 session_place=?,session_session_name=?,session_price=?,session_dis_price=?
                 WHERE prog_id =?");
                 $stmt->execute([
-                    $prog_name,  $prog_date, $prog_date_name, $prog_date_price, $main_head, $main_head_en,
+                    $prog_name,  $prog_date, $prog_date_name, $prog_date_price,$prog_date_price_disc, $main_head, $main_head_en,
                     $sub_head, $sub_head_en, $prog_desc, $prog_desc_en,
-                    $event_page,  $first_team, $first_team_en,
+                    $event_page ,  $first_team, $first_team_en,
                     $second_team, $second_team_en, $match_date, $match_time,
                     $match_stad, $match_stad_en,  $match_resault,$match_price,$match_price_disc,
                     $work_date, $work_time, $work_place,   $work_speakers,

@@ -10,7 +10,8 @@ if (isset($_GET['event_id'])) {
     $stmt->execute(array($event_id));
     $event_data = $stmt->fetch();
     $event_name = $event_data["event_name"];
-    //echo $event_name;
+    $early_register_start = $event_data['regsiter_early_start'];
+    $early_register_end = $event_data['regsiter_early_end'];
 }
 ?>
 <div class="cars hero faq booking">
@@ -26,6 +27,8 @@ if (isset($_GET['event_id'])) {
 <div class="contact_form">
     <div class="container">
         <div class="data">
+            <div class="alert-info alert"> التسجيل المبكر في الحدث يبدا من <?php echo  $early_register_start?> وينتهي في تاريخ <?php echo $early_register_end ?> </div>
+
             <!-- <h4 class="text-center"> <?php echo $lang["add_data"]; ?> </h4>-->
             <form action="insert_reservation.php" method="POST">
                 <div class="row">
@@ -48,6 +51,7 @@ if (isset($_GET['true']) == "created") {
                         </div>
                         <div class="info">
 
+
                             <!-- START NEW REGISTERATION -->
 
                             <div class="event_table_price table-responsive">
@@ -58,6 +62,7 @@ if (isset($_GET['true']) == "created") {
                                         <tr>
                                             <th> <?php echo $lang["event_name"]; ?> </th>
                                             <th> <?php echo $lang["matches"]; ?> </th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -65,6 +70,8 @@ if (isset($_GET['true']) == "created") {
                                         $stmt = $connect->prepare("SELECT * FROM event_programme WHERE event_page=? AND first_team != ' ' ");
                                         $stmt->execute(array($event_name));
                                         $event_work_data = $stmt->fetchAll();
+
+
                                         foreach ($event_work_data as $event_data) { ?>
                                         <tr>
                                             <td> <?php echo $event_data["prog_name"]; ?></td>
@@ -91,6 +98,17 @@ if (isset($_GET['true']) == "created") {
                                                     }
                                                     ?>
                                             </td>
+                                            <!--
+                                            <td>
+                                                <?php
+                                                if(!empty($event_data['match_price_disc'])){?>
+                                                    <?php echo $event_data['match_price_disc'];  ?> <span> $ </span> </li>
+                                                    <?php
+
+                                                }
+                                                ?>
+                                            </td>
+                                            -->
                                         </tr>
                                         <div class="modal fade"
                                             id="staticBackdropworks<?php echo $event_data["prog_id"]; ?>"
@@ -118,7 +136,14 @@ if (isset($_GET['true']) == "created") {
                                                             <li> <span> <?php echo $lang['match_price'] ?>:</span>
                                                                 <?php echo $event_data['match_price'];  ?> <span> $
                                                                 </span></li>
-                                                            <!--  <li> <span> سعر التسجيل المبكر :</span> <?php echo $event_data['work_dis_price'];  ?> <span> $ </span> </li> -->
+                                                            <?php
+                                                            if(!empty($event_data['match_price_disc'])){?>
+                                                                <li> <span><?php echo $lang['early_registration']; ?> :</span> <?php echo $event_data['match_price_disc'];  ?> <span> $ </span> </li>
+                                                                    <?php
+
+                                                            }
+                                                            ?>
+
                                                         </ul>
                                                     </div>
                                                     <div class="modal-footer flex-row justify-content-between">
@@ -212,7 +237,13 @@ if (isset($_GET['true']) == "created") {
                                                                     :</span>
                                                                 <?php echo $event_data['train_price'];  ?> <span> $
                                                                 </span></li>
+                                                            <?php
+                                                            if(!empty($event_data['train_dis_price'])){?>
+                                                                <li> <span><?php echo $lang['early_registration']; ?> :</span> <?php echo $event_data['train_dis_price'];  ?> <span> $ </span> </li>
+                                                                    <?php
 
+                                                            }
+                                                            ?>
                                                         </ul>
                                                     </div>
                                                     <div class="modal-footer flex-row justify-content-between">
@@ -255,8 +286,9 @@ if (isset($_GET['true']) == "created") {
                                         foreach ($event_work_data as $event_data) { ?>
                                         <tr>
                                             <td> <?php echo $event_data["prog_name"]; ?></td>
-                                            <td> <?php echo $event_data["prog_date_price"]; ?></td>
                                             <td> <?php echo $event_data["prog_date_name"]; ?></td>
+                                            <td> <?php echo $event_data["prog_date_price"]; ?></td>
+
 
                                             <td>
                                                 <!-- Button trigger modal -->

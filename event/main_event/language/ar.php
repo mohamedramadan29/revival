@@ -329,6 +329,8 @@ $lang = array(
   "reserv_add_to_cart_suc" => "  تم اضافة الحجز بنجاح الي السلة ",
   "matches_table" => "  جدول المباريات المتاحة ",
   "event_name" => "   اسم الحدث ",
+    "event_title" => " العنوان ",
+    "event_date" => " التاريخ ",
   "matches" => "  المباريات  ",
   "show_details" => "  مشاهدة التفاصيل  ",
   "add_to_cart" => "     اضافة الي سلة الحجوزات  ",
@@ -358,12 +360,13 @@ $lang = array(
 "match_is_reserv"=>"  مباريات تم حجزها   ",  
 "course_booking"=>"  حجوزات الدورات  ",  
 "reserve_all_days"=>"  حجوزات اليوم الكامل  ",  
-"event_address"=>" عنوان الحدث ",  
-"payment_is_completed"=>" اكتمال عملية الدفع",  
+"event_address"=>" عنوان الحدث ",
+"payment_is_completed"=>" اكتمال عملية الدفع",
+"early_registration"=>"   سعر التسجيل المبكر   ",
+"total_price"=>"  المجموع الكلى  ",
 
 
-
-  /////////////////////// END NEW 
+    /////////////////////// END NEW
   "lang_en" => "الانجليزية",
   "lang_ar" => "العربية"
 );
