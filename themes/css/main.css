@@ -1121,7 +1121,8 @@ body {
     height: auto !important;
 }
 
-.checkbox label input[type=checkbox], label.checkbox-inline input[type=checkbox] {
+.checkbox label input[type=checkbox],
+label.checkbox-inline input[type=checkbox] {
     position: absolute;
     left: 0;
     z-index: -1;
@@ -3256,7 +3257,8 @@ body {
     opacity: 1 !important;
 }
 
-.owl-carousel .owl-nav .owl-prev span:before, .owl-carousel .owl-nav .owl-next span:before {
+.owl-carousel .owl-nav .owl-prev span:before,
+.owl-carousel .owl-nav .owl-next span:before {
     font-size: 25px;
     display: block;
     margin-top: -50px;
@@ -3610,20 +3612,47 @@ button a {
 
 .my_progress .progress .bg-success {
     background-color: #10823b !important;
-    color: #fff !important; 
+    color: #fff !important;
     padding: 5px;
 }
 
 /* START CART SECTION */
 
-.reservation{
-    background-color:#f1f1f1;
+.reservation {
+    background-color: #f1f1f1;
 }
-.reservation .cart_section{
-    background-color:#fff;
-    padding:20px;
+
+.reservation .cart_section {
+    background-color: #fff;
+    padding: 20px;
 }
-.reservation .cart_section h2{
-    text-align:right;
+
+.reservation .cart_section h2 {
+    text-align: right;
 }
+
 /* END CART SECTION */
+
+/* START DROPDOWN TOGGLE */
+.dropdown_register {}
+
+.dropdown_register ul {
+    background-color: #fff;
+    width: 200px !important;
+}
+
+.dropdown_register ul li {
+    display: block !important;
+    text-align: right;
+}
+
+.dropdown_register ul li a {
+    color: var(--hovercolor) !important;
+}
+.dropdown_register ul li:hover{
+    background-color:var(--hovercolor) !important;
+}
+.dropdown_register ul li:hover a{
+    color:#fff !important;
+    background-color:var(--hovercolor) !important;
+}

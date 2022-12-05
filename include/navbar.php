@@ -7,31 +7,34 @@
                 <ul class="list-unstyled login_links">
 
                     <?php if ($_SESSION['lang'] == 'ar') { ?>
-                    <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a
-                                href="index.php?lang=en"> English </a> </button> </li>
+                        <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a href="index.php?lang=en"> English </a> </button> </li>
                     <?php } else { ?>
 
-                    <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a
-                                href="index.php?lang=ar"> عربي </a> </button> </li>
+                        <li class="change_lang"> <button class="btn btn-default btn-sm" type="button" name="button"> <a href="index.php?lang=ar"> عربي </a> </button> </li>
                     <?php } ?>
 
 
                     <?php
                     if (isset($_SESSION["username"])) { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.php"> <?php echo $lang["account"] ?> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php"><?php echo $lang["logout"] ?> </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.php"> <?php echo $lang["account"] ?> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php"><?php echo $lang["logout"] ?> </a>
+                        </li>
                     <?php
                     } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php"> <?php echo $lang["login"] ?> </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="revival_register.php"> <?php echo $lang["register"] ?> </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php"> <?php echo $lang["login"] ?> </a>
+                        </li>
+                        <li class="nav-item dropdown dropdown_register">
+                            <a class="nav-link dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" href="#"> <?php echo $lang["register"] ?> </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="artificial_intellegent_register.php"> <?php echo $lang["drop_register_artifi"] ?> </a></li>
+                                <li><a class="dropdown-item" href="sport_talent_register.php"> <?php echo $lang["drop_register_sport"] ?> </a></li>
+                                <li><a class="dropdown-item" href="fashion_register.php"> <?php echo $lang["drop_register_fash"] ?> </a></li>
+                            </ul>
+                        </li>
                     <?php
                     }
                     ?>
@@ -53,8 +56,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"> <img class="logo_class" src="uploads/logo3.png" alt=""> </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

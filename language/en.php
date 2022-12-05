@@ -22,9 +22,11 @@ $lang = array(
     "email_found" => "The email is already in use, please enter another email",
     "upload_video_note2" => "  It is better to upload the first video after reaching 100% you can upload the next video and then the third video for the speed of downloading  ",
     // START HOME PAGE (INDEX)
-    "view_account"=>"  View Account ",
+    "view_account" => "  View Account ",
 
-
+    "drop_register_artifi" => "Artificial Intelligence   ",
+    "drop_register_sport" => "   Sports Talent",
+    "drop_register_fash" => " Fashion Design",
     "index_h1" => " Revival company for knowledge and creativity",
     "index_p1" => "is specialize in developing creative and innovative projects in the field of sports events, custom designs, artificial intelligence and innovation.",
     "index_p2" => "  Revival is specialize in developing creative and innovative projects in the field of sports events, custom designs, artificial intelligence and innovation.
