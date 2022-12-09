@@ -279,7 +279,7 @@ $emaildata = $stmt->fetchAll();
                 </div>
                 <!--  START TALENT REGISTER  -->
                 <?php
-                if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company') { ?>
+                if ($userinfo['register_type'] == 'وسيط / منشأة' || $userinfo['register_type'] == 'company')  { ?>
                     <div class="personal_information">
                         <div class="data2">
                             <h4> <?php echo $lang['register_talent']; ?> </h4>
