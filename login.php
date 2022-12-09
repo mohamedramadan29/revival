@@ -108,14 +108,12 @@ include 'init.php';
                                 <div class="img rounded d-flex align-items-end" style="background-image: url(uploads/login.gif);">
                                 </div>
                                 <div class="text">
-
                                     <div class="login_section">
                                         <div class="reservation_button">
                                             <button type="submit" class="btn btn-primary"><?php echo $lang["login"];  ?></button>
                                         </div>
                                         <p> <a href="forget_email.php"><?php echo $lang["reset_password"];  ?></a>
-                                        </p> |
-                                        <p> <a href="revival_register.php"> <?php echo $lang["register"];  ?></a> </p>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

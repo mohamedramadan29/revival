@@ -133,3 +133,6 @@ body {
 .dropdown_register ul li { 
     text-align: left;
 }
+.alert-danger{
+    text-align: left;
+}

@@ -1,6 +1,6 @@
 <?php
-
-use JetBrains\PhpStorm\Language;
+ob_start();
+session_start();
 
 include "../connect.php";
 include "../config.php";

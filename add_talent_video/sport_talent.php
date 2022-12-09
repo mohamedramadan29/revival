@@ -21,6 +21,7 @@ if ($count >  0) {  ?>
                                                 <div class="info upload_videos">
                                                     <div class="row">
                                                         <div class="alert alert-info"> <?php echo $lang['upload_video_note']; ?></div>
+                                                        <div class="alert alert-info"> <?php echo $lang['upload_video_note2']; ?></div>
                                                         <form method="POST" enctype="multipart/form-data">
                                                             <div class="document">
                                                                 <div id="list"> </div>

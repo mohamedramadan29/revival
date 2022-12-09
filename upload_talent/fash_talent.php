@@ -1,8 +1,7 @@
 <?php
+session_start();
 include "../connect.php";
 include "../config.php";
-session_start();
-
 $username = $_SESSION['username'];
 $cat_name = "fash";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

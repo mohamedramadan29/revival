@@ -125,7 +125,7 @@ if ($count >  0) { ?>
                         </div>
                         <div class="row">
                             <div class="experience data">
-                                <h4> خبراتك </h4>
+                                <h4>  <?php echo $lang['your_experiences']; ?>  </h4>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="box mb-3">
