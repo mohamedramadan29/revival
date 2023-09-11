@@ -65,6 +65,7 @@ if (isset($_GET['about_id']) && is_numeric($_GET['about_id'])) {
                                         <option <?php if ($alltype["about_page"] == "مدينة الذكاء الإصطناعي") echo "selected"; ?> value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
                                         <option <?php if ($alltype["about_page"] == "مواهب العالم الرياضية") echo "selected"; ?> value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
                                         <option <?php if ($alltype["about_page"] == "الأزياء والمجوهرات") echo "selected"; ?> value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                        <option <?php if ($alltype["about_page"] == "الوكالة") echo "selected"; ?> value="الوكالة"> الوكالة </option>
                                     </select>
                                 </div>
 

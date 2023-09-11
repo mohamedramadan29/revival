@@ -604,7 +604,18 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "you_upload_video" => "You can upload your videos from here",
     "upload_talent_videos_note" => "  You can upload talent videos after creating your talent from the talent table  ",
     "add_new_talent_video" => " Add Talnet video ",
-
+    /********************************** START AGENCY  ******/
+    "agency" => "agency",
+    "agency_int_p4" => "The World Sports Talents Club is your gateway to global professionalism. We embrace talents and train them according to international plans and laws. We work to bring professional contracts to them.... Your talent to the living to the world... Do not hesitate to create your future and guide others to this opportunity...
+     Hurry up to join us..! A bright future awaits you.",
+    "agency_reg_head1" => "Register Now In Agency",
+    "company_name" => " Company Name ",
+    "company_phone" => " Phone Number  ",
+    "company_email" => " Email  ",
+    "company_logo" => " Logo ",
+    "company_attachment" => " Attachments ",
+    "company_tax_number" => " Tax Number ",
+    /*********************************** END AGENCY ********/
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"
 );

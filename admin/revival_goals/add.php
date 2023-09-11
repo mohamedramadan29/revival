@@ -3,9 +3,7 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
-                            class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم الاهداف </li>
                 </ol>
             </nav>
@@ -28,8 +26,7 @@
                             <input required class="form-control" type="text" name="goal_head_en">
                         </div>
                         <div class="box">
-                            <label id="name"> الوصف
-                            </label>
+                            <label id="name"> الوصف <span class="badge badge-danger"> من فضلك افصل بين كل هدف ب (,) </span> </label>
                             <textarea name="goal_desc" id="" class="form-control"></textarea>
 
                         </div>
@@ -101,6 +98,7 @@
                                 <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
                                 <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
                                 <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                <option value="الوكالة">الوكالة</option>
                             </select>
                         </div>
 
@@ -161,10 +159,10 @@
 
                 ]);
                 if ($stmt) { ?>
-    <div class="alert-success">
-        تم اضافة محتوي جديد بنجاح
-        <?php header('refresh:3;url=main.php?dir=revival_goals&page=report'); ?>
-    </div>
+                    <div class="alert-success">
+                        تم اضافة محتوي جديد بنجاح
+                        <?php header('refresh:3;url=main.php?dir=revival_goals&page=report'); ?>
+                    </div>
 </div>
 <?php }
             }

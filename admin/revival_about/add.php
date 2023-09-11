@@ -53,6 +53,7 @@
                                 <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
                                 <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
                                 <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                <option value="الوكالة"> الوكالة </option>
                             </select>
                         </div>
                     </div>

@@ -34,11 +34,11 @@
                         <td><?php echo $type['banner_head']; ?> </td>
 
                         <td>
-                            <a class=" btn btn-success"
+                            <a class=" btn btn-success btn-sm"
                                 href="main.php?dir=banner&page=edit&ban_id=<?php echo $type['banner_id']; ?> ">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="confirm btn btn-danger"
+                            <a class="confirm btn btn-danger btn-sm"
                                 href="main.php?dir=banner&page=delete&ban_id=<?php echo $type['banner_id']; ?> ">
                                 <i class="fa fa-trash"></i>
                             </a>

@@ -3,9 +3,7 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
-                            class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> اضافة بانر </li>
                 </ol>
             </nav>
@@ -53,6 +51,7 @@
                                 <option value="مدينة الذكاء الإصطناعي"> مدينة الذكاء الإصطناعي </option>
                                 <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
                                 <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
+                                <option value="الوكالة"> الوكالة </option>
                             </select>
                         </div>
 
@@ -63,8 +62,7 @@
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> البانر </label>
-                                        <input id="logo" class="form-control dropify_" data-default-file="" type="file"
-                                            name="image1" value="">
+                                        <input id="logo" class="form-control dropify_" data-default-file="" type="file" name="image1" value="">
                                     </div>
                                     <div id="logo_" class="col-md-3">
                                     </div>
@@ -72,8 +70,7 @@
                                 <div class="col-lg-6">
                                     <div class="">
                                         <label> البانر الانجليزية </label>
-                                        <input id="logo2" class="form-control dropify_" data-default-file="" type="file"
-                                            name="image2" value="">
+                                        <input id="logo2" class="form-control dropify_" data-default-file="" type="file" name="image2" value="">
                                     </div>
                                     <div id="logo_" class="col-md-3">
                                     </div>
@@ -146,10 +143,10 @@
 
                 ]);
                 if ($stmt) { ?>
-    <div class="alert-success">
-        تم اضافة بانر جديد بنجاح
-        <?php header('refresh:3;url=main.php?dir=banner&page=report'); ?>
-    </div>
+                    <div class="alert-success">
+                        تم اضافة بانر جديد بنجاح
+                        <?php header('refresh:3;url=main.php?dir=banner&page=report'); ?>
+                    </div>
 
 </div>
 

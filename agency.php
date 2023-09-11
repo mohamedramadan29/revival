@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+$page_title = "الوكالة -ريفايفال";
 include 'init.php';
 ?>
 <!-- START HERO SECTION -->
@@ -9,7 +10,7 @@ include 'init.php';
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <?php
-            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='مواهب العالم الرياضية' ORDER BY banner_id DESC LIMIT 1");
+            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الوكالة' ORDER BY banner_id DESC LIMIT 1");
             $stmt->execute();
             $allbanner = $stmt->fetchAll();
             foreach ($allbanner as $banner) { ?>
@@ -45,11 +46,8 @@ include 'init.php';
             <?php
             }
             ?>
-
-
-
             <?php
-            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='مواهب العالم الرياضية' ORDER BY banner_id  LIMIT 2");
+            $stmt = $connect->prepare("SELECT * FROM revival_banner WHERE banner_page='الوكالة' ORDER BY banner_id  LIMIT 2");
             $stmt->execute();
             $allbanners = $stmt->fetchAll();
             foreach ($allbanners as $banners) { ?>
@@ -97,19 +95,17 @@ include 'init.php';
 </div>
 </div>
 <!-- END HERO SECTION -->
-
 <!-- Video Modal Start -->
 <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-0">
             <div class="modal-header">
-
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 16:9 aspect ratio -->
                 <div class="ratio ratio-16x9">
-                <video controls src="" id="video"></video> 
+                    <video controls src="" id="video"></video>
                 </div>
             </div>
         </div>
@@ -126,7 +122,7 @@ include 'init.php';
                     <div class="info">
                         <h3> <?php echo $lang["index_h2"] ?></h3>
                         <?php
-                        $stmt = $connect->prepare("SELECT * FROM revival_about_us WHERE about_page ='مواهب العالم الرياضية' ORDER BY about_id LIMIT 1 ");
+                        $stmt = $connect->prepare("SELECT * FROM revival_about_us WHERE about_page ='الوكالة' ORDER BY about_id LIMIT 1 ");
                         $stmt->execute();
                         $allabout = $stmt->fetchAll();
                         foreach ($allabout as $about) {
@@ -190,13 +186,108 @@ include 'init.php';
         <div class="container">
             <div class="data">
                 <h2> <?php echo $lang["sport_int_register"] ?></h2>
-                <p> <?php echo $lang["sport_int_p4"] ?>
+                <p> <?php echo $lang["agency_int_p4"] ?>
                 </p>
-                <a href="sport_talent_register.php" class="btn button"><?php echo $lang["sport_int_register_now"] ?></a>
+                <a href="agency_register" class="btn button"><?php echo $lang["sport_int_register_now"] ?></a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- START VISION SECTION -->
+<div class="vision">
+    <div class="container">
+        <div class="data">
+            <div class="row">
+                <?php
+                $stmt = $connect->prepare("SELECT * FROM  revival_goals WHERE goal_page ='الوكالة' ORDER BY goal_id LIMIT 1 ");
+                $stmt->execute();
+                $allgoals = $stmt->fetchAll();
+                foreach ($allgoals as $goal) { ?>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-bullseye"></i>
+
+                            <?php ?>
+
+
+                            <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <h3> <?php echo $goal["goal_head"] ?> </h3>
+                                <p> <?php
+                                    $goal_desc = $goal['goal_desc'];
+                                    if (strpos($goal_desc, ",")) { ?>
+                                <ul class="list-unstyled">
+                                    <?php
+                                        if ($_SESSION["lang"] == "ar") {
+                                            $goal_desc = $goal['goal_desc'];
+                                        }
+                                        $goal_desc = explode(",", $goal_desc);
+                                        $countfile = count($goal_desc) - 1;
+                                        for ($i = 0; $i < $countfile; ++$i) { ?>
+                                        <li> <span><i class="fa fa-star"></i></span> <?= $goal_desc[$i] ?> </li>
+                                    <?php
+                                        }
+                                    ?>
+                                </ul>
+                            <?php
+                                    } else {
+                                        echo $goal["goal_desc"];
+                                    }
+                            ?> </p>
+                        <?php
+                            } else { ?>
+                            <h3> <?php echo $goal["goal_head_en"] ?> </h3>
+                            <p> <?php echo $goal["goal_desc_en"] ?> </p>
+                        <?php
+                            }
+                        ?>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa fa-signal"></i>
+                            <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <h3> <?php echo $goal["vision_head"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc"] ?> </p>
+                            <?php
+                            } else { ?>
+                                <h3> <?php echo $goal["vision_head_en"] ?> </h3>
+                                <p> <?php echo $goal["vision_desc_en"] ?> </p>
+                            <?php
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="info">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <?php
+                            if ($_SESSION["lang"] == "ar") { ?>
+                                <h3> <?php echo $goal["message_head"] ?> </h3>
+                                <p> <?php echo $goal["message_desc"] ?> </p>
+                            <?php
+                            } else { ?>
+                                <h3> <?php echo $goal["message_head_en"] ?> </h3>
+                                <p> <?php echo $goal["message_desc_en"] ?> </p>
+                            <?php
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                <?php
+                } ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END MESSAGE SECTION -->
 <!-- END CONTACT SECTION -->
 <!-- START VISION SECTION 
 <div class="vision">

@@ -679,13 +679,13 @@ include 'init.php';
             <?php
             }
             ?>
- 
+
         </div>
         <div class="swiper-pagination"></div>
     </div>
 
 </div>
-<!-- END NEW IMAGE GALLARY --> 
+<!-- END NEW IMAGE GALLARY -->
 <!-- START NEW ARTICLES DESIGN -->
 
 <div class="new_articles_design">

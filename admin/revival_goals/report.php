@@ -3,9 +3,7 @@
         <div class="bread">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a
-                            href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i
-                            class="fa fa-chevron-left"></i> </li>
+                    <li class="breadcrumb-item"> <i class="fa fa-heart"></i> <a href="main.php?dir=dashboard&page=dashboard"> ريفايفال </a> <i class="fa fa-chevron-left"></i> </li>
                     <li class="breadcrumb-item active" aria-current="page"> قسم الاهداف </li>
                 </ol>
             </nav>
@@ -28,19 +26,17 @@
                         $stmt->execute();
                         $alltype = $stmt->fetchAll();
                         foreach ($alltype as $type) { ?> <tr>
-                        <td><?php echo $type['goal_head']; ?> </td>
-                        <td><?php echo $type['goal_page']; ?> </td>
-                        <td>
-                            <a class=" btn btn-success"
-                                href="main.php?dir=revival_goals&page=edit&goal_id=<?php echo $type['goal_id']; ?> ">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a class="confirm btn btn-danger"
-                                href="main.php?dir=revival_goals&page=delete&goal_id=<?php echo $type['goal_id']; ?> ">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr> <?php }
+                            <td><?php echo $type['goal_head']; ?> </td>
+                            <td><?php echo $type['goal_page']; ?> </td>
+                            <td>
+                                <a class=" btn btn-success btn-sm" href="main.php?dir=revival_goals&page=edit&goal_id=<?php echo $type['goal_id']; ?> ">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="confirm btn btn-danger btn-sm" href="main.php?dir=revival_goals&page=delete&goal_id=<?php echo $type['goal_id']; ?> ">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr> <?php }
                                 ?> </tbody>
             </table>
         </div>

@@ -3,12 +3,7 @@ ob_start();
 session_start();
 include "../connect.php";
 include "../config.php";
-
 ?>
-
-
-
-
 <!-- START GET EMAIL CONTENT  -->
 <?php
 $stmt = $connect->prepare("SELECT * FROM email_message WHERE email_section='التسجيل في الرياضة'");
