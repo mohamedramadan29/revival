@@ -33,6 +33,7 @@
                                 <li><a class="dropdown-item" href="artificial_intellegent_register"> <?php echo $lang["drop_register_artifi"] ?> </a></li>
                                 <li><a class="dropdown-item" href="sport_talent_register"> <?php echo $lang["drop_register_sport"] ?> </a></li>
                                 <li><a class="dropdown-item" href="fashion_register"> <?php echo $lang["drop_register_fash"] ?> </a></li>
+                                <li><a class="dropdown-item" href="agency_register"> <?php echo $lang["agency"] ?> </a></li>
                             </ul>
                         </li>
                     <?php

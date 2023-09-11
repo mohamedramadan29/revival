@@ -57,6 +57,7 @@ if (isset($_GET['email_id']) && is_numeric($_GET['email_id'])) {
                                         <option value="الاشتراك في القائمة البريدية" <?php if ($alltype["email_section"] == "الاشتراك في القائمة البريدية") echo "selected"; ?>>الاشتراك في القائمة البريدية</option>
                                         <option value="اضافة خبر جديد" <?php if ($alltype["email_section"] == "اضافة خبر جديد") echo "selected"; ?>>اضافة خبر جديد</option>
                                         <option value="اضافة مقال جديد" <?php if ($alltype["email_section"] == "اضافة مقال جديد") echo "selected"; ?>>اضافة مقال جديد</option>
+                                        <option value="الوكالة" <?php if ($alltype["email_section"] == "الوكالة") echo "selected"; ?>> الوكالة </option>
                                     </select>
                                 </div>
                             </div>

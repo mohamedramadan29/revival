@@ -31,11 +31,11 @@
                         <td><?php echo $type['term_name']; ?> </td>
                         <td><?php echo $type['term_page']; ?> </td>
                         <td>
-                            <a class=" btn btn-success"
+                            <a class="btn btn-success btn-sm"
                                 href="main.php?dir=revival_terms&page=edit&term_id=<?php echo $type['term_id']; ?> ">
                                 <i class="fa fa-edit"></i>
                             </a>
-                            <a class="confirm btn btn-danger"
+                            <a class="confirm btn btn-danger btn-sm"
                                 href="main.php?dir=revival_terms&page=delete&term_id=<?php echo $type['term_id']; ?> ">
                                 <i class="fa fa-trash"></i>
                             </a>

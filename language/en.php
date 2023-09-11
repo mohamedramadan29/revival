@@ -615,6 +615,7 @@ And we wish you to realize your dream by seeing your proposed idea or talent int
     "company_logo" => " Logo ",
     "company_attachment" => " Attachments ",
     "company_tax_number" => " Tax Number ",
+    "company_name_error" => " Please Enter Company Name ",
     /*********************************** END AGENCY ********/
     "lang_en" => "الانجليزية",
     "lang_ar" => "العربية"

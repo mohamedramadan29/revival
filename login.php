@@ -1,9 +1,9 @@
 <?php
 ob_start();
 session_start();
+$page_title = "تسجيل دخول";
 include 'init.php';
 ?>
-
 <div class="cars hero faq booking">
     <div class="overlay">
         <div class="container data">
@@ -52,6 +52,17 @@ include 'init.php';
                     $_SESSION['userid'] = $data['reg_id'];
 
                     header('Location:profile.php');
+                    exit();
+                }
+                $stmt = $connect->prepare("SELECT * FROM agency_register WHERE username=? AND password=?");
+                $stmt->execute(array($username, $password));
+                $data = $stmt->fetch();
+                $count = $stmt->rowCount();
+                if ($count > 0) {
+                    $_SESSION['username'] =  $username;
+                    $_SESSION['userid'] = $data['reg_id'];
+
+                    header('Location:profile');
                     exit();
                 }
                 $stmt = $connect->prepare("SELECT * FROM art_register WHERE username=? AND password=?");

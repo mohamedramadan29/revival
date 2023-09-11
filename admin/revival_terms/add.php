@@ -36,6 +36,7 @@
                                 <option value="مواهب العالم الرياضية"> مواهب العالم الرياضية </option>
                                 <option value="الأزياء والمجوهرات"> الأزياء والمجوهرات </option>
                                 <option value="طلب خدمة"> طلب خدمة </option>
+                                <option value="الوكالة"> الوكالة </option>
                             </select>
                         </div>
                         <div class="box">
