@@ -223,7 +223,24 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item" id="lnk-sport-register">
+                      <a href="#" class="nav-link nav-link2">
+                          <i class="fa-solid fa-images color2"></i>
+                          <p>
+                              تسجيلات الوكالة
+                              <i class="right fas fa-angle-left "></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
 
+                          <li class="nav-item" id="lnk-rep-sport-register">
+                              <a href="main.php?dir=agency&page=report" class="nav-link">
+                                  <i class="far fa-circle nav-icon color3"></i>
+                                  <p> مشاهدة التسجيلات </p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
                   <li class="nav-item" id="lnk-fash-register">
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
@@ -485,7 +502,7 @@
                       <a href="#" class="nav-link nav-link2">
                           <i class="fa-solid fa-images color2"></i>
                           <p>
-                              القائمة البريدية  
+                              القائمة البريدية
                               <i class="right fas fa-angle-left "></i>
                           </p>
                       </a>
@@ -493,7 +510,7 @@
                           <li class="nav-item" id="lnk-rep-subscripe">
                               <a href="main.php?dir=subscription_section&page=report" class="nav-link">
                                   <i class="far fa-circle nav-icon color3"></i>
-                                  <p> مشاهدة   القائمة </p>
+                                  <p> مشاهدة القائمة </p>
                               </a>
                           </li>
                       </ul>

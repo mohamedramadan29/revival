@@ -97,6 +97,18 @@ include $tem . 'left_sidebar.php';
         }
         // END Revival REGISTER
 
+        // START Agency REGISTER
+        if ($dir == 'agency' && $page == 'add') {
+            include 'agency/add.php';
+        } elseif ($dir == 'agency' && $page == 'edit') {
+            include 'agency/edit.php';
+        } elseif ($dir == 'agency' && $page == 'delete') {
+            include 'agency/delete.php';
+        } elseif ($dir == 'agency' && $page == 'report') {
+            include 'agency/report.php';
+        }
+        // END Agency REGISTER
+
         // START Revival Order Services 
         if ($dir == 'revival_order_services' && $page == 'add') {
             include 'revival_order_services/add.php';
